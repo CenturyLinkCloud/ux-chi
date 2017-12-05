@@ -20,7 +20,9 @@ $input-wrapper: c-input-wrapper;
 
         &.#{$input}--small {
           & ~ .c-icon {
-            top: 0.5rem;
+            height: 1.5rem;
+            top: 0.75rem;
+            width: 1.5rem;
           }
         }
       }
@@ -32,6 +34,10 @@ $input-wrapper: c-input-wrapper;
       &[type='text'] {
         &.#{$input} {
           padding-left: 3.875rem;
+
+          &.#{$input}--small {
+            padding-left: 3.375rem;
+          }
 
           & ~ .c-icon {
             &:first-of-type {
@@ -48,6 +54,10 @@ $input-wrapper: c-input-wrapper;
       &[type='text'] {
         &.#{$input} {
           padding-right: 3.875rem;
+
+          &.#{$input}--small {
+            padding-right: 3.375rem;
+          }
 
           & ~ .c-icon {
             &:last-of-type {
