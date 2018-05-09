@@ -8,7 +8,7 @@ gulp.task('backstop-test', ['serve'], () => {
   const promise = new Promise((resolve) => {
     return backstopjs('test', { config: 'backstop-responsive.json' })
       .finally(() => backstopjs('test', { config: 'backstop-non-responsive.json' })
-        .finally(resolve));
+      .finally(resolve));
   });
 
   promise.finally(() => {

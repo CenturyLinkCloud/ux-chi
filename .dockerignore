@@ -1,3 +1,10 @@
-.git/
-node_modules/
-public/
+.DS_Store
+.git
+.gitignore
+config
+node_modules
+public
+scripts
+src
+tasks
+test

@@ -68,22 +68,10 @@
     }
   ],
   "fileNameTemplate": "{scenarioLabel}_{selectorLabel}_{viewportLabel}",
-  "onBeforeScript": "chromy/onBefore.js",
-  "onReadyScript": "chromy/onReady.js",
   "scenarios": [
     {
       "label": "alert-banner",
-      "cookiePath": "",
       "url": "http://localhost:8000/components/alert-banner.html",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": "",
       "selectors": [
         ".test-small",
         ".test-medium",
@@ -91,21 +79,11 @@
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
-      "requireSameDimensions": true
+      "requireSameDimensions": false
     },
     {
       "label": "alert-bubble",
-      "cookiePath": "",
       "url": "http://localhost:8000/components/alert-bubble.html",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": "",
       "selectors": [
         ".test-small",
         ".test-medium",
@@ -113,41 +91,21 @@
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
-      "requireSameDimensions": true
+      "requireSameDimensions": false
     },
     {
       "label": "alert-toast",
-      "cookiePath": "",
       "url": "http://localhost:8000/components/alert-toast.html",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": "",
       "selectors": [
         ".test-toast"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
-      "requireSameDimensions": true
+      "requireSameDimensions": false
     },
     {
       "label": "grid",
-      "cookiePath": "",
       "url": "http://localhost:8000/components/grid.html",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": "",
       "selectors": [
         ".test-flex-cells",
         ".test-no-gutter",
@@ -165,21 +123,11 @@
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
-      "requireSameDimensions": true
+      "requireSameDimensions": false
     },
     {
       "label": "modals",
-      "cookiePath": "",
       "url": "http://localhost:8000/components/modals.html",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": "",
       "selectors": [
         ".test-window-base",
         ".test-headers",
@@ -187,21 +135,11 @@
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
-      "requireSameDimensions": true
+      "requireSameDimensions": false
     },
     {
       "label": "typography",
-      "cookiePath": "",
       "url": "http://localhost:8000/foundations/typography.html",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": "",
       "selectors": [
         ".test-headers",
         ".test-colors",
@@ -209,23 +147,19 @@
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
-      "requireSameDimensions": true
+      "requireSameDimensions": false
     }
   ],
   "paths": {
     "bitmaps_reference": "config/backstop_data/bitmaps_reference/responsive",
     "bitmaps_test": "test/bitmaps_test/responsive",
-    "engine_scripts": "config/backstop_data/engine_scripts",
     "html_report": "reports/html_report/responsive",
     "ci_report": "reports/ci_report/responsive"
   },
   "report": [
     "CI"
   ],
-  "engine": "chrome",
-  "engineFlags": [],
-  "asyncCaptureLimit": 4,
-  "asyncCompareLimit": 4,
-  "debug": false,
-  "debugWindow": false
+  "asyncCaptureLimit": 3,
+  "engine": "puppeteer",
+  "debug": true
 }

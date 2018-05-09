@@ -1,0 +1,37 @@
+{
+  "id": "chi",
+  "viewports": [
+    {
+      "label": "xs",
+      "width": 300
+    },
+    {
+      "label": "sm",
+      "width": 600
+    },
+    {
+      "label": "md",
+      "width": 900
+    },
+    {
+      "label": "lg",
+      "width": 1200
+    },
+    {
+      "label": "xl",
+      "width": 1440
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "avatars",
+      "url": "http://localhost:8000/components/avatars.html",
+      "selectors": [
+        ".test-sizes"
+      ],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    }
+  ]
+}

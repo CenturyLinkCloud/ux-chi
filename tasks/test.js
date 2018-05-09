@@ -30,7 +30,7 @@ gulp.task('test-build-html', () => {
       .use(metalsmithInlineSource())
       .use(metalsmithLayouts({
         default: 'test.pug',
-        directory: path.join(rootFolder, 'config', 'layouts'),
+        directory: path.join(rootFolder, 'test', 'layouts'),
         doctype: 'html',
         engine: 'pug',
         pattern: '**/*.html'
