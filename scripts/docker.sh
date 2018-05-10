@@ -14,7 +14,6 @@ if [ -z "$1" ]; then
     chi:latest
 elif [ $1 = "start" ]; then
   docker run --rm --init --tty --interactive \
-    --memory 1G \
     --volume $PWD/src:/app/src \
     --volume $PWD/test:/app/test \
     --volume $PWD/tasks:/app/tasks \
