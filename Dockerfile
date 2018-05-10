@@ -12,18 +12,18 @@ RUN apt-get update \
 # TODO: Add Node from NodeSource
 
 # Install Google Chrome (only used by Chromy, not Puppeteer)
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt install -y ./google-chrome-stable_current_amd64.deb
+# RUN wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
+# RUN apt install -y ./google-chrome-unstable_current_amd64.deb
 
 # Setup the Chi Application Environment
 RUN mkdir /app
 WORKDIR /app
 
 # Add User (Chi)
-RUN useradd chi --create-home --groups sudo && chown chi:chi /app
+RUN useradd chi --create-home && chown chi:chi /app
 USER chi
 
 # Install Project Dependencies
 COPY --chown=chi:chi .npmrc package.json package-lock.json ./
-RUN npm install --ignore-scripts
+RUN npm install
 COPY --chown=chi:chi . .

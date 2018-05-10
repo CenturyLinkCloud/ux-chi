@@ -14,7 +14,7 @@
     "test": "gulp test",
     "ci": "gulp ci",
     "approve": "gulp backstop-approve",
-    "prepublish": "babel scripts --out-dir bin",
+    "prepare": "babel scripts --out-dir bin",
     "start": "gulp watch"
   },
   "dependencies": {

@@ -4,18 +4,17 @@ docker build --tag chi:latest .
 
 if [ -z "$1" ]; then
   docker run --rm --init --tty --interactive \
-    --shm-size 512m \
     --volume $PWD/src:/app/src \
     --volume $PWD/test:/app/test \
     --volume $PWD/tasks:/app/tasks \
     --volume $PWD/scripts:/app/scripts \
     --volume $PWD/reports:/app/reports \
     --volume $PWD/config:/app/config \
+    --cap-add=SYS_ADMIN \
     chi:latest
 elif [ $1 = "start" ]; then
   docker run --rm --init --tty --interactive \
-    --memory 1g \
-    --shm-size 512m \
+    --memory 1G \
     --volume $PWD/src:/app/src \
     --volume $PWD/test:/app/test \
     --volume $PWD/tasks:/app/tasks \
@@ -27,12 +26,12 @@ elif [ $1 = "start" ]; then
     chi:latest npm run $1
 else
   docker run --rm --init --tty --interactive \
-    --shm-size 512m \
     --volume $PWD/src:/app/src \
     --volume $PWD/test:/app/test \
     --volume $PWD/tasks:/app/tasks \
     --volume $PWD/scripts:/app/scripts \
     --volume $PWD/reports:/app/reports \
     --volume $PWD/config:/app/config \
+    --cap-add=SYS_ADMIN \
     chi:latest npm run $1
 fi

@@ -330,7 +330,8 @@
   "report": [
     "CI"
   ],
-  "asyncCaptureLimit": 3,
   "engine": "puppeteer",
-  "debug": true
+  "engineOptions": {
+    "args": [ "--disable-dev-shm-usage" ]
+  }
 }
