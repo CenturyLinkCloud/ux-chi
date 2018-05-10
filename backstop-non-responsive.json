@@ -15,9 +15,7 @@
       "selectors": [
         ".test-sizes"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "badges",
@@ -29,9 +27,7 @@
         ".test-pill-solid",
         ".test-pill-outline"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "buttons",
@@ -48,9 +44,7 @@
         ".test-flat-small",
         ".test-flat-large"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "button-horizontal-groups",
@@ -75,9 +69,7 @@
         ".test-outline-large-fluid",
         ".test-flat-large-fluid"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "button-vertical-groups",
@@ -102,9 +94,7 @@
         ".test-outline-large-fluid",
         ".test-flat-large-fluid"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "checkbox",
@@ -112,9 +102,7 @@
       "selectors": [
         ".test-states"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "html-select",
@@ -124,9 +112,7 @@
         ".test-small",
         ".test-large"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "hybrid-buttons",
@@ -139,9 +125,7 @@
         ".test-large",
         ".test-large-fluid"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "icons",
@@ -149,9 +133,7 @@
       "selectors": [
         ".test-sizes"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "input-file",
@@ -161,9 +143,7 @@
         ".test-small",
         ".test-large"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "input-number",
@@ -173,9 +153,7 @@
         ".test-small",
         ".test-large"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "input-text",
@@ -194,9 +172,7 @@
         ".test-large-icon-right",
         ".test-large-icon-left-right"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "modals",
@@ -204,9 +180,7 @@
       "selectors": [
         ".test-backdrops"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "radio",
@@ -214,9 +188,7 @@
       "selectors": [
         ".test-states"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "range-slider",
@@ -224,9 +196,7 @@
       "selectors": [
         ".test-states"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "tables",
@@ -262,9 +232,7 @@
         ".test-small-selectable",
         ".test-large-selectable"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "tabs",
@@ -284,9 +252,7 @@
         ".test-multi-level--border",
         ".test-multi-level-active-border"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "textarea",
@@ -305,9 +271,7 @@
         ".test-large-icon-right",
         ".test-large-icon-left-right"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     },
     {
       "label": "toggle-switch",
@@ -316,9 +280,7 @@
         ".test-states",
         ".test-no-text-states"
       ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      "delay": 10000
     }
   ],
   "paths": {
@@ -333,5 +295,6 @@
   "engine": "puppeteer",
   "engineOptions": {
     "args": [ "--disable-dev-shm-usage" ]
-  }
+  },
+  "asyncCaptureLimit": 1
 }

@@ -5,6 +5,9 @@ RUN apt-get update \
  && apt-get autoclean \
  && apt-get autoremove
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
+
 RUN mkdir /app
 RUN useradd chi --create-home && chown chi:chi /app
 

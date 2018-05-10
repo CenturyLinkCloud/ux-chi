@@ -76,10 +76,7 @@
         ".test-small",
         ".test-medium",
         ".test-large"
-      ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      ]
     },
     {
       "label": "alert-bubble",
@@ -88,20 +85,14 @@
         ".test-small",
         ".test-medium",
         ".test-large"
-      ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      ]
     },
     {
       "label": "alert-toast",
       "url": "http://localhost:8000/components/alert-toast.html",
       "selectors": [
         ".test-toast"
-      ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      ]
     },
     {
       "label": "grid",
@@ -120,10 +111,7 @@
         ".test-responsive-offsets",
         ".test-vertical-alignment-on-container",
         ".test-vertical-alignment-on-column"
-      ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      ]
     },
     {
       "label": "modals",
@@ -132,10 +120,7 @@
         ".test-window-base",
         ".test-headers",
         ".test-footers"
-      ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      ]
     },
     {
       "label": "typography",
@@ -144,10 +129,7 @@
         ".test-headers",
         ".test-colors",
         ".test-paragraph"
-      ],
-      "selectorExpansion": true,
-      "misMatchThreshold": 0,
-      "requireSameDimensions": false
+      ]
     }
   ],
   "paths": {
@@ -163,5 +145,5 @@
   "engineOptions": {
     "args": [ "--disable-dev-shm-usage" ]
   },
-  "debug": true
+  "asyncCaptureLimit": 1
 }
