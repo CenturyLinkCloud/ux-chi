@@ -2,7 +2,9 @@
 
 ### 0.8.1 (July 13th, 2018)
 
-* Added display utility classes
+* Added flex utility classes.
+* Updated select form arrow icon and focus color.
+* Added display utility classes.
 * Renamed -d (depth) utility class to -s (shadow).
 * Renamed -primary button class to -brand.
 * Added border utility classes.

@@ -1,0 +1,100 @@
+@import 'mixins';
+@import 'variables';
+
+.chi {
+
+  // Flex direction
+
+  $flex-direction: (row, column, row-reverse, column-reverse);
+
+  @each $type in $flex-direction {
+    .-flex--#{$type} { flex-direction: #{$type}; }
+  }
+
+  @each $size in xs sm md lg xl {
+    @include respond-to($size) {
+      @each $type in $flex-direction {
+        .-flex-#{$size}--#{$type} { flex-direction: #{$type}; }
+      }
+    }
+  }
+
+  // Justify content
+
+  $justify-content: (start: flex-start, end: flex-end, center: center,
+    between: space-between, around: space-around);
+
+  @each $type, $value in $justify-content {
+    .-justify-content--#{$type} { justify-content: #{$value}; }
+  }
+
+  @each $size in xs sm md lg xl {
+    @include respond-to($size) {
+      @each $type, $value in $justify-content {
+        .-justify-content-#{$size}--#{$type} { justify-content: #{$value}; }
+      }
+    }
+  }
+
+  // Align items & self
+
+  $align: (start: flex-start, end: flex-end, center: center,
+    baseline: baseline, stretch: stretch);
+
+  @each $type, $value in $align {
+    .-align-items--#{$type} { align-items: #{$value}; }
+  }
+
+  @each $size in xs sm md lg xl {
+    @include respond-to($size) {
+      @each $type, $value in $align {
+        .-align-items-#{$size}--#{$type} { align-items: #{$value}; }
+      }
+    }
+  }
+
+  @each $type, $value in $align {
+    .-align-self--#{$type} { align-self: #{$value}; }
+  }
+
+  @each $size in xs sm md lg xl {
+    @include respond-to($size) {
+      @each $type, $value in $align {
+        .-align-self-#{$size}--#{$type} { align-self: #{$value}; }
+      }
+    }
+  }
+
+  // Align content
+
+  $align-content: (start: flex-start, end: flex-end, center: center,
+    around: space-around, between: space-between, stretch: stretch);
+
+  @each $type, $value in $align-content {
+    .-align-content--#{$type} { align-content: #{$value}; }
+  }
+
+  @each $size in xs sm md lg xl {
+    @include respond-to($size) {
+      @each $type, $value in $align-content {
+        .-align-content-#{$size}--#{$type} { align-content: #{$value}; }
+      }
+    }
+  }
+
+  // Flex wrap
+
+  $flex-wrap: (nowrap, wrap, wrap-reverse);
+
+  @each $type in $flex-wrap {
+    .-flex--#{$type} { flex-wrap: #{$type}; }
+  }
+
+  @each $size in xs sm md lg xl {
+    @include respond-to($size) {
+      @each $type in $flex-wrap {
+        .-flex-#{$size}--#{$type} { flex-wrap: #{$type}; }
+      }
+    }
+  }
+}
