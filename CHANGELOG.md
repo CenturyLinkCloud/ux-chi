@@ -6,6 +6,7 @@
 * Renamed -d (depth) utility class to -s (shadow).
 * Renamed -primary button class to -brand.
 * Added border utility classes.
+* Added align center in small alert banner.
 
 ### 0.8.0 (May 24, 2018)
 
