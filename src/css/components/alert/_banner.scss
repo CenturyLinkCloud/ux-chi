@@ -25,11 +25,14 @@
 
       &.-small {
         display: flex;
-        justify-content: center;
-        padding-left: 2rem;
 
         &::before {
           display: none;
+        }
+
+        &.-alignCenter {
+          padding-left: 2rem;
+          justify-content: center;
         }
       }
 
@@ -52,7 +55,6 @@
       @each $state in map-keys($states) {
         &.-#{$state} {
           &.-hasIcon {
-            flex-direction: row-reverse;
             padding-left: 3.5rem;
 
             &::after {
@@ -60,7 +62,9 @@
             }
 
             &.-small {
-              padding-left: 2rem;
+              padding-left: 1rem;
+              justify-content: flex-end;
+              flex-direction: row-reverse;
 
               &::after {
                 height: 1rem;
@@ -70,6 +74,11 @@
                 top: initial;
                 transform: initial;
                 width: 1rem;
+              }
+
+              &.-alignCenter {
+                justify-content: center;
+                padding-left: 2rem;
               }
             }
 
