@@ -7,16 +7,14 @@ h2 Backdrop
 h3 Base
 .example.-mb3(style="height:30rem;width:100%")
   .a-spinner__backdrop.-p6(style="position:relative;height:100%;")
-    svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-      title Loading
-      circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+    .a-spinner
+      .a-spinner__loader
 
 h3 Inverse Backdrop
 .example.-mb3(style="height:30rem;width:100%")
   .a-spinner__backdrop.-inverse.-p6(style="position:relative;height:100%;")
-    svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-      title Loading
-      circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+    .a-spinner
+      .a-spinner__loader
 
 h2 Contextual
 
@@ -56,9 +54,7 @@ each size in ['default', 'small', 'large']
                 )
                   .a-btn__content
                     .a-spinner(class=`-${size}`)
-                      svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-                        title Loading
-                        circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+                      .a-spinner__loader
                 button.a-btn.-m1(
                 class={
                   [`-${type}`]: type != 'solid',
@@ -71,9 +67,7 @@ each size in ['default', 'small', 'large']
                   .a-btn__content
                     span Button
                     .a-spinner(class=`-${size}`)
-                      svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-                        title Loading
-                        circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+                      .a-spinner__loader
 
 h3 Spinner Buttons
 .example.-mb3
@@ -82,42 +76,30 @@ h3 Spinner Buttons
       .a-btn__content
         span Button
         .a-spinner
-          svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-            title Loading
-            circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+          .a-spinner__loader
     button(class='a-btn -small -mr3')
       .a-btn__content
         span Small
         .a-spinner(class='-small')
-          svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-            title Loading
-            circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+          .a-spinner__loader
     button(class='a-btn -large -mr3')
       .a-btn__content
         span Large
         .a-spinner(class='-large')
-          svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-            title Loading
-            circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+          .a-spinner__loader
 
 h3 Spinner Text Input
 .example.-mb3
   .-p3
     .a-inputWrapper.-pb2(style="max-width:20rem")
       input(type="text", class="a-input", placeholder="Placeholder", value="Sample Text")
-      .a-spinner.-textMuted
-        svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-          title Loading
-          circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+      .a-spinner
+        .a-spinner__loader
     .a-inputWrapper.-pb2(style="max-width:20rem")
       input(type="text", class="a-input -small", placeholder="Placeholder", value="Sample Text")
-      .a-spinner.-small.-textMuted
-        svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-          title Loading
-          circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+      .a-spinner.-small
+        .a-spinner__loader
     .a-inputWrapper.-pb2(style="max-width:20rem")
       input(type="text", class="a-input -large", placeholder="Placeholder", value="Sample Text")
-      .a-spinner.-large.-textMuted
-        svg(class=`a-spinner__icon`,viewBox=`0 0 50 50`)
-          title Loading
-          circle(class=`path`,cx=`25`,cy=`25`,r=`20`,fill=`none`,stroke-width=`5`)
+      .a-spinner.-large
+        .a-spinner__loader

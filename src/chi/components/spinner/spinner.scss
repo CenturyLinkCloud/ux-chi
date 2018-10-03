@@ -3,106 +3,140 @@
 
 .chi {
   .a-spinner__backdrop {
-    background: rgba(set-color(white), 0.7);
+    background: rgba(set-color(white), 0.8);
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .a-spinner__icon {
-      animation: rotate 2s linear infinite;
-      z-index: 1;
+    .a-spinner {
+      position: relative;
+    }
+    .a-spinner .a-spinner__loader,
+    .a-spinner .a-spinner__loader:after {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -35px 0 0 -35px;
-      width: 70px;
-      height: 70px;
-
-      & .path {
-        stroke: $brand-color;
-        stroke-linecap: round;
-        animation: dash 1.5s ease-in-out infinite;
-      }
+      width: 5rem;
+      height: 5rem;
+      border: 0.5rem solid $brand-color;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+    }
+    .a-spinner .a-spinner__loader {
+      -webkit-animation: spinner 1s linear infinite;
+      animation: spinner 1s linear infinite;
+      top: 6.25rem;
+      left: 6.25rem;
+    }
+    .a-spinner .a-spinner__loader:after {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    .a-spinner {
+      width: 12rem;
+      height: 12rem;
+      -webkit-transform: translate(-6.25rem, -6.25rem) scale(1) translate(6.25rem, 6.25rem);
+      transform: translate(-6.25rem, -6.25rem) scale(1) translate(6.25rem, 6.25rem);
     }
 
     &.-inverse {
-      background: rgba(set-color(black), 0.7);
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 1000;
+      background-color: rgba(set-color(black), 0.65);
 
-      .a-spinner__icon {
-        animation: rotate 2s linear infinite;
-        z-index: 1;
+      .a-spinner .a-spinner__loader,
+      .a-spinner .a-spinner__loader:after {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: -35px 0 0 -35px;
-        width: 70px;
-        height: 70px;
-
-        & .path {
-          stroke: set-color(white);
-          stroke-linecap: round;
-          animation: dash 1.5s ease-in-out infinite;
-        }
+        width: 5rem;
+        height: 5rem;
+        border: 0.5rem solid set-color(white);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-radius: 50%;
       }
     }
   }
 
   .a-spinner {
-    .a-spinner__icon {
-      animation: rotate 2s linear infinite;
-      position: relative;
-      height: 1rem;
-      width: 1rem;
-
-      & .path {
-        stroke: set-color(grey, 50);
-        stroke-linecap: round;
-        animation: dash 1.5s ease-in-out infinite;
-      }
-    }
+    position: relative;
+    margin: .5rem;
 
     &.-small {
-      .a-spinner__icon {
-        height: 0.75rem;
-        width: 0.75rem;
+      margin: .35rem;
+      .a-spinner__loader,
+      .a-spinner__loader:after {
+        position: absolute;
+        width: .75rem;
+        height: .75rem;
+        border: 0.1rem solid $text-color;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-radius: 50%;
       }
     }
 
     &.-large {
-      .a-spinner__icon {
-        height: 1.25rem;
+      .a-spinner__loader,
+      .a-spinner__loader:after {
+        position: absolute;
         width: 1.25rem;
+        height: 1.25rem;
+        border: 0.17rem solid $text-color;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-radius: 50%;
       }
     }
   }
 
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
+  .a-spinner .a-spinner__loader,
+  .a-spinner .a-spinner__loader:after {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 0.15rem solid $text-color;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+  }
+  .a-spinner .a-spinner__loader {
+    -webkit-animation: spinner 1s linear infinite;
+    animation: spinner 1s linear infinite;
+  }
+  .a-spinner .a-spinner__loader:after {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  .a-spinner {
+    -webkit-transform: translate(-6.25rem, -6.25rem) scale(1) translate(6.25rem, 6.25rem);
+    transform: translate(-6.25rem, -6.25rem) scale(1) translate(6.25rem, 6.25rem);
   }
 
-  @keyframes dash {
+  @keyframes spinner {
     0% {
-      stroke-dasharray: 1, 150;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -35;
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -124;
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
     }
   }
 }
+
+
+
+
+
