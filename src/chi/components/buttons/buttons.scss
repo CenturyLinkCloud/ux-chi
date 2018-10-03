@@ -376,6 +376,10 @@ $state-colors: (brand: emerald, danger: red, info: navy, dark: grey);
               border: 0.0625rem solid rgba(set-color(black), 0.2);
               box-shadow: inset 0 1px 1px 0 rgba(set-color(black), 0.2);
               color: set-color(white);
+
+              .a-spinner__icon .path {
+                stroke: set-color(white);
+              }
             }
           }
         }
