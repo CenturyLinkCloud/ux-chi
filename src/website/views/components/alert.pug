@@ -38,6 +38,15 @@ p.-text Use icons to provide additional clarity. Icons can be added to any alert
       <div class="m-alert -light -hasIcon" role="alert">This is a light alert</div>
       <div class="m-alert -dark -hasIcon" role="alert">This is a dark alert</div>
 
+h5 Icon Center
+p.-text Use the class <code>-iconCenter</code> to center the icons.
+.example.-mb3
+  .-p1
+    .m-alert.-bubble.-hasIcon.-m2.-iconCenter(class=`-info`)
+      = `Info alert with centered icon`
+  :code(lang="html")
+    <div class="m-alert -bubble -hasIcon -iconCenter -info" role="alert">Info alert with centered icon</div>
+
 h4 Titled
 .example.-mb--3
   .-p--1

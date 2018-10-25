@@ -41,6 +41,19 @@
       @each $state in map-keys($states) {
         &.-#{$state} {
           &.-hasIcon {
+
+            &.-iconCenter {
+              display: flex;
+              justify-content: center;
+
+              &.-small {
+                padding-left: 0;
+
+                &::after {
+                  left: auto;
+                }
+              }
+            }
             &.-small {
               padding-left: 2.4375rem;
 

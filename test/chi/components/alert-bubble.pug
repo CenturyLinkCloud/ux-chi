@@ -25,3 +25,12 @@ each size in ['small', 'medium', 'large']
         data-title=`${type}`
       )
         = `This is a ${type} message`
+    each type in ['light', 'success', 'danger', 'warning', 'info', 'dark']
+      div(
+      class=`m-alert -hasIcon -iconCenter -${type} -bubble -mb2`
+      class={
+        [`-${size}`]: size != 'medium'
+      }
+      data-title=`${type}`
+      )
+        = `This is a ${type} message`
