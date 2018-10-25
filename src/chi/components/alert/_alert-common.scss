@@ -59,6 +59,17 @@ $states: (
     &.-hasIcon {
       padding-left: 3.4375rem;
 
+      &.-iconCenter {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+
+        &::after {
+          left: auto;
+          margin-left: -2.5rem;
+        }
+      }
+
       &::after {
         background-image: url(map-get(map-get($states, light), icon));
         content: '';
