@@ -1,0 +1,13 @@
+@import '../../../chi/variables';
+@import '../../../chi/mixins';
+
+.chi {
+  .docs-container {
+    & .docs-body__content {
+      & .-fullpage {
+        max-width: 100%;
+        min-width: 1160px;
+      }
+    }
+  }
+}
