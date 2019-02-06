@@ -113,5 +113,49 @@ onLoad(() => {
     enableCopyToClipboardFeature(codeSnippet);
   });
 
+  // Order checkout flow template
+  const cardNumbers = [1,2,3,4];
+  Array.prototype.forEach.call(cardNumbers, function(cardNumber) {
+    let card = document.getElementById('card-' + cardNumber);
+    card.style.cursor = 'pointer';
+    let cart = document.getElementById('cart');
+    let empty = document.getElementById('empty');
+    let quantityInit = document.getElementById('quantityInit');
+    let quantity = document.getElementById('quantity');
+    let location = document.getElementById('location');
+    let locations = document.getElementById('locations');
+    let locationTab = document.getElementById('locationTab');
+    let locationActiveTab = document.getElementById('locationActiveTab');
+    location.onclick = function(evt) {
+      evt.preventDefault();
+      locationActiveTab.style.display = 'none';
+      addClass(locationActiveTab, '-d--none');
+      addClass(locations, '-d--block');
+      removeClass(locationTab, '-d--none');
+      locationTab.style.display = 'inline-block';
+      addClass(locationTab, '-active -d--block -bg--grey-20');
+    };
+    card.onclick = function(evt) {
+      evt.preventDefault();
+      const cardTitle = card.querySelector('h5');
+      if (card.classList.contains('-active')) {
+        removeClass(card, '-active');
+        removeClass(cardTitle, '-text--brand');
+        removeClass(cart, '-d--block');
+        removeClass(empty, '-d--block');
+        quantityInit.style.display = 'block';
+        quantity.style.display = 'none';
+      } else {
+        addClass(card, '-active');
+        addClass(cardTitle, '-text--brand');
+        addClass(cart, '-d--block');
+        removeClass(empty, '-d--block');
+        addClass(empty, '-d--none');
+        quantityInit.style.display = 'none';
+        quantity.style.display = 'block';
+      }
+    };
+  });
+
   chi.dropdown(document.getElementById('version-dropdown'));
 });
