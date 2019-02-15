@@ -103,11 +103,13 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                   .a-inputWrapper.-floatingLabel.-mb--1.-mr--1.-w--50(id='floating-label-4')
                     input(type='text', class=`a-input -xl`, id='i4')
                     label(for='4') City
-                  select(class='a-input -xl -mr--1', style='max-width: 35%;')
-                    option Select State
-                    option State 1
-                    option State 2
-                  .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-5')
+                  .a-inputWrapper.-floatingLabel.-mb--1.-mr--1.-w--50(id='floating-label-5')
+                    select(class='a-input -xl -mr--1', id='floating-label-select')
+                      option
+                      option State 1
+                      option State 2
+                    label(for='floating-label-select') Select State
+                  .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-6')
                     input(type='text', class=`a-input -xl -mr--3`, id='i5', style='max-width: 10rem;')
                     label(for='6') Zip
               .m-epanel__footer.-justify-content--end
