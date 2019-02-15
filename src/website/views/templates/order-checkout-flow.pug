@@ -6,8 +6,8 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
 
 .example.-mb--3.-bg--grey-10
   header.o-header.-inverse
-    .o-header__content.-mw--980
-      a.a-brand(href="#", aria-label="CenturyLink")
+    .o-header__content
+      a.a-brand(href='#', aria-label='CenturyLink')
         svg(viewBox='0 0 204 41', xmlns='http://www.w3.org/2000/svg')
           path(fill='#00753C', d='M18.634.03c-2.406.214-4.692.841-6.791 1.817l6.791 11.758V.03')
           path(fill='#84BF41', d='M8.639 3.7C6.712 5.055 5.028 6.744 3.67 8.669l11.758 6.786L8.639 3.7')
@@ -24,22 +24,18 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
         .m-dropdown.-mr--1
           button.a-btn.-flat.-inverse.-px--1.m-dropdown__trigger(data-position='bottom-end', id='support') Support
           .m-dropdown__menu(style='width:10rem;')
-            a.m-dropdown__menu-item.-active(href='https://assets.ctl.io/chi/1.0.0') v1.0.0
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.9.1') v0.9.1
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.9.0') v0.9.0
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.8.3') v0.8.3
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.8.2') v0.8.2
+            a.m-dropdown__menu-item.-active(href='#') link 1
+            a.m-dropdown__menu-item(href='#') link 2
+            a.m-dropdown__menu-item(href='#') link 3
         div
           .a-avatar.-sm3.-grey
             i(class='a-icon icon-user')
         .m-dropdown.-mr--1
           button.a-btn.-flat.-inverse.-px--1.m-dropdown__trigger(data-position='bottom-end', id='user') Tim Anderson
           .m-dropdown__menu(style='width:10rem;')
-            a.m-dropdown__menu-item.-active(href='https://assets.ctl.io/chi/1.0.0') v1.0.0
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.9.1') v0.9.1
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.9.0') v0.9.0
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.8.3') v0.8.3
-            a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.8.2') v0.8.2
+            a.m-dropdown__menu-item.-active(href='#') link 1
+            a.m-dropdown__menu-item(href='#') link 2
+            a.m-dropdown__menu-item(href='#') link 3
   .a-divider.-inverse.-bg--black.-m--0
   .-bg--black
     ul.a-steps.-horizontalLabels.-inverse.-py--2.-m--0.-pr--4.-mw--640.-m--auto
@@ -55,7 +51,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
         div.a-steps__icon
         a(href='#') Checkout
   div.-d--flex
-    div(style='width:200px').-br--1.-d--flex.-flex--column.-justify-content--between
+    div(style='min-width:200px').-br--1.-d--flex.-flex--column.-justify-content--between
       div
         div.-d--flex.-flex--row.-justify-content--start.-pl--3.-py--1
           h5 Locations
@@ -72,17 +68,14 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 | 1100 112th Avenue <br />
                 | NE, Suite 400<br />
                 | Bellevue, WA 98004
-      div.-p--2.-d--flex.-flex--row.-justify-content--end
-        button(class=`a-btn -brand -float`)
-          .a-btn__content
-            .a-icon
-              svg
-                use(xlink:href="#icon-plus")
-    .-px--5.-py--2.-mw--980.-m--auto.-flex--grow1(style='height:800px;overflow:scroll;')#checkout
+      div.-p--1.-d--flex.-flex--row.-justify-content--start.-align-items--center.-bt--1
+        i.a-icon.icon-circle-plus-outline.-sm3.-text--brand.-ml--1
+        h6.-text--brand.-ml--1 Add Location
+    .-px--5.-py--2.-m--auto.-flex--grow1(style='height:800px;overflow:scroll;')#checkout
       .m-epanel.-active(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 1.
-          h4.m-epanel__title(data-chi-epanel-action='toggle') Location
+          span.m-epanel__number 1
+          h4.m-epanel__title Location
           .m-epanel__content
             .m-epanel__collapse
               .-done--only.-text
@@ -91,38 +84,44 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 | Suite 400<br />
                 | Bellevue, WA 98004
           .m-epanel__action.-done--only
-            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action="active") Change
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
         .m-epanel__collapse
           .-active--only
             .m-epanel__body
               .m-epanel__content
                 h5.-mb--3 Enter service address
                 .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-1')
-                  input(type="text", class=`a-input -xl -mr--3`, id="1")
-                  label(for="1") Location name
+                  input(type='text', class=`a-input -xl -mr--3`, id='i1')
+                  label(for='1') Location name
                 .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-2')
-                  input(type="text", class=`a-input -xl -mr--3`, id="2")
-                  label(for="2") Address line 1
+                  input(type='text', class=`a-input -xl -mr--3`, id='i2')
+                  label(for='2') Address line 1
                 .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-3')
-                  input(type="text", class=`a-input -xl -mr--3`, id="3")
-                  label(for="3") Address line 2
+                  input(type='text', class=`a-input -xl -mr--3`, id='i3')
+                  label(for='3') Address line 2
                 .m-formGroup.-mb--1
                   .a-inputWrapper.-floatingLabel.-mb--1.-mr--1.-w--50(id='floating-label-4')
-                    input(type="text", class=`a-input -xl`, id="4")
-                    label(for="4") City
+                    input(type='text', class=`a-input -xl`, id='i4')
+                    label(for='4') City
                   select(class='a-input -xl -mr--1', style='max-width: 35%;')
                     option Select State
                     option State 1
                     option State 2
                   .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-5')
-                    input(type="text", class=`a-input -xl -mr--3`, id="6", style='max-width: 10rem;')
-                    label(for="6") Zip
+                    input(type='text', class=`a-input -xl -mr--3`, id='i5', style='max-width: 10rem;')
+                    label(for='6') Zip
               .m-epanel__footer.-justify-content--end
                 button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next', id='location') Continue
       .m-epanel.-disabled(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 2.
-          h4.m-epanel__title(data-chi-epanel-action='toggle') Packages
+          span.m-epanel__number 2
+          h4.m-epanel__title Packages
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text
+                | Team (x50)
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
         .m-epanel__collapse
           .-active--only
             .m-epanel__body
@@ -133,7 +132,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 .packages.-pb--2
                   .a-grid.-mb--3
                     .a-col
-                      .a-card#card-1
+                      .a-card#1
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
                           h5.-mb--3
@@ -141,8 +140,8 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           .a-price.-m--2
                             | $20
                           p.-text--muted per user /mo
-                          .m-inputNumber.-pill.-m--auto
-                            input#input-number-1.a-input(type="number", value="0")
+                          .m-inputNumber.-pill.-m--auto#m-inputNumber-1
+                            input#input-number-1.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
                               .a-btn__content
                                 i.a-icon.icon-minus
@@ -150,7 +149,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                               .a-btn__content
                                 i.a-icon.icon-plus
                     .a-col
-                      .a-card#card-2
+                      .a-card#2
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
                           h5.-mb--3
@@ -158,8 +157,8 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           .a-price.-m--2
                             | $25
                           p.-text--muted per user /mo
-                          .m-inputNumber.-pill.-m--auto
-                            input#input-number-2.a-input(type="number", value="0")
+                          .m-inputNumber.-pill.-m--auto#m-inputNumber-2
+                            input#input-number-2.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
                               .a-btn__content
                                 i.a-icon.icon-minus
@@ -168,7 +167,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                                 i.a-icon.icon-plus
                   .a-grid
                     .a-col
-                      .a-card#card-3
+                      .a-card#3
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
                           h5.-mb--3
@@ -176,8 +175,8 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           .a-price.-m--2
                             | $35
                           p.-text--muted per user /mo
-                          .m-inputNumber.-pill.-m--auto
-                            input#input-number-3.a-input(type="number", value="0")
+                          .m-inputNumber.-pill.-m--auto#m-inputNumber-3
+                            input#input-number-3.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
                               .a-btn__content
                                 i.a-icon.icon-minus
@@ -185,7 +184,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                               .a-btn__content
                                 i.a-icon.icon-plus
                     .a-col
-                      .a-card#card-4
+                      .a-card#4
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
                           h5.-mb--3
@@ -193,8 +192,8 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           .a-price.-m--2
                             | $45
                           p.-text--muted per user /mo
-                          .m-inputNumber.-pill.-m--auto
-                            input#input-number-4.a-input(type="number", value="0")
+                          .m-inputNumber.-pill.-m--auto#m-inputNumber-4
+                            input#input-number-4.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
                               .a-btn__content
                                 i.a-icon.icon-minus
@@ -208,30 +207,452 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                       svg
                         use(xlink:href='#icon-chevron-left')
                     span Back
-                button.a-btn.-lg.-brand.-pill.-ml--2(disabled, data-chi-epanel-action='next') Continue
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next') Continue
       .m-epanel.-disabled(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 3.
+          span.m-epanel__number 3
           h4.m-epanel__title(data-chi-epanel-action='toggle') Upgrades
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text.-text--muted(style='font-style: italic')
+                | None selected
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
+        .m-epanel__collapse
+          .-active--only
+            .m-epanel__body
+              .m-epanel__content
+                h5.-mb--3 Choose Upgrades (optional)
+                h6 Do you need additional numbers?
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-1')
+                  label(for='up-1')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Additional Telephone Number
+                      strong $1.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per number /mo
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg.-mb--3
+                  input(type='checkbox', class='a-picker', id='up-2')
+                  label(for='up-2')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Tool-free Telephone Number
+                      strong $5.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per number /mo
+                        span.-text--bold.-text--body.-text--small.-text--brand  First number is FREE
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                h6 Further extend your phone system
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-3')
+                  label(for='up-3')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Additional Voice Mail Box
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $10.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-4')
+                  label(for='up-4')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Additional Directory Listing
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $1.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-5')
+                  label(for='up-5')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Recepcionist Client
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $7.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-6')
+                  label(for='up-6')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Additional Auto Attendant
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $10.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-7')
+                  label(for='up-7')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Hunt Group
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $10.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-8')
+                  label(for='up-8')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Meet-me Bridge
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $5.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-9')
+                  label(for='up-9')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Meet-me Conference
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $5.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+                .m-picker.-lg
+                  input(type='checkbox', class='a-picker', id='up-10')
+                  label(for='up-10')
+                    .m-picker__content--start
+                      label.-text--bold.-d--flex
+                        | Call Recording
+                        i.a-icon.icon-circle-info-outline.-sm.-text--muted.-ml--1
+                      strong $5.00
+                        span.-text--normal.-text--body.-text--small.-text--muted  per month
+                    .m-picker__content--end
+                      .m-inputNumber.-pill.-m--auto
+                        input.a-input(type='number', value='0')
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-minus
+                        button.a-btn.-icon
+                          .a-btn__content
+                            i.a-icon.icon-plus
+              .m-epanel__footer.-justify-content--between
+                button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
+                  .a-btn__content
+                    .a-icon
+                      svg
+                        use(xlink:href='#icon-chevron-left')
+                    span Back
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next') Continue
       .m-epanel.-disabled(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 4.
+          span.m-epanel__number 4
           h4.m-epanel__title Numbers
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text
+                | New numbers (x70) <br />
+                | 425 area code
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
+        .m-epanel__collapse
+          .-active--only
+            .m-epanel__body
+              .m-epanel__content
+                h5.-mb--3 Choose Numbers
+                h6 New numbers
+                .m-picker
+                  input(type='checkbox', class='a-picker', id='num-1')
+                  label(for='num-1')
+                    i.a-icon.icon-circle-plus-outline.-sm3.-text--brand.-ml--1
+                    | Add numbers
+                h6 Keep and transfer existing numbers
+                .m-picker
+                  input(type='checkbox', class='a-picker', id='num-2')
+                  label(for='num-2')
+                    i.a-icon.icon-atom.-sm3.-text--brand.-ml--1
+                    | Transfer numbers
+              .m-epanel__footer.-justify-content--between
+                button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
+                  .a-btn__content
+                    .a-icon
+                      svg
+                        use(xlink:href='#icon-chevron-left')
+                    span Back
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next') Continue
       .m-epanel.-disabled(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 5.
+          span.m-epanel__number 5
           h4.m-epanel__title Equipment
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text
+                | Cisco 6841 Phone
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
+        .m-epanel__collapse
+          .-active--only
+            .m-epanel__body
+              .m-epanel__content
+                h5.-mb--3 Choose equipment
+                p.-text For best performance and easy installation, we recommend that you purchase the Cisco 6841
+                  | IP phone that is pre-loaded with necessary VoIP software, and has been certified for performance on the Centurylink Network.
+                .m-picker.-lg
+                  input(type='radio', class='a-picker', name='equipments', id='eq-1')
+                  label(for='eq-1')
+                    | Purchase equipment
+                .m-picker.-lg
+                  input(type='radio', class='a-picker', name='equipments', id='eq-2')
+                  label(for='eq-2')
+                    .m-picker__content--start
+                      | Use your existing equipment
+                    .m-picker__content--end
+                      span.-text--bold.-text--body.-text--right $0
+                      span.-text--normal.-text--muted.-text--small no charge
+                .m-picker.-lg
+                  input(type='radio', class='a-picker', name='equipments', id='eq-3')
+                  label(for='eq-3')
+                    .m-picker__content--start
+                      | No equipment, will only use the soft client
+                    .m-picker__content--end
+                      span.-text--bold.-text--body.-text--right $0
+                      span.-text--normal.-text--muted.-text--small no charge
+                h6.-mt--2 Select equipment
+                .a-grid.-mb--3
+                  .a-col
+                    .a-card#5
+                      .a-card__content.-text--center.-py--3
+                        h5.-mb--3
+                          | Cisco 6841 Phone
+                        img(src='../../assets/images/equipment1.png', alt='Cisco 6841 Phone')
+                        h4.-m--0
+                          | $15
+                        p.-text--muted.-mt--0 per user /mo
+                        .m-inputNumber.-pill.-m--auto#m-inputNumber-5
+                          input#input-number-5.a-input(type='number', value='0', min='0')
+                          button.a-btn.-icon
+                            .a-btn__content
+                              i.a-icon.icon-minus
+                          button.a-btn.-icon
+                            .a-btn__content
+                              i.a-icon.icon-plus
+                  .a-col
+                    .a-card#6
+                      .a-card__content.-text--center.-py--3
+                        h5.-mb--3
+                          | Linksys SPA122 ATA
+                        img(src='../../assets/images/equipment2.png', alt='Linksys SPA122 ATA')
+                        h4.-m--0
+                          | $7
+                        p.-text--muted.-mt--0 per user /mo
+                        .m-inputNumber.-pill.-m--auto#m-inputNumber-6
+                          input#input-number-6.a-input(type='number', value='0', min='0')
+                          button.a-btn.-icon
+                            .a-btn__content
+                              i.a-icon.icon-minus
+                          button.a-btn.-icon
+                            .a-btn__content
+                              i.a-icon.icon-plus
+              .m-epanel__footer.-justify-content--between
+                button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
+                  .a-btn__content
+                    .a-icon
+                      svg
+                        use(xlink:href='#icon-chevron-left')
+                    span Back
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next') Continue
       .m-epanel.-disabled(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 6.
+          span.m-epanel__number 6
           h4.m-epanel__title Shipping
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text
+                | CenturyLink<br />
+                | 1100 112th Avenue NE<br />
+                | Suite 400<br />
+                | Bellevue, WA 98004<br /><br />
+                Strong Delivery method:<br />
+                | Free Standard shipping
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
+        .m-epanel__collapse
+          .-active--only
+            .m-epanel__body
+              .m-epanel__content
+                h5.-mb--3 Fill the form
+              .m-epanel__footer.-justify-content--between
+                button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
+                  .a-btn__content
+                    .a-icon
+                      svg
+                        use(xlink:href='#icon-chevron-left')
+                    span Back
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next') Continue
       .m-epanel.-disabled(data-chi-epanel-group='checkout')
         .m-epanel__header
-          span.m-epanel__number 7.
+          span.m-epanel__number 7
           h4.m-epanel__title Activation
-    div(style='width:200px').-bl--1
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text
+                | Same date activation<br /><br />
+                Strong Activation date:<br />
+                | November 19,2018
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
+        .m-epanel__collapse
+          .-active--only
+            .m-epanel__body
+              .m-epanel__content
+                h5.-mb--3 Select activation preference
+                .m-picker
+                  input(type='radio', class='a-picker', name='equipments', id='act-1')
+                  label(for='act-1')
+                    | Activate all telephone numbers on the same date
+                .m-picker
+                  input(type='radio', class='a-picker', name='equipments', id='act-2')
+                  label(for='act-2')
+                    | Activate telephone numbers individually
+                h6.-mt--2 Activation date
+                p.-text.-mt--0 The soonest all telephone numbers can be activated is November 19, 2018
+                .a-inputWrapper.-icon--right(style='max-width:16rem')
+                  input(type='text', class='a-input -xl', placeholder='Placeholder', value='11/09/2018')
+                  .a-icon
+                    svg
+                      use(xlink:href='#icon-edit')
+              .m-epanel__footer.-justify-content--between
+                button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
+                  .a-btn__content
+                    .a-icon
+                      svg
+                        use(xlink:href='#icon-chevron-left')
+                    span Back
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next') Continue
+      .m-epanel.-disabled(data-chi-epanel-group='checkout')
+        .m-epanel__header
+          span.m-epanel__number 8
+          h4.m-epanel__title Professional Services
+          .m-epanel__content
+            .m-epanel__collapse
+              .-done--only.-text
+                | Professional Install
+          .m-epanel__action.-done--only
+            button.a-btn.-brand.-flat.-pill(data-chi-epanel-action='active') Change
+        .m-epanel__collapse
+          .-active--only
+            .m-epanel__body
+              .m-epanel__content
+                h5.-mb--3 Select professional services (optional)
+                .m-picker
+                  input(type='checkbox', class='a-picker', id='pro-1')
+                  label(for='pro-1')
+                    .m-picker__content--start
+                      div.m-formGroup
+                        input(type='checkbox', class='a-input', id='pro-1')
+                        label(for='pro-1')
+                        | Professional Install
+                      div.-text--normal.-text--body.-text--small
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula placerat iaculis. Ut rutrum pulvinar velit vitae molestie. Phasellus accumsan pharetra ex. Nulla iaculis velit sed velit vehicula dictum. Donec ut ultrices tortor. Vivamus sit amet lorem augue.
+                .m-picker
+                  input(type='checkbox', class='a-picker', id='pro-2')
+                  label(for='pro-2')
+                    .m-picker__content--start
+                      div.m-formGroup
+                        input(type='checkbox', class='a-input', id='pro-2')
+                        label(for='pro-2')
+                        | Portal Setup
+                      div.-text--normal.-text--body.-text--small
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula placerat iaculis. Ut rutrum pulvinar velit vitae molestie. Phasellus accumsan pharetra ex. Nulla iaculis velit sed velit vehicula dictum. Donec ut ultrices tortor. Vivamus sit amet lorem augue.
+                .m-picker
+                  input(type='checkbox', class='a-picker', id='pro-3')
+                  label(for='pro-3')
+                    .m-picker__content--start
+                      div.m-formGroup
+                        input(type='checkbox', class='a-input', id='pro-3')
+                        label(for='pro-3')
+                        | Training Services
+                      div.-text--normal.-text--body.-text--small
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula placerat iaculis. Ut rutrum pulvinar velit vitae molestie. Phasellus accumsan pharetra ex. Nulla iaculis velit sed velit vehicula dictum. Donec ut ultrices tortor. Vivamus sit amet lorem augue.
+              .m-epanel__footer.-justify-content--between
+                button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
+                  .a-btn__content
+                    .a-icon
+                      svg
+                        use(xlink:href='#icon-chevron-left')
+                    span Back
+                button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='done') Finish
+    div(style='min-width:200px').-bl--1
       div.-p--2.-d--flex.-flex--row.-justify-content--center
-        img(src='../../assets/images/cart.png', alt="Checkout Cart")
+        img(src='../../assets/images/cart.png', alt='Checkout Cart')
         h5.-text--left Cart
         span#quantityInit.-d--block.-text--bold.-text--brand(style='position: relative;right: 58px;') 0
         span#quantity.-d--none.-text--bold.-text--brand(style='position: relative;right: 63px;') 50
@@ -243,23 +664,29 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
         div.-px--2
           h6.-text--bold Packages
           div.-d--flex.-flex--row.-justify-content--between
-            p.-text.-my--0
-              | Team(x50)
-            p.-text.-my--0
+            p.-text.-text--small.-my--0
+              | Team (x50)
+            p.-text.-text--small.-my--0
               | $1250.00
+          h6#equipment.-d--none.-text--bold Equipment
+          div#equipment.-d--none.-d--flex.-flex--row.-justify-content--between
+            p.-text.-text--small.-my--0
+              | Cisco phone (x70)
+            p.-text.-text--small.-my--0
+              | $1050.00
           .a-divider
           div.-d--flex.-flex--row.-justify-content--between
-            p.-text.-my--0
+            p.-text.-text--small.-my--0
               | Savings
               i.a-icon.icon-circle-info-outline.-xs.-text--muted.-ml--1
-            p.-text.-my--0
+            p.-text.-text--small.-my--0
               | -$62.50
           .a-divider
           div.-d--flex.-flex--row.-justify-content--between
             h6.-text--bold Monthly total:
             h6.-text--bold(style='color:#d12a2d') $1,187.50
   .-w--100.-bg--black
-    .-p--2.-d--flex.-flex--row.-justify-content--end.-m--auto.-mw--980
+    .-p--2.-d--flex.-flex--row.-justify-content--end.-m--auto
       button.a-btn.-lg.-brand.-pill.-ml--2 Checkout
 
 script.
