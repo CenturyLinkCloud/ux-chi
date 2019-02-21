@@ -71,7 +71,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
       div.-p--1.-d--flex.-flex--row.-justify-content--start.-align-items--center.-bt--1
         i.a-icon.icon-circle-plus-outline.-sm3.-text--brand.-ml--1
         h6.-text--brand.-ml--1 Add Location
-    .-px--5.-py--2.-m--auto.-flex--grow1(style='height:800px;overflow:scroll;')#checkout
+    .-px--5.-py--2.-m--auto.-flex--grow1.-mw--640(style='height:800px;overflow:auto;')#checkout
       .m-epanel.-active(data-chi-epanel-group='checkout')
         .m-epanel__header
           span.m-epanel__number 1
@@ -129,7 +129,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
             .m-epanel__body
               .m-epanel__content
                 div.-d--flex.-flex--row.-justify-content--between
-                  h5.-mb--3 Add packages
+                  h5.-mt--0 Add packages
                   a(href='#').-text--small.-text--brand Compare features ›
                 .packages.-pb--2
                   .a-grid.-mb--3
@@ -137,11 +137,11 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                       .a-card#1
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
-                          h5.-mb--3
+                          h6.-mt--0
                             | Calling
-                          .a-price.-m--2
+                          .a-price.-sm
                             | $20
-                          p.-text--muted per user /mo
+                          p.-text--muted.-text--small per user /mo
                           .m-inputNumber.-pill.-m--auto#m-inputNumber-1
                             input#input-number-1.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
@@ -154,11 +154,11 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                       .a-card#2
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
-                          h5.-mb--3
+                          h6.-mt--0
                             | Team
-                          .a-price.-m--2
+                          .a-price.-sm
                             | $25
-                          p.-text--muted per user /mo
+                          p.-text--muted.-text--small per user /mo
                           .m-inputNumber.-pill.-m--auto#m-inputNumber-2
                             input#input-number-2.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
@@ -172,11 +172,11 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                       .a-card#3
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
-                          h5.-mb--3
+                          h6.-mt--0
                             | Call Center Agent
-                          .a-price.-m--2
+                          .a-price.-sm
                             | $35
-                          p.-text--muted per user /mo
+                          p.-text--muted.-text--small per user /mo
                           .m-inputNumber.-pill.-m--auto#m-inputNumber-3
                             input#input-number-3.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
@@ -189,11 +189,11 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                       .a-card#4
                         .a-card__content.-text--center.-py--3
                           i(style='top:15px;right:15px;').a-icon.icon-circle-info-outline.-sm.-text--muted.-position--absolute
-                          h5.-mb--3
+                          h6.-mt--0
                             | Call Center Supervisor
-                          .a-price.-m--2
+                          .a-price.-sm
                             | $45
-                          p.-text--muted per user /mo
+                          p.-text--muted.-text--small per user /mo
                           .m-inputNumber.-pill.-m--auto#m-inputNumber-4
                             input#input-number-4.a-input(type='number', value='0', min='0')
                             button.a-btn.-icon
@@ -804,7 +804,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
               Add Location</h6>
           </div>
         </div>
-        <div class="-px--5 -py--2 -m--auto -flex--grow1" style="height:800px;overflow:scroll;" id="checkout">
+        <div class="-px--5 -py--2 -m--auto -flex--grow1 -mw--640" style="height:800px;overflow:auto;" id="checkout">
           <!--Location Step-->
           <div class="m-epanel -active" data-chi-epanel-group="checkout">
             <div class="m-epanel__header">
@@ -888,7 +888,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 <div class="m-epanel__body">
                   <div class="m-epanel__content">
                     <div class="-d--flex -flex--row -justify-content--between">
-                      <h5 class="-mb--3">Add packages</h5>
+                      <h5 class="-mt--0">Add packages</h5>
                       <a class="-text--small -text--brand" href="#">Compare features ›</a>
                     </div>
                     <div class="packages -pb--2">
@@ -897,9 +897,9 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           <div class="a-card" id="1" style="cursor: pointer;">
                             <div class="a-card__content -text--center -py--3">
                               <i class="a-icon icon-circle-info-outline -sm -text--muted -position--absolute" style="top:15px;right:15px;"></i>
-                              <h5 class="-mb--3">Calling</h5>
-                              <div class="a-price -m--2">$20</div>
-                              <p class="-text--muted">per user /mo</p>
+                              <h6 class="-mt--0">Calling</h6>
+                              <div class="a-price -sm">$20</div>
+                              <p class="-text--muted -text--small">per user /mo</p>
                               <div class="m-inputNumber -pill -m--auto" id="m-inputNumber-1">
                                 <input class="a-input" id="input-number-1" type="number" value="0" min="0">
                                 <button class="a-btn -icon" disabled="true">
@@ -916,9 +916,9 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           <div class="a-card" id="2" style="cursor: pointer;">
                             <div class="a-card__content -text--center -py--3">
                               <i class="a-icon icon-circle-info-outline -sm -text--muted -position--absolute" style="top:15px;right:15px;"></i>
-                              <h5 class="-mb--3">Team</h5>
-                              <div class="a-price -m--2">$25</div>
-                              <p class="-text--muted">per user /mo</p>
+                              <h6 class="-mt--0">Team</h6>
+                              <div class="a-price -sm">$25</div>
+                              <p class="-text--muted -text--small">per user /mo</p>
                               <div class="m-inputNumber -pill -m--auto" id="m-inputNumber-2">
                                 <input class="a-input" id="input-number-2" type="number" value="0" min="0">
                                 <button class="a-btn -icon" disabled="true">
@@ -937,9 +937,9 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           <div class="a-card" id="3" style="cursor: pointer;">
                             <div class="a-card__content -text--center -py--3">
                               <i class="a-icon icon-circle-info-outline -sm -text--muted -position--absolute" style="top:15px;right:15px;"></i>
-                              <h5 class="-mb--3">Call Center Agent</h5>
-                              <div class="a-price -m--2">$35</div>
-                              <p class="-text--muted">per user /mo</p>
+                              <h6 class="-mt--0">Call Center Agent</h6>
+                              <div class="a-price -sm">$35</div>
+                              <p class="-text--muted -text--small">per user /mo</p>
                               <div class="m-inputNumber -pill -m--auto" id="m-inputNumber-3">
                                 <input class="a-input" id="input-number-3" type="number" value="0" min="0">
                                 <button class="a-btn -icon" disabled="true">
@@ -956,9 +956,9 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                           <div class="a-card" id="4" style="cursor: pointer;">
                             <div class="a-card__content -text--center -py--3">
                               <i class="a-icon icon-circle-info-outline -sm -text--muted -position--absolute" style="top:15px;right:15px;"></i>
-                              <h5 class="-mb--3">Call Center Supervisor</h5>
-                              <div class="a-price -m--2">$45</div>
-                              <p class="-text--muted">per user /mo</p>
+                              <h6 class="-mt--0">Call Center Supervisor</h6>
+                              <div class="a-price -sm">$45</div>
+                              <p class="-text--muted -text--small">per user /mo</p>
                               <div class="m-inputNumber -pill -m--auto" id="m-inputNumber-4">
                                 <input class="a-input" id="input-number-4" ype="number" value="0" min="0">
                                 <button class="a-btn -icon" disabled="true">

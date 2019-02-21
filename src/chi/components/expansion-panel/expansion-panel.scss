@@ -52,6 +52,7 @@ $transition-duration: 0.2s;
     &__title,
     &__number {
       font-size: $text-larger;
+      font-weight: 600;
       line-height: 2rem;
       margin: 0;
       transition: color $transition-duration;
@@ -61,7 +62,8 @@ $transition-duration: 0.2s;
       }
     }
 
-    &.-active .m-epanel__title {
+    &.-active .m-epanel__title,
+    &.-active .m-epanel__number {
       color: $brand-color;
     }
 
