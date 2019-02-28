@@ -117,7 +117,7 @@ onLoad(() => {
   const numbers = [1,2,3,4,5,6];
   Array.prototype.forEach.call(numbers, function(number) {
     let card = document.getElementById(number);
-    const cardTitle = card.querySelector('h5');
+    const cardTitle = card.querySelector('h6');
     let input = document.getElementById('input-number-' + number);
     let quantityInit = document.getElementById('quantityInit');
     let quantity = document.getElementById('quantity');
