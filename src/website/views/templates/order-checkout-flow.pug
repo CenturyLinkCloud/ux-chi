@@ -424,17 +424,19 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 .m-epanel__content
                   h5.-mb--3 Choose Numbers
                   h6 New numbers
-                  .m-picker
-                    input(type='checkbox', class='a-picker', id='num-1')
-                    label(for='num-1')
-                      i.a-icon.icon-circle-plus-outline.-sm3.-text--brand.-ml--1
-                      | Add numbers
+                  button(class='a-btn -xl -fluid -text--brand -mb--1', style='padding-top: 1.0625rem; padding-bottom: 1.0625rem;')
+                    .a-btn__content.-text--brand
+                      .a-icon
+                        svg
+                          use(xlink:href='#icon-circle-plus-outline')
+                      span Add numbers
                   h6 Keep and transfer existing numbers
-                  .m-picker
-                    input(type='checkbox', class='a-picker', id='num-2')
-                    label(for='num-2')
-                      i.a-icon.icon-atom.-sm3.-text--brand.-ml--1
-                      | Transfer numbers
+                  button(class='a-btn -xl -fluid -text--brand', style='padding-top: 1.0625rem; padding-bottom: 1.0625rem;')
+                    .a-btn__content.-text--brand
+                      .a-icon
+                        svg
+                          use(xlink:href='#icon-atom')
+                      span Transfer numbers
                 .m-epanel__footer.-justify-content--between
                   button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
                     .a-btn__content
@@ -1281,21 +1283,27 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                     <div class="m-epanel__content">
                       <h5 class="-mb--3">Choose Numbers</h5>
                       <h6>New numbers</h6>
-                      <div class="m-picker">
-                        <input class="a-picker" type="checkbox" id="num-1">
-                        <label for="num-1">
-                          <i class="a-icon icon-circle-plus-outline -sm3 -text--brand -ml--1"></i>
-                          Add numbers
-                        </label>
-                      </div>
+                      <button class="a-btn -xl -fluid -text--brand -mb--1" style="padding-top: 1.0625rem; padding-bottom: 1.0625rem;">
+                        <div class="a-btn__content -text--brand">
+                          <div class="a-icon">
+                            <svg>
+                              <use xlink:href='#icon-circle-plus-outline'/>
+                            </svg>
+                          </div>
+                          <span> Add numbers </span>
+                        </div>
+                      </button>
                       <h6>Keep and transfer existing numbers</h6>
-                      <div class="m-picker">
-                        <input class="a-picker" type="checkbox" id="num-2">
-                        <label for="num-2">
-                          <i class="a-icon icon-atom -sm3 -text--brand -ml--1"></i>
-                          Transfer numbers
-                        </label>
-                      </div>
+                      <button class="a-btn -xl -fluid -text--brand -mb--1" style="padding-top: 1.0625rem; padding-bottom: 1.0625rem;">
+                        <div class="a-btn__content -text--brand">
+                          <div class="a-icon">
+                            <svg>
+                              <use xlink:href='#icon-atom'/>
+                            </svg>
+                          </div>
+                          <span> Transfer numbers </span>
+                        </div>
+                      </button>
                     </div>
                     <div class="m-epanel__footer -justify-content--between">
                       <button class="a-btn -flat -pill -lg" data-chi-epanel-action="previous">
