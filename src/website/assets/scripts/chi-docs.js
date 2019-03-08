@@ -117,7 +117,6 @@ onLoad(() => {
   const numbers = [1,2,3,4,5,6];
   Array.prototype.forEach.call(numbers, function(number) {
     let card = document.getElementById(number);
-    const cardTitle = card.querySelector('h6');
     let input = document.getElementById('input-number-' + number);
     let quantityInit = document.getElementById('quantityInit');
     let quantity = document.getElementById('quantity');
@@ -143,7 +142,6 @@ onLoad(() => {
       if ( card.classList.contains('-active')) {
         if (input.value === '0') {
           removeClass(card, '-active');
-          removeClass(cardTitle, '-text--brand');
           if ( card.id < '5') {
             removeClass(cart, '-d--block');
             removeClass(empty, '-d--block');
@@ -156,7 +154,6 @@ onLoad(() => {
       } else if ( card.id > '4') {
         input.value++;
         addClass(card, '-active');
-        addClass(cardTitle, '-text--brand');
         addClass(cart, '-d--block');
         quantityInit.style.display = 'none';
         quantity.style.display = 'block';
@@ -165,7 +162,6 @@ onLoad(() => {
         input.value++;
         input.dispatchEvent(new Event('change'));
         addClass(card, '-active');
-        addClass(cardTitle, '-text--brand');
         addClass(cart, '-d--block');
         removeClass(empty, '-d--block');
         addClass(empty, '-d--none');

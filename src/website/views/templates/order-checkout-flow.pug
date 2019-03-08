@@ -28,7 +28,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
             a.m-dropdown__menu-item(href='#') link 2
             a.m-dropdown__menu-item(href='#') link 3
         div
-          .a-avatar.-sm3.-grey
+          .a-avatar.-sm--3.-inverse
             i(class='a-icon icon-user')
         .m-dropdown.-mr--1
           button.a-btn.-flat.-inverse.-px--1.m-dropdown__trigger(data-position='bottom-end', id='user') Tim Anderson
@@ -69,7 +69,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 | NE, Suite 400<br />
                 | Bellevue, WA 98004
       div.-p--1.-d--flex.-flex--row.-justify-content--start.-align-items--center.-bt--1
-        i.a-icon.icon-circle-plus-outline.-sm3.-text--brand.-ml--1
+        i.a-icon.icon-circle-plus-outline.-sm--3.-text--brand.-ml--1
         h6.-text--brand.-ml--1 Add Location
     .-flex--grow1.-h--100#checkout(style='overflow:auto;')
       .-px--5.-py--2.-m--auto.-mw--640
@@ -111,7 +111,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                         option State 2
                       label(for='floating-label-select') Select State
                     .a-inputWrapper.-floatingLabel.-mb--1(id='floating-label-6')
-                      input(type='text', class=`a-input -xl -mr--3`, id='i5', style='max-width: 10rem;')
+                      input(type='text', class=`a-input -xl`, id='i6')
                       label(for='6') Zip
                 .m-epanel__footer.-justify-content--end
                   button.a-btn.-lg.-brand.-pill.-ml--2(data-chi-epanel-action='next', id='location') Continue
@@ -432,18 +432,18 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                 .m-epanel__content
                   h5.-mb--3 Choose Numbers
                   h6 New numbers
-                  button(class='a-btn -xl -fluid -text--brand -mb--1', style='padding-top: 1.0625rem; padding-bottom: 1.0625rem;')
+                  button(class='a-btn -xl -fluid -text--brand -mb--1', style='padding-top: 0.9375rem;padding-bottom: 0.9375rem;')
                     .a-btn__content.-text--brand
-                      .a-icon
+                      .a-icon(style='height:1.5rem;width:1.5rem;')
                         svg
                           use(xlink:href='#icon-circle-plus-outline')
                       span Add numbers
                   h6 Keep and transfer existing numbers
                   button(class='a-btn -xl -fluid -text--brand', style='padding-top: 1.0625rem; padding-bottom: 1.0625rem;')
                     .a-btn__content.-text--brand
-                      .a-icon
+                      .a-icon(style='height:1.5rem;width:1.5rem;')
                         svg
-                          use(xlink:href='#icon-atom')
+                          use(xlink:href='#icon-sync')
                       span Transfer numbers
                 .m-epanel__footer.-justify-content--between
                   button.a-btn.-flat.-pill.-lg(data-chi-epanel-action='previous')
@@ -689,10 +689,10 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
           .a-divider
           div.-d--flex.-flex--row.-justify-content--between
             h6.-text--bold Monthly total:
-            h6.-text--bold(style='color:#d12a2d') $1,187.50
+            h6.-text--bold.-text--danger $1,187.50
   .-w--100.-bg--black
     .-p--2.-d--flex.-flex--row.-justify-content--end.-m--auto
-      button.a-btn.-lg.-brand.-pill.-ml--2 Checkout
+      button.a-btn.-lg.-secondary.-pill.-ml--2 Checkout
   :code(lang="html")
     <div class="example -mb--3 -bg--grey-10">
       <header class="o-header -inverse">
@@ -723,7 +723,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
               </div>
             </div>
             <div>
-              <div class="a-avatar -sm3 -grey"><i class="a-icon icon-user"></i></div>
+              <div class="a-avatar -sm--3 -inverse"><i class="a-icon icon-user"></i></div>
             </div>
             <div class="m-dropdown -mr--1">
               <button class="a-btn -flat -inverse -px--1 m-dropdown__trigger" data-position="bottom-end" id="user">
@@ -789,7 +789,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
             </ul>
           </div>
           <div class="-p--1 -d--flex -flex--row -justify-content--start -align-items--center -bt--1">
-            <i class="a-icon icon-circle-plus-outline -sm3 -text--brand -ml--1"></i>
+            <i class="a-icon icon-circle-plus-outline -sm--3 -text--brand -ml--1"></i>
             <h6 class="-text--brand -ml--1">
               Add Location</h6>
           </div>
@@ -1295,7 +1295,7 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                       <h6>New numbers</h6>
                       <button class="a-btn -xl -fluid -text--brand -mb--1" style="padding-top: 1.0625rem; padding-bottom: 1.0625rem;">
                         <div class="a-btn__content -text--brand">
-                          <div class="a-icon">
+                          <div class="a-icon" style="height:1.5rem;width:1.5rem">
                             <svg>
                               <use xlink:href='#icon-circle-plus-outline'/>
                             </svg>
@@ -1304,11 +1304,11 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
                         </div>
                       </button>
                       <h6>Keep and transfer existing numbers</h6>
-                      <button class="a-btn -xl -fluid -text--brand -mb--1" style="padding-top: 1.0625rem; padding-bottom: 1.0625rem;">
+                      <button class="a-btn -xl -fluid -text--brand -mb--1" style="padding-top: 0.9375rem; padding-bottom: 0.9375rem;">
                         <div class="a-btn__content -text--brand">
-                          <div class="a-icon">
+                          <div class="a-icon" style="height:1.5rem;width:1.5rem">
                             <svg>
-                              <use xlink:href='#icon-atom'/>
+                              <use xlink:href='#icon-sync'/>
                             </svg>
                           </div>
                           <span> Transfer numbers </span>
@@ -1663,15 +1663,15 @@ p.-text Basic Order Checkout Flow template. Illustrate how a order process would
               <div class="a-divider"></div>
               <div class="-d--flex -flex--row -justify-content--between">
                 <h6 class="-text--bold">Monthly total:</h6>
-                <h6 class="-text--bold" style="color:#d12a2d">$1,187.50</h6>
+                <h6 class="-text--bold -text--danger">$1,187.50</h6>
               </div>
-            </div>
+            </div>0
           </div>
         </div>
       </div>
       <div class="-w--100 -bg--black">
         <div class="-p--2 -d--flex -flex--row -justify-content--end -m--auto">
-          <button class="a-btn -lg -brand -pill -ml--2">Checkout</button>
+          <button class="a-btn -lg -secondary -pill -ml--2">Checkout</button>
         </div>
       </div>
     </div>
@@ -1686,6 +1686,7 @@ script.
       chi.floatingLabel(document.getElementById('floating-label-3'));
       chi.floatingLabel(document.getElementById('floating-label-4'));
       chi.floatingLabel(document.getElementById('floating-label-5'));
+      chi.floatingLabel(document.getElementById('floating-label-6'));
       chi.numberInput(document.getElementById('input-number-1'));
       chi.numberInput(document.getElementById('input-number-2'));
       chi.numberInput(document.getElementById('input-number-3'));
