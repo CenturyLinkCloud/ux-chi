@@ -68,7 +68,7 @@
     "quotemark": {
       "options": [
         "single",
-        "jsx-double"
+        "jsx-single"
       ]
     },
     "trailing-comma": false,

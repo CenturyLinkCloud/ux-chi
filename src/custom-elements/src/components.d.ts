@@ -40,15 +40,38 @@ export namespace Components {
     */
     'size'?: string;
   }
+
+  interface ChiSpinner {
+    /**
+    * to set color of a spinner { primary, success, warning, danger, muted }.
+    */
+    'color': string;
+    /**
+    * to set size of a spinner { xs, sm, sm--2, sm--3, md, lg, xl, xxl }.
+    */
+    'size': string;
+  }
+  interface ChiSpinnerAttributes extends StencilHTMLAttributes {
+    /**
+    * to set color of a spinner { primary, success, warning, danger, muted }.
+    */
+    'color'?: string;
+    /**
+    * to set size of a spinner { xs, sm, sm--2, sm--3, md, lg, xl, xxl }.
+    */
+    'size'?: string;
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
     'ChiIcon': Components.ChiIcon;
+    'ChiSpinner': Components.ChiSpinner;
   }
 
   interface StencilIntrinsicElements {
     'chi-icon': Components.ChiIconAttributes;
+    'chi-spinner': Components.ChiSpinnerAttributes;
   }
 
 
@@ -58,12 +81,20 @@ declare global {
     new (): HTMLChiIconElement;
   };
 
+  interface HTMLChiSpinnerElement extends Components.ChiSpinner, HTMLStencilElement {}
+  var HTMLChiSpinnerElement: {
+    prototype: HTMLChiSpinnerElement;
+    new (): HTMLChiSpinnerElement;
+  };
+
   interface HTMLElementTagNameMap {
     'chi-icon': HTMLChiIconElement
+    'chi-spinner': HTMLChiSpinnerElement
   }
 
   interface ElementTagNameMap {
     'chi-icon': HTMLChiIconElement;
+    'chi-spinner': HTMLChiSpinnerElement;
   }
 
 
