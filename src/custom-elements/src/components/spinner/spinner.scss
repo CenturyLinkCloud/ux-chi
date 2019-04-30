@@ -1,1 +1,4 @@
-@import 'components/spinner/spinner';
+:host(chi-spinner) {
+  @import '../../global/styles/common';
+  @import 'components/spinner/spinner';
+}
