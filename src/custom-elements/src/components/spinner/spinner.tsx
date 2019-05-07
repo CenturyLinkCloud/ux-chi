@@ -11,12 +11,12 @@ export class Spinner {
   /**
    *  to set size of a spinner { xs, sm, sm--2, sm--3, md, lg, xl, xxl }.
    */
-  @Prop({ reflectToAttr: true }) size = 'sm';
+  @Prop({ reflectToAttr: true }) size: string;
 
   /**
    *  to set color of a spinner { primary, success, warning, danger, muted }.
    */
-  @Prop({ reflectToAttr: true }) color = 'primary';
+  @Prop({ reflectToAttr: true }) color: string;
 
   @Watch('size')
   sizeValidation(newValue: string) {

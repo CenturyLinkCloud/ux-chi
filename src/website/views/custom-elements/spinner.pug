@@ -14,7 +14,7 @@ p.-text Wrap spinners in <code>a-backdrop</code> to overlay content similar to a
 h4 Base
 .example.-mb--3
   .a-backdrop.-p--6(style="position:relative;height:25rem;")
-    chi-spinner(color='inverse', size='md')
+    chi-spinner(color='inverse', size='lg')
   :code(lang="html")
     <div class="a-backdrop">
       <chi-spinner color="inverse"></chi-spinner>
@@ -24,7 +24,7 @@ h4 Inverse
 p.-text Apply the class <code>-inverse</code> to render spinners on light backgrounds.
 .example.-mb--3
   .a-backdrop.-inverse.-p--6(style="position:relative;height:25rem;")
-    chi-spinner(size='md')
+    chi-spinner(size='lg', color='primary')
   :code(lang="html")
     <div class="a-backdrop -inverse">
       <chi-spinner></chi-spinner>
@@ -43,7 +43,7 @@ p.-text
     .a-grid.-align-items--end
       each size in ['xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl']
         div.-p--2
-          chi-spinner(size=`${size}`, color='primary')
+          chi-spinner(size=`${size}`)
           p.-text.-text--center= size
   :code(lang="html")
     <!-- xs : 12x12px -->
@@ -69,15 +69,14 @@ p.-text
 .example.-mb--3
   .-m--3
     .a-grid.-align-items--center
-      each type in ['primary', 'success', 'warning', 'danger', 'muted', 'inverse']
+      each type in ['primary', 'success', 'warning', 'danger', 'muted']
         div.-p--2
-          chi-spinner(color=`${type}`)
-            p.-text(class=`-${type}`)
+          chi-spinner(color=`${type}`, size='md')
+            p.-text(class=`-text--${type}`)
               = `${type}`
   :code(lang="html")
-    <chi-spinner size="sm--3" color="primary"></chi-spinner>
-    <chi-spinner size="sm--3" color="success"></chi-spinner>
-    <chi-spinner size="sm--3" color="warning"></chi-spinner>
-    <chi-spinner size="sm--3" color="danger"></chi-spinner>
-    <chi-spinner size="sm--3" color="muted"></chi-spinner>
-    <chi-spinner size="sm--3" color="inverse"></chi-spinner>
+    <chi-spinner color="primary"></chi-spinner>
+    <chi-spinner color="success"></chi-spinner>
+    <chi-spinner color="warning"></chi-spinner>
+    <chi-spinner color="danger"></chi-spinner>
+    <chi-spinner color="muted"></chi-spinner>
