@@ -1,6 +1,6 @@
 import { Component, Prop, Watch } from '@stencil/core';
 import { TEXT_COLORS } from '../../models/color';
-import { TEXT_SIZES } from '../../models/size';
+import { ICON_SIZES } from '../../models/size';
 
 @Component({
   tag: 'chi-spinner',
@@ -20,7 +20,7 @@ export class Spinner {
 
   @Watch('size')
   sizeValidation(newValue: string) {
-    if (newValue && !TEXT_SIZES.includes(newValue)) {
+    if (newValue && !ICON_SIZES.includes(newValue)) {
       throw new Error(`Not valid size ${newValue} for spinner. Valid values are xs, sm, sm--2, sm--3, md, lg, xl, xxl or ''. `);
     }
   }
