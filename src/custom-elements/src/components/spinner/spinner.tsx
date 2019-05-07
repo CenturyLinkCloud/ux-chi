@@ -1,6 +1,6 @@
 import { Component, Prop, Watch } from '@stencil/core';
-import { VALID_TEXT_COLORS } from '../../models/color';
-import { VALID_TEXT_SIZES } from '../../models/size';
+import { TEXT_COLORS } from '../../models/color';
+import { TEXT_SIZES } from '../../models/size';
 
 @Component({
   tag: 'chi-spinner',
@@ -20,14 +20,14 @@ export class Spinner {
 
   @Watch('size')
   sizeValidation(newValue: string) {
-    if (newValue && !VALID_TEXT_SIZES.includes(newValue)) {
+    if (newValue && !TEXT_SIZES.includes(newValue)) {
       throw new Error(`Not valid size ${newValue} for spinner. Valid values are xs, sm, sm--2, sm--3, md, lg, xl, xxl or ''. `);
     }
   }
 
   @Watch('color')
   colorValidation(newValue: string) {
-    if (newValue && !VALID_TEXT_COLORS.includes(newValue)) {
+    if (newValue && !TEXT_COLORS.includes(newValue)) {
       throw new Error(`Not valid color ${newValue} for spinner. Valid values are primary, success, warning, danger, muted or ''. `);
     }
   }
