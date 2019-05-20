@@ -96,7 +96,7 @@ p.-text Buttons can be expanded to fill the parent space by applying the attribu
   .-p--3
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
       .-pb--2
-        chi-button(color=type, fluid, style='width:100%')= val
+        chi-button(color=type, fluid)= val
   :code(lang='html')
     <chi-button fluid>Base</chi-button>
     <chi-button color='primary' fluid>Primary</chi-button>
@@ -122,7 +122,7 @@ p.-text
   | For interfaces with limited space, an <code>icon</code> button can
   | be used for common actions such as editing, deleting, closing, etc.
 .example.-mb--3
-  .-p--3
+  .-p--3.-d--flex
     chi-button(type='icon')
       .a-btn__content
         chi-icon(icon='atom')
@@ -145,7 +145,7 @@ p.-text
 
 h4 Labeled icon buttons
 .example.-mb--3
-  .-p--3(style="display:inline-flex;")
+  .-p--3.-d--flex
     chi-button()
       .a-btn__content
         chi-icon(icon='atom')
@@ -241,7 +241,7 @@ p.-text
   .-p--3
     each size in ['sm', 'md', 'lg', 'xl']
       p.-text--bold.-pl--2= size
-      div(class=`a-col -w--12 -pb--2 -mr--0`, style='display:inline-flex;')
+      div(class=`a-col -w--12 -pb--2 -mr--0 -d--flex`)
         chi-button(size=size)= 'Button'
         chi-button(size=size, type='icon', class='-ml--1')
           .a-btn__content
