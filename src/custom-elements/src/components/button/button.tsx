@@ -7,7 +7,7 @@ import { Component, Event, EventEmitter, Prop, Watch } from '@stencil/core'
 })
 export class Button {
   /**
-   *  to set button type { float, pill, close, icon }.
+   *  to set button type { float, close, icon }.
    */
   @Prop({ reflectToAttr: true }) type: string;
 
@@ -20,6 +20,11 @@ export class Button {
    *  to set button size { sm, md, lg, xl }.
    */
   @Prop({ reflectToAttr: true }) size = 'md';
+
+  /**
+   *  to to render buttons with a more pronounced border-radius.
+   */
+  @Prop({ reflectToAttr: true }) pill = false;
 
   /**
    *  to remove a buttons solid background and keep its colored border.
@@ -35,11 +40,6 @@ export class Button {
    *  to render a button to fill the parent space.
    */
   @Prop({ reflectToAttr: true }) fluid = false;
-
-  /**
-   *  to add additional classes to the chi-button.
-   */
-  @Prop({ reflectToAttr: true }) extraClass: string;
 
   /**
    *  to emit a custom event when button is clicked.
@@ -62,8 +62,8 @@ export class Button {
 
   @Watch('type')
   buttonTypeValidation(newValue: string) {
-    if (newValue && !['', 'float', 'pill', 'close', 'icon'].includes(newValue)) {
-      throw new Error(`${newValue} is not a valid button type. Valid values are '', 'float', 'pill', 'close' or 'icon'. `)
+    if (newValue && !['', 'float', 'close', 'icon'].includes(newValue)) {
+      throw new Error(`${newValue} is not a valid button type. Valid values are '', 'float', 'close' or 'icon'. `)
     }
   }
 
@@ -74,7 +74,7 @@ export class Button {
   }
 
   _buttonClicked() {
-    this.chiClick.emit()
+    this.chiClick.emit();
   }
 
   render() {
@@ -85,22 +85,21 @@ export class Button {
             <chi-icon icon={'x'}/>
           </div>
         </button>
-      )
+      );
     } else {
       return (
         <button
-          class={`a-btn ${this.extraClass ? this.extraClass : ''}
+          class={`a-btn
           ${this.outline ? '-outline' : ''}
           ${this.flat ? '-flat' : ''}
+          ${this.pill ? '-pill' : ''}
           ${this.color ? `-${this.color}` : ''}
           ${this.type ? `-${this.type}` : ''}
           ${this.size ? `-${this.size}` : ''}
           ${this.fluid ? '-fluid' : ''}`}
           onClick={() => this._buttonClicked()}
         >
-          <div class={`a-btn__content`}>
-            <slot />
-          </div>
+          <slot />
         </button>
       )
     }

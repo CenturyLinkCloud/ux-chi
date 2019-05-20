@@ -15,8 +15,7 @@ p.-text
   .-p--3.-d--flex
     each type in ['Button', 'Link', 'Input', 'Submit', 'Reset']
       div.-pr--2
-        chi-button()
-          span=type
+        chi-button()= type
   :code(lang='html')
     <chi-button>Button</chi-button>
     <chi-button>Link</chi-button>
@@ -28,15 +27,14 @@ h3 Examples
 
 h4 Base
 p.-text
-  | Chi includes a wide variety of predefined button styles. For most cases,
+  | Chi includes a wide variety of predefined button colors. For most cases,
   | the base and <code>primary</code> buttons will be sufficient. For special cases,
-  | such as styling a destructive action button, a <code>danger</code> button may be used.
+  | such as rendering a destructive action button, a <code>danger</code> button may be used.
 .example.-mb--3
   .-p--3.-d--flex
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
       div.-pr--2
-        chi-button(color=type)
-          span=val
+        chi-button(color=type)= val
   :code(lang='html')
     <chi-button>Base</chi-button>
     <chi-button color='primary'>Primary</chi-button>
@@ -46,14 +44,13 @@ p.-text
 
 h4 Outline
 p.-text
-  | To remove a buttons solid background and keep its colored border, apply the attribute
+  | To remove a buttons solid background and keep it's colored border, apply the attribute
   | <code>outline</code> on the <code>&lt;chi-button&gt;</code> tag.
 .example.-mb--3
   .-p--3.-d--flex
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
       div.-pr--2
-        chi-button(color=type, outline)
-          span=val
+        chi-button(color=type, outline)= val
   :code(lang='html')
     <chi-button outline>Base</chi-button>
     <chi-button color='primary' outline>Primary</chi-button>
@@ -69,8 +66,7 @@ p.-text
   .-p--3.-d--flex
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
       div.-pr--2
-        chi-button(color=type, flat)
-          span=val
+        chi-button(color=type, flat)= val
   :code(lang='html')
     <chi-button flat>Base</chi-button>
     <chi-button color='primary' flat>Primary</chi-button>
@@ -79,21 +75,19 @@ p.-text
     <chi-button color='dark' flat>Dark</chi-button>
 
 h3 Pill
-p.-text To render buttons with a more pronounced border-radius, set the attribute <code>type</code> value to
-  | <code>pill</code> on the <code>&lt;chi-button&gt;</code> tag..
+p.-text To render buttons with a more pronounced border-radius, set the attribute <code>pill</code> on the <code>&lt;chi-button&gt;</code> tag..
 h4 Base
 .example.-mb--3
   .-p--3.-d--flex
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
       div.-pr--2
-        chi-button(color=type, type='pill')
-          span=val
+        chi-button(color=type, pill)= val
   :code(lang='html')
-    <chi-button type='pill'>Base</chi-button>
-    <chi-button color='primary' type='pill'>Primary</chi-button>
-    <chi-button color='secondary' type='pill'>Secondary</chi-button>
-    <chi-button color='danger' type='pill'>Danger</chi-button>
-    <chi-button color='dark' type='pill'>Dark</chi-button>
+    <chi-button pill>Base</chi-button>
+    <chi-button color='primary' pill>Primary</chi-button>
+    <chi-button color='secondary' pill>Secondary</chi-button>
+    <chi-button color='danger' pill>Danger</chi-button>
+    <chi-button color='dark' pill>Dark</chi-button>
 
 h3 Fluid
 p.-text Buttons can be expanded to fill the parent space by applying the attribute
@@ -101,9 +95,8 @@ p.-text Buttons can be expanded to fill the parent space by applying the attribu
 .example.-mb--3
   .-p--3
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
-      div.-pt--2
-        chi-button(color=type, fluid)
-          span=val
+      .-pb--2
+        chi-button(color=type, fluid, style='width:100%')= val
   :code(lang='html')
     <chi-button fluid>Base</chi-button>
     <chi-button color='primary' fluid>Primary</chi-button>
@@ -116,14 +109,13 @@ h4 Outline
   .-p--3.-d--flex
     each type, val in {Base:'', Primary:'primary', Secondary:'secondary', Danger:'danger', Dark:'dark'}
       div.-pr--2
-        chi-button(color=type, outline, type='pill')
-          span=val
+        chi-button(color=type, outline, pill)= val
   :code(lang='html')
-    <chi-button type='pill' outline>Base</chi-button>
-    <chi-button color='primary' type='pill' outline>Primary</chi-button>
-    <chi-button color='secondary' type='pill' outline>Secondary</chi-button>
-    <chi-button color='danger' type='pill' outline>Danger</chi-button>
-    <chi-button color='dark' type='pill' outline>Dark</chi-button>
+    <chi-button pill outline>Base</chi-button>
+    <chi-button color='primary' pill outline>Primary</chi-button>
+    <chi-button color='secondary' pill outline>Secondary</chi-button>
+    <chi-button color='danger' pill outline>Danger</chi-button>
+    <chi-button color='dark' pill outline>Dark</chi-button>
 
 h3 Icon buttons
 p.-text
@@ -132,66 +124,63 @@ p.-text
 .example.-mb--3
   .-p--3
     chi-button(type='icon')
-      .a-icon
+      .a-btn__content
         chi-icon(icon='atom')
-    chi-button(flat, extra-class='-ml--2', type='icon')
-      .a-icon
+    chi-button(flat, class='-ml--2', type='icon')
+      .a-btn__content
         chi-icon(icon='atom')
   :code(lang='html')
     <chi-button type='icon' >
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <!-- flat -->
     <chi-button flat type='icon' >
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
 h4 Labeled icon buttons
 .example.-mb--3
-  .-p--3
+  .-p--3(style="display:inline-flex;")
     chi-button()
-      .a-icon
+      .a-btn__content
         chi-icon(icon='atom')
-      span Button
-    chi-button(extra-class='-mr--2 -ml--2')
-      span Button
-      .a-icon
+        span Button
+    chi-button(class='-mr--2 -ml--2')
+      .a-btn__content
+        span Button
         chi-icon(icon='atom')
     chi-button()
-      .a-icon
+      .a-btn__content
         chi-icon(icon='atom')
-      span Button
-      .a-icon
+        span Button
         chi-icon(icon='atom')
   :code(lang='html')
     <!-- left aligned -->
     <chi-button>
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
+        <span>Button</span>
       </div>
-      <span>Button</span>
     </chi-button>
 
     <!-- right aligned -->
     <chi-button>
-      <span>Button</span>
-      <div class="a-icon">
+      <div class="a-btn__content">
+        <span>Button</span>
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <!-- both sides -->
     <chi-button>
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
-      </div>
-      <span>Button</span>
-      <div class="a-icon">
+        <span>Button</span>
         <chi-icon icon='atom' />
       </div>
     </chi-button>
@@ -202,35 +191,34 @@ h4 Floating icon buttons
     each type in ['', 'primary', 'secondary', 'danger', 'dark']
       div.-pr--2
         chi-button(color=type, type='float')
-          .a-icon
-            chi-icon(icon='atom')
+          chi-icon(icon='atom')
   :code(lang='html')
     <chi-button type='float'>
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <chi-button type='float' color='primary'>
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <chi-button type='float' color='secondary'>
-    <div class="a-icon">
-    <chi-icon icon='atom' />
-    </div>
+      <div class="a-btn__content">
+        <chi-icon icon='atom' />
+      </div>
     </chi-button>
 
     <chi-button type='float' color='danger'>
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <chi-button type='float' color='dark'>
-      <div class="a-icon">
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
@@ -252,50 +240,49 @@ p.-text
 .example.-mb--3
   .-p--3
     each size in ['sm', 'md', 'lg', 'xl']
-      div(class=`a-col -w--12 -pb--2`)
-        p.-text--bold= size
-        chi-button(size=size)
-          span Button
-        chi-button(size=size, type='icon', extra-class='-ml--2')
-          .a-icon
+      p.-text--bold.-pl--2= size
+      div(class=`a-col -w--12 -pb--2 -mr--0`, style='display:inline-flex;')
+        chi-button(size=size)= 'Button'
+        chi-button(size=size, type='icon', class='-ml--1')
+          .a-btn__content
             chi-icon(icon='atom')
   :code(lang='html')
     <!-- sm -->
     <chi-button size='sm'>
-      <span>Button</span>
+      Button
     </chi-button>
     <chi-button type='icon' size='sm'>
-      <div class='a-icon'>
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <!-- md -->
     <chi-button size='md'>
-      <span>Button</span>
+      Button
     </chi-button>
     <chi-button type='icon' size='md'>
-      <div class='a-icon'>
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <!-- lg -->
     <chi-button size='lg'>
-      <span>Button</span>
+      Button
     </chi-button>
     <chi-button type='icon' size='lg'>
-      <div class='a-icon'>
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
 
     <!-- xl -->
     <chi-button size='xl'>
-      <span>Button</span>
+      Button
     </chi-button>
     <chi-button type='icon' size='xl'>
-      <div class='a-icon'>
+      <div class="a-btn__content">
         <chi-icon icon='atom' />
       </div>
     </chi-button>
