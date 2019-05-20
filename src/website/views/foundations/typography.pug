@@ -5,12 +5,19 @@ title: Typography
 p.-text Documentation and examples for Chi typography.
 
 h3 Typeface
-p.-text The sans-serif font stack is used to display all typography within Chi except code. For code, Chi defers to a monospace font stack.
+p.-text Chi offers a sans-serif font stack to display all typography except code.
+  |  Inside the sans-serif font stack, as a first option Chi offers Maison Neue Font for marketing webpages.
+p.-text
+  span.a-badge.-primary.-mr1
+    span Important
+  | To use the Maison Neue Font typography, should be included in the server where the project is hosted, the header <code> Access-Control-Allow-Origin: https://www.centurylink.com</code>.
+  |  Otherwise the library will use Open Sans by default.
+p.-text For code, Chi defers to a monospace font stack.
 
 h6 Sans-serif font stack
 .-mb--2
   :code(lang='html')
-    font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Maison Neue", "Open Sans", "Helvetica Neue", Arial, sans-serif;
 
 h6 Monospace font stack
 .-mb--3

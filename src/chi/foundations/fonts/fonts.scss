@@ -1,3 +1,41 @@
 $open-sans-url: 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,700i';
 
 @import url($open-sans-url);
+
+//Brand typography urls
+@font-face {
+  font-family: "Maison Neue Medium";
+  src: url('//centurylink.com/assets/fonts/MaisonNeue-Medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Maison Neue";
+	src: url('//centurylink.com/assets/fonts/MaisonNeue-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Maison Neue Bold";
+  src: url('//centurylink.com/assets/fonts/MaisonNeue-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Maison Neue Book";
+  src: url('//centurylink.com/assets/fonts/MaisonNeue-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Maison Neue Light";
+  src: url('//centurylink.com/assets/fonts/MaisonNeue-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Maison Neue Extra Bold";
+  src: url('//centurylink.com/assets/fonts/MaisonNeue-ExtraBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

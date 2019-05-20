@@ -150,7 +150,7 @@ $sizes: (
     color: $text-color;
     cursor: pointer;
     display: inline-flex;
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
+    font-family: $font-family;
     font-size: $text;
     font-weight: 600;
     line-height: $line-height-smaller;
