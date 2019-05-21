@@ -5,5 +5,8 @@
   @import 'components/buttons/_vertical-button-groups';
   @import 'components/buttons/button-groups';
   @import 'components/buttons/buttons';
-  display: block;
+  display: inline-flex;
+  &[fluid]:not(.-float) {
+    width: 100%
+  }
 }
