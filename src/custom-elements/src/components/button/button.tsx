@@ -80,8 +80,8 @@ export class Button {
   render() {
     if (this.type === 'close') {
       return (
-        <button class='a-btn -icon -close' onClick={() => this._buttonClicked()}>
-          <div class='a-btn__content'>
+        <button class="a-btn -icon -close" onClick={() => this._buttonClicked()}>
+          <div class="a-btn__content">
             <chi-icon icon={'x'}/>
           </div>
         </button>
