@@ -12,6 +12,11 @@ export class Button {
   @Prop({ reflectToAttr: true }) type: string;
 
   /**
+   *  to disabled chi-button.
+   */
+  @Prop({ reflectToAttr: true }) disabled = false
+
+  /**
    *  to set button color { primary, secondary, danger, dark }.
    */
   @Prop({ reflectToAttr: true }) color: string;
@@ -102,8 +107,10 @@ export class Button {
           ${this.type ? `-${this.type}` : ''}
           ${this.size ? `-${this.size}` : ''}
           ${this.fluid ? '-fluid' : ''}
-          ${this.fluid && this.center ? '-justify-content--center' : ''}`}
+          ${this.fluid && this.center ? '-justify-content--center' : ''}
+          ${this.disabled ? '-disabled' : ''}`}
           onClick={() => this._buttonClicked()}
+          disabled={this.disabled}
         >
           <slot />
         </button>
