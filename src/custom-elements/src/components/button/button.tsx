@@ -63,7 +63,7 @@ export class Button {
   @Watch('type')
   buttonTypeValidation(newValue: string) {
     if (newValue && !['', 'float', 'close', 'icon'].includes(newValue)) {
-      throw new Error(`${newValue} is not a valid button type. Valid values are '', 'float', 'close' or 'icon'. `)
+      throw new Error(`${newValue} is not a valid button type. Valid values are '', 'float', 'close' or 'icon'. `);
     }
   }
 
@@ -101,7 +101,7 @@ export class Button {
         >
           <slot />
         </button>
-      )
+      );
     }
   }
 }
