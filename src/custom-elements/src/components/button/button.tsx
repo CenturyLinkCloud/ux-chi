@@ -42,6 +42,11 @@ export class Button {
   @Prop({ reflectToAttr: true }) fluid = false;
 
   /**
+   *  to center align the text .
+   */
+  @Prop({ reflectToAttr: true }) center = false;
+
+  /**
    *  to emit a custom event when button is clicked.
    */
   @Event() chiClick: EventEmitter<any>;
@@ -55,7 +60,7 @@ export class Button {
 
   @Watch('color')
   colorValidation(newValue: string) {
-    if (newValue && !['', 'primary', 'secondary', 'danger', 'dark'].includes(newValue)) {
+    if (newValue && !['', 'primary', 'secondary', 'danger', 'dark', 'light'].includes(newValue)) {
       throw new Error(`${newValue} is not a valid color for button. Valid values are primary, success, danger, dark or ''. `);
     }
   }
@@ -96,7 +101,8 @@ export class Button {
           ${this.color ? `-${this.color}` : ''}
           ${this.type ? `-${this.type}` : ''}
           ${this.size ? `-${this.size}` : ''}
-          ${this.fluid ? '-fluid' : ''}`}
+          ${this.fluid ? '-fluid' : ''}
+          ${this.fluid && this.center ? '-justify-content--center' : ''}`}
           onClick={() => this._buttonClicked()}
         >
           <slot />
