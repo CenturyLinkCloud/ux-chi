@@ -110,7 +110,8 @@ export class Button {
           ${this.size ? `-${this.size}` : ''}
           ${this.fluid ? '-fluid' : ''}
           ${this.fluid && this.center ? '-justify-content--center' : ''}
-          ${this.disabled ? '-disabled' : ''} ${this.extraClass}`}
+          ${this.disabled ? '-disabled' : ''}
+          ${this.extraClass ? this.extraClass : ''}`}
           onClick={() => this._buttonClicked()}
           disabled={this.disabled}
         >
