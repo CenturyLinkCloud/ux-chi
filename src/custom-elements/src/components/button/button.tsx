@@ -51,6 +51,8 @@ export class Button {
    */
   @Prop({ reflectToAttr: true }) center = false;
 
+  @Prop() extraClass: string;
+
   /**
    *  to emit a custom event when button is clicked.
    */
@@ -108,7 +110,7 @@ export class Button {
           ${this.size ? `-${this.size}` : ''}
           ${this.fluid ? '-fluid' : ''}
           ${this.fluid && this.center ? '-justify-content--center' : ''}
-          ${this.disabled ? '-disabled' : ''}`}
+          ${this.disabled ? '-disabled' : ''} ${this.extraClass}`}
           onClick={() => this._buttonClicked()}
           disabled={this.disabled}
         >
