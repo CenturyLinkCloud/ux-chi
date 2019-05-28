@@ -5,8 +5,7 @@ describe('Buttons', () => {
   it('Base button should be included inside the custom element', () => {
     cy.visit('tests/custom-elements/buttons.html');
 
-    cy.get('[data-cy="button"]')
-      .wait(5000)
+    cy.get('chi-button', { timeout: 5000 })
       .first()
       .should('have.class', 'hydrated')
       .children()
@@ -16,8 +15,8 @@ describe('Buttons', () => {
   });
 
   it('Colored buttons should have appropriate class', () => {
-    cy.get('[data-cy="button"]')
-      .eq(1)
+    cy.get('[data-cy="button-primary-xl"]')
+      .first()
       .should('have.class', 'hydrated')
       .children()
       .first()
@@ -27,7 +26,7 @@ describe('Buttons', () => {
   });
 
   it('Sized buttons should have appropriate class', () => {
-    cy.get('[size="xl"]')
+    cy.get('[data-cy="button-primary-xl"]')
       .first()
       .should('have.class', 'hydrated')
       .children()
@@ -59,4 +58,14 @@ describe('Buttons', () => {
       .and('not.have.class', 'close');
   });
 
+  it('Click button should trigger appropriate event', () => {
+    const stub = cy.stub()
+    cy.on('window:alert', stub);
+    cy.get('chi-button')
+      .first()
+      .click()
+      .then(() => {
+        expect(stub.getCall(0)).to.be.calledWith('chi-button clicked');
+      });
+  });
 });
