@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'chi-button',
@@ -6,6 +6,8 @@ import { Component, Event, EventEmitter, Prop, Watch } from '@stencil/core';
   scoped: true
 })
 export class Button {
+  @Element() el: HTMLButtonElement;
+  @State() slotBtnContent = true;
   /**
    *  to set button type { float, close, icon }.
    */
@@ -14,7 +16,7 @@ export class Button {
   /**
    *  to disabled chi-button.
    */
-  @Prop({ reflectToAttr: true }) disabled = false
+  @Prop({ reflectToAttr: true }) disabled = false;
 
   /**
    *  to set button color { primary, secondary, danger, dark }.
@@ -85,6 +87,12 @@ export class Button {
     this.buttonTypeValidation(this.type);
   }
 
+  componentDidLoad() {
+    if (!this.el.children[0].innerHTML.includes('<chi-icon')) {
+      this.slotBtnContent = false;
+    }
+  }
+
   _buttonClicked() {
     this.chiClick.emit();
   }
@@ -94,7 +102,7 @@ export class Button {
       return (
         <button class={`a-btn -icon -close ${this.size ? `-${this.size}` : ''}`} onClick={() => this._buttonClicked()}>
           <div class="a-btn__content">
-            <chi-icon icon={'x'}/>
+            <chi-icon icon={'x'} />
           </div>
         </button>
       );
@@ -115,7 +123,12 @@ export class Button {
           onClick={() => this._buttonClicked()}
           disabled={this.disabled}
         >
-          <slot />
+          {this.slotBtnContent ?
+            <div class={'a-btn__content'}>
+              <slot />
+            </div>
+            : <slot />
+          }
         </button>
       );
     }

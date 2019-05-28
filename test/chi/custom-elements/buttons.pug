@@ -15,7 +15,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
           tr
             td
               small= `${state}`
-            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light']
+            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light', 'inverse']
               if style === 'light' || style === 'inverse'
                 td.-bg--black
                   .-mr--2
@@ -38,8 +38,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
+                      chi-icon(icon='atom')
                     chi-button.-m--1(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -49,9 +48,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
-                        span Button
+                      chi-icon(icon='atom')
+                      span Button
                     chi-button.-m--1.-ml--2(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -61,9 +59,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       pill
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
-                    )
-                      .a-btn__content
-                        span Button
+                    )= 'Button'
                     chi-button.-m--1(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -75,8 +71,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
+                      chi-icon(icon='atom')
                     chi-button.-m--1(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -87,14 +82,13 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
-                        span Button
+                      chi-icon(icon='atom')
+                      span Button
               else
                 td
                   .-mr--2
                     chi-button.-m--1.-ml--2(
-                      data-cy="button"
+                      data-cy=`button-${style}-${size}`
                       color=style
                       outline= type === 'outline'
                       flat= type === 'flat'
@@ -113,8 +107,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
+                      chi-icon(icon='atom')
                     chi-button.-m--1(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -124,9 +117,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
-                        span Button
+                      chi-icon(icon='atom')
+                      span Button
                     chi-button.-m--1.-ml--2(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -136,9 +128,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       pill
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
-                    )
-                      .a-btn__content
-                        span Button
+                    )= 'Button'
                     chi-button.-m--1(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -150,8 +140,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
+                      chi-icon(icon='atom')
                     chi-button.-m--1(
                       color=style
                       size= size !== 'default' ? size : ''
@@ -162,9 +151,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       disabled= state === 'disabled'
                       extra-class= `-${state}`
                     )
-                      .a-btn__content
-                        chi-icon(icon='atom')
-                        span Button
+                      chi-icon(icon='atom')
+                      span Button
   if size === 'default'
     .test-float
       h2 Button / floating
@@ -173,17 +161,15 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
           tr
             td
               small= `${state}`
-            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light']
+            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light', 'inverse']
               if style === 'light' || style === 'inverse'
                 td.-bg--black
                   chi-button(type='float', class=`-ml--4 -mr--4`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
-                    .a-btn__content
-                      chi-icon(icon='atom')
+                    chi-icon(icon='atom')
               else
                 td
                   chi-button(type='float', class=`-ml--4 -m--1`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
-                    .a-btn__content
-                      chi-icon(icon='atom')
+                    chi-icon(icon='atom')
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
   div(class={
@@ -195,3 +181,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
       tr
         td
           chi-button(type='close', size= size !== 'default' ? size : '')
+
+script.
+  document.addEventListener('chiClick', () => {
+    window.alert('chi-button clicked')
+  });

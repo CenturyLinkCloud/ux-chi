@@ -7,6 +7,11 @@
   @import 'components/buttons/buttons';
   display: inline-flex;
   &[fluid]:not(.-float) {
-    width: 100%
+    width: 100%;
+    &[center] {
+      .-justify-content--center {
+        justify-content: center;
+      }
+    }
   }
 }
