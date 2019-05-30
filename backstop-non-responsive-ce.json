@@ -35,6 +35,26 @@
       "requireSameDimensions": true
     },
     {
+      "label": "buttons",
+      "cookiePath": "",
+      "url": "http://localhost:8000/tests/custom-elements/buttons.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": "",
+      "selectors": [
+        ".test-outline"
+      ],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
       "label": "drawer",
       "cookiePath": "",
       "url": "http://localhost:8000/tests/custom-elements/drawer.html",
