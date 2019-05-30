@@ -59,7 +59,7 @@ describe('Buttons', () => {
   });
 
   it('Click button should trigger appropriate event', () => {
-    const stub = cy.stub()
+    const stub = cy.stub();
     cy.on('window:alert', stub);
     cy.get('chi-button')
       .first()
