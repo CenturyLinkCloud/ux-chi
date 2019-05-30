@@ -48,7 +48,10 @@
       "clickSelector": "",
       "postInteractionWait": "",
       "selectors": [
-        ".test-outline"
+        ".test-solid",
+        ".test-outline",
+        ".test-flat",
+        ".test-float"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
