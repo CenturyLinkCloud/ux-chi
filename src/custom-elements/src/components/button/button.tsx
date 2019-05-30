@@ -26,7 +26,7 @@ export class Button {
   /**
    *  to set button size { sm, md, lg, xl }.
    */
-  @Prop({ reflectToAttr: true }) size = 'md';
+  @Prop({ reflectToAttr: true }) size: string;
 
   /**
    *  to to render buttons with a more pronounced border-radius.
