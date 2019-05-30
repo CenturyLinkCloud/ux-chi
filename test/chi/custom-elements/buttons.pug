@@ -19,7 +19,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
               if style === 'light' || style === 'inverse'
                 td.-bg--black
                   .-mr--2
-                    chi-button.-m--1.-ml--2(
+                    chi-button.-m--1.-mx--2(
                       color=style
                       outline= type === 'outline'
                       flat= type === 'flat'
@@ -50,7 +50,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                     )
                       chi-icon(icon='atom')
                       span Button
-                    chi-button.-m--1.-ml--2(
+                    chi-button.-m--1.-mx--2(
                       color=style
                       size= size !== 'default' ? size : ''
                       outline= type === 'outline'
@@ -87,7 +87,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
               else
                 td
                   .-mr--2
-                    chi-button.-m--1.-ml--2(
+                    chi-button.-m--1.-mx--2(
                       data-cy=`button-${style}-${size}`
                       color=style
                       outline= type === 'outline'
@@ -119,7 +119,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                     )
                       chi-icon(icon='atom')
                       span Button
-                    chi-button.-m--1.-ml--2(
+                    chi-button.-m--1.-mx--2(
                       color=style
                       size= size !== 'default' ? size : ''
                       outline= type === 'outline'
@@ -164,11 +164,11 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
             each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light', 'inverse']
               if style === 'light' || style === 'inverse'
                 td.-bg--black
-                  chi-button(type='float', class=`-ml--4 -mr--4`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
+                  chi-button(type='float', class=`-mx--2 -m--1`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
                     chi-icon(icon='atom')
               else
                 td
-                  chi-button(type='float', class=`-ml--4 -m--1`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
+                  chi-button(type='float', class=`-mx--2 -m--1`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
                     chi-icon(icon='atom')
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
