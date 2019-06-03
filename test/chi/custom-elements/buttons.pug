@@ -15,8 +15,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
           tr
             td
               small= `${state}`
-            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light', 'inverse']
-              if style === 'light' || style === 'inverse'
+            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light']
+              if style === 'light'
                 td.-bg--black
                   .-mr--2
                     chi-button.-m--1.-mx--2(
@@ -161,8 +161,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
           tr
             td
               small= `${state}`
-            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light', 'inverse']
-              if style === 'light' || style === 'inverse'
+            each style in ['', 'primary', 'secondary', 'danger', 'dark', 'light']
+              if style === 'light'
                 td.-bg--black
                   chi-button(type='float', class=`-mx--2 -m--1`, color=style, disabled= state === 'disabled', extra-class=`-${state}`)
                     chi-icon(icon='atom')
