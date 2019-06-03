@@ -1,0 +1,31 @@
+---
+title: Brand
+scripts:
+  - js/ce/ux-chi-ce
+
+---
+- const sizes = ['', 'xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl'];
+
+h4 Sizes
+.example.-mb--3
+  .-p--3(style='overflow:auto')
+    h3 Base
+    each size in sizes
+      div(class=`a-col -w--12 -p--3`)
+        chi-brand(size=size)
+        p.-text--bold= size === '' ? 'default' : size
+    h3 Inverse
+    each size in sizes
+      div(class=`a-col -w--12 -p--3 -bg--black`)
+        chi-brand(size=size, type='inverse')
+        p.-text--bold.-text--white= size === '' ? 'default' : size
+    h3 White
+      each size in sizes
+        div(class=`a-col -w--12 -p--3 -bg--black`)
+          chi-brand(size=size, type='white')
+          p.-text--bold.-text--white= size === '' ? 'default' : size
+    h3 Black
+      each size in sizes
+        div(class=`a-col -w--12 -p--3`)
+          chi-brand(size=size, type='black')
+          p.-text--bold= size === '' ? 'default' : size
