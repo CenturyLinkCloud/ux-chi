@@ -1,9 +1,0 @@
-:host(chi-spinner) {
-  @import '../../global/styles/common';
-  @import 'components/spinner/spinner';
-  @import 'components/backdrop/backdrop';
-  display: inline-block;
-  &[backdrop] {
-    display: block;
-  }
-}
