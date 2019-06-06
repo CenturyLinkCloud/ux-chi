@@ -212,4 +212,6 @@ each size in ['default', 'sm', 'small', 'md', 'lg', 'large', 'xl']
         td
           button(class=`a-btn -icon -close -${size}`)
             .a-btn__content
-              i.a-icon.icon-x
+              .a-icon
+                svg
+                  use(xlink:href='#icon-x')
