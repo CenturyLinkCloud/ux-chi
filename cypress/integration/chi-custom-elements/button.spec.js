@@ -59,13 +59,17 @@ describe('Buttons', () => {
   });
 
   it('Click button should trigger appropriate event', () => {
-    const stub = cy.stub();
-    cy.on('window:alert', stub);
+    const spy = cy.spy();
+
+    cy.get('body').then((el) => {
+      el.on('chiClick', spy);
+    });
+
     cy.get('chi-button')
       .first()
       .click()
       .then(() => {
-        expect(stub.getCall(0)).to.be.calledWith('chi-button clicked');
+        expect(spy).to.be.called;
       });
   });
 });

@@ -5,7 +5,10 @@
   @import 'components/buttons/_vertical-button-groups';
   @import 'components/buttons/button-groups';
   @import 'components/buttons/buttons';
-  display: inline-block;
+
+  display: inline-flex;
+  vertical-align: middle;
+
   &[fluid]:not(.-float) {
     width: 100%;
     &[center] {
