@@ -102,7 +102,7 @@ export class Button {
       return (
         <button class={`a-btn -icon -close ${this.size ? `-${this.size}` : ''}`} onClick={() => this._buttonClicked()}>
           <div class="a-btn__content">
-            <chi-icon icon={'x'}></chi-icon>
+            <chi-icon icon={'x'} />
           </div>
         </button>
       );
