@@ -19,7 +19,7 @@ export class Button {
   @Prop({ reflectToAttr: true }) disabled = false;
 
   /**
-   *  to set button color { primary, secondary, danger, dark }.
+   *  to set button color { primary, secondary, danger, dark, light }.
    */
   @Prop({ reflectToAttr: true }) color: string;
 
@@ -70,7 +70,7 @@ export class Button {
   @Watch('color')
   colorValidation(newValue: string) {
     if (newValue && !['', 'primary', 'secondary', 'danger', 'dark', 'light'].includes(newValue)) {
-      throw new Error(`${newValue} is not a valid color for button. Valid values are primary, success, danger, dark or ''. `);
+      throw new Error(`${newValue} is not a valid color for button. Valid values are primary, secondary, danger, dark, light or ''. `);
     }
   }
 
