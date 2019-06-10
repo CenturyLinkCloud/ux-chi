@@ -13,15 +13,10 @@ p.-text
   | The <code>&lt;chi-button&gt;</code> emits a custom event that you can listen to, the event name is <code>chiClick</code>
 .example.-mb--3
   .-p--3.-d--flex
-    each type in ['Button', 'Link', 'Input', 'Submit', 'Reset']
-      div.-pr--2
-        chi-button()= type
+    div.-pr--2
+      chi-button()= 'Button'
   :code(lang='html')
     <chi-button>Button</chi-button>
-    <chi-button>Link</chi-button>
-    <chi-button>Input</chi-button>
-    <chi-button>Submit</chi-button>
-    <chi-button>Reset</chi-button>
 
 h3 Examples
 
