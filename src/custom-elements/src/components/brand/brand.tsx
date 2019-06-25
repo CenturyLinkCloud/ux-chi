@@ -27,7 +27,7 @@ export class Brand {
   @Watch('type')
   typeValidation(newValue: string) {
     if (newValue && !['', 'inverse', 'white', 'black'].includes(newValue)) {
-      throw new Error(`${newValue} is not a valid type for brand. Valid values are inverse, white, black, ''.`);
+      throw new Error(`${newValue} is not a valid type for brand. Valid values are inverse, white, black or ''.`);
     }
   }
 
