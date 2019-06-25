@@ -2,7 +2,6 @@
 title: Button
 scripts:
   - js/ce/ux-chi-ce
-
 ---
 h3 Button
 p.-text
@@ -11,7 +10,7 @@ p.-text
 .example.-mb--3
   .-p--3.-d--flex
     div.-pr--2
-      chi-button()= 'Button'
+      chi-button Button
   :code(lang='html')
     <chi-button>Button</chi-button>
 
@@ -54,12 +53,12 @@ p.-text
       .-p--3.-d--flex(style="justify-content: center;")
         each type, val in {Primary:'primary', Dark:'dark'}
           div.-pr--2
-            chi-button(color=type, variant="outline")= val
+            chi-button(color=type, variant='outline')= val
     .a-col.-w--12.-w-md--6
       .-p--3.-bg--black.-d--flex(style="justify-content: center;")
         each type, val in {Secondary:'secondary', Light:'light'}
           div.-pr--2
-            chi-button(color=type, variant="outline")= val
+            chi-button(color=type, variant='outline')= val
   :code(lang='html')
     <chi-button color="primary" variant="outline">Primary</chi-button>
     <chi-button color="dark" variant="outline">Dark</chi-button>
@@ -76,12 +75,12 @@ p.-text
       .-p--3.-d--flex(style="justify-content: center;")
         each type, val in {Primary:'primary', Dark:'dark'}
           div.-pr--2
-            chi-button(color=type, variant="flat")= val
+            chi-button(color=type, variant='flat')= val
     .a-col.-w--12.-w-md--6
       .-p--3.-bg--black.-d--flex(style="justify-content: center;")
         each type, val in {Secondary:'secondary', Light:'light'}
           div.-pr--2
-            chi-button(color=type, variant="flat")= val
+            chi-button(color=type, variant='flat')= val
   :code(lang='html')
     <chi-button color="primary" variant="flat">Primary</chi-button>
     <chi-button color="dark" variant="flat">Dark</chi-button>
@@ -102,7 +101,7 @@ p.-text Buttons can be expanded to fill the parent space by applying the attribu
   | <code>fluid</code> on the <code>&lt;chi-button&gt;</code> tag.
 .example.-mb--3
   .-p--3
-    chi-button(fluid, class='-mb--2')= 'Submit'
+    chi-button.-mb--2(fluid)= 'Submit'
     chi-button(fluid, center)= 'Submit'
   :code(lang='html')
     <chi-button fluid>Submit</chi-button>
@@ -116,7 +115,7 @@ p.-text
   .-p--3.-d--flex
     chi-button(type='icon')
       chi-icon(icon='atom')
-    chi-button(variant='flat', class='-ml--2', type='icon')
+    chi-button.-ml--2(variant='flat', type='icon')
       chi-icon(icon='atom')
   :code(lang='html')
     <chi-button type="icon" >
@@ -131,13 +130,13 @@ p.-text
 h4 Labeled icon buttons
 .example.-mb--3
   .-p--3.-d--flex
-    chi-button()
+    chi-button
       chi-icon(icon='atom')
       span Button
-    chi-button(class='-mr--2 -ml--2')
+    chi-button.-mr--2.-ml--2()
       span Button
       chi-icon(icon='atom')
-    chi-button()
+    chi-button
       chi-icon(icon='atom')
       span Button
       chi-icon(icon='atom')
@@ -214,8 +213,8 @@ p.-text
 .example.-mb--3
   .-p--3.-d--flex
     .-pr--2
-      chi-button(color='danger', class='-mr--2')= 'Danger'
-      chi-button(variant='outline', color='danger', class='-mr--2')= 'Danger'
+      chi-button.-mr--2(color='danger')= 'Danger'
+      chi-button.-mr--2(variant='outline', color='danger')= 'Danger'
       chi-button(variant='flat', color='danger')= 'Danger'
   :code(lang="html")
     <chi-button color="danger">Danger</chi-button>
@@ -232,7 +231,7 @@ p.-text
       p.-text--bold.-pl--2= size
       div(class=`a-col -w--12 -pb--2 -mr--0 -d--flex`)
         chi-button(size=size)= 'Button'
-        chi-button(size=size, type='icon', class='-ml--1')
+        chi-button.-ml--2(size=size, type='icon')
           chi-icon(icon='atom')
   :code(lang='html')
     <!-- sm -->
