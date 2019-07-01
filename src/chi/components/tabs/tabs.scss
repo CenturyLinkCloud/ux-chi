@@ -41,6 +41,7 @@
           position: relative;
 
           & > .a-icon {
+            display: flex;
             color: $brand-color;
             left: 1.5rem;
           }
@@ -52,6 +53,7 @@
         position: relative;
 
         & > .a-icon {
+          display: flex;
           left: 1.5rem;
           position: absolute;
         }
@@ -93,7 +95,8 @@
 
   &:not(.-sliding) > li.-active:not(.-hasActive) > a,
   &:not(.-sliding).-animated > li.-active:not(.-hasActive) > a,
-  &:not(.-sliding).-animated .a-tabs__subtabs > li.-active:not(.-hasActive) > a{
+  &:not(.-sliding).-animated .a-tabs__subtabs > li.-active:not(.-hasActive) > a,
+  &:not(.-sliding):not(.-animated) .a-tabs__subtabs > li.-active:not(.-hasActive) > a {
     box-shadow: inset 0.125rem 0 0 $primary-color;
   }
 
@@ -201,7 +204,7 @@
       }
 
       & > a {
-        padding-left: 1.5rem;
+        padding-left: 1.5rem !important;
         position: relative;
 
         .a-icon {
@@ -209,6 +212,14 @@
           position: absolute;
         }
       }
+    }
+
+    &.-large .a-icon {
+      top: 1.5rem;
+    }
+
+    &.-lg .a-icon {
+      top: 0.75rem;
     }
   }
 
@@ -271,6 +282,18 @@
       }
     }
   }
+}
+
+chi-tab:not([active]) > *:not(chi-tab) {
+  display: none;
+}
+
+chi-tabs a:hover {
+  text-decoration: none !important;
+}
+
+.-active-children > a {
+  box-shadow: none !important;
 }
 
 .a-tabs {

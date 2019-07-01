@@ -821,18 +821,10 @@
       "postInteractionWait": "",
       "selectors": [
         ".test-horizontal",
-        ".test-vertical--",
-        ".test-vertical-activeAlt-",
-        ".test-vertical--border",
-        ".test-vertical-activeAlt-border",
-        ".test-vertical-icons--",
-        ".test-vertical-icons-activeAlt-",
-        ".test-vertical-icons--border",
-        ".test-vertical-icons-activeAlt-border",
-        ".test-multi-level--",
-        ".test-multi-level-active-",
-        ".test-multi-level--border",
-        ".test-multi-level-active-border"
+        ".test-vertical-",
+        ".test-vertical-border",
+        ".test-vertical-icons-",
+        ".test-vertical-icons-border"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,

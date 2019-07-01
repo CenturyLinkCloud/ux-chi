@@ -1,0 +1,182 @@
+---
+title: Tabs
+styles:
+  - assets/styles/tabs-ce
+---
+script(type='module' src='../../js/ce/ux-chi-ce/ux-chi-ce.esm.js')
+script(nomodule='' src='../../js/ce/ux-chi-ce/ux-chi-ce.js')
+
+p.-text
+  | Tabs are used to navigate between views within the same context.
+
+h3 Examples
+p.-text
+  | To display tabs, just place a <code>chi-tabs</code> tag and put inside as many <code>chi-tab</code> tags as 
+  | you need, giving them a <code>tab-name</code> and filling them with custom content. Apart from that, 
+  | remember to signify the active tab using <code>active</code>.
+
+h4 Horizontal
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs
+            chi-tab(tab-name='Active Tab' active)
+            chi-tab(tab-name='Tab Link')
+            chi-tab(tab-name='Tab Link')
+    :code(lang='html')
+        <chi-tabs>
+            <chi-tab tab-name="Active Tab" active></chi-tab>  
+            <chi-tab tab-name="Tab Link"></chi-tab>
+            <chi-tab tab-name="Tab Link"></chi-tab>
+        </chi-tabs>
+
+h4 Vertical
+p.-text
+  | Displaying vertical tabs is as easy as just placing a <code>vertical</code> property within <code>chi-tabs</code>. 
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(vertical)
+            chi-tab(tab-name='Active Tab' active)
+            chi-tab(tab-name='Tab Link')
+            chi-tab(tab-name='Tab Link')
+    :code(lang='html')
+        <chi-tabs vertical>
+            <chi-tab tab-name="Active Tab" active></chi-tab>  
+            <chi-tab tab-name="Tab Link"></chi-tab>
+            <chi-tab tab-name="Tab Link"></chi-tab>
+        </chi-tabs>
+
+h3 Icons
+p.-text
+  | Showing icons next to tabs is also straightforward. Using the <code>icons</code> property and setting the proper
+  | icon inside each <code>chi-tab</code> will do the trick.
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(icons)
+            chi-tab(tab-name='Active Tab' active icon='atom')
+            chi-tab(tab-name='Tab Link' icon='atom')
+            chi-tab(tab-name='Tab Link' icon='atom')
+    :code(lang='html')
+        <chi-tabs icons>
+            <chi-tab tab-name="Active Tab" active icon="atom"></chi-tab>  
+            <chi-tab tab-name="Tab Link" icon="atom"></chi-tab>
+            <chi-tab tab-name="Tab Link" icon="atom"></chi-tab>
+        </chi-tabs>
+
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(vertical icons)
+            chi-tab(tab-name='Active Tab' active icon='atom')
+            chi-tab(tab-name='Tab Link' icon='atom')
+            chi-tab(tab-name='Tab Link' icon='atom')
+    :code(lang='html')
+        <chi-tabs vertical icons>
+            <chi-tab tab-name="Active Tab" active icon="atom"></chi-tab>  
+            <chi-tab tab-name="Tab Link" icon="atom"></chi-tab>
+            <chi-tab tab-name="Tab Link" icon="atom"></chi-tab>
+        </chi-tabs>
+
+h3 Vertical Subtabs
+p.-text
+  | Users can add a second level of tabs just indenting the <code>chi-tab</code> tags.
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(vertical)
+            chi-tab(tab-name='Active tab' active)
+                chi-tab(tab-name='Subtab Link')
+                chi-tab(tab-name='Subtab Link')
+                chi-tab(tab-name='Subtab Link')
+            chi-tab(tab-name='Tab Link')
+            chi-tab(tab-name='Tab Link')
+    :code(lang='html')
+        <chi-tabs vertical>
+            <chi-tab tab-name="Active Tab" active></chi-tab>  
+                <chi-tab tab-name="Subtab Link"></chi-tab>
+                <chi-tab tab-name="Subtab Link"></chi-tab>
+                <chi-tab tab-name="Subtab Link"></chi-tab>
+            <chi-tab tab-name="Tab Link"></chi-tab> 
+            <chi-tab tab-name="Tab Link"></chi-tab>  
+        </chi-tabs>
+
+h3 Bordered
+p.-text
+  | Place a <code>bordered</code> property within <code>chi-tabs</code> to get bordered tabs.
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(bordered)
+            chi-tab(tab-name='Active Tab' active)
+            chi-tab(tab-name='Tab Link')
+            chi-tab(tab-name='Tab Link')
+    :code(lang='html')
+        <chi-tabs bordered>
+            <chi-tab tab-name="Active Tab" active></chi-tab>  
+            <chi-tab tab-name="Tab Link"></chi-tab>
+            <chi-tab tab-name="Tab Link"></chi-tab>
+        </chi-tabs>
+
+h3 Additional Sizes
+p.-text
+  | There are three possible sizes for tabs, and can be set using <code>size="sm"</code> or <code>size="lg"</code>.
+  | If not set, default size will be <code>md</code>.
+h4 Small
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(size='sm')
+            chi-tab(tab-name='Active Tab' active)
+            chi-tab(tab-name='Tab Link')
+            chi-tab(tab-name='Tab Link')
+    :code(lang='html')
+        <chi-tabs size="sm">
+            <chi-tab tab-name="Active Tab" active></chi-tab>  
+            <chi-tab tab-name="Tab Link"></chi-tab>
+            <chi-tab tab-name="Tab Link"></chi-tab>
+        </chi-tabs>
+
+h4 Large
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs(vertical size='lg')
+            chi-tab(tab-name='Active tab' active)
+                chi-tab(tab-name='Subtab Link')
+                chi-tab(tab-name='Subtab Link')
+                chi-tab(tab-name='Subtab Link')
+            chi-tab(tab-name='Tab Link')
+            chi-tab(tab-name='Tab Link')
+    :code(lang='html')
+        <chi-tabs vertical size="lg">
+            <chi-tab tab-name="Active Tab" active></chi-tab>  
+                <chi-tab tab-name="Subtab Link"></chi-tab>
+                <chi-tab tab-name="Subtab Link"></chi-tab>
+                <chi-tab tab-name="Subtab Link"></chi-tab>
+            <chi-tab tab-name="Tab Link"></chi-tab> 
+            <chi-tab tab-name="Tab Link"></chi-tab>  
+        </chi-tabs>
+
+h3 Keep default link behavior
+
+p.-text
+  | By default, tabs will ignore default link behavior. To preserve it, just specify a <code>link</code> property and
+  | a valid url.
+.example.-mb--3
+    .-p--3.-pb--4
+        chi-tabs
+            chi-tab(tab-name='Tab a' active)
+                p Tab a content
+            chi-tab(tab-name='Tab b')
+                p Tab b content
+            chi-tab(tab-name='Tab c')
+                p Tab c content
+            chi-tab(tab-name='External Link' link='https://assets.ctl.io/chi/')
+    :code(lang='html')
+        <chi-tabs>
+            <chi-tab tab-name="Tab a" active>
+                <p>Tab a content</p>
+            </chi-tab> 
+            <chi-tab tab-name="Tab b">
+                <p>Tab b content</p>
+            </chi-tab> 
+            <chi-tab tab-name="Tab c">
+                <p>Tab c content</p>
+            </chi-tab>
+            <chi-tab tab-name="External Link" link="https://assets.ctl.io/chi/">
+            </chi-tab>    
+        </chi-tabs>

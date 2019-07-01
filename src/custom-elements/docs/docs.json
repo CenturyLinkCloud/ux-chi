@@ -1,5 +1,5 @@
 {
-  "timestamp": "2019-07-15T13:57:09",
+  "timestamp": "2019-07-15T16:27:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.1.6",
@@ -1074,6 +1074,180 @@
         }
       ],
       "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": []
+    },
+    {
+      "tag": "chi-tab",
+      "encapsulation": "scoped",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "active",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "link",
+          "type": "string",
+          "mutable": true,
+          "attr": "link",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'#0'",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "subtabsGroup",
+          "type": "any[]",
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[]",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "tabName",
+          "type": "string",
+          "mutable": false,
+          "attr": "tab-name",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addSubtab",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "addSubtab(tab: any) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "removeSubtab",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "removeSubtab(tab: any) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "styles": [],
+      "slots": []
+    },
+    {
+      "tag": "chi-tabs",
+      "encapsulation": "scoped",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "bordered",
+          "reflectToAttr": true,
+          "docs": "used to render a border under tabs",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "icons",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "icons",
+          "reflectToAttr": true,
+          "docs": "used to set an icon next to the tab name",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "used to set tabs size in terms of the space a tab occupies",
+          "docsTags": [],
+          "default": "'md'",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "vertical",
+          "reflectToAttr": true,
+          "docs": "used to distribute tabs vertically",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addTab",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "addTab(tab: any) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "removeTab",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "removeTab(tab: any) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "styles": [],
       "slots": []

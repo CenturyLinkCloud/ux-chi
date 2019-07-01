@@ -1,0 +1,126 @@
+---
+title: Tabs
+styles:
+  - assets/styles/tabs-ce
+---
+script(type='module' src='../../js/ce/ux-chi-ce/ux-chi-ce.esm.js')
+script(nomodule='' src='../../js/ce/ux-chi-ce/ux-chi-ce.js')
+
+.test-horizontal
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs small base`
+        else if (size === '')
+            h4= `Tabs medium base`
+        else
+            h4= `Tabs large base`
+        chi-tabs(size=`${size}` data-cy='test-horizontal')
+            chi-tab(tab-name='Active tab' active)
+            chi-tab(tab-name='Tab link')
+            chi-tab(tab-name='Tab link')
+
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs small border`
+        else if (size === '')
+            h4= `Tabs medium border`
+        else
+            h4= `Tabs large border`
+        chi-tabs(size=`${size}` bordered data-cy='test-horizontal-bordered')
+            chi-tab(tab-name='Active tab' active)
+            chi-tab(tab-name='Tab link')
+            chi-tab(tab-name='Tab link')
+
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs small base icons`
+        else if (size === '')
+            h4= `Tabs medium base icons`
+        else
+            h4= `Tabs large base icons`
+        chi-tabs(size=`${size}` icons data-cy='test-horizontal-icons')
+            chi-tab(tab-name='Active tab' active icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs small border icons`
+        else if (size === '')
+            h4= `Tabs medium border icons`
+        else
+            h4= `Tabs large border icons`
+        chi-tabs(size=`${size}` icons bordered data-cy='test-horizontal-bordered-icons')
+            chi-tab(tab-name='Active tab' active icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+
+h2 vertical
+
+div(class=`test-vertical-`)
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs vertical small`
+        else if (size === '')
+            h4= `Tabs vertical medium`
+        else
+            h4= `Tabs vertical large`
+        chi-tabs(vertical size=`${size}` data-cy='test-vertical')
+            chi-tab(tab-name='Active tab' active)
+                chi-tab(tab-name='Buttons')
+                chi-tab(tab-name='Button Groups')
+                chi-tab(tab-name='Cards')
+            chi-tab(tab-name='Tab link')
+            chi-tab(tab-name='Tab link')
+            chi-tab(tab-name='Tab link')
+
+div(class=`test-vertical-border`)
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs vertical small border`
+        else if (size === '')
+            h4= `Tabs vertical medium border`
+        else
+            h4= `Tabs vertical large border`
+        chi-tabs(vertical bordered size=`${size}` data-cy='test-vertical-bordered')
+            chi-tab(tab-name='Active tab' active)
+                chi-tab(tab-name='Buttons')
+                chi-tab(tab-name='Button Groups')
+                chi-tab(tab-name='Cards')
+            chi-tab(tab-name='Tab link')
+            chi-tab(tab-name='Tab link')
+            chi-tab(tab-name='Tab link')
+
+div(class=`test-vertical-icons-`)
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs vertical icons small`
+        else if (size === '')
+            h4= `Tabs vertical icons medium`
+        else
+            h4= `Tabs vertical icons large`
+        chi-tabs(vertical icons size=`${size}` data-cy='test-vertical-icons')
+            chi-tab(tab-name='Active tab' active icon='atom')
+                chi-tab(tab-name='Buttons')
+                chi-tab(tab-name='Button Groups')
+                chi-tab(tab-name='Cards')
+            chi-tab(tab-name='Tab link' icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+
+div(class=`test-vertical-icons-border`)
+    each size in ['sm', '', 'lg']
+        if (size === 'sm')
+            h4= `Tabs vertical icons small border`
+        else if (size === '')
+            h4= `Tabs vertical icons medium border`
+        else
+            h4= `Tabs vertical icons large border`
+        chi-tabs(vertical icons bordered size=`${size}` data-cy='test-vertical-bordered-icons')
+            chi-tab(tab-name='Active tab' active icon='atom')
+                chi-tab(tab-name='Buttons')
+                chi-tab(tab-name='Button Groups')
+                chi-tab(tab-name='Cards')
+            chi-tab(tab-name='Tab link' icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')
+            chi-tab(tab-name='Tab link' icon='atom')

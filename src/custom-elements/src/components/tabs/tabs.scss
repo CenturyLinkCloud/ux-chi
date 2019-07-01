@@ -1,0 +1,6 @@
+@import 'components/icons/webfont-font-face';
+:host(chi-tabs) {
+    @import '../../global/styles/common';
+    @import 'components/tabs/tabs';
+    @import 'components/icons/webfont-icons';
+}
