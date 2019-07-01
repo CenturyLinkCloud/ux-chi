@@ -397,7 +397,7 @@
       }
 
       & > a {
-        padding-left: 1.5rem;
+        padding-left: 1.5rem !important;
         position: relative;
 
         .chi-icon {
@@ -405,6 +405,14 @@
           position: absolute;
         }
       }
+    }
+
+    &.-large .a-icon {
+      top: 1.5rem;
+    }
+
+    &.-lg .a-icon {
+      top: 0.75rem;
     }
   }
 

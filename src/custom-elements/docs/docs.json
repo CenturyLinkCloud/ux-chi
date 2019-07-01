@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "timestamp": "2021-01-19T13:27:17",
+=======
+  "timestamp": "2019-07-15T16:27:29",
+>>>>>>> Tabs CE version: component, documentation,  test pages, backstop tests, e2e tests
   "compiler": {
     "name": "@stencil/core",
     "version": "1.8.9",
