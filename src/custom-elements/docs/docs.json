@@ -1,9 +1,9 @@
 {
-  "timestamp": "2019-07-09T20:18:40",
+  "timestamp": "2019-07-15T13:57:09",
   "compiler": {
     "name": "@stencil/core",
-    "version": "0.16.4",
-    "typescriptVersion": "3.2.2"
+    "version": "1.1.6",
+    "typescriptVersion": "3.5.2"
   },
   "components": [
     {
@@ -71,7 +71,8 @@
       ],
       "methods": [],
       "events": [],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-brand",
@@ -105,7 +106,8 @@
       ],
       "methods": [],
       "events": [],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-button",
@@ -230,7 +232,114 @@
           "docsTags": []
         }
       ],
-      "styles": []
+      "styles": [],
+      "slots": []
+    },
+    {
+      "tag": "chi-date",
+      "encapsulation": "scoped",
+      "readme": "# chi-date\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "format",
+          "type": "string",
+          "mutable": false,
+          "attr": "format",
+          "reflectToAttr": true,
+          "docs": "Date format used in the attributes and how it will be shown to the user.",
+          "docsTags": [],
+          "default": "'MM/DD/YYYY'",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "mutable": false,
+          "attr": "locale",
+          "reflectToAttr": true,
+          "docs": "Locale to use in date picker",
+          "docsTags": [],
+          "default": "'en'",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": true,
+          "docs": "Maximum eligible date",
+          "docsTags": [],
+          "default": "'12/31/2099'",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": true,
+          "docs": "Minimum eligible date",
+          "docsTags": [],
+          "default": "'01/01/1900'",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": true,
+          "docs": "Selected date in the date picker",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getDate",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "signature": "getDate() => Promise<string>",
+          "parameters": [],
+          "docs": "Gets date",
+          "docsTags": []
+        },
+        {
+          "name": "setDate",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setDate(date: any) => Promise<void>",
+          "parameters": [],
+          "docs": "Sets date",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "chiDateChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Date change value event",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-date-picker",
@@ -327,134 +436,18 @@
         {
           "name": "setDate",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "setDate(date: any) => void",
-          "parameters": [
-            {
-              "name": "date",
-              "type": "any",
-              "docs": ""
-            }
-          ],
+          "signature": "setDate(date: any) => Promise<void>",
+          "parameters": [],
           "docs": "Sets date",
           "docsTags": []
         }
       ],
       "events": [],
-      "styles": []
-    },
-    {
-      "tag": "chi-date",
-      "encapsulation": "scoped",
-      "readme": "# chi-date\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "format",
-          "type": "string",
-          "mutable": false,
-          "attr": "format",
-          "reflectToAttr": true,
-          "docs": "Date format used in the attributes and how it will be shown to the user.",
-          "docsTags": [],
-          "default": "'MM/DD/YYYY'",
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "locale",
-          "type": "string",
-          "mutable": false,
-          "attr": "locale",
-          "reflectToAttr": true,
-          "docs": "Locale to use in date picker",
-          "docsTags": [],
-          "default": "'en'",
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "max",
-          "type": "string",
-          "mutable": false,
-          "attr": "max",
-          "reflectToAttr": true,
-          "docs": "Maximum eligible date",
-          "docsTags": [],
-          "default": "'12/31/2099'",
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "min",
-          "type": "string",
-          "mutable": false,
-          "attr": "min",
-          "reflectToAttr": true,
-          "docs": "Minimum eligible date",
-          "docsTags": [],
-          "default": "'01/01/1900'",
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "value",
-          "type": "string",
-          "mutable": true,
-          "attr": "value",
-          "reflectToAttr": true,
-          "docs": "Selected date in the date picker",
-          "docsTags": [],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getDate",
-          "returns": {
-            "type": "Promise<string>",
-            "docs": ""
-          },
-          "signature": "getDate() => Promise<string>",
-          "parameters": [],
-          "docs": "Gets date",
-          "docsTags": []
-        },
-        {
-          "name": "setDate",
-          "returns": {
-            "type": "void",
-            "docs": ""
-          },
-          "signature": "setDate(date: any) => void",
-          "parameters": [
-            {
-              "name": "date",
-              "type": "any",
-              "docs": ""
-            }
-          ],
-          "docs": "Sets date",
-          "docsTags": []
-        }
-      ],
-      "events": [
-        {
-          "event": "chiDateChange",
-          "detail": "void",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "Date change value event",
-          "docsTags": []
-        }
-      ],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-drawer",
@@ -535,10 +528,10 @@
         {
           "name": "hide",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "hide() => void",
+          "signature": "hide() => Promise<void>",
           "parameters": [],
           "docs": "Hides the drawer",
           "docsTags": []
@@ -546,10 +539,10 @@
         {
           "name": "show",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "show() => void",
+          "signature": "show() => Promise<void>",
           "parameters": [],
           "docs": "Shows the drawer.",
           "docsTags": []
@@ -557,10 +550,10 @@
         {
           "name": "toggle",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "toggle() => void",
+          "signature": "toggle() => Promise<void>",
           "parameters": [],
           "docs": "Toggles active state (show/hide)",
           "docsTags": []
@@ -569,7 +562,7 @@
       "events": [
         {
           "event": "chiDrawer:hidden",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -578,7 +571,7 @@
         },
         {
           "event": "chiDrawer:hide",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -587,7 +580,7 @@
         },
         {
           "event": "chiDrawer:show",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -596,7 +589,7 @@
         },
         {
           "event": "chiDrawer:shown",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -604,7 +597,8 @@
           "docsTags": []
         }
       ],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-expansion-panel",
@@ -661,7 +655,8 @@
       ],
       "methods": [],
       "events": [],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-icon",
@@ -707,7 +702,8 @@
       ],
       "methods": [],
       "events": [],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-number-input",
@@ -843,7 +839,8 @@
           "docsTags": []
         }
       ],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-popover",
@@ -914,10 +911,10 @@
         {
           "name": "hide",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "hide() => void",
+          "signature": "hide() => Promise<void>",
           "parameters": [],
           "docs": "Hides the popover",
           "docsTags": []
@@ -925,10 +922,10 @@
         {
           "name": "show",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "show() => void",
+          "signature": "show() => Promise<void>",
           "parameters": [],
           "docs": "Shows the popover.",
           "docsTags": []
@@ -936,10 +933,10 @@
         {
           "name": "toggle",
           "returns": {
-            "type": "void",
+            "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "toggle() => void",
+          "signature": "toggle() => Promise<void>",
           "parameters": [],
           "docs": "Toggles active state (show/hide)",
           "docsTags": []
@@ -948,7 +945,7 @@
       "events": [
         {
           "event": "chiPopover:hidden",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -957,7 +954,7 @@
         },
         {
           "event": "chiPopover:hide",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -966,7 +963,7 @@
         },
         {
           "event": "chiPopover:show",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -975,7 +972,7 @@
         },
         {
           "event": "chiPopover:shown",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -983,7 +980,8 @@
           "docsTags": []
         }
       ],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-progress",
@@ -1030,7 +1028,8 @@
       ],
       "methods": [],
       "events": [],
-      "styles": []
+      "styles": [],
+      "slots": []
     },
     {
       "tag": "chi-spinner",
@@ -1076,7 +1075,8 @@
       ],
       "methods": [],
       "events": [],
-      "styles": []
+      "styles": [],
+      "slots": []
     }
   ]
 }

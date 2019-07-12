@@ -20,7 +20,6 @@ describe('Number input', function() {
       cy.get(button)
         .click()
         .then(() => {
-          expect(spy).to.be.called;
           expect(spy.getCall(0).args[0].detail).to.equal(value);
         });
   };
