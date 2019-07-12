@@ -387,6 +387,9 @@ export class Popover {
       const cb = this._didUpdateCallBackOnceQueue.shift();
       cb();
     }
+    if (this._animationClasses === '') {
+      this.el.firstElementChild.classList.remove('-active');
+    }
   }
 
   preventAutoClose() {
