@@ -1,5 +1,5 @@
 {
-  "timestamp": "2019-07-15T16:27:29",
+  "timestamp": "2019-07-18T15:45:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.1.6",
@@ -1091,7 +1091,7 @@
           "mutable": true,
           "attr": "active",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "used to set the active state of a tab",
           "docsTags": [],
           "default": "false",
           "optional": false,
@@ -1103,7 +1103,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "used to store the icon of a tab",
           "docsTags": [],
           "optional": false,
           "required": false
@@ -1114,7 +1114,7 @@
           "mutable": true,
           "attr": "link",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "used to store the link of the tab",
           "docsTags": [],
           "default": "'#0'",
           "optional": false,
@@ -1123,9 +1123,9 @@
         {
           "name": "subtabsGroup",
           "type": "any[]",
-          "mutable": true,
+          "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "used to store the subtabs of a tab (if any)",
           "docsTags": [],
           "default": "[]",
           "optional": false,
@@ -1137,7 +1137,7 @@
           "mutable": false,
           "attr": "tab-name",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "used to store the name of the tab",
           "docsTags": [],
           "optional": false,
           "required": false
@@ -1248,7 +1248,17 @@
           "docsTags": []
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "event": "chiChange",
+          "detail": "Tab",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": []
     }

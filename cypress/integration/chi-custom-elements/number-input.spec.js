@@ -2,26 +2,18 @@
 
 describe('Number input', function() {
 
-  const spyCheck = function(element, button, value, type=false, typeElement=null, typevalue=undefined) {
-    
-    const spy = cy.spy();
-      
-      cy.get(element)
-        .then((el) => {
-          el.on('chiChange', spy);
-        });
+  const valueCheck = function(button, value, input, type=false, typevalue=undefined) {
 
       if (type) {
-        cy.get(typeElement)
+        cy.get(input)
         .clear()
         .type(typevalue);
       }
 
       cy.get(button)
-        .click()
-        .then(() => {
-          expect(spy.getCall(0).args[0].detail).to.equal(value);
-        });
+        .click();
+
+      cy.get(input).should('have.value', value);
   };
 
   const checkComponent = function(element, classToCheck) {
@@ -75,17 +67,17 @@ describe('Number input', function() {
 
     it('Clicking arrow-up button sends a value increment event. ', function() {
 
-      spyCheck('@base_number_input', '@plus_button', '1');
+      valueCheck('@plus_button', '1', '@input');
     });
 
     it('Clicking arrow-down button sends a value decrement event. ', function() {
 
-      spyCheck('@base_number_input', '@minus_button', '-1');
+      valueCheck('@minus_button', '-1', '@input');
     });
 
     it('Setting a value manually in the input must be allowed as a base number. ', function() {
 
-      spyCheck('@base_number_input', '@plus_button', '56', true, '@input', '55');
+      valueCheck('@plus_button', '56', '@input', true, '55');
     });
   });
 
@@ -105,17 +97,17 @@ describe('Number input', function() {
 
     it('Clicking arrow-up button sends a value increment event. ', function() {
 
-      spyCheck('@expanded_number_input', '@expanded_plus_button', '1');
+      valueCheck('@expanded_plus_button', '1', '@expanded_input');
     });
 
     it('Clicking arrow-down button sends a value decrement event. ', function() {
 
-      spyCheck('@expanded_number_input', '@expanded_minus_button', '-1');
+      valueCheck('@expanded_minus_button', '-1', '@expanded_input');
     });
 
     it('Setting a value manually in the input must be allowed as a base number. ', function() {
 
-      spyCheck('@expanded_number_input', '@expanded_minus_button', '3', true, '@expanded_input', '3.3');
+      valueCheck('@expanded_minus_button', '3', '@expanded_input', true, '3.3');
     });
   });
 });
