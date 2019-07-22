@@ -23,22 +23,22 @@ export class Tabs {
   /**
    * used to set an icon next to the tab name
    */
-  @Prop({ reflectToAttr: true }) icons: boolean;
+  @Prop({ reflect: true }) icons: boolean;
 
   /**
    * used to distribute tabs vertically
    */
-  @Prop({ reflectToAttr: true }) vertical: boolean;
+  @Prop({ reflect: true }) vertical: boolean;
 
   /**
    * used to render a border under tabs
    */
-  @Prop({ reflectToAttr: true }) bordered: boolean;
+  @Prop({ reflect: true }) bordered: boolean;
 
   /**
    * used to set tabs size in terms of the space a tab occupies
    */
-  @Prop({ reflectToAttr: true }) size = 'md';
+  @Prop({ reflect: true }) size = 'md';
 
   /**
    * current HTMLElement

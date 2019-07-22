@@ -1,4 +1,4 @@
-import { Component, Element, Method, Prop } from '@stencil/core';
+import { Component, Element, Method, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'chi-tab',
@@ -9,32 +9,37 @@ export class Tab {
   /**
    * used to store the name of the tab
    */
-  @Prop({ reflectToAttr: true }) tabName: string;
+  @Prop({ reflect: true }) tabName: string;
 
   /**
    * used to store the link of the tab
    */
-  @Prop({ mutable: true, reflectToAttr: true }) link = '#0';
+  @Prop({ mutable: true, reflect: true }) link = '#0';
 
   /**
    * used to set the active state of a tab
    */
-  @Prop({ mutable: true, reflectToAttr: true }) active = false;
+  @Prop({ mutable: true, reflect: true }) active = false;
 
   /**
    * used to store the icon of a tab
    */
-  @Prop({ reflectToAttr: true }) icon: string;
+  @Prop({ reflect: true }) icon: string;
 
   /**
    * used to store the subtabs of a tab (if any)
    */
-  @Prop({ reflectToAttr: true }) subtabsGroup: any[] = [];
+  @Prop({ reflect: true }) subtabsGroup: any[] = [];
 
   /**
    * current HTMLElement
    */
   @Element() el: HTMLElement;
+
+  /**
+   * parent of current tab
+   */
+  @State() parent: any;
 
   @Method()
   async addSubtab(tab) {
@@ -50,14 +55,21 @@ export class Tab {
 
   connectedCallback() {
     if (this.el.parentElement.nodeName === 'CHI-TAB') {
-      const parent: HTMLChiTabElement = this.el.parentElement as any;
+      const innerParent: HTMLChiTabElement = this.el.parentElement as any;
 
-      parent.addSubtab(this.el);
+      this.parent = innerParent;
+      this.parent.addSubtab(this.el);
     } else if (this.el.parentElement.parentElement.nodeName === 'CHI-TABS') {
-      const parent: HTMLChiTabsElement = this.el.parentElement
+      const innerParent: HTMLChiTabsElement = this.el.parentElement
         .parentElement as any;
 
-      parent.addTab(this.el);
+      this.parent = innerParent;
+      this.parent.addTab(this.el);
+    } else if (this.el.parentElement.nodeName === 'CHI-TABS') {
+      const innerParent: HTMLChiTabsElement = this.el.parentElement as any;
+
+      this.parent = innerParent;
+      this.parent.addTab(this.el);
     } else {
       throw new Error(
         `This tab does not have a valid parent. It can only be a descendant of a chi-tabs element or of another chi-tab. `
@@ -66,15 +78,10 @@ export class Tab {
   }
 
   disconnectedCallback() {
-    if (this.el.parentElement.nodeName === 'CHI-TAB') {
-      const parent: HTMLChiTabElement = this.el.parentElement as any;
-
-      parent.removeSubtab(this.el);
-    } else if (this.el.parentElement.parentElement.nodeName === 'CHI-TABS') {
-      const parent: HTMLChiTabsElement = this.el.parentElement
-        .parentElement as any;
-
-      parent.removeTab(this.el);
+    if (this.parent.nodeName === 'CHI-TAB') {
+      this.parent.removeSubtab(this.el);
+    } else if (this.parent.nodeName === 'CHI-TABS') {
+      this.parent.removeTab(this.el);
     } else {
       throw new Error(
         `This tab does not have a valid parent. It can only be a descendant of a chi-tabs element or of another chi-tab. `

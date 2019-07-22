@@ -38,6 +38,29 @@ describe('Tabs', function() {
             checkComponent('[data-cy="test-horizontal-bordered-icons"]', '-border');
             checkComponent('[data-cy="test-horizontal-bordered-icons"]', '-icons');
         });
+
+        it('Tabs custom element should change active tab when another one is clicked. ', () => {
+
+            cy.get('[data-cy="test-horizontal"]')
+                .first()
+                .find('li', { timeout: 5000 })
+                .as('chi-tabs');
+
+            cy.get('@chi-tabs')
+                .first()
+                .as('first-tab');
+
+            cy.get('@chi-tabs')
+                .eq(1)
+                .as('second-tab');
+
+            cy.get('@first-tab')
+                .should('have.class', '-active');
+
+            cy.get('@second-tab')
+                .click()
+                .should('have.class', '-active');
+        });
     });
   
     describe('Vertical Tabs', function() {
@@ -61,6 +84,30 @@ describe('Tabs', function() {
 
             checkComponent('[data-cy="test-vertical-bordered-icons"]', '-border');
             checkComponent('[data-cy="test-vertical-bordered-icons"]', '-icons');
+        });
+
+        it('Vertical Tabs custom element should change active tab when another one is clicked. ', () => {
+
+            cy.get('[data-cy="test-vertical"]')
+                .first()
+                .find('li', { timeout: 5000 })
+                .should('exist')
+                .as('chi-vertical-tabs');
+
+            cy.get('@chi-vertical-tabs')
+                .first()
+                .as('first-vertical-tab');
+
+            cy.get('@chi-vertical-tabs')
+                .eq(1)
+                .as('second-vertical-tab');
+
+            cy.get('@first-vertical-tab')
+                .should('have.class', '-active');
+
+            cy.get('@second-vertical-tab')
+                .click()
+                .should('have.class', '-active');
         });
     });
   });
