@@ -186,7 +186,7 @@
       "referenceUrl": "",
       "readyEvent": "backstop_ready",
       "readySelector": "",
-      "delay": 20000,
+      "delay": 25000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
