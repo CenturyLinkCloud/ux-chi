@@ -5,6 +5,9 @@
   display: inline-block;
   &[backdrop] {
     .a-backdrop {
+      align-items: center;
+      display: flex;
+      justify-content: center;
       position: absolute;
     }
   }
