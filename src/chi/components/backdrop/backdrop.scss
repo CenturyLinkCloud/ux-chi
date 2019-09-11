@@ -2,13 +2,11 @@
 @import '_variables';
 
 .a-backdrop {
-  align-items: center;
   background-color: rgba(set-color(black), 0.65);
   bottom: 0;
-  display: flex;
-  justify-content: center;
   left: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 0 0.5rem;
   position: fixed;
   right: 0;
