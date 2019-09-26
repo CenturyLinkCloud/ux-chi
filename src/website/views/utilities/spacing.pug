@@ -43,6 +43,7 @@ ul.-text
   li <code>9</code> - use to set <code>margin</code> or <code>padding</code> to <code>$base-unit * 9</code>
   li <code>10</code> - use to set <code>margin</code> or <code>padding</code> to <code>$base-unit * 10</code>
   li <code>auto</code> - use to set <code>margin</code> to <code>auto</code> value
+  li <code>half</code> - use to set <code>margin</code> to <code>$base-unit / 2</code> value
 
 h3 Examples
 h4 Margins
@@ -53,12 +54,15 @@ p.-text
   .-p--3
     .a-grid.-noGutter
       .-mr--3(style="background:#E6F0FF;border:1px dashed #2973E3;align-self:flex-start;")
+        .-m--half(style="width:3rem;height:3rem;background:#F74F87;")
+      .-mr--3(style="background:#E6F0FF;border:1px dashed #2973E3;align-self:flex-start;")
         .-m--2(style="width:3rem;height:3rem;background:#F74F87;")
       .-mr--3(style="background:#E6F0FF;border:1px dashed #2973E3;align-self:flex-start;")
         .-m--4(style="width:3rem;height:3rem;background:#F74F87;")
       .-mr--3(style="background:#E6F0FF;border:1px dashed #2973E3;align-self:flex-start;")
         .-m--6(style="width:3rem;height:3rem;background:#F74F87;")
   :code(lang="html")
+    <div class="-m--half"></div>
     <div class="-m--2"></div>
     <div class="-m--4"></div>
     <div class="-m--6"></div>
@@ -102,6 +106,8 @@ p.-text
 .example.-mb--3
   .-p--3
     .a-grid.-noGutter
+      .-p--half.-mr--3(style="background:#FAECD9;border:1px dashed #C97D12;align-self:flex-start;")
+        div(style="width:3rem;height:3rem;background:#F74F87;")
       .-p--2.-mr--3(style="background:#FAECD9;border:1px dashed #C97D12;align-self:flex-start;")
         div(style="width:3rem;height:3rem;background:#F74F87;")
       .-p--4.-mr--3(style="background:#FAECD9;border:1px dashed #C97D12;align-self:flex-start;")
@@ -109,6 +115,7 @@ p.-text
       .-p--6.-mr--3(style="background:#FAECD9;border:1px dashed #C97D12;align-self:flex-start;")
         div(style="width:3rem;height:3rem;background:#F74F87;")
   :code(lang="html")
+    <div class="-p--half"></div>
     <div class="-p--2"></div>
     <div class="-p--4"></div>
     <div class="-p--6"></div>

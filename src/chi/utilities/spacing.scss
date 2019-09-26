@@ -7,8 +7,8 @@ $attributes: (
 );
 
 $values: (
-  margin: 0 1 2 3 4 5 6 7 8 9 10 auto,
-  padding: 0 1 2 3 4 5 6 7 8 9 10
+  margin: 0 1 2 3 4 5 6 7 8 9 10 auto half,
+  padding: 0 1 2 3 4 5 6 7 8 9 10 half
 );
 
 $positions: (
@@ -34,21 +34,39 @@ $screen-sizes-prefixes: (
     @each $position, $pos-suffix in $positions {
       @if ($position == a) {
         .-#{$attr-prefix}#{$size-infix}--#{$index} {
-          #{$attribute}: if($index == 'auto', $index, ($index / 2) + rem !important);
+          @if ($index == half) {
+            #{$attribute}: 0.25rem !important;
+          } @else {
+            #{$attribute}: if($index == 'auto', $index, ($index / 2)+ rem !important);
+          }
         }
       } @else if ($position == x) {
         .-#{$attr-prefix}#{$position}#{$size-infix}--#{$index} {
-          #{$attribute}-left: if($index == 'auto', $index, ($index / 2) + rem !important);
-          #{$attribute}-right: if($index == 'auto', $index, ($index / 2) + rem !important);
+          @if ($index == half) {
+            #{$attribute}-left: 0.25rem !important;
+            #{$attribute}-right: 0.25rem !important;
+          } @else {
+            #{$attribute}-left: if($index == 'auto', $index, ($index / 2)+ rem !important);
+            #{$attribute}-right: if($index == 'auto', $index, ($index / 2)+ rem !important);
+          }
         }
       } @else if ($position == y) {
         .-#{$attr-prefix}#{$position}#{$size-infix}--#{$index} {
-          #{$attribute}-bottom: if($index == 'auto', $index, ($index / 2) + rem !important);
-          #{$attribute}-top: if($index == 'auto', $index, ($index / 2) + rem !important);
+          @if ($index == half) {
+            #{$attribute}-bottom: 0.25rem !important;
+            #{$attribute}-top: 0.25rem !important;
+          } @else {
+            #{$attribute}-bottom: if($index == 'auto', $index, ($index / 2)+ rem !important);
+            #{$attribute}-top: if($index == 'auto', $index, ($index / 2)+ rem !important);
+          }
         }
-      } @else {
+        } @else {
         .-#{$attr-prefix}#{$position}#{$size-infix}--#{$index} {
-          #{$attribute}#{$pos-suffix}: if($index == 'auto', $index, ($index / 2) + rem !important);
+          @if ($index == half) {
+            #{$attribute}#{$pos-suffix}: 0.25rem !important;
+          } @else {
+            #{$attribute}#{$pos-suffix}: if($index == 'auto', $index, ($index / 2) + rem !important);
+          }
         }
       }
     }
