@@ -37,6 +37,23 @@ h4 With Label
       <input type="text" class="a-input" id="example" placeholder="Placeholder">
     </div>
 
+h4 With Label and icon
+.example.-mb--3
+  .-p--3
+    .m-formGroup.-labeled(style="max-width:20rem")
+      .m-label__wrapper
+        label.a-label(for='example') Label
+        i.a-icon.icon-circle-info-outline.-text--muted
+      input(type="text", class="a-input", id='example', placeholder="Placeholder")
+  :code(lang="html")
+    <div class="m-formGroup -labeled">
+      <div class="m-label__wrapper">
+        <label class="a-label" for="example">Label</label>
+        <i class="a-icon icon-circle-info-outline -text--muted"></i>
+      </div>
+      <input class="a-input" id="example" type="text" placeholder="Placeholder" />
+    </div>
+
 h3 Icons
 p.-text
   | To add icons to a text input, wrap the input in a <code>div</code> using the class

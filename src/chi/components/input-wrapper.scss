@@ -48,4 +48,17 @@ $border: 0.0625rem;
       }
     }
   }
+  & .m-label__wrapper {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: indigo;
+    label {
+      margin-bottom: 0;
+    }
+    .a-icon {
+      margin-left: 0.5rem;
+    }
+  }
 }
