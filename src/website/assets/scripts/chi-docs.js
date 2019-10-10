@@ -212,7 +212,6 @@ onLoad(() => {
     }
   }
 
-  checkChiCurrentVersion("1.2.3");
   function checkChiCurrentVersion(currentVersion) {
       if (window.chiCurrentVersion.toString() !== currentVersion.toString()) {
         var docsContainerSelector = document.querySelector('.docs-container');
