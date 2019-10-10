@@ -114,11 +114,12 @@ class Modal extends Component {
   
   getElementHeight(el) {
     let height;
-    
     const clone = el.cloneNode(true);
+
     document.body.append(clone);
     height = parseInt(window.getComputedStyle(clone).getPropertyValue('height').replace("px", ""));
     clone.remove();
+    
     return height;
   }
 
