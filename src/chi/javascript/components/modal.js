@@ -7,6 +7,7 @@ const CLOSE_TRIGGER_SELECTOR = '[data-dismiss="modal"]';
 const COMPONENT_SELECTOR = '.a-modal__trigger';
 const COMPONENT_TYPE = "modal";
 const DISABLE_SCROLL = '-disableScroll';
+const LONG_CONTENT_ALIGNER = '-long-content-aligner';
 const ESCAPE_KEYCODE = 27;
 const EVENTS = {
   show: 'chi.modal.show',
@@ -110,9 +111,21 @@ class Modal extends Component {
       return null;
     }
   }
+  
+  getElementHeight(el) {
+    const clone = el.cloneNode(true);
+    document.body.append(clone);
+    var height = parseInt(window.getComputedStyle(clone).getPropertyValue('height').replace("px", ""));
+    clone.remove();
+    return height;
+  }
 
   show() {
     Util.addClass(document.body, DISABLE_SCROLL);
+    if(this.getElementHeight(this._modalElem) >= window.innerHeight) {
+      Util.addClass(this._backdrop, LONG_CONTENT_ALIGNER);
+    }
+    
     if (!this._shown) {
       if (this._transitioning) {
         Util.stopThreeStepsAnimation(this._currentThreeStepsAnimation, false);

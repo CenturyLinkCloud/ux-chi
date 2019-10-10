@@ -7,6 +7,15 @@ $animation-duration: 0.5s;
   overflow: hidden;
 }
 
+.-long-content-aligner {
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  & .a-modal {
+    margin-top: 1rem;
+  }
+}
+
 .a-modal {
   background-color: set-color(white);
   border-radius: $border-radius;
