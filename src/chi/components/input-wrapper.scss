@@ -49,12 +49,11 @@ $border: 0.0625rem;
     }
   }
   & .m-label__wrapper {
-    margin-bottom: 0.5rem;
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: start;
-    color: indigo;
-    label {
+    margin-bottom: 0.5rem;
+    .a-label {
       margin-bottom: 0;
     }
     .a-icon {
