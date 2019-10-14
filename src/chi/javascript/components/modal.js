@@ -7,7 +7,7 @@ const CLOSE_TRIGGER_SELECTOR = '[data-dismiss="modal"]';
 const COMPONENT_SELECTOR = '.a-modal__trigger';
 const COMPONENT_TYPE = "modal";
 const DISABLE_SCROLL = '-disableScroll';
-const LONG_CONTENT_ALIGNER = '-long-content-aligner';
+const ALIGN_ITEMS_START = '-align-items--start -py--4';
 const ESCAPE_KEYCODE = 27;
 const EVENTS = {
   show: 'chi.modal.show',
@@ -111,24 +111,10 @@ class Modal extends Component {
       return null;
     }
   }
-  
-  getElementHeight(el) {
-    let height;
-    const clone = el.cloneNode(true);
-
-    document.body.append(clone);
-    height = parseInt(window.getComputedStyle(clone).getPropertyValue('height').replace("px", ""));
-    clone.remove();
-    
-    return height;
-  }
 
   show() {
     Util.addClass(document.body, DISABLE_SCROLL);
-    if(this.getElementHeight(this._modalElem) >= window.innerHeight) {
-      Util.addClass(this._backdrop, LONG_CONTENT_ALIGNER);
-    }
-    
+
     if (!this._shown) {
       if (this._transitioning) {
         Util.stopThreeStepsAnimation(this._currentThreeStepsAnimation, false);
@@ -141,6 +127,9 @@ class Modal extends Component {
             Util.addClass(self._modalElem, chi.classes.TRANSITIONING);
             if (self._backdrop) {
               Util.addClass(self._backdrop, chi.classes.TRANSITIONING);
+              if(Util.calculateExternalHeight(self._modalElem) >= window.innerHeight) {
+                Util.addClass(self._backdrop, ALIGN_ITEMS_START);
+              }
             }
           },
           function(){
