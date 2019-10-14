@@ -39,29 +39,6 @@ header.o-header.-inverse.docs-header.-z--20
           a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.9.0') v0.9.0
           a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.8.3') v0.8.3
           a.m-dropdown__menu-item(href='https://assets.ctl.io/chi/0.8.2') v0.8.2
-      script.
-        if (localStorage.getItem("chiVersions") !== null) {
-          if (JSON.parse(localStorage.getItem("chiVersions"))[0] !== window.chiCurrentVersion) {
-            var drop = document.getElementById('versionDropdown');
-            var versions = JSON.parse(localStorage.getItem("chiVersions"));
-            var docsContainerSelector = document.getElementById('docs-container');
-
-            while (drop.childNodes.length > 0) {
-                drop.removeChild(drop.firstChild);
-            }
-
-            for (let version in versions) {
-              var versionAnchor = document.createElement('a');
-              
-              versionAnchor.setAttribute("href", "https://assets.ctl.io/chi/"+versions[version]);
-              versionAnchor.setAttribute("class", "m-dropdown__menu-item");
-              versionAnchor.innerText = "v" + versions[version];
-              drop.appendChild(versionAnchor);
-            }
-            
-            docsContainerSelector.classList.add("outdated-version");
-          }
-        }
       .m-dropdown
         button.a-btn.-flat.-light.-px--1.-ml--1.m-dropdown__trigger(data-position='bottom-end', id='support') Support
         .m-dropdown__menu(style='width:14rem;')
