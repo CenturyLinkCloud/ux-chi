@@ -58,14 +58,20 @@
 
 .a-col {
   & {
-    @include respond-to(md) {
-      padding: 0 ($base-unit * 1.5);
-    }
     flex: 1 0 0%;
     max-width: 100%;
-    min-width: (100% / 12);
+    min-width: (100% / 4);
     padding: 0 $base-unit;
     position: relative;
+
+    @include respond-to(sm) {
+      min-width: (100% / 8);
+    }
+
+    @include respond-to(md) {
+      min-width: (100% / 12);
+      padding: 0 ($base-unit * 1.5);
+    }
   }
 
   // Stacking (on XS Viewports)
@@ -105,6 +111,7 @@
   @for $i from 1 through 12 {
     &.-w--#{$i} {
       flex: 0 1 (100% / 12 * $i);
+      min-width: (100% / 12 * $i);
       width: (100% / 12 * $i);
     }
   }
@@ -117,6 +124,7 @@
         &.-w-#{$size}--#{$i} {
           flex: 0 1 (100% / 12 * $i);
           max-width: (100% / 12 * $i);
+          min-width: (100% / 12 * $i);
         }
       }
     }
