@@ -1,5 +1,5 @@
 {
-  "timestamp": "2019-11-18T13:24:48",
+  "timestamp": "2019-11-21T14:00:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.7.5",
@@ -757,6 +757,22 @@
           "docs": "Date format used in the attributes and how it will be shown to the user.",
           "docsTags": [],
           "default": "'MM/DD/YYYY'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "input-id",
+          "type": "string",
+          "mutable": false,
+          "attr": "input-id",
+          "reflectToAttr": false,
+          "docs": "To define date picker input id",
+          "docsTags": [],
           "values": [
             {
               "type": "string"
