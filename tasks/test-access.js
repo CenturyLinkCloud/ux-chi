@@ -1,7 +1,6 @@
-const pa11y = require('pa11y');
-const path = require('path'),
-      fs = require('fs');
-const gulp = require("gulp");
+const pa11y = require('pa11y'),
+    fs = require('fs'),
+    gulp = require("gulp");
 
 let urlNumber = 0;
 let urls;
@@ -19,13 +18,13 @@ const options = {
 
 async function getUrls() {
     const components = ['backstop-non-responsive.json', 'backstop-non-responsive-ce.json'];
-    
+
     urls = components.map(file => {
         return JSON.parse(fs.readFileSync(file))['scenarios'].map(component => {
             return component['url'];
         });
     });
-    
+
     urls = [].concat(...urls);
 
     console.log(urls);
@@ -36,8 +35,8 @@ async function runTest(url) {
     try {
         pa11y(url, options).then((result) => {
             console.log(result);
-            if (urlNumber < urls.length-1) {
-                runTest(urls[urlNumber+1])
+            if (urlNumber < urls.length - 1) {
+                runTest(urls[urlNumber + 1])
                 urlNumber++;
             }
         });
