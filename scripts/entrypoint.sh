@@ -87,6 +87,14 @@ case ${OPTION} in
         ./node_modules/.bin/cypress run
         npx gulp serve:stop
         ;;
+    test-access)
+        mount -t tmpfs tmpfs /chi/dist
+        build
+        cd /chi
+        npx gulp serve 2>&1 >/dev/null &
+        npm run test:access
+        npx gulp serve:stop
+        ;;
     approve)
         cd /chi
         mount -o bind /chi/config/backstop_data/bitmaps_reference/non_responsive /chi/reports/html_report/non_responsive/bitmaps_reference
