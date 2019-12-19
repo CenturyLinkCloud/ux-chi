@@ -3,7 +3,8 @@ import {Util} from "../core/util.js";
 
 const COMPONENT_SELECTOR =
   '.m-input__wrapper > input.a-input[type="number"], ' +
-  '.m-inputNumber > input.a-input[type="number"]';
+  '.m-inputNumber > input.a-input[type="number"], ' +
+  '.m-input-number > input.a-input[type="number"]';
 const COMPONENT_TYPE = "numberInput";
 const DEFAULT_CONFIG = {autofix: true};
 

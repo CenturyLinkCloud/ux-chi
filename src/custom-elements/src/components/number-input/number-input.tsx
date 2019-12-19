@@ -169,18 +169,28 @@ export class NumberInput {
     );
 
     const base = (
-      <div class="m-input__wrapper">
+      <div class="m-input-number">
         {input}
         <button
+          class="a-btn -icon"
           disabled={+this.value - this.step < this.min}
           onClick={() => this.decrement()}
           aria-label="Decrease"
-        ></button>
+        >
+          <div class="a-btn__content">
+            <chi-icon icon="triangle-down" />
+          </div>
+        </button>
         <button
+          class="a-btn -icon"
           disabled={+this.value + this.step > this.max}
           onClick={() => this.increment()}
           aria-label="Increase"
-        ></button>
+        >
+          <div class="a-btn__content">
+            <chi-icon icon="triangle-up" />
+          </div>
+        </button>
       </div>
     );
 

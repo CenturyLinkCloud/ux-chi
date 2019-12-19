@@ -14,7 +14,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
             td
               .-m--1
                 .m-form__item.-row
-                  .m-input__wrapper
+                  .m-input-number
                     input.a-input(
                       type='number'
                       class={
@@ -25,8 +25,16 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       value='0'
                       disabled=state=='disabled'?'disabled': false
                     )
-                    button(tabindex='-1', aria-label='Decrease')
-                    button(tabindex='-1', aria-label='Increase')
+                    button.a-btn.-icon(tabindex='-1', aria-label='Decrease')
+                      .a-btn__content
+                        i.a-icon
+                          svg
+                            use(xlink:href=`#icon-triangle-down`)
+                    button.a-btn.-icon(tabindex='-1', aria-label='Increase')
+                      .a-btn__content
+                        i.a-icon
+                          svg
+                            use(xlink:href=`#icon-triangle-up`)
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
   div(class=`test-expanded-${size}`)
@@ -40,7 +48,41 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
             td
               .-m--1
                 .m-form__item.-row
-                  .m-inputNumber(class={[`-${size}`]: size != 'default'})
+                  .m-input-number.-alt(class={[`-${size}`]: size != 'default'})
+                    input.a-input(
+                      type='number'
+                      class={
+                        [`-${style}`]: style != 'default',
+                        [`-${state}`]: state != 'disabled',
+                        [`-${size}`]: size != 'default'
+                      }
+                      value='0'
+                      disabled=state=='disabled'?'disabled': false
+                    )
+                    button.a-btn.-icon(tabindex='-1', class={[`-${size}`]: size != 'default'}, aria-label='Decrease')
+                      .a-btn__content
+                        i.a-icon
+                          svg
+                            use(xlink:href=`#icon-minus`)
+                    button.a-btn.-icon(tabindex='-1', class={[`-${size}`]: size != 'default'}, aria-label='Increase')
+                      .a-btn__content
+                        i.a-icon
+                          svg
+                            use(xlink:href=`#icon-plus`)
+
+each size in ['default', 'sm', 'md', 'lg', 'xl']
+  div(class=`test-expanded-svg-${size}`)
+    span.a-h2= `Text Input Expanded SVG / ${size}`
+    table(cellpadding='0', cellspacing='0', width='600px')
+      each state in ['initial', 'hover', 'focus', 'disabled']
+        tr
+          td
+            small= `${state}`
+          each style in ['default', 'danger']
+            td
+              .-m--1
+                .m-form__item.-row
+                  .m-inputNumber.-pill(class={[`-${size}`]: size != 'default'})
                     input.a-input(
                       type='number'
                       class={
@@ -59,8 +101,8 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                         i.a-icon.icon-plus
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
-  div(class=`test-expanded-svg-${size}`)
-    span.a-h2= `Text Input Expanded SVG / ${size}`
+  div(class=`test-expanded-pill-svg-${size}`)
+    span.a-h2= `Text Input Expanded Pill mode SVG / ${size}`
     table(cellpadding='0', cellspacing='0', width='600px')
       each state in ['initial', 'hover', 'focus', 'disabled']
         tr
@@ -70,7 +112,7 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
             td
               .-m--1
                 .m-form__item.-row
-                  .m-inputNumber(class={[`-${size}`]: size != 'default'})
+                  .m-inputNumber.-pill(class={[`-${size}`]: size != 'default'})
                     input.a-input(
                       type='number'
                       class={
