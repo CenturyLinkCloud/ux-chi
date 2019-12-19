@@ -397,11 +397,11 @@
         ".test-md",
         ".test-lg",
         ".test-xl",
-        ".test-expanded-svg-default",
-        ".test-expanded-svg-sm",
-        ".test-expanded-svg-md",
-        ".test-expanded-svg-lg",
-        ".test-expanded-svg-xl"
+        ".test-expanded-default",
+        ".test-expanded-sm",
+        ".test-expanded-md",
+        ".test-expanded-lg",
+        ".test-expanded-xl"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
