@@ -18,12 +18,12 @@ p.-text
           .a-btn__content
             i.a-icon
               svg
-                use(xlink:href=`#icon-triangle-down`)
+                use(xlink:href='#icon-triangle-down')
         button.a-btn.-icon(aria-label='Increase')
           .a-btn__content
             i.a-icon
               svg
-                use(xlink:href=`#icon-triangle-up`)
+                use(xlink:href='#icon-triangle-up')
   :code(lang="html")
     <div class="m-form__item -row">
       <div class="m-input-number">
@@ -32,7 +32,7 @@ p.-text
           <div class="a-btn__content">
             <i class="a-icon">
               <svg aria-hidden="true">
-                <use xlink:href='#icon-triangle-down'/>
+                <use xlink:href="#icon-triangle-down"/>
               </svg>
             </i>
           </div>
@@ -41,7 +41,7 @@ p.-text
           <div class="a-btn__content">
             <i class="a-icon">
               <svg aria-hidden="true">
-                <use xlink:href='#icon-triangle-up'/>
+                <use xlink:href="#icon-triangle-up"/>
               </svg>
             </i>
           </div>
@@ -57,16 +57,16 @@ h2 Expanded version
     .m-form__item.-row
       .m-input-number.-alt
         input#input-number-2.a-input(type="number", value="0", min="0", max="3", aria-label="Input label")
-        button.a-btn.-icon(aria-label='decrease')
+        button.a-btn.-icon(aria-label='Decrease')
           .a-btn__content
             i.a-icon
               svg
-                use(xlink:href=`#icon-minus`)
-        button.a-btn.-icon(aria-label='increase')
+                use(xlink:href='#icon-minus')
+        button.a-btn.-icon(aria-label='Increase')
           .a-btn__content
             i.a-icon
               svg
-                use(xlink:href=`#icon-plus`)
+                use(xlink:href='#icon-plus')
   :code(lang="html")
     <div class="m-form__item -row">
       <div class="m-input-number -alt">
@@ -75,7 +75,7 @@ h2 Expanded version
           <div class="a-btn__content">
             <i class="a-icon">
               <svg aria-hidden="true">
-                <use xlink:href='#icon-minus'/>
+                <use xlink:href="#icon-minus"/>
               </svg>
             </i>
           </div>
@@ -84,7 +84,7 @@ h2 Expanded version
           <div class="a-btn__content">
             <i class="a-icon">
               <svg aria-hidden="true">
-                <use xlink:href='#icon-plus'/>
+                <use xlink:href="#icon-plus"/>
               </svg>
             </i>
           </div>
@@ -134,10 +134,14 @@ p.-text
         input#input-number-3.a-input(type="number", value="1", min="0", max="6", step="2", aria-label="Input label")
         button.a-btn.-icon(aria-label='Decrease')
           .a-btn__content
-            i.a-icon.icon-minus
+            i.a-icon
+              svg
+                use(xlink:href='#icon-minus')
         button.a-btn.-icon(aria-label='Increase')
           .a-btn__content
-            i.a-icon.icon-plus
+              i.a-icon
+                svg
+                  use(xlink:href='#icon-plus')
   :code(lang="html")
     <div class="m-form__item -row">
       <div class="m-input-number -alt">
@@ -146,7 +150,7 @@ p.-text
           <div class="a-btn__content">
             <i class="a-icon">
               <svg aria-hidden="true">
-                <use xlink:href='#icon-minus'/>
+                <use xlink:href="#icon-minus"/>
               </svg>
             </i>
           </div>
@@ -155,7 +159,7 @@ p.-text
           <div class="a-btn__content">
             <i class="a-icon">
               <svg aria-hidden="true">
-                <use xlink:href='#icon-plus'/>
+                <use xlink:href="#icon-plus"/>
               </svg>
             </i>
           </div>

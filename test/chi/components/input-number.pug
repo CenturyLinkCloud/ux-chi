@@ -29,12 +29,12 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       .a-btn__content
                         i.a-icon
                           svg
-                            use(xlink:href=`#icon-triangle-down`)
+                            use(xlink:href='#icon-triangle-down')
                     button.a-btn.-icon(tabindex='-1', aria-label='Increase')
                       .a-btn__content
                         i.a-icon
                           svg
-                            use(xlink:href=`#icon-triangle-up`)
+                            use(xlink:href='#icon-triangle-up')
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
   div(class=`test-expanded-${size}`)
@@ -63,12 +63,12 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                       .a-btn__content
                         i.a-icon
                           svg
-                            use(xlink:href=`#icon-minus`)
+                            use(xlink:href='#icon-minus')
                     button.a-btn.-icon(tabindex='-1', class={[`-${size}`]: size != 'default'}, aria-label='Increase')
                       .a-btn__content
                         i.a-icon
                           svg
-                            use(xlink:href=`#icon-plus`)
+                            use(xlink:href='#icon-plus')
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
   div(class=`test-expanded-svg-${size}`)
@@ -95,10 +95,14 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
                     )
                     button.a-btn.-icon(tabindex='-1', class={[`-${size}`]: size != 'default'}, aria-label='Decrease')
                       .a-btn__content
-                        i.a-icon.icon-minus
+                        i.a-icon
+                          svg
+                            use(xlink:href='#icon-minus')
                     button.a-btn.-icon(tabindex='-1', class={[`-${size}`]: size != 'default'}, aria-label='Increase')
                       .a-btn__content
-                        i.a-icon.icon-plus
+                        i.a-icon
+                          svg
+                            use(xlink:href='#icon-plus')
 
 each size in ['default', 'sm', 'md', 'lg', 'xl']
   div(class=`test-expanded-pill-svg-${size}`)
