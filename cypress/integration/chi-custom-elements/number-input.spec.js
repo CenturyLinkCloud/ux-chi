@@ -92,7 +92,7 @@ describe('Number input', function() {
 
     it('Number input custom element should initiate an expanded Chi number-input component. ', function() {
 
-      checkComponent('@expanded_number_input', 'm-input-number -alt');
+      checkComponent('@expanded_number_input', 'm-input-number');
     });
 
     it('Clicking arrow-up button sends a value increment event. ', function() {

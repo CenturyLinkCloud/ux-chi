@@ -213,12 +213,12 @@ p.-text
 
 h2 Expanded version
 p.-text
-  | Apply the <code>-alt</code> class to render alternative number input version.
+  | There is available an expanded version of the number input component. Just apply the <code>-expanded</code> class to render it.
 
 h3 Base
 .example.-mb--3
   .-p--3
-    .m-input-number.-alt
+    .m-input-number.-expanded
       input.a-input(type="number", value="0", aria-label="Input Label")
       button.a-btn.-icon(aria-label='Decrease')
         .a-btn__content
@@ -231,7 +231,7 @@ h3 Base
             svg
               use(xlink:href='#icon-plus')
   :code(lang="html")
-    <div class="m-input-number -alt">
+    <div class="m-input-number -expanded">
       <input class="a-input" type="number" value="0" aria-label="Input Label">
       <button class="a-btn -icon" aria-label="Decrease">
         <div class="a-btn__content">
@@ -256,7 +256,7 @@ h3 Base
 h3 Disabled
 .example.-mb--3
   .-p--3
-    .m-input-number.-alt
+    .m-input-number.-expanded
       input.a-input(type="number", value="0", aria-label="Input Label", disabled=true)
       button.a-btn.-icon(aria-label='Decrease')
         .a-btn__content
@@ -269,7 +269,7 @@ h3 Disabled
             svg
               use(xlink:href='#icon-plus')
   :code(lang="html")
-    <div class="m-input-number -alt">
+    <div class="m-input-number -expanded">
       <input class="a-input" type="number" value="0" aria-label="Input Label" disabled>
       <button class="a-btn -icon" aria-label="Decrease">
         <div class="a-btn__content">
@@ -299,7 +299,7 @@ p.-text
 .example.-mb--3
   .-p--3.-d--flex.-justify-content--start.-align-items--center
     each size in ['sm', 'md', 'lg', 'xl']
-      div(class=`m-input-number -alt -mr--2 -${size}`)
+      div(class=`m-input-number -expanded -mr--2 -${size}`)
         input(class=`a-input -${size}`, type="number", value="0", aria-label="Input Label")
         button(class=`a-btn -icon -${size}`, aria-label='Decrease')
           .a-btn__content
@@ -312,7 +312,7 @@ p.-text
               svg
                 use(xlink:href='#icon-plus')
   :code(lang="html")
-    <div class="m-input-number -alt -sm">
+    <div class="m-input-number -expanded -sm">
       <input class="a-input -sm" type="number" value="0" aria-label="Input Label">
       <button class="a-btn -icon -sm" aria-label="Decrease">
         <div class="a-btn__content">
@@ -333,7 +333,7 @@ p.-text
         </div>
       </button>
     </div>
-    <div class="m-input-number -alt -md">
+    <div class="m-input-number -expanded -md">
       <input class="a-input -md" type="number" value="0" aria-label="Input Label">
       <button class="a-btn -icon -md" aria-label="Decrease">
         <div class="a-btn__content">
@@ -354,7 +354,7 @@ p.-text
         </div>
       </button>
     </div>
-    <div class="m-input-number -alt -lg">
+    <div class="m-input-number -expanded -lg">
       <input class="a-input -lg" type="number" value="0" aria-label="Input Label">
       <button class="a-btn -icon -lg" aria-label="Decrease">
         <div class="a-btn__content">
@@ -375,7 +375,7 @@ p.-text
         </div>
       </button>
     </div>
-    <div class="m-input-number -alt -xl">
+    <div class="m-input-number -expanded -xl">
       <input class="a-input -xl" type="number" value="0" aria-label="Input Label">
       <button class="a-btn -icon -xl" aria-label="Decrease">
         <div class="a-btn__content">
