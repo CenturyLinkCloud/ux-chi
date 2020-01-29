@@ -61,7 +61,7 @@ $monday-starting-week: (
 
       &::after {
         background-color: $brand-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         bottom: 3px;
         content: '';
         height: 4px;
@@ -75,12 +75,12 @@ $monday-starting-week: (
     &:not(.-inactive):not(.-active) {
       &:hover {
         background-color: (set-color(grey, 20));
-        border-radius: 2px;
+        border-radius: $border-radius;
       }
 
       &.-hover {
         background-color: (set-color(grey, 20));
-        border-radius: 2px;
+        border-radius: $border-radius;
       }
     }
 

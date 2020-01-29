@@ -53,7 +53,7 @@
       & > .a-switch__thumb {
         background-color: set-color(grey, 50);
         border: 0;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         cursor: pointer;
         display: inline-block;
         height: 1.5rem;
@@ -67,7 +67,7 @@
         &::after {
           background-color: set-color(white);
           border: 0;
-          border-radius: 12px;
+          border-radius: 0.75rem;
           content: '';
           display: block;
           height: 1.25rem;
@@ -115,7 +115,7 @@
                 &::after {
                   background-color: set-color(white);
                   border: 0;
-                  border-radius: 12px;
+                  border-radius: 0.75rem;
                   content: '';
                   display: block;
                   height: 1.25rem;
@@ -193,7 +193,7 @@ input {
       & + label {
         background-color: set-color(grey, 50);
         border: 0;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         cursor: pointer;
         display: inline-block;
         height: 1.5rem;
@@ -208,7 +208,7 @@ input {
           background-color: set-color(white);
           background-image: none;
           border: 0;
-          border-radius: 12px;
+          border-radius: 0.75rem;
           content: '';
           display: block;
           height: 1.25rem;
