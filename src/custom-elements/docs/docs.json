@@ -1,5 +1,5 @@
 {
-  "timestamp": "2020-01-29T12:18:51",
+  "timestamp": "2020-01-30T12:05:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.7.5",
@@ -237,22 +237,6 @@
           "required": false
         },
         {
-          "name": "pill",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "pill",
-          "reflectToAttr": true,
-          "docs": "to render badges with a more pronounced border-radius.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "size",
           "type": "string",
           "mutable": false,
@@ -471,23 +455,6 @@
           "attr": "fluid",
           "reflectToAttr": true,
           "docs": "to render a button to fill the parent space.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "pill",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "pill",
-          "reflectToAttr": true,
-          "docs": "to to render buttons with a more pronounced border-radius.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1390,22 +1357,6 @@
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "pill",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "pill",
-          "reflectToAttr": true,
-          "docs": "used to determine if expanded component has a pill look",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
           "required": false
         },
         {

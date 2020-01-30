@@ -208,17 +208,6 @@ $m-inputnumber: (
       order: 3;
     }
   }
-
-  &.-pill > button {
-
-    &:first-of-type {
-      border-radius: 50% 0 0 50%;
-    }
-
-    &:last-of-type {
-      border-radius: 0 50% 50% 0;
-    }
-  }
 }
 
 // sass-lint:disable-all
