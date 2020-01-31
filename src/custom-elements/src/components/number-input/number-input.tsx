@@ -196,7 +196,7 @@ export class NumberInput {
 
     const expanded = (
       <div
-        class={`m-inputNumber ${this.size ? `-${this.size}` : ''}`}
+        class={`m-input-number -expanded ${this.size ? `-${this.size}` : ''}`}
       >
         {input}
         <button

@@ -192,7 +192,7 @@ $m-inputnumber: (
             &.a-btn {
               color: $text-color;
               display: block;
-              height: map-get(map-get($m-inputNumber, md), button-height);
+              height: map-get(map-get($m-inputnumber, md), button-height);
               padding: .4375rem;
               position: relative;
 
@@ -243,7 +243,7 @@ $m-inputnumber: (
       pointer-events: none;
     }
 
-    @each $size, $values in $m-inputNumber {
+    @each $size, $values in $m-inputnumber {
       &.-#{$size} {
         width: map-get($values, width);
 
