@@ -95,7 +95,7 @@ export class Alert {
       mutations.forEach((mutation) => {
         this.alertTitle = mutation.target.title;
       });
-    }
+    };
 
     const observer = new MutationObserver(subscriberCallback);
     observer.observe(target, config);
@@ -127,7 +127,6 @@ export class Alert {
 
     return (
       <div class={`m-alert
-        ${this.type ? `-${this.type}` : ''}
         ${this.color ? `-${this.color}` : ''}
         ${this.center ? '-center' : ''}
         ${this.dismissible ? '-dismiss' : ''}

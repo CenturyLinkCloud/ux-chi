@@ -5,5 +5,6 @@ gulp.task('build', gulp.series(
   'build:chi',
   'build:test',
   'build:website',
-  'copy:chi:ce-scripts'
+  'copy:chi:ce-scripts',
+  'copy:chi:vue-scripts'
 ));

@@ -1,0 +1,55 @@
+{
+  "name": "my-component",
+  "version": "1.2.3",
+  "main": "dist/cv.umd.js",
+  "module": "dist/cv.esm.js",
+  "unpkg": "dist/cv.min.js",
+  "browser": {
+    "./sfc": "src/component-library.ts"
+  },
+  "scripts": {
+    "start": "rollup --config build/rollup.config.js --format umd --file dist/cv.js --watch",
+    "serve": "vue-cli-service serve",
+    "build": "npm run build:cjs & npm run build:es & npm run build:unpkg",
+    "build:lib": "vue-cli-service build --formats commonjs --target lib src/build/component-library.ts --name cv --no-clean",
+    "build:cjs": "rollup --config build/rollup.config.js --format cjs --environment prod --file dist/cv.cjs.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --environment prod --file dist/cv.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --environment prod --file dist/cv.min.js",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "7.1.1",
+    "@rollup/plugin-replace": "2.3.1",
+    "@rollup/plugin-typescript": "3.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-plugin-typescript": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "prettier": "^1.19.1",
+    "rollup": "1.31.1",
+    "rollup-plugin-buble": "0.19.8",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-terser": "5.2.0",
+    "rollup-plugin-vue": "5.1.6",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "simple-progress-webpack-plugin": "1.1.2",
+    "typescript": "~3.7.5",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
