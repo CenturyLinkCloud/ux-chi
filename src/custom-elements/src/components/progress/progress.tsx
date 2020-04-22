@@ -10,7 +10,7 @@ export class Progress {
   /**
    *  to set the value of a progress bar.
    */
-  @Prop({ reflect: true }) value: number;
+  @Prop({ reflect: true }) value: string;
 
   /**
    *  to set the max value of a progress bar.
@@ -32,13 +32,15 @@ export class Progress {
   }
 
   componentWillLoad() {
+    console.log(this.value);
+    console.log(typeof this.value);
     this.stateValidation(this.state);
   }
 
   render() {
     return (
       <progress
-        value={this.value || undefined}
+        value={this.value ? this.value : ''}
         class={this.state ? `-${this.state}` : ''}
         max={this.max || undefined}
         role="progressbar"
