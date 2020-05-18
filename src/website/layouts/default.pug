@@ -16,16 +16,16 @@ html(lang="en")
                 meta(name="description", content=`${defaultMetaDescription}`)
         if description
             meta(name="description", content=description)
-        link(rel="stylesheet", href=`${rootPath}chi.css`)
-        link(rel="stylesheet", href=`${rootPath}assets/styles/chi-docs.css`)
-        link(rel="icon", href=`${rootPath}assets/images/favicon.ico`, type="image/ico", sizes="16x16")
-        script(src=`${rootPath}assets/scripts/globalConfigs.js`)
-        script(src=`${rootPath}assets/scripts/chiVersionCheck.js`)
-        script(src=`${rootPath}js/chi.js`)
+        link(rel="stylesheet", href=`${rootPath}chi.css`, max-age=2628000)
+        link(rel="stylesheet", href=`${rootPath}assets/styles/chi-docs.css`, max-age=2628000)
+        link(rel="icon", href=`${rootPath}assets/images/favicon.ico`, type="image/ico", sizes="16x16", max-age=2628000)
+        script(src=`${rootPath}assets/scripts/globalConfigs.js`, max-age=2628000)
+        script(src=`${rootPath}assets/scripts/chiVersionCheck.js`, max-age=2628000)
+        script(src=`${rootPath}js/chi.js`, max-age=2628000)
         if styles
             each style in styles
-                link(rel="stylesheet", media="all", href=`${rootPath}${style}.css`)
-        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css")
+                link(rel="stylesheet", media="all", href=`${rootPath}${style}.css`, max-age=2628000)
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css", max-age=2628000)
 
     body.chi.show-grid
       #docs-container.docs-container
@@ -51,9 +51,9 @@ html(lang="en")
                     section.chi-grid__container.-pt--3
                         != contents
       script(type="text/javascript", src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js")
-      script(type="text/javascript", src=`${rootPath}assets/scripts/algoliaSearch.js`)
-      script(src=`${rootPath}assets/scripts/chi-docs.js`)
+      script(type="text/javascript", src=`${rootPath}assets/scripts/algoliaSearch.js`, max-age=2628000)
+      script(src=`${rootPath}assets/scripts/chi-docs.js`, max-age=2628000)
 
       if scripts
           each script in scripts
-              script(type="text/javascript", src=`${rootPath}${script}.js`)
+              script(type="text/javascript", src=`${rootPath}${script}.js`, max-age=2628000)
