@@ -1,0 +1,846 @@
+h2 Examples
+p.-text To render data table, use the class <code>chi-data-table</code>.
+
+//- h3 Example 1 -- Base -- No border
+//- .example.-mb--3
+//-   .-p--3.-p-md--5
+//-     .chi-data-grid
+//-       .chi-data-grid__head
+//-         .chi-data-grid__row
+//-             .chi-data-grid__column
+//-                span Name
+//-             .chi-data-grid__column
+//-               span ID
+//-             .chi-data-grid__column
+//-               span Last login
+//-       .chi-data-grid__body
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 1
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-1
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 2
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-2
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 3
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-3
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//- 
+//-   .example-tabs.-pl--2
+//-     ul.chi-tabs#example-base
+//-       li.-disabled
+//-         a(href=`#webcomponent-base`) Web Component
+//-       li.-active
+//-         a(href=`#html-base`) HTML Blueprint
+//-   .chi-tabs-panel#webcomponent-base
+//-   .chi-tabs-panel.-active#html-base
+//-     :code(lang='html')
+//-       <div class="chi-data-grid">
+//-       </div>
+
+//- h3 Example 1 -- Base -- Striped
+//- .example.-mb--3
+//-   .-p--3.-p-md--5
+//-     .chi-data-grid.-striped
+//-       .chi-data-grid__head
+//-         .chi-data-grid__row
+//-             .chi-data-grid__column
+//-                span Name
+//-             .chi-data-grid__column
+//-               span ID
+//-             .chi-data-grid__column
+//-               span Last login
+//-       .chi-data-grid__body
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 1
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-1
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 2
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-2
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 3
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-3
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//- 
+//-   .example-tabs.-pl--2
+//-     ul.chi-tabs#example-base
+//-       li.-disabled
+//-         a(href=`#webcomponent-base`) Web Component
+//-       li.-active
+//-         a(href=`#html-base`) HTML Blueprint
+//-   .chi-tabs-panel#webcomponent-base
+//-   .chi-tabs-panel.-active#html-base
+//-     :code(lang='html')
+//-       <div class="chi-data-grid">
+//-       </div>
+//- 
+//- h3 Example 1 -- Base -- Hover
+//- .example.-mb--3
+//-   .-p--3.-p-md--5
+//-     .chi-data-grid.-hover
+//-       .chi-data-grid__head
+//-         .chi-data-grid__row
+//-             .chi-data-grid__column
+//-                span Name
+//-             .chi-data-grid__column
+//-               span ID
+//-             .chi-data-grid__column
+//-               span Last login
+//-       .chi-data-grid__body
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 1
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-1
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 2
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-2
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 3
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-3
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//- 
+//-   .example-tabs.-pl--2
+//-     ul.chi-tabs#example-base
+//-       li.-disabled
+//-         a(href=`#webcomponent-base`) Web Component
+//-       li.-active
+//-         a(href=`#html-base`) HTML Blueprint
+//-   .chi-tabs-panel#webcomponent-base
+//-   .chi-tabs-panel.-active#html-base
+//-     :code(lang='html')
+//-       <div class="chi-data-grid">
+//-       </div>
+//- 
+//- h3 Example 1 -- Base -- Selectable
+//- .example.-mb--3
+//-   .-p--3.-p-md--5
+//-     .chi-data-grid
+//-       .chi-data-grid__head
+//-         .chi-data-grid__row
+//-             .chi-data-grid__column.-lh--1
+//-               input.chi-checkbox__input(type="checkbox", id=`chk-1`)
+//-               label.chi-checkbox__label(for=`chk-1`)
+//-                 .-sr--only Label
+//-             .chi-data-grid__column
+//-                span Name
+//-             .chi-data-grid__column
+//-               span ID
+//-             .chi-data-grid__column
+//-               span Last login
+//-       .chi-data-grid__body
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column.-lh--1
+//-             input.chi-checkbox__input(type="checkbox", id=`chk-2`)
+//-             label.chi-checkbox__label(for=`chk-2`)
+//-               .-sr--only Label
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 1
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-1
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column.-lh--1
+//-             input.chi-checkbox__input(type="checkbox", id=`chk-3`)
+//-             label.chi-checkbox__label(for=`chk-3`)
+//-               .-sr--only Label
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 2
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-2
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column.-lh--1
+//-             input.chi-checkbox__input(type="checkbox", id=`chk-4`)
+//-             label.chi-checkbox__label(for=`chk-4`)
+//-               .-sr--only Label
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Name 3
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div name-3
+//-           .chi-data-grid__column(data-label="Column 3")
+//-             div Dec 18, 2020 3:26 PM
+//- 
+//-   .example-tabs.-pl--2
+//-     ul.chi-tabs#example-base
+//-       li.-disabled
+//-         a(href=`#webcomponent-base`) Web Component
+//-       li.-active
+//-         a(href=`#html-base`) HTML Blueprint
+//-   .chi-tabs-panel#webcomponent-base
+//-   .chi-tabs-panel.-active#html-base
+//-     :code(lang='html')
+//-       <div class="chi-data-grid">
+//-       </div>
+//- 
+//- h3 Example 1 -- 2 columns mobile
+//- .example.-mb--3
+//-   .-p--3.-p-md--5
+//-     .chi-data-grid.-two-columns-mobile
+//-       .chi-data-grid__head
+//-         .chi-data-grid__row
+//-             .chi-data-grid__column
+//-                span Column1
+//-             .chi-data-grid__column
+//-               span Column2
+//-       .chi-data-grid__body
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Row 1
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
+//-         .chi-data-grid__row
+//-           .chi-data-grid__column(data-label="Column 1")
+//-             div Row 1
+//-           .chi-data-grid__column(data-label="Column 2")
+//-             div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
+//- 
+//-   .example-tabs.-pl--2
+//-     ul.chi-tabs#example-base
+//-       li.-disabled
+//-         a(href=`#webcomponent-base`) Web Component
+//-       li.-active
+//-         a(href=`#html-base`) HTML Blueprint
+//-   .chi-tabs-panel#webcomponent-base
+//-   .chi-tabs-panel.-active#html-base
+//-     :code(lang='html')
+//-       <div class="chi-data-grid">
+//-       </div>
+
+h3 Base
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
+
+h3 No Border
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table.-no-border
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table -no-border">
+      </div>
+
+h3 Striped
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table.-striped
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table -striped">
+      </div>
+
+h3 Hover
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table.-hover
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table -hover">
+      </div>
+
+h3 Bordered
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table.-bordered
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table -bordered">
+      </div>
+
+h3 Active
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row.-active
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
+
+h3 Selectable
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell.-lh--1
+              input.chi-checkbox__input(type="checkbox", id=`chk-1`)
+              label.chi-checkbox__label(for=`chk-1`)
+                .-sr--only Label
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell.-lh--1
+            input.chi-checkbox__input(type="checkbox", id=`chk-2`)
+            label.chi-checkbox__label(for=`chk-2`)
+              .-sr--only Label
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row.-selected
+          .chi-data-table__cell.-lh--1
+            input.chi-checkbox__input(type="checkbox", id=`chk-3`, checked="checked")
+            label.chi-checkbox__label(for=`chk-3`)
+              .-sr--only Label
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell.-lh--1
+            input.chi-checkbox__input(type="checkbox", id=`chk-4`)
+            label.chi-checkbox__label(for=`chk-4`)
+              .-sr--only Label
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
+
+h3 Accordion
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell
+            i.chi-icon.icon-chevron-right.-xs
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell
+            i.chi-icon.icon-chevron-right.-xs
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row
+          .chi-data-table__cell
+            i.chi-icon.icon-chevron-right.-xs
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
+
+h3 Accordion Expanded
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last login
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell
+            i.chi-icon.icon-chevron-right.-xs
+          .chi-data-table__cell(data-label="Name")
+            div Abe Salazar
+          .chi-data-table__cell(data-label="Email")
+            div abe.salazar@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 555-995-5348
+          .chi-data-table__cell(data-label="Address")
+            div 8 Glenlake Lane, San Francisco, California, 94107, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row.-expanded
+          .chi-data-table__cell
+            i.chi-icon.icon-chevron-right.-xs
+          .chi-data-table__cell(data-label="Name")
+            div Ashley Macias
+          .chi-data-table__cell(data-label="Email")
+            div ashley.macias@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 543-723-8733
+          .chi-data-table__cell(data-label="Address")
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 8, 2020
+        .chi-data-table__row-child
+            div Some random content
+        .chi-data-table__row
+          .chi-data-table__cell
+            i.chi-icon.icon-chevron-right.-xs
+          .chi-data-table__cell(data-label="Name")
+            div Cameron Hodge
+          .chi-data-table__cell(data-label="Email")
+            div cameron.hodge@domain.com
+          .chi-data-table__cell(data-label="Phone Number")
+            div 509-635-9551
+          .chi-data-table__cell(data-label="Address")
+            div 7842 Center Rd, San Jose, California, 95129, USA
+          .chi-data-table__cell(data-label="Last Login")
+            div April 5, 2020
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
+
+script.
+    document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      chi.tab(document.querySelectorAll('.chi-tabs-panel .chi-tabs'));
+    });
