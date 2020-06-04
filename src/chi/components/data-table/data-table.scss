@@ -1,156 +1,23 @@
 @import '_variables';
 @import '_mixins';
 
-// .chi-data-grid {
-//   display: block;
-//   font-size: $text;
-//   line-height: $line-height-smaller;
-//   overflow-x: auto;
-//   overflow-y: hidden;
-//   width: 100%;
-//
-//   @include respond-to(md) {
-//     border-collapse: collapse;
-//     border-spacing: 0;
-//     display: table;
-//   }
-//
-//   label {
-//     margin-bottom: 0;
-//   }
-//
-//   &__head {
-//     display: none;
-//
-//     @include respond-to(md) {
-//       display: table-header-group;
-//       vertical-align: middle;
-//     }
-//
-//     .chi-data-grid__column {
-//       @include respond-to(md) {
-//         border-bottom: 0.0625rem solid set-color(grey, 30);
-//         display: table-cell;
-//         font-weight: 600;
-//         padding: 1rem;
-//         text-align: left;
-//         vertical-align: top;
-//       }
-//     }
-//   }
-//
-//   &__body {
-//     @include respond-to(md) {
-//       display: table-row-group;
-//       vertical-align: middle;
-//     }
-//
-//     .chi-data-grid__column {
-//       display: flex;
-//       padding: .5rem;
-//
-//       @include respond-to(md) {
-//         border-bottom: 0.0625rem solid set-color(grey, 20);
-//         display: table-cell;
-//         padding: 1rem;
-//         vertical-align: top;
-//       }
-//
-//       &::before {
-//         content: attr(data-label);
-//         display: block;
-//         font-weight: 600;
-//         min-width: 10rem;
-//
-//         @include respond-to(md) {
-//           display: none;
-//         }
-//       }
-//     }
-//   }
-//
-//   &__row {
-//     border-bottom: 0.0625rem solid set-color(grey, 20);
-//     display: block;
-//
-//     @include respond-to(md) {
-//       background-color: set-color(white);
-//       border: 0;
-//       display: table-row;
-//     }
-//   }
-//
-//   &.-no-border {
-//     .chi-data-grid__head,
-//     .chi-data-grid__body {
-//       .chi-data-grid__column {
-//         @include respond-to(md) {
-//           border: 0;
-//         }
-//       }
-//     }
-//   }
-//
-//   &.-striped {
-//     .chi-data-grid__body {
-//       .chi-data-grid__row {
-//         &:nth-child(odd) {
-//           background-color: set-color(grey, 10);
-//         }
-//       }
-//     }
-//   }
-//
-//   &.-hover {
-//     .chi-data-grid__body {
-//       .chi-data-grid__row {
-//         &:hover,
-//         &.-hover {
-//           @include respond-to(md) {
-//             background-color: set-color(grey, 10);
-//           }
-//         }
-//       }
-//     }
-//   }
-//
-//   &.-two-columns-mobile {
-//     .chi-data-grid__body {
-//       @include respond-to(md) {
-//         display: table-row-group;
-//         vertical-align: middle;
-//       }
-//
-//       .chi-data-grid__column {
-//         display: flex;
-//
-//         @include respond-to(md) {
-//           border-bottom: 0.0625rem solid set-color(grey, 20);
-//           display: table-cell;
-//           padding: 1rem;
-//         }
-//
-//         &::before {
-//           display: inline-block;
-//           flex: 1 0 auto;
-//
-//           @include respond-to(md) {
-//             display: none;
-//           }
-//         }
-//       }
-//     }
-//
-//     .chi-data-grid__row {
-//       display: flex;
-//
-//       @include respond-to(md) {
-//         background-color: set-color(white);
-//         display: table-row;
-//       }
-//     }
-//   }
-// }
+$sizes: (
+  xs: (
+    padding: 0.25rem,
+  ),
+  sm: (
+    padding: 0.5rem,
+  ),
+  md: (
+    padding: 0.75rem,
+  ),
+  lg: (
+    padding: 1rem,
+  ),
+  xl: (
+    padding: 1.25rem,
+  )
+);
 
 .chi-data-table {
   border-collapse: collapse;
@@ -170,6 +37,22 @@
     margin-bottom: 0;
   }
 
+  @each $type in map-keys($sizes) {
+    &.-#{$type} {
+      .chi-data-table__head {
+        .chi-data-table__cell {
+          padding: map-get(map-get($sizes, $type), padding);
+        }
+      }
+
+      .chi-data-table__body {
+        .chi-data-table__cell {
+          padding: map-get(map-get($sizes, $type), padding);
+        }
+      }
+    }
+  }
+
   &__head {
     display: none;
 
@@ -180,10 +63,21 @@
 
     .chi-data-table__cell {
       @include respond-to(md) {
-        border-bottom: 0.0625rem solid set-color(grey, 30);
+        border-bottom: 0.125rem solid set-color(grey, 30);
         display: flex;
         font-weight: 600;
+        padding: 0.75rem;
         position: relative;
+
+        .chi-icon {
+          margin-left: 0.5rem;
+
+          &.icon-arrow-sync {
+            color: set-color(grey, 50);
+            transform: rotate(90deg);
+            transition: transform 0.2s ease-in-out;
+          }
+        }
       }
     }
   }
@@ -196,7 +90,7 @@
 
     .chi-data-table__cell {
       display: flex;
-      padding: 0.5rem;
+      padding: 0.25rem 0.75rem;
 
       &:first-child {
         padding-top: 1rem;
@@ -208,8 +102,16 @@
 
       @include respond-to(md) {
         border-bottom: 0.0625rem solid set-color(grey, 20);
-        padding: 1rem;
+        padding: 0.75rem;
         word-break: break-word;
+
+        &:first-child {
+          padding-top: 0.75rem;
+        }
+
+        &:last-child {
+          padding-bottom: 0.75rem;
+        }
       }
 
       &::before {
@@ -222,7 +124,17 @@
           display: none;
         }
       }
+
+      &.-selectable {
+        &::before {
+          display: none;
+        }
+      }
     }
+  }
+
+  &__footer {
+    padding: 1.5rem 0;
   }
 
   &__row {
@@ -273,7 +185,36 @@
       flex-grow: 1;
       flex-shrink: 1;
       justify-content: flex-start;
-      padding: 1rem;
+    }
+  }
+
+  &.-sorting {
+    .chi-data-table__head {
+      .chi-data-table__cell {
+        &:hover {
+          background-color: set-color(grey, 20);
+          cursor: pointer;
+
+          .chi-icon {
+            color: set-color(grey, 100);
+          }
+        }
+
+        &.-active {
+          border-bottom-color: $primary-color;
+          color: $primary-color;
+
+          .chi-icon {
+            color: $primary-color;
+          }
+
+          &.-descending {
+            .chi-icon {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -305,6 +246,12 @@
         &.-hover {
           @include respond-to(md) {
             background-color: set-color(grey, 10);
+
+            &.-active,
+            &.-selected,
+            &.-expanded {
+              background-color: set-color(blue, 20);
+            }
           }
         }
       }
@@ -314,10 +261,10 @@
   &.-bordered {
     .chi-data-table__body {
       .chi-data-table__row {
-        border-bottom: 0.0625rem solid set-color(grey, 30);
+        border-bottom: 0.0625rem solid set-color(grey, 20);
 
         .chi-data-table__cell {
-          border: 0.0625rem solid set-color(grey, 30);
+          border: 0.0625rem solid set-color(grey, 20);
           border-bottom-width: 0;
         }
 
@@ -336,12 +283,20 @@
       .chi-data-table__body {
         .chi-data-table__row {
           .chi-data-table__cell {
-            border: 0.0625rem solid set-color(grey, 30);
+            border: 0.0625rem solid set-color(grey, 20);
             border-right-width: 0;
 
             &:last-of-type {
               border-right-width: 0.0625rem;
             }
+          }
+        }
+      }
+
+      .chi-data-table__head {
+        .chi-data-table__row {
+          .chi-data-table__cell {
+            border-bottom: 0.125rem solid set-color(grey, 30);
           }
         }
       }
@@ -358,58 +313,262 @@
     }
   }
 
-  // &.-two-columns-mobile {
-  //   .chi-data-table__body {
-  //     @include respond-to(md) {
-  //       display: table-row-group;
-  //       vertical-align: middle;
-  //     }
-  //
-  //     .chi-data-table__cell {
-  //       display: flex;
-  //
-  //       @include respond-to(md) {
-  //         border-bottom: 0.0625rem solid set-color(grey, 20);
-  //         display: table-cell;
-  //         padding: 1rem;
-  //       }
-  //
-  //       &::before {
-  //         display: inline-block;
-  //         flex: 1 0 auto;
-  //
-  //         @include respond-to(md) {
-  //           display: none;
-  //         }
-  //       }
-  //     }
-  //   }
-  //
-  //   .chi-data-table__row {
-  //     display: flex;
-  //
-  //     @include respond-to(md) {
-  //       background-color: set-color(white);
-  //       display: table-row;
-  //     }
-  //   }
-  // }
+  &.-inverse {
+    .chi-data-table__head {
+      @include respond-to(md) {
+        background-color: set-color(grey, 90);
 
+        .chi-data-table__cell {
+          border-bottom: 0.125rem solid set-color(grey, 60);
+        }
+      }
+    }
 
-  // .resize-handle {
-  //   background: black;
-  //   bottom: 0;
-  //   cursor: col-resize;
-  //   opacity: 0;
-  //   position: absolute;
-  //   right: 0;
-  //   top: 0;
-  //   width: 3px;
-  // }
-  //
-  // .resize-handle:hover,
-  // /* The following selector is needed so the handle is visible during resize even if the mouse isn't over the handle anymore */
-  // .header--being-resized .resize-handle {
-  //   opacity: 0.5;
-  // }
+    .chi-data-table__body {
+      background-color: set-color(grey, 90);
+
+      .chi-data-table__cell {
+        border-bottom: 0.0625rem solid set-color(grey, 70);
+      }
+    }
+
+    .chi-data-table__row {
+      background-color: set-color(grey, 90);
+      color: set-color(white);
+
+      &.-active {
+        background-color: rgba(set-color(mint, 40), 0.08);
+        box-shadow: inset 0.125rem 0 0 $secondary-color;
+        color: $secondary-color;
+      }
+    }
+
+    &.-no-border {
+      .chi-data-table__head,
+      .chi-data-table__body {
+        .chi-data-table__cell {
+          @include respond-to(md) {
+            border: 0;
+          }
+        }
+      }
+    }
+
+    &.-striped {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          &:nth-child(odd) {
+            background-color: set-color(grey, 80);
+          }
+        }
+      }
+    }
+
+    &.-hover {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          &:hover,
+          &.-hover {
+            @include respond-to(md) {
+              background-color: set-color(grey, 80);
+
+              &.-active,
+              &.-selected,
+              &.-expanded {
+                background-color: rgba(set-color(mint, 40), 0.08);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.-bordered {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          border-bottom: 0.0625rem solid set-color(grey, 70);
+
+          .chi-data-table__cell {
+            border: 0.0625rem solid set-color(grey, 70);
+            border-bottom-width: 0;
+          }
+
+          & + .chi-data-table__row {
+            .chi-data-table__cell {
+              &:first-child {
+                border-top-width: 0;
+              }
+            }
+          }
+        }
+      }
+
+      @include respond-to(md) {
+        .chi-data-table__head,
+        .chi-data-table__body {
+          .chi-data-table__row {
+            .chi-data-table__cell {
+              border: 0.0625rem solid set-color(grey, 70);
+              border-right-width: 0;
+
+              &:last-of-type {
+                border-right-width: 0.0625rem;
+              }
+            }
+          }
+        }
+
+        .chi-data-table__head {
+          .chi-data-table__row {
+            .chi-data-table__cell {
+              border-bottom: 0.125rem solid set-color(grey, 60);
+            }
+          }
+        }
+
+        .chi-data-table__body {
+          .chi-data-table__row {
+            border-bottom: 0;
+
+            .chi-data-table__cell {
+              border-top-width: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.-portal {
+    .chi-data-table__head {
+      @include respond-to(md) {
+        background-color: set-color(grey, 25);
+
+        .chi-data-table__row {
+          background-color: set-color(grey, 25);
+
+          .chi-data-table__cell {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .chi-data-table__body {
+      .chi-data-table__row {
+        color: set-color(grey, 100);
+
+        &:nth-child(odd) {
+          background-color: #ebf0f6;
+        }
+
+        .chi-data-table__cell {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .chi-data-table__row {
+      &.-active {
+        background-color: rgba(set-color(mint, 40), 0.08);
+        box-shadow: inset 0.125rem 0 0 $secondary-color;
+        color: $secondary-color;
+      }
+    }
+
+    &.-no-border {
+      .chi-data-table__head,
+      .chi-data-table__body {
+        .chi-data-table__cell {
+          @include respond-to(md) {
+            border: 0;
+          }
+        }
+      }
+    }
+
+    &.-striped {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          &:nth-child(odd) {
+            background-color: set-color(grey, 80);
+          }
+        }
+      }
+    }
+
+    &.-hover {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          &:hover,
+          &.-hover {
+            @include respond-to(md) {
+              background-color: set-color(grey, 80);
+
+              &.-active,
+              &.-selected,
+              &.-expanded {
+                background-color: rgba(set-color(mint, 40), 0.08);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.-bordered {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          border-bottom: 0.0625rem solid set-color(grey, 70);
+
+          .chi-data-table__cell {
+            border: 0.0625rem solid set-color(grey, 70);
+            border-bottom-width: 0;
+          }
+
+          & + .chi-data-table__row {
+            .chi-data-table__cell {
+              &:first-child {
+                border-top-width: 0;
+              }
+            }
+          }
+        }
+      }
+
+      @include respond-to(md) {
+        .chi-data-table__head,
+        .chi-data-table__body {
+          .chi-data-table__row {
+            .chi-data-table__cell {
+              border: 0.0625rem solid set-color(grey, 70);
+              border-right-width: 0;
+
+              &:last-of-type {
+                border-right-width: 0.0625rem;
+              }
+            }
+          }
+        }
+
+        .chi-data-table__head {
+          .chi-data-table__row {
+            .chi-data-table__cell {
+              border-bottom: 0.125rem solid set-color(grey, 60);
+            }
+          }
+        }
+
+        .chi-data-table__body {
+          .chi-data-table__row {
+            border-bottom: 0;
+
+            .chi-data-table__cell {
+              border-top-width: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
