@@ -92,26 +92,10 @@ $sizes: (
       display: flex;
       padding: 0.25rem 0.75rem;
 
-      &:first-child {
-        padding-top: 1rem;
-      }
-
-      &:last-child {
-        padding-bottom: 1rem;
-      }
-
       @include respond-to(md) {
         border-bottom: 0.0625rem solid set-color(grey, 20);
         padding: 0.75rem;
         word-break: break-word;
-
-        &:first-child {
-          padding-top: 0.75rem;
-        }
-
-        &:last-child {
-          padding-bottom: 0.75rem;
-        }
       }
 
       &::before {
@@ -141,11 +125,13 @@ $sizes: (
     background-color: set-color(white);
     border-bottom: 0.0625rem solid set-color(grey, 20);
     display: block;
+    padding: 1rem 0;
 
     @include respond-to(md) {
       border: 0;
       display: flex;
       flex-direction: row;
+      padding: 0;
     }
 
     &.-active {
@@ -185,6 +171,34 @@ $sizes: (
       flex-grow: 1;
       flex-shrink: 1;
       justify-content: flex-start;
+    }
+
+    & .-asociated {
+      &:first-child {
+        margin-right: 1rem;
+      }
+
+      &::before {
+        content: attr(data-label);
+        display: inline-block;
+        font-weight: 600;
+        margin-right: 0.5rem;
+      }
+
+      @include respond-to(md) {
+        display: flex;
+        flex-basis: 0%;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        &:first-child {
+          margin-right: 0.5rem;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
     }
   }
 
@@ -319,7 +333,7 @@ $sizes: (
         background-color: set-color(grey, 90);
 
         .chi-data-table__cell {
-          border-bottom: 0.125rem solid set-color(grey, 60);
+          border-bottom: 0.125rem solid set-color(grey, 70);
         }
       }
     }
@@ -328,7 +342,7 @@ $sizes: (
       background-color: set-color(grey, 90);
 
       .chi-data-table__cell {
-        border-bottom: 0.0625rem solid set-color(grey, 70);
+        border-bottom: 0.0625rem solid set-color(grey, 80);
       }
     }
 
@@ -386,10 +400,10 @@ $sizes: (
     &.-bordered {
       .chi-data-table__body {
         .chi-data-table__row {
-          border-bottom: 0.0625rem solid set-color(grey, 70);
+          border-bottom: 0.0625rem solid set-color(grey, 80);
 
           .chi-data-table__cell {
-            border: 0.0625rem solid set-color(grey, 70);
+            border: 0.0625rem solid set-color(grey, 80);
             border-bottom-width: 0;
           }
 
@@ -408,7 +422,7 @@ $sizes: (
         .chi-data-table__body {
           .chi-data-table__row {
             .chi-data-table__cell {
-              border: 0.0625rem solid set-color(grey, 70);
+              border: 0.0625rem solid set-color(grey, 80);
               border-right-width: 0;
 
               &:last-of-type {
@@ -421,7 +435,7 @@ $sizes: (
         .chi-data-table__head {
           .chi-data-table__row {
             .chi-data-table__cell {
-              border-bottom: 0.125rem solid set-color(grey, 60);
+              border-bottom: 0.125rem solid set-color(grey, 80);
             }
           }
         }

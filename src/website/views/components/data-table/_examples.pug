@@ -1747,6 +1747,119 @@ h3 Size -xl
     :code(lang='html')
       <div class="chi-data-table -xl">
       </div>
+      
+h3 Base -- Two tier table header
+.example.-mb--3
+  .-p--3.-p-md--5
+    .chi-data-table
+      .chi-data-table__head
+        .chi-data-table__row
+            .chi-data-table__cell
+               span Location
+               i.chi-icon.icon-chevron-down.-xs
+            .chi-data-table__cell
+              span High Utilization
+            .chi-data-table__cell
+             span Elevated Utilization
+            .chi-data-table__cell
+              span Highest %
+              i.chi-icon.icon-chevron-down.-xs
+        .chi-data-table__row
+            .chi-data-table__cell
+            .chi-data-table__cell
+              span.-asociated Total
+                i.chi-icon.icon-chevron-down.-xs
+              span.-asociated %
+                i.chi-icon.icon-chevron-down.-xs
+            .chi-data-table__cell
+             span.-asociated Total
+               i.chi-icon.icon-chevron-down.-xs
+             span.-asociated %
+               i.chi-icon.icon-chevron-down.-xs
+            .chi-data-table__cell
+      .chi-data-table__body
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Location")
+            div Location 1
+          .chi-data-table__cell(data-label="High Utilization")
+            div.-asociated(data-label="Total") 3
+            div.-asociated(data-label="%") 98%
+          .chi-data-table__cell(data-label="Elevated Utilization")
+            div.-asociated(data-label="Total") -
+            div.-asociated(data-label="%") -
+          .chi-data-table__cell(data-label="Highest %")
+            div 98%
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Location")
+            div Location 2
+          .chi-data-table__cell(data-label="High Utilization")
+            div.-asociated(data-label="Total") 1
+            div.-asociated(data-label="%") 98%
+          .chi-data-table__cell(data-label="Elevated Utilization")
+            div.-asociated(data-label="Total") 3
+            div.-asociated(data-label="%") 67%
+          .chi-data-table__cell(data-label="Highest %")
+            div 98%
+        .chi-data-table__row
+          .chi-data-table__cell(data-label="Location")
+            div Location 3
+          .chi-data-table__cell(data-label="High Utilization")
+            div.-asociated(data-label="Total") -
+            div.-asociated(data-label="%") -
+          .chi-data-table__cell(data-label="Elevated Utilization")
+            div.-asociated(data-label="Total") 2
+            div.-asociated(data-label="%") 66
+          .chi-data-table__cell(data-label="Highest %")
+            div 66%
+      .chi-data-table__footer
+        nav.chi-pagination(role='navigation', aria-label='Pagination')
+          .chi-pagination__content
+            .chi-pagination__start
+              .chi-pagination__results
+                span.chi-pagination__label 240 results
+              .chi-pagination__page-size
+                .chi-dropdown
+                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                  .chi-dropdown__menu.-w--xs
+                    a.chi-dropdown__menu-item.-active(href='#') 20
+                    a.chi-dropdown__menu-item(href='#') 40
+                    a.chi-dropdown__menu-item(href='#') 60
+                    a.chi-dropdown__menu-item(href='#') 80
+                    a.chi-dropdown__menu-item(href='#') All
+                span.chi-pagination__label per page
+            .chi-pagination__center
+              .chi-pagination__button-group.chi-button-group
+                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                  .chi-button__content
+                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                a(class=`chi-button -flat`, href='#') 1
+                div(class=`chi-button -flat -disabled`) ...
+                a(class=`chi-button -flat`, href='#') 3
+                a(class=`chi-button -flat`, href='#') 4
+                a(class=`chi-button -flat -active`, href='#') 5
+                a(class=`chi-button -flat`, href='#') 6
+                a(class=`chi-button -flat`, href='#') 7
+                div(class=`chi-button -flat -disabled`) ...
+                a(class=`chi-button -flat`, href='#') 12
+                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                  .chi-button__content
+                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
+            .chi-pagination__end
+              .chi-pagination__jumper
+                label.chi-pagination__label(for="jumper-input-1") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-1')
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
 
 h3 Base -- Inverse
 .example.-mb--3
