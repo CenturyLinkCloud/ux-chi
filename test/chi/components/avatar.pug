@@ -1,7 +1,7 @@
 ---
 title: Avatar
 ---
-- var types = ['img', 'icon', 'icon-web-font', 'letter', 'double-letter'];
+- var types = ['img', 'icon', 'icon-web-font', 'letter', 'double-letter', 'avatar-group'];
 - var colors = ["default", "grey", "red", "pink", "purple", "indigo", "blue", "light-blue", "teal", "mint", "green", "yellow", "orange", "light", "secondary", "primary", "inverse"];
 - var sizes = ['default', 'xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl'];
 - var transparents = [false, true];
@@ -73,3 +73,12 @@ each type in types
                           [`-transparent`]: transparent
                         }
                       ) AA
+                    else if type === 'avatar-group'
+                      div(
+                        class={
+                          "chi-avatar": true,
+                          [`-${color}`]: type !== 'default',
+                          [`-${size}`]: style !== 'default',
+                          [`-transparent`]: transparent
+                        }
+                      ) L

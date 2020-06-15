@@ -147,7 +147,8 @@
         ".test-icon",
         ".test-icon-web-font",
         ".test-letter",
-        ".test-double-letter"
+        ".test-double-letter",
+        ".test-avatar-group"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
