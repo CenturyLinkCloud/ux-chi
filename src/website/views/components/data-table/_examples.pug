@@ -607,7 +607,7 @@ h3 Selectable
     .chi-data-table
       .chi-data-table__head
         .chi-data-table__row
-            .chi-data-table__cell.-lh--1
+            .chi-data-table__cell.-selectable.-lh--1
               input.chi-checkbox__input(type="checkbox", id=`chk-1`)
               label.chi-checkbox__label(for=`chk-1`)
                 .-sr--only Label
@@ -723,7 +723,7 @@ h3 Accordion
     .chi-data-table
       .chi-data-table__head
         .chi-data-table__row
-            .chi-data-table__cell
+            .chi-data-table__cell.-expandable
             .chi-data-table__cell
                span Name
             .chi-data-table__cell
@@ -736,7 +736,7 @@ h3 Accordion
               span Last Login
       .chi-data-table__body
         .chi-data-table__row
-          .chi-data-table__cell
+          .chi-data-table__cell.-expandable
             i.chi-icon.icon-chevron-right.-xs
           .chi-data-table__cell(data-label="Name")
             div Abe Salazar
@@ -749,7 +749,7 @@ h3 Accordion
           .chi-data-table__cell(data-label="Last Login")
             div April 8, 2020
         .chi-data-table__row
-          .chi-data-table__cell
+          .chi-data-table__cell.-expandable
             i.chi-icon.icon-chevron-right.-xs
           .chi-data-table__cell(data-label="Name")
             div Ashley Macias
@@ -762,7 +762,7 @@ h3 Accordion
           .chi-data-table__cell(data-label="Last Login")
             div April 8, 2020
         .chi-data-table__row
-          .chi-data-table__cell
+          .chi-data-table__cell.-expandable
             i.chi-icon.icon-chevron-right.-xs
           .chi-data-table__cell(data-label="Name")
             div Cameron Hodge
@@ -830,7 +830,7 @@ h3 Accordion Expanded
     .chi-data-table
       .chi-data-table__head
         .chi-data-table__row
-            .chi-data-table__cell
+            .chi-data-table__cell.-expandable
             .chi-data-table__cell
                span Name
             .chi-data-table__cell
@@ -843,7 +843,7 @@ h3 Accordion Expanded
               span Last Login
       .chi-data-table__body
         .chi-data-table__row
-          .chi-data-table__cell
+          .chi-data-table__cell.-expandable
             i.chi-icon.icon-chevron-right.-xs
           .chi-data-table__cell(data-label="Name")
             div Abe Salazar
@@ -856,7 +856,7 @@ h3 Accordion Expanded
           .chi-data-table__cell(data-label="Last Login")
             div April 8, 2020
         .chi-data-table__row.-expanded
-          .chi-data-table__cell
+          .chi-data-table__cell.-expandable
             i.chi-icon.icon-chevron-right.-xs
           .chi-data-table__cell(data-label="Name")
             div Ashley Macias
@@ -871,7 +871,7 @@ h3 Accordion Expanded
         .chi-data-table__row-child
             div Some random content
         .chi-data-table__row
-          .chi-data-table__cell
+          .chi-data-table__cell.-expandable
             i.chi-icon.icon-chevron-right.-xs
           .chi-data-table__cell(data-label="Name")
             div Cameron Hodge
@@ -1747,11 +1747,11 @@ h3 Size -xl
     :code(lang='html')
       <div class="chi-data-table -xl">
       </div>
-      
-h3 Column resizing
+
+h3 Resize
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table
+    .chi-data-table#resize
       .chi-data-table__head
         .chi-data-table__row
             .chi-data-table__cell
@@ -1833,8 +1833,8 @@ h3 Column resizing
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-18") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-18')
+                label.chi-pagination__label(for="jumper-input-1") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-1')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1848,7 +1848,7 @@ h3 Column resizing
       <div class="chi-data-table">
       </div>
 
-h3 Base -- Two tier table header
+h3 Two tier table header
 .example.-mb--3
   .-p--3.-p-md--5
     .chi-data-table
@@ -2580,7 +2580,7 @@ h3 Base -- Portal
               span Last Login
       .chi-data-table__body
         .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
+          .chi-data-table__cell.-name(data-label="Name")
             div Abe Salazar
           .chi-data-table__cell(data-label="Email")
             div abe.salazar@domain.com
@@ -2591,7 +2591,7 @@ h3 Base -- Portal
           .chi-data-table__cell(data-label="Last Login")
             div April 8, 2020
         .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
+          .chi-data-table__cell.-name(data-label="Name")
             div Ashley Macias
           .chi-data-table__cell(data-label="Email")
             div ashley.macias@domain.com
@@ -2602,7 +2602,7 @@ h3 Base -- Portal
           .chi-data-table__cell(data-label="Last Login")
             div April 8, 2020
         .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
+          .chi-data-table__cell.-name(data-label="Name")
             div Cameron Hodge
           .chi-data-table__cell(data-label="Email")
             div cameron.hodge@domain.com
@@ -2667,4 +2667,51 @@ script.
     'DOMContentLoaded',
     function() {
       chi.tab(document.querySelectorAll('.chi-tabs-panel .chi-tabs'));
+      
+      window.columnResize = (elem) => {
+        const columnHeaders = elem.querySelectorAll(".chi-data-table__head .chi-data-table__cell");
+        let thElm;
+        let startOffset;
+        Array.prototype.forEach.call(
+          columnHeaders,
+          function(th) {
+            th.style.position = 'relative';
+            var grip = document.createElement('span');
+            grip.innerHTML = "&nbsp;";
+            grip.style.top = '0';
+            grip.style.right = '0';
+            grip.style.bottom = '0';
+            grip.style.width = '5px';
+            grip.style.position = 'absolute';
+            grip.style.cursor = 'col-resize';
+            grip.classList.add('resize-handle');
+            grip.addEventListener('mousedown', function(e) {
+              thElm = th;
+              startOffset = th.offsetWidth - e.pageX;
+            });
+            th.appendChild(grip);
+          });
+        document.addEventListener('mousemove', function(e) {
+          let columnCellsToResize;
+          if (thElm) {
+            thElm.setAttribute('style', `width: ${startOffset + e.pageX + 'px'} !important; flex: none !important;`);
+            for (let i = 0; i < columnHeaders.length; ++i) {
+              if (columnHeaders[i] === thElm) {
+                columnCellsToResize = elem
+                  .querySelectorAll(`.chi-data-table__body .chi-data-table__row .chi-data-table__cell:nth-child(${i + 1})`);
+              }
+            }
+            Array.prototype.forEach.call(
+              columnCellsToResize,
+              function(column) {
+                column.setAttribute('style', `width: ${thElm.style.width} !important; flex: none !important`);
+              });
+          }
+        });
+        document.addEventListener('mouseup', function() {
+          thElm = undefined;
+        });
+      };
+      
+      columnResize(document.querySelector('#resize'));
     });

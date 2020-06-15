@@ -78,6 +78,10 @@ $sizes: (
             transition: transform 0.2s ease-in-out;
           }
         }
+
+        &.-expandable {
+          flex-basis: 2.25rem;
+        }
       }
     }
   }
@@ -105,12 +109,6 @@ $sizes: (
         min-width: 10rem;
 
         @include respond-to(md) {
-          display: none;
-        }
-      }
-
-      &.-selectable {
-        &::before {
           display: none;
         }
       }
@@ -147,9 +145,13 @@ $sizes: (
       background-color: set-color(blue, 20);
       box-shadow: inset 0.125rem 0 0 $primary-color;
 
-      .icon-chevron-right {
-        transform: rotate(90deg);
-        transition: transform 0.2s ease-in-out;
+      .chi-data-table__cell {
+        &.-expandable {
+          .icon-chevron-right {
+            transform: rotate(90deg);
+            transition: transform 0.2s ease-in-out;
+          }
+        }
       }
     }
 
@@ -171,6 +173,17 @@ $sizes: (
       flex-grow: 1;
       flex-shrink: 1;
       justify-content: flex-start;
+    }
+
+    &.-selectable,
+    &.-expandable {
+      @include respond-to(md) {
+        flex-grow: 0;
+      }
+
+      &::before {
+        display: none;
+      }
     }
 
     & .-asociated {
@@ -476,12 +489,36 @@ $sizes: (
 
     .chi-data-table__body {
       .chi-data-table__row {
-        &:nth-child(even) {
-          background-color: $portal-color-background-table-tr-alt;
+        background-color: set-color(grey, 20);
+        border-bottom: 0;
+        margin-bottom: 1rem;
+        padding-top: 0;
+
+        @include respond-to(md) {
+          background-color: set-color(white);
+          margin-bottom: 0;
+
+          &:nth-child(even) {
+            background-color: $portal-color-background-table-tr-alt;
+          }
         }
 
         .chi-data-table__cell {
           border-bottom: 0;
+
+          &.-name {
+            background-color: set-color(grey, 30);
+            font-weight: 600;
+
+            &:before {
+              display: none;
+            }
+
+            @include respond-to(md) {
+              background-color: transparent;
+              font-weight: 400;
+            }
+          }
         }
 
         &.-active {
@@ -491,7 +528,9 @@ $sizes: (
 
         &:hover,
         &.-hover {
-          background-color: $portal-color-background-table-tr-selected;
+          @include respond-to(md) {
+            background-color: $portal-color-background-table-tr-selected;
+          }
         }
       }
     }
