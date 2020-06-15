@@ -1,10 +1,80 @@
 h2 Examples
 
+h3 Configure Alert
+p.-text
+  | Choose available options to configure Alert
+.example.-mb--3
+  .-bg--grey-10.-p--3
+    #component-configurator.chi-grid
+      .chi-col
+        .chi-form__item
+          label.chi-label.-mr--2(for='configurator-color') Color
+          select#configurator-color.chi-input
+            option(value='info') Info
+            option(value='success') Success
+            option(value='warning') Warning
+            option(value='danger') Danger
+            option(value='muted') Muted
+        .chi-form__item
+          label.chi-label.-mr--2(for='configurator-type') Type
+          select#configurator-type.chi-input
+            option(value='type') Bubble
+            option(value='banner') Banner
+            option(value='toast') Toast
+        .chi-form__item
+          label.chi-label.-mr--2(for='configurator-size') Size
+          select#configurator-size.chi-input
+            option(value='md') md
+            option(value='sm') sm
+            option(value='lg') lg
+      .chi-col
+        .chi-form__item
+          label.chi-label.-mr--2(for='configurator-title') Title
+          input(type='text', value='')#configurator-title.chi-input
+          .chi-label.-status.-danger.-d--none Centered alerts do not support titles.
+        .chi-form__item
+          label.chi-label.-mr--2(for='configurator-message') Message
+          input(type='text', value='This is an info alert')#configurator-message.chi-input
+        .chi-form__item
+          label.chi-label.-mr--2(for='configurator-icon') Icon
+          input(type='text', value='circle-info')#configurator-icon.chi-input
+      .chi-col
+        .chi-form__item
+          .chi-checkbox
+            input#configurator-center.chi-checkbox__input(type='checkbox')
+            label.chi-checkbox__label(for='configurator-center') Centered
+        .chi-form__item
+          .chi-checkbox
+            input#configurator-closable.chi-checkbox__input(type='checkbox')
+            label.chi-checkbox__label(for='configurator-closable') Closable
+  .-p--3.-p-md--5
+    chi-alert(color="info", icon="circle-info")#configurator-example
+      | This is an info alert
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-disabled
+        a(href=`#webcomponent-base`) Web Component
+      li.-active
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#html-base
+    :code(lang='html')
+      <div class="chi-data-table">
+      </div>
+script.
+  document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      alertConfigurator(
+        document.querySelector('#component-configurator'),
+        document.querySelector('#configurator-example')
+      );
+    }
+  );
 h3 Bubble
 p.-text
   | Bubble alerts are designed for displaying inline messages and notifications within forms, panels, cards, and other content areas.
   | They are Chi's default Alert type.
-
 h4 Default
 .example.-mb--3
   .-p--1

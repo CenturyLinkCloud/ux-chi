@@ -133,8 +133,8 @@ export class Alert {
 
   render() {
     const chiIcon = <chi-icon icon={this.icon} color={this.color} extraClass="chi-alert__icon"></chi-icon>;
-    const alertTitle = this.alertTitle && <p class="chi-alert__title">{this.alertTitle}</p>;
-    const chiActions = this.alertActions && <div class="chi-alert__actions"><slot name="chi-alert__actions"></slot></div>;
+    const alertTitle = this.alertTitle ? <p class="chi-alert__title">{this.alertTitle}</p> : '';
+    const chiActions = this.alertActions ? <div class="chi-alert__actions"><slot name="chi-alert__actions"></slot></div> : '';
 
     return (
       <div class={`chi-alert
