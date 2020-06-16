@@ -52,15 +52,19 @@ p.-text
       | This is an info alert
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
       li.-active
+        a(href=`#webcomponent-base`) Web Component
+      li
         a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
+  .chi-tabs-panel.-active#webcomponent-base
+    #dynamic-code-snippet
+      :code(lang='html')
+        <chi-alert></chi-alert>
+  .chi-tabs-panel#html-base
     :code(lang='html')
       <div class="chi-data-table">
       </div>
+
 script.
   document.addEventListener(
     'DOMContentLoaded',
