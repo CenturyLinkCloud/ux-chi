@@ -69,4 +69,119 @@ $border: 0.0625rem;
       margin-left: 0.5rem;
     }
   }
+
+  .chi-form__helper-message {
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin-top: .25rem;
+  }
+
+  &.-success {
+    .chi-input__wrapper {
+      input {
+        &[type="text"] {
+          border: 1px solid $success-color;
+        }
+      }
+
+      &.-icon--right {
+        i {
+          &.chi-icon {
+            color: $success-color;
+          }
+        }
+      }
+    }
+
+    .chi-form__helper-message {
+      color: $success-color;
+    }
+  }
+
+  &.-warning {
+    .chi-input__wrapper {
+      input {
+        &[type="text"] {
+          border: 1px solid $warning-color;
+        }
+      }
+
+      &.-icon--right {
+        i {
+          &.chi-icon {
+            color: $warning-color;
+          }
+        }
+      }
+    }
+
+    .chi-form__helper-message {
+      color: $warning-color;
+    }
+  }
+
+  &.-danger {
+    .chi-input__wrapper {
+      input {
+        &[type="text"] {
+          border: 1px solid $danger-color;
+        }
+      }
+
+      &.-icon--right {
+        i {
+          &.chi-icon {
+            color: $danger-color;
+          }
+        }
+      }
+    }
+
+    .chi-form__helper-message {
+      color: $danger-color;
+    }
+  }
+
+  chi-text-input {
+    &[state="success"] {
+      .chi-form__helper-message {
+        color: $success-color;
+      }
+    }
+
+    &[state="warning"] {
+      .chi-form__helper-message {
+        color: $warning-color;
+      }
+    }
+
+    &[state="danger"] {
+      .chi-form__helper-message {
+        color: $danger-color;
+      }
+    }
+
+    .chi-form__helper-message {
+      &.-success {
+        color: $success-color;
+      }
+
+      &.-danger {
+        color: $danger-color;
+      }
+
+      &.-warning {
+        color: $warning-color;
+      }
+
+      &.-info {
+        color: $info-color;
+      }
+
+      &.-muted {
+        color: $muted-color;
+      }
+    }
+  }
 }

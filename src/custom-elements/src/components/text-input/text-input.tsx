@@ -81,6 +81,9 @@ export class TextInput {
    */
   @Event({ eventName: 'chiBlur' }) eventBlur: EventEmitter;
 
+  statusMessage = false;
+  statusMessageColor;
+
   @Watch('state')
   stateValidation(newValue: ChiStates) {
     const validValues = CHI_STATES.join(', ');
@@ -141,6 +144,17 @@ export class TextInput {
     this.eventChange.emit(newValue);
   }
 
+  connectedCallback() {
+    const statusMessageSlot = this.el.querySelector("[slot=chi-form__helper-message]");
+
+    if (statusMessageSlot) {
+      const statusMessageSlotColor = statusMessageSlot.getAttribute('color');
+
+      this.statusMessage = true;
+      this.statusMessageColor = statusMessageSlotColor ? `-${statusMessageSlotColor}` : '';
+    }
+  }
+
   componentWillLoad() {
     this.stateValidation(this.state);
     this.iconLeftColorValidation(this.iconLeftColor);
@@ -173,7 +187,14 @@ export class TextInput {
       ${this.iconRight ? '-icon--right' : ''}
     `;
     const iconLeft = this.iconLeft && <chi-icon color={this.iconLeftColor || ''} icon={this.iconLeft} />;
-    const iconRight = this.iconRight && <chi-icon color={this.iconRightColor || ''} icon={this.iconRight} />;
+    const iconRight = this.iconRight && <chi-icon
+      color={this.iconRightColor ? this.iconRightColor :
+        this.state ? this.state : ''}
+      icon={this.iconRight} />;
+    const textInputstatusMessage = this.statusMessage ? <div class={`
+      chi-form__helper-message
+      ${this.statusMessageColor}
+      `}><slot name="chi-form__helper-message"></slot></div> : null;
 
     const input = this.iconLeft || this.iconRight ?
       <div class={`chi-input__wrapper ${iconClasses}`}>
@@ -182,6 +203,9 @@ export class TextInput {
         {iconRight}
       </div> : inputElement;
 
-    return input;
+    return <div>
+      {input}
+      {textInputstatusMessage}
+    </div>;
   }
 }

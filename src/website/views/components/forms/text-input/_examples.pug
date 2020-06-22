@@ -1,7 +1,4 @@
 h2 Examples
-p.-text
-  | To render a text input, apply the class <code>chi-input</code> to an <code>input type="text"</code>,
-  | <code>input type="password"</code>, <code>input type="email"</code>, etc.
 
 h3 Base
 .example.-mb--3
@@ -22,6 +19,10 @@ h3 Base
         <chi-text-input id="example__base" placeholder="Placeholder"></chi-text-input>
       </div>
   .chi-tabs-panel#html-base
+    .chi-tab__description
+      .-text
+        | To render a text input, apply the class <code>chi-input</code> to an <code>input type="text"</code>,
+        | <code>input type="password"</code>, <code>input type="email"</code>, etc.
     :code(lang="html")
       <div class="chi-form__item">
         <label class="chi-label" for="example__base">Label</label>
@@ -53,20 +54,56 @@ h3 Disabled
         <input type="text" class="chi-input" value="Sample Text" id="example__disabled" disabled>
       </div>
 
-h3 Invalid
-p.-text Text inputs support Chi's semantic class modifier <code>-danger</code> for indicating an invalid input.
+h3 Text Input helper message
 .example.-mb--3
-  .-p--3
-    .chi-form__item(style="max-width:20rem")
-      chi-label(for="example__danger") Label
-      chi-text-input(
-        id="example__danger"
-        state="danger"
-        icon-right='circle-warning'
-        icon-right-color='danger'
-        value="Sample Text"
+  .chi-grid.-p--3
+    .chi-col.-w--12.-w-md--6
+      .chi-form__item(style="max-width: 20rem;")
+        chi-label(for="example-message__success") Label
+        chi-text-input(
+          id="example-message__success"
+          state="success"
+          icon-right='check'
+          value="Sample Text"
         )
-      .chi-label.-status.-danger This is an invalid label
+          div(slot="chi-form__helper-message")
+            | Helper text and icon color is inherited
+    .chi-col.-w--12.-w-md--6.-pt--3.-pt-md--0
+      .chi-form__item(style="max-width: 20rem;")
+        chi-label(for="example-message__warning") Label
+        chi-text-input(
+          id="example-message__warning"
+          state="warning"
+          icon-right='warning'
+          value="Sample Text"
+        )
+          div(slot="chi-form__helper-message")
+            | Helper text and icon color is inherited
+    .chi-col.-w--12.-w-md--6.-pt--3
+      .chi-form__item(style="max-width: 20rem;")
+        chi-label(for="example__danger") Label
+        chi-text-input(
+          id="example__danger"
+          state="danger"
+          icon-right='circle-warning'
+          value="Sample Text"
+        )
+          div(slot="chi-form__helper-message")
+            | Helper text and icon color is inherited
+    .chi-col.-w--12.-w-md--6.-pt--3
+      .chi-form__item(style="max-width: 20rem;")
+        chi-label(for="example__danger") Label
+        chi-text-input(
+          id="example__danger"
+          state="danger"
+          icon-right='atom'
+          icon-right-color="muted"
+          value="Sample Text"
+        )
+          div(slot="chi-form__helper-message" color="muted")
+            | Helper text and icon color is defined in a
+            b  custom
+            |  way
   .example-tabs.-pl--2
     ul.chi-tabs#example-invalid
       li.-active
@@ -75,20 +112,77 @@ p.-text Text inputs support Chi's semantic class modifier <code>-danger</code> f
         a(href=`#html-invalid`) HTML Blueprint
   .chi-tabs-panel.-active#webcomponent-invalid
     :code(lang="html")
+      <!-- Success -->
       <div class="chi-form__item">
-        <chi-label for="example__danger">Label</chi-label>
-        <chi-text-input id="example__danger" state="danger" icon-right="circle-warning" icon-right-color="danger" value="Sample Text"></chi-text-input>
-        <div class="chi-label -status -danger">This is an invalid label</div>
+        <chi-label for="example-message__success">Label</chi-label>
+        <chi-text-input id="example-message__success" state="success" icon-right="check" value="Sample Text">
+          <div slot="chi-form__helper-message">Helper text and icon color is inherited</div>
+        </chi-text-input>
+      </div>
+
+      <!-- Warning -->
+      <div class="chi-form__item">
+        <chi-label for="example-message__warning">Label</chi-label>
+        <chi-text-input id="example-message__warning" state="warning" icon-right="warning" value="Sample Text">
+          <div slot="chi-form__helper-message">Helper text and icon color is inherited</div>
+        </chi-text-input>
+      </div>
+
+      <!-- Danger -->
+      <div class="chi-form__item">
+        <chi-label for="example-message__danger">Label</chi-label>
+        <chi-text-input id="example-message__danger" state="danger" icon-right="circle-warning" value="Sample Text">
+          <div slot="chi-form__helper-message">Helper text and icon color is inherited</div>
+        </chi-text-input>
+      </div>
+
+      <!-- Custom -->
+      <div class="chi-form__item">
+        <chi-label for="example-message__custom">Label</chi-label>
+        <chi-text-input id="example-message__custom" state="danger" icon-right="atom" icon-right-color="muted" value="Sample Text">
+          <div slot="chi-form__helper-message" color="muted">Helper text and icon color is defined in a custom way</div>
+        </chi-text-input>
       </div>
   .chi-tabs-panel#html-invalid
     :code(lang="html")
-      <div class="chi-form__item">
-        <label class="chi-label" for="example__danger">Label</label>
+      <!-- Success -->
+      <div class="chi-form__item -success">
+        <label for="example-message__success" class="chi-label">Label</label>
         <div class="chi-input__wrapper -icon--right">
-          <input type="text" class="chi-input -danger" value="Sample Text" id="example__danger">
-          <i class="chi-icon icon-circle-warning -text--danger"></i>
+          <input id="example-message__success" type="text" class="chi-input" value="Sample Text">
+          <i class="chi-icon icon-check"></i>
         </div>
-        <div class="chi-label -status -danger">This is an invalid label</div>
+        <div class="chi-form__helper-message">Helper text and icon color is inherited</div>
+      </div>
+
+      <!-- Warning -->
+      <div class="chi-form__item -warning">
+        <label for="example-message__warning" class="chi-label">Label</label>
+        <div class="chi-input__wrapper -icon--right">
+          <input id="example-message__warning" type="text" class="chi-input" value="Sample Text">
+          <i class="chi-icon icon-warning"></i>
+        </div>
+        <div class="chi-form__helper-message">Helper text and icon color is inherited</div>
+      </div>
+
+      <!-- Danger -->
+      <div class="chi-form__item -danger">
+        <label for="example-message__danger" class="chi-label">Label</label>
+        <div class="chi-input__wrapper -icon--right">
+          <input id="example-message__danger" type="text" class="chi-input" value="Sample Text">
+          <i class="chi-icon icon-circle-warning"></i>
+        </div>
+        <div class="chi-form__helper-message">Helper text and icon color is inherited</div>
+      </div>
+
+      <!-- Custom color -->
+      <div class="chi-form__item -danger">
+        <label for="example-message__custom" class="chi-label">Label</label>
+        <div class="chi-input__wrapper -icon--right">
+          <input id="example-message__custom" type="text" class="chi-input" value="Sample Text">
+          <i class="chi-icon icon-atom -text--muted"></i>
+        </div>
+        <div class="chi-form__helper-message -text--muted">Helper text and icon color is defined in a custom way</div>
       </div>
 
 h3 Label with icon
@@ -363,7 +457,7 @@ h3 Left + Right Aligned
 
 h2 States
 p.-text
-  | Text inputs offer three validation states: <code>-success</code>, <code>-warning</code>, and <code>-danger</code>.
+  | Text inputs offer three validation states: <code>success</code>, <code>warning</code>, and <code>danger</code>.
 
 h3 Success
 .example.-mb--3
@@ -549,9 +643,9 @@ h3 Danger
 
 h3 Sizes
 p.-text
-  | Text inputs supports a full spectrum of sizes: <code>-sm</code>, <code>-md</code>,
-  |  <code>-lg</code>, <code>-xl</code>.
-  | The default size is <code>-md</code>.
+  | Text inputs supports a full spectrum of sizes: <code>sm</code>, <code>md</code>,
+  |  <code>lg</code>, <code>xl</code>.
+  | The default size is <code>md</code>.
 .example.-mb--3
   .-p--3
     .-p--2
