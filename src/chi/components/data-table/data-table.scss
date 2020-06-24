@@ -143,7 +143,7 @@ $sizes: (
 
     &.-expanded {
       background-color: set-color(blue, 20);
-      box-shadow: inset 0.125rem 0 0 $primary-color;
+      box-shadow: inset 0.25rem 0 0 $primary-color;
 
       .chi-data-table__cell {
         &.-expandable {
@@ -155,9 +155,10 @@ $sizes: (
       }
     }
 
-    &-child {
+    &-child,
+    &-grand-child {
       background-color: set-color(white);
-      box-shadow: inset 0.125rem 0 0 $primary-color;
+      box-shadow: inset 0.25rem 0 0 $primary-color;
 
       @include respond-to(md) {
         border-bottom: 0.0625rem solid set-color(grey, 30);
@@ -489,14 +490,16 @@ $sizes: (
 
     .chi-data-table__body {
       .chi-data-table__row {
-        background-color: set-color(grey, 20);
         border-bottom: 0;
-        margin-bottom: 1rem;
-        padding-top: 0;
+        margin-top: 0.5rem;
+        padding: 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
 
         @include respond-to(md) {
-          background-color: set-color(white);
-          margin-bottom: 0;
+          margin-top: 0;
 
           &:nth-child(even) {
             background-color: $portal-color-background-table-tr-alt;
@@ -505,18 +508,44 @@ $sizes: (
 
         .chi-data-table__cell {
           border-bottom: 0;
+          padding: 0.75rem 1rem;
+
+          @include respond-to(md) {
+            padding: 0.75rem;
+          }
 
           &.-name {
-            background-color: set-color(grey, 30);
-            font-weight: 600;
+            background-color: set-color(grey, 20);
+            justify-content: space-between;
 
-            &:before {
+            &::before {
               display: none;
+            }
+
+            &::after {
+              content: '\e920';
+              font-family: 'chi';
+              font-size: 0.75rem;
+              font-weight: normal;
+              height: 1rem;
+              width: 0.75rem;
             }
 
             @include respond-to(md) {
               background-color: transparent;
-              font-weight: 400;
+              justify-content: flex-start;
+
+              &::after {
+                display: none;
+              }
+            }
+          }
+
+          &:not(.-name) {
+            display: none;
+
+            @include respond-to(md) {
+              display: flex;
             }
           }
         }
@@ -530,6 +559,173 @@ $sizes: (
         &.-hover {
           @include respond-to(md) {
             background-color: $portal-color-background-table-tr-selected;
+          }
+        }
+
+        &.-expanded {
+          background-color: set-color(grey, 20);
+
+          .chi-data-table__cell {
+            &.-name {
+              box-shadow: inset 0.25rem 0 0 $primary-color;
+
+              > div {
+                &::before {
+                  content: '\e974';
+                }
+              }
+            }
+          }
+
+          @include respond-to(md) {
+            background-color: set-color(blue, 20);
+            display: flex;
+
+            .chi-data-table__cell {
+              &.-name {
+                box-shadow: none;
+              }
+            }
+          }
+        }
+
+        &-child,
+        &-grand-child {
+          background-color: set-color(grey,20);
+          display: flex;
+          justify-content: space-between;
+          padding: 0.75rem 1rem 0.75rem 2.25rem;
+
+          &::after {
+            content: '\e920';
+            font-family: 'chi';
+            font-size: 0.75rem;
+            font-weight: normal;
+            height: 1rem;
+            width: 0.75rem;
+          }
+
+          @include respond-to(md) {
+            background-color: set-color(white);
+            justify-content: flex-start;
+            padding: 1.5rem 2rem 1.5rem 3rem;
+
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.-accordion {
+      .chi-data-table__body {
+        .chi-data-table__row {
+          .chi-data-table__cell {
+            &.-name {
+              > div {
+                &::before {
+                  color: $primary-color;
+                  content: '\e97d';
+                  font-family: 'chi';
+                  font-size: 0.75rem;
+                  font-weight: normal;
+                  height: 1rem;
+                  margin-right: 0.5rem;
+                  width: 0.75rem;
+
+                  @include respond-to(md) {
+                    display: none;
+                  }
+                }
+              }
+            }
+
+            &.-expandable {
+              .chi-icon {
+                color: $primary-color;
+              }
+            }
+          }
+
+          &.-expanded {
+            .chi-data-table__cell {
+              &.-name {
+                > div {
+                  &::before {
+                    content: '\e974';
+                  }
+                }
+              }
+            }
+          }
+
+          &-child {
+            &.-collapsed,
+            &.-expanded {
+              > div {
+                &::before {
+                  color: $primary-color;
+                  font-family: 'chi';
+                  font-size: 0.75rem;
+                  font-weight: normal;
+                  height: 1rem;
+                  margin-right: 0.5rem;
+                  width: 0.75rem;
+
+                  @include respond-to(md) {
+                    display: none;
+                  }
+                }
+              }
+            }
+
+            &.-collapsed {
+              > div {
+                &::before {
+                  content: '\e97d';
+                }
+              }
+            }
+
+            &.-expanded {
+              > div {
+                &::before {
+                  content: '\e974';
+                }
+              }
+            }
+          }
+
+          &-grand-child {
+            padding-left: 3.5rem;
+          }
+        }
+      }
+    }
+
+    .chi-data-table__footer {
+      display: none;
+
+      @include respond-to(md) {
+        background-color: $portal-color-background-table-th;
+        display: block;
+        padding: 0.5rem 0;
+
+        .chi-pagination__content {
+          .chi-pagination__center {
+            align-items: center;
+
+            .chi-button {
+              &.-icon {
+                &.-flat {
+                  &:hover {
+                    background-color: transparent;
+                    border: 0.0625rem solid transparent;
+                  }
+                }
+              }
+            }
           }
         }
       }
