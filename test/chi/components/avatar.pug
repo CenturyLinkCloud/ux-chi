@@ -73,12 +73,16 @@ each type in types
                           [`-transparent`]: transparent
                         }
                       ) AA
+
                     else if type === 'avatar-group'
-                      div(
-                        class={
-                          "chi-avatar": true,
-                          [`-${color}`]: type !== 'default',
-                          [`-${size}`]: style !== 'default',
-                          [`-transparent`]: transparent
-                        }
-                      ) L
+                      div.chi-avatar-group
+                        div(
+                          class={
+                            "chi-avatar": true,
+                            [`-${color}`]: type !== 'default',
+                            [`-${size}`]: style !== 'default',
+                            [`-transparent`]: transparent
+                          }
+                        ) L 
+                        | Label&nbsp;
+                        span=  color
