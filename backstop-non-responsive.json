@@ -36,7 +36,11 @@
         ".test-banner-lg",
         ".test-banner-center-lg",
         ".test-banner-dismissible-lg",
-        ".test-banner-titled-lg"
+        ".test-banner-no-border-lg",
+        ".test-banner-titled-lg",
+        ".test-banner-actionable-default",
+        ".test-banner-actionable-sm",
+        ".test-banner-actionable-lg"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,

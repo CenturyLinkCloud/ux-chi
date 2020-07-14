@@ -11,7 +11,12 @@ describe('Alert', () => {
     'alert-banner-success-lg',
     'alert-banner-center-success-lg',
     'alert-banner-dismissible-success-lg',
-    'alert-banner-titled-success-lg'
+    'alert-banner-no-border-success-lg',
+    'alert-banner-titled-success-lg',
+    'alert-banner-actionable-success-default',
+    'alert-banner-actionable-success-sm',
+    'alert-banner-actionable-success-lg'
+
   ];
 
   const alertBubbleSelectors = [
