@@ -2,9 +2,212 @@ h2 Examples
 p.-text To render data table, use the class <code>chi-data-table</code>.
 
 h3 Base
+ul#chi-tabs--base.chi-tabs
+  li.-active
+    a(href='#chi-tabs-panel--base') Base
+  li
+    a(href='#chi-tabs-panel--inverse') Inverse
+.example.-mb--3
+  #chi-tabs-panel--base.chi-tabs-panel.-active
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                    .chi-dropdown__menu.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat`, href='#') 1
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 3
+                  a(class=`chi-button -flat`, href='#') 4
+                  a(class=`chi-button -flat -active`, href='#') 5
+                  a(class=`chi-button -flat`, href='#') 6
+                  a(class=`chi-button -flat`, href='#') 7
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 12
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-1") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-1')
+                
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-base
+        li.-disabled
+          a(href=`#webcomponent-menu-base`) Web Component
+        li.-active
+          a(href=`#html-menu-base`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-base
+    .chi-tabs-panel.-active#html-menu-base
+      :code(lang="html")
+        <div class="chi-data-table">
+        </div>
+  #chi-tabs-panel--inverse.chi-tabs-panel
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-inverse
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
+                    .chi-dropdown__menu.-inverse.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat -light`, href='#') 1
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 3
+                  a(class=`chi-button -flat -light`, href='#') 4
+                  a(class=`chi-button -flat -light -active`, href='#') 5
+                  a(class=`chi-button -flat -light`, href='#') 6
+                  a(class=`chi-button -flat -light`, href='#') 7
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 12
+                  a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-2") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-2')
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-inverse
+        li.-disabled
+          a(href=`#webcomponent-menu-inverse`) Web Component
+        li.-active
+          a(href=`#html-menu-inverse`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-inverse
+    .chi-tabs-panel.-active#html-menu-inverse
+      :code(lang="html")
+        <div class="chi-data-table -inverse">
+        </div>
+
+h3 Base -- Compact
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table
+    .chi-data-table.-compact
       .chi-data-table__head
         .chi-data-table__row
           .chi-data-table__cell
@@ -19,75 +222,58 @@ h3 Base
             span Last Login
       .chi-data-table__body
         .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
+          .chi-data-table__cell.-name
             div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
+          .chi-data-table__cell.-name
             div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
+          .chi-data-table__cell
             div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
+          .chi-data-table__cell
             div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
+          .chi-data-table__cell
             div April 8, 2020
         .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
+          .chi-data-table__cell.-name
             div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
+          .chi-data-table__cell.-name
             div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
+          .chi-data-table__cell
             div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
+          .chi-data-table__cell
             div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
+          .chi-data-table__cell
             div April 8, 2020
         .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
+          .chi-data-table__cell.-name
             div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
+          .chi-data-table__cell.-name
             div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
+          .chi-data-table__cell
             div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
+          .chi-data-table__cell
             div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
+          .chi-data-table__cell
             div April 5, 2020
       .chi-data-table__footer
-        nav.chi-pagination(role='navigation', aria-label='Pagination')
+        nav.chi-pagination.-compact(role='navigation', aria-label='Pagination')
           .chi-pagination__content
             .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
-                  .chi-dropdown__menu.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
             .chi-pagination__center
               .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                a(class=`chi-button -icon -flat -sm`, href='#', aria-label='Previous page')
                   .chi-button__content
                     i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat`, href='#') 1
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 3
-                a(class=`chi-button -flat`, href='#') 4
-                a(class=`chi-button -flat -active`, href='#') 5
-                a(class=`chi-button -flat`, href='#') 6
-                a(class=`chi-button -flat`, href='#') 7
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 12
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+              .chi-pagination__label
+                strong 2
+                span of
+                strong 3
+              .chi-pagination__button-group.chi-button-group
+                a(class=`chi-button -icon -flat -sm`, href='#', aria-label='Next page')
                   .chi-button__content
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__results
+                span.chi-pagination__label 240 Results
             .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-1") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-1')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -98,508 +284,1022 @@ h3 Base
   .chi-tabs-panel#webcomponent-base
   .chi-tabs-panel.-active#html-base
     :code(lang='html')
-      <div class="chi-data-table">
+      <div class="chi-data-table -compact">
       </div>
-
 h3 No Border
+ul#chi-tabs--no-border.chi-tabs
+  li.-active
+    a(href='#chi-tabs-panel--no-border-base') Base
+  li
+    a(href='#chi-tabs-panel--no-border-inverse') Inverse
 .example.-mb--3
-  .-p--3.-p-md--5
-    .chi-data-table.-no-border
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
-                  .chi-dropdown__menu.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat`, href='#') 1
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 3
-                a(class=`chi-button -flat`, href='#') 4
-                a(class=`chi-button -flat -active`, href='#') 5
-                a(class=`chi-button -flat`, href='#') 6
-                a(class=`chi-button -flat`, href='#') 7
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 12
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-2") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-2')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -no-border">
-      </div>
-
+  #chi-tabs-panel--no-border-base.chi-tabs-panel.-active
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-no-border
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                    .chi-dropdown__menu.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat`, href='#') 1
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 3
+                  a(class=`chi-button -flat`, href='#') 4
+                  a(class=`chi-button -flat -active`, href='#') 5
+                  a(class=`chi-button -flat`, href='#') 6
+                  a(class=`chi-button -flat`, href='#') 7
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 12
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-3") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-3')
+                
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-base
+        li.-disabled
+          a(href=`#webcomponent-menu-base`) Web Component
+        li.-active
+          a(href=`#html-menu-base`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-base
+    .chi-tabs-panel.-active#html-menu-base
+      :code(lang="html")
+        <div class="chi-data-table -no-border">
+        </div>
+  #chi-tabs-panel--no-border-inverse.chi-tabs-panel
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-inverse.-no-border
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
+                    .chi-dropdown__menu.-inverse.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat -light`, href='#') 1
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 3
+                  a(class=`chi-button -flat -light`, href='#') 4
+                  a(class=`chi-button -flat -light -active`, href='#') 5
+                  a(class=`chi-button -flat -light`, href='#') 6
+                  a(class=`chi-button -flat -light`, href='#') 7
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 12
+                  a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-4") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-4')
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-inverse
+        li.-disabled
+          a(href=`#webcomponent-menu-inverse`) Web Component
+        li.-active
+          a(href=`#html-menu-inverse`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-inverse
+    .chi-tabs-panel.-active#html-menu-inverse
+      :code(lang="html")
+        <div class="chi-data-table -inverse -no-border">
+        </div>
+    
 h3 Striped
+ul#chi-tabs--striped.chi-tabs
+  li.-active
+    a(href='#chi-tabs-panel--striped-base') Base
+  li
+    a(href='#chi-tabs-panel--striped-inverse') Inverse
 .example.-mb--3
-  .-p--3.-p-md--5
-    .chi-data-table.-striped
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
-                  .chi-dropdown__menu.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat`, href='#') 1
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 3
-                a(class=`chi-button -flat`, href='#') 4
-                a(class=`chi-button -flat -active`, href='#') 5
-                a(class=`chi-button -flat`, href='#') 6
-                a(class=`chi-button -flat`, href='#') 7
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 12
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-3") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-3')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -striped">
-      </div>
+  #chi-tabs-panel--striped-base.chi-tabs-panel.-active
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-striped
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                    .chi-dropdown__menu.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat`, href='#') 1
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 3
+                  a(class=`chi-button -flat`, href='#') 4
+                  a(class=`chi-button -flat -active`, href='#') 5
+                  a(class=`chi-button -flat`, href='#') 6
+                  a(class=`chi-button -flat`, href='#') 7
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 12
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-5") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-5')
+                
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-base
+        li.-disabled
+          a(href=`#webcomponent-menu-base`) Web Component
+        li.-active
+          a(href=`#html-menu-base`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-base
+    .chi-tabs-panel.-active#html-menu-base
+      :code(lang="html")
+        <div class="chi-data-table -striped">
+        </div>
+  #chi-tabs-panel--striped-inverse.chi-tabs-panel
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-inverse.-striped
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
+                    .chi-dropdown__menu.-inverse.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat -light`, href='#') 1
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 3
+                  a(class=`chi-button -flat -light`, href='#') 4
+                  a(class=`chi-button -flat -light -active`, href='#') 5
+                  a(class=`chi-button -flat -light`, href='#') 6
+                  a(class=`chi-button -flat -light`, href='#') 7
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 12
+                  a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-6") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-6')
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-inverse
+        li.-disabled
+          a(href=`#webcomponent-menu-inverse`) Web Component
+        li.-active
+          a(href=`#html-menu-inverse`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-inverse
+    .chi-tabs-panel.-active#html-menu-inverse
+      :code(lang="html")
+        <div class="chi-data-table -inverse -striped">
+        </div>
 
 h3 Hover
+ul#chi-tabs--hover.chi-tabs
+  li.-active
+    a(href='#chi-tabs-panel--hover-base') Base
+  li
+    a(href='#chi-tabs-panel--hover-inverse') Inverse
 .example.-mb--3
-  .-p--3.-p-md--5
-    .chi-data-table.-hover
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
-                  .chi-dropdown__menu.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat`, href='#') 1
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 3
-                a(class=`chi-button -flat`, href='#') 4
-                a(class=`chi-button -flat -active`, href='#') 5
-                a(class=`chi-button -flat`, href='#') 6
-                a(class=`chi-button -flat`, href='#') 7
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 12
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-4") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-4')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -hover">
-      </div>
+  #chi-tabs-panel--hover-base.chi-tabs-panel.-active
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-hover
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                    .chi-dropdown__menu.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat`, href='#') 1
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 3
+                  a(class=`chi-button -flat`, href='#') 4
+                  a(class=`chi-button -flat -active`, href='#') 5
+                  a(class=`chi-button -flat`, href='#') 6
+                  a(class=`chi-button -flat`, href='#') 7
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 12
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-7") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-7')
+                
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-base
+        li.-disabled
+          a(href=`#webcomponent-menu-base`) Web Component
+        li.-active
+          a(href=`#html-menu-base`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-base
+    .chi-tabs-panel.-active#html-menu-base
+      :code(lang="html")
+        <div class="chi-data-table -hover">
+        </div>
+  #chi-tabs-panel--hover-inverse.chi-tabs-panel
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-inverse.-hover
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
+                    .chi-dropdown__menu.-inverse.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat -light`, href='#') 1
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 3
+                  a(class=`chi-button -flat -light`, href='#') 4
+                  a(class=`chi-button -flat -light -active`, href='#') 5
+                  a(class=`chi-button -flat -light`, href='#') 6
+                  a(class=`chi-button -flat -light`, href='#') 7
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 12
+                  a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-8") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-8')
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-inverse
+        li.-disabled
+          a(href=`#webcomponent-menu-inverse`) Web Component
+        li.-active
+          a(href=`#html-menu-inverse`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-inverse
+    .chi-tabs-panel.-active#html-menu-inverse
+      :code(lang="html")
+        <div class="chi-data-table -inverse -hover">
+        </div>
 
 h3 Bordered
+ul#chi-tabs--bordered.chi-tabs
+  li.-active
+    a(href='#chi-tabs-panel--bordered-base') Base
+  li
+    a(href='#chi-tabs-panel--bordered-inverse') Inverse
 .example.-mb--3
-  .-p--3.-p-md--5
-    .chi-data-table.-bordered
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
-                  .chi-dropdown__menu.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat`, href='#') 1
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 3
-                a(class=`chi-button -flat`, href='#') 4
-                a(class=`chi-button -flat -active`, href='#') 5
-                a(class=`chi-button -flat`, href='#') 6
-                a(class=`chi-button -flat`, href='#') 7
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 12
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-5") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-5')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -bordered">
-      </div>
-
+  #chi-tabs-panel--bordered-base.chi-tabs-panel.-active
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-bordered
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                    .chi-dropdown__menu.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat`, href='#') 1
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 3
+                  a(class=`chi-button -flat`, href='#') 4
+                  a(class=`chi-button -flat -active`, href='#') 5
+                  a(class=`chi-button -flat`, href='#') 6
+                  a(class=`chi-button -flat`, href='#') 7
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 12
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-9") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-9')
+                
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-base
+        li.-disabled
+          a(href=`#webcomponent-menu-base`) Web Component
+        li.-active
+          a(href=`#html-menu-base`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-base
+    .chi-tabs-panel.-active#html-menu-base
+      :code(lang="html")
+        <div class="chi-data-table -bordered">
+        </div>
+  #chi-tabs-panel--bordered-inverse.chi-tabs-panel
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-inverse.-bordered
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
+                    .chi-dropdown__menu.-inverse.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat -light`, href='#') 1
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 3
+                  a(class=`chi-button -flat -light`, href='#') 4
+                  a(class=`chi-button -flat -light -active`, href='#') 5
+                  a(class=`chi-button -flat -light`, href='#') 6
+                  a(class=`chi-button -flat -light`, href='#') 7
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 12
+                  a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-10") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-10')
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-inverse
+        li.-disabled
+          a(href=`#webcomponent-menu-inverse`) Web Component
+        li.-active
+          a(href=`#html-menu-inverse`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-inverse
+    .chi-tabs-panel.-active#html-menu-inverse
+      :code(lang="html")
+        <div class="chi-data-table -inverse -bordered">
+        </div>
+        
 h3 Active
+ul#chi-tabs--bordered.chi-tabs
+  li.-active
+    a(href='#chi-tabs-panel--active-base') Base
+  li
+    a(href='#chi-tabs-panel--active-inverse') Inverse
 .example.-mb--3
-  .-p--3.-p-md--5
-    .chi-data-table
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row.-active
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
-                  .chi-dropdown__menu.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat`, href='#') 1
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 3
-                a(class=`chi-button -flat`, href='#') 4
-                a(class=`chi-button -flat -active`, href='#') 5
-                a(class=`chi-button -flat`, href='#') 6
-                a(class=`chi-button -flat`, href='#') 7
-                div(class=`chi-button -flat -disabled`) ...
-                a(class=`chi-button -flat`, href='#') 12
-                a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-6") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-6')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table">
-      </div>
+  #chi-tabs-panel--active-base.chi-tabs-panel.-active
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row.-active
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-px--1.chi-dropdown__trigger#pagesize-3 20
+                    .chi-dropdown__menu.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat`, href='#') 1
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 3
+                  a(class=`chi-button -flat`, href='#') 4
+                  a(class=`chi-button -flat -active`, href='#') 5
+                  a(class=`chi-button -flat`, href='#') 6
+                  a(class=`chi-button -flat`, href='#') 7
+                  div(class=`chi-button -flat -disabled`) ...
+                  a(class=`chi-button -flat`, href='#') 12
+                  a(class=`chi-button -icon -flat`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-11") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-11')
+                
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-base
+        li.-disabled
+          a(href=`#webcomponent-menu-base`) Web Component
+        li.-active
+          a(href=`#html-menu-base`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-base
+    .chi-tabs-panel.-active#html-menu-base
+      :code(lang="html")
+        <div class="chi-data-table">
+        </div>
+  #chi-tabs-panel--active-inverse.chi-tabs-panel
+    .-p--3(style="background-color:#eee;")
+      .chi-data-table.-inverse
+        .chi-data-table__head
+          .chi-data-table__row
+            .chi-data-table__cell
+               span Name
+            .chi-data-table__cell
+              span Email
+            .chi-data-table__cell
+             span Phone Number
+            .chi-data-table__cell
+              span Address
+            .chi-data-table__cell
+              span Last Login
+        .chi-data-table__body
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Abe Salazar
+            .chi-data-table__cell(data-label="Email")
+              div abe.salazar@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 555-995-5348
+            .chi-data-table__cell(data-label="Address")
+              div 8 Glenlake Lane, San Francisco, California, 94107, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row.-active
+            .chi-data-table__cell(data-label="Name")
+              div Ashley Macias
+            .chi-data-table__cell(data-label="Email")
+              div ashley.macias@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 543-723-8733
+            .chi-data-table__cell(data-label="Address")
+              div 4 W Chapel St, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 8, 2020
+          .chi-data-table__row
+            .chi-data-table__cell(data-label="Name")
+              div Cameron Hodge
+            .chi-data-table__cell(data-label="Email")
+              div cameron.hodge@domain.com
+            .chi-data-table__cell(data-label="Phone Number")
+              div 509-635-9551
+            .chi-data-table__cell(data-label="Address")
+              div 7842 Center Rd, San Jose, California, 95129, USA
+            .chi-data-table__cell(data-label="Last Login")
+              div April 5, 2020
+        .chi-data-table__footer
+          nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
+            .chi-pagination__content
+              .chi-pagination__start
+                .chi-pagination__results
+                  span.chi-pagination__label 240 results
+                .chi-pagination__page-size
+                  .chi-dropdown
+                    button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
+                    .chi-dropdown__menu.-inverse.-w--xs
+                      a.chi-dropdown__menu-item.-active(href='#') 20
+                      a.chi-dropdown__menu-item(href='#') 40
+                      a.chi-dropdown__menu-item(href='#') 60
+                      a.chi-dropdown__menu-item(href='#') 80
+                      a.chi-dropdown__menu-item(href='#') All
+                  span.chi-pagination__label per page
+              .chi-pagination__center
+                .chi-pagination__button-group.chi-button-group
+                  a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  a(class=`chi-button -flat -light`, href='#') 1
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 3
+                  a(class=`chi-button -flat -light`, href='#') 4
+                  a(class=`chi-button -flat -light -active`, href='#') 5
+                  a(class=`chi-button -flat -light`, href='#') 6
+                  a(class=`chi-button -flat -light`, href='#') 7
+                  div(class=`chi-button -flat -light -disabled`) ...
+                  a(class=`chi-button -flat -light`, href='#') 12
+                  a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
+                    .chi-button__content
+                      i(class="chi-icon icon-chevron-right", aria-hidden='true')
+              .chi-pagination__end
+                .chi-pagination__jumper
+                  label.chi-pagination__label(for="jumper-input-12") Go to page:
+                  input(type='text', class='chi-input', id='jumper-input-12')
+    .example-tabs.-pl--2
+      ul.chi-tabs#example-menu-inverse
+        li.-disabled
+          a(href=`#webcomponent-menu-inverse`) Web Component
+        li.-active
+          a(href=`#html-menu-inverse`) HTML Blueprint
+    .chi-tabs-panel#webcomponent-menu-inverse
+    .chi-tabs-panel.-active#html-menu-inverse
+      :code(lang="html")
+        <div class="chi-data-table -inverse">
+        </div>
 
 h3 Selectable
 .example.-mb--3
@@ -702,8 +1402,8 @@ h3 Selectable
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-7") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-7')
+                label.chi-pagination__label(for="jumper-input-13") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-13')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -809,8 +1509,8 @@ h3 Accordion
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-8") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-8')
+                label.chi-pagination__label(for="jumper-input-14") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-14')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -918,8 +1618,8 @@ h3 Accordion Expanded
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-9") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-9')
+                label.chi-pagination__label(for="jumper-input-15") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-15')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1023,8 +1723,8 @@ h3 Sorting -- Base
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-10") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-10')
+                label.chi-pagination__label(for="jumper-input-16") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-16')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1128,8 +1828,8 @@ h3 Sorting -- Active -- Ascend
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-11") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-11')
+                label.chi-pagination__label(for="jumper-input-17") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-17')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1233,8 +1933,8 @@ h3 Sorting -- Active -- Descend
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-12") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-12')
+                label.chi-pagination__label(for="jumper-input-18") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-18')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1333,8 +2033,8 @@ h3 Size -xs
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-13") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-13')
+                label.chi-pagination__label(for="jumper-input-19") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-19')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1433,8 +2133,8 @@ h3 Size -sm
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-14") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-14')
+                label.chi-pagination__label(for="jumper-input-20") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-20')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1533,8 +2233,8 @@ h3 Size -md
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-15") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-15')
+                label.chi-pagination__label(for="jumper-input-21") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-21')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1633,8 +2333,8 @@ h3 Size -lg
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-16") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-16')
+                label.chi-pagination__label(for="jumper-input-22") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-22')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1733,8 +2433,8 @@ h3 Size -xl
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-17") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-17')
+                label.chi-pagination__label(for="jumper-input-23") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-23')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1833,8 +2533,8 @@ h3 Resize
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-18") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-18')
+                label.chi-pagination__label(for="jumper-input-24") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-24')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1946,8 +2646,8 @@ h3 Two tier table header
                     i(class="chi-icon icon-chevron-right", aria-hidden='true')
             .chi-pagination__end
               .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-19") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-19')
+                label.chi-pagination__label(for="jumper-input-25") Go to page:
+                input(type='text', class='chi-input', id='jumper-input-25')
 
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
@@ -1961,611 +2661,10 @@ h3 Two tier table header
       <div class="chi-data-table">
       </div>
 
-h3 Base -- Inverse
-.example.-mb--3
-  .-p--3.-p-md--5.-bg--black
-    .chi-data-table.-inverse
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
-                  .chi-dropdown__menu.-inverse.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat -light`, href='#') 1
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 3
-                a(class=`chi-button -flat -light`, href='#') 4
-                a(class=`chi-button -flat -light -active`, href='#') 5
-                a(class=`chi-button -flat -light`, href='#') 6
-                a(class=`chi-button -flat -light`, href='#') 7
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 12
-                a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-20") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-20')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -inverse">
-      </div>
-      
-h3 Base -- Inverse -- No Border
-.example.-mb--3
-  .-p--3.-p-md--5.-bg--black
-    .chi-data-table.-inverse.-no-border
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
-                  .chi-dropdown__menu.-inverse.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat -light`, href='#') 1
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 3
-                a(class=`chi-button -flat -light`, href='#') 4
-                a(class=`chi-button -flat -light -active`, href='#') 5
-                a(class=`chi-button -flat -light`, href='#') 6
-                a(class=`chi-button -flat -light`, href='#') 7
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 12
-                a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-21") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-21')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -inverse -no-border">
-      </div>
-
-h3 Base -- Inverse -- Striped
-.example.-mb--3
-  .-p--3.-p-md--5.-bg--black
-    .chi-data-table.-inverse.-striped
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
-                  .chi-dropdown__menu.-inverse.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat -light`, href='#') 1
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 3
-                a(class=`chi-button -flat -light`, href='#') 4
-                a(class=`chi-button -flat -light -active`, href='#') 5
-                a(class=`chi-button -flat -light`, href='#') 6
-                a(class=`chi-button -flat -light`, href='#') 7
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 12
-                a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-22") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-22')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -inverse -striped">
-      </div>
-      
-h3 Base -- Inverse -- Hover
-.example.-mb--3
-  .-p--3.-p-md--5.-bg--black
-    .chi-data-table.-inverse.-hover
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
-                  .chi-dropdown__menu.-inverse.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat -light`, href='#') 1
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 3
-                a(class=`chi-button -flat -light`, href='#') 4
-                a(class=`chi-button -flat -light -active`, href='#') 5
-                a(class=`chi-button -flat -light`, href='#') 6
-                a(class=`chi-button -flat -light`, href='#') 7
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 12
-                a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-23") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-23')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -inverse -hover">
-      </div>
-      
-h3 Base -- Inverse -- Bordered
-.example.-mb--3
-  .-p--3.-p-md--5.-bg--black
-    .chi-data-table.-inverse.-bordered
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
-                  .chi-dropdown__menu.-inverse.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat -light`, href='#') 1
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 3
-                a(class=`chi-button -flat -light`, href='#') 4
-                a(class=`chi-button -flat -light -active`, href='#') 5
-                a(class=`chi-button -flat -light`, href='#') 6
-                a(class=`chi-button -flat -light`, href='#') 7
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 12
-                a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-24") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-24')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -inverse -hover">
-      </div>
-
-h3 Base -- Inverse -- Active
-.example.-mb--3
-  .-p--3.-p-md--5.-bg--black
-    .chi-data-table.-inverse
-      .chi-data-table__head
-        .chi-data-table__row
-          .chi-data-table__cell
-             span Name
-          .chi-data-table__cell
-            span Email
-          .chi-data-table__cell
-           span Phone Number
-          .chi-data-table__cell
-            span Address
-          .chi-data-table__cell
-            span Last Login
-      .chi-data-table__body
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Abe Salazar
-          .chi-data-table__cell(data-label="Email")
-            div abe.salazar@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 555-995-5348
-          .chi-data-table__cell(data-label="Address")
-            div 8 Glenlake Lane, San Francisco, California, 94107, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row.-active
-          .chi-data-table__cell(data-label="Name")
-            div Ashley Macias
-          .chi-data-table__cell(data-label="Email")
-            div ashley.macias@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 543-723-8733
-          .chi-data-table__cell(data-label="Address")
-            div 4 W Chapel St, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 8, 2020
-        .chi-data-table__row
-          .chi-data-table__cell(data-label="Name")
-            div Cameron Hodge
-          .chi-data-table__cell(data-label="Email")
-            div cameron.hodge@domain.com
-          .chi-data-table__cell(data-label="Phone Number")
-            div 509-635-9551
-          .chi-data-table__cell(data-label="Address")
-            div 7842 Center Rd, San Jose, California, 95129, USA
-          .chi-data-table__cell(data-label="Last Login")
-            div April 5, 2020
-      .chi-data-table__footer
-        nav.chi-pagination.-inverse(role='navigation', aria-label='Pagination')
-          .chi-pagination__content
-            .chi-pagination__start
-              .chi-pagination__results
-                span.chi-pagination__label 240 results
-              .chi-pagination__page-size
-                .chi-dropdown
-                  button.chi-button.-flat.-light.-px--1.chi-dropdown__trigger#pagesize-4 20
-                  .chi-dropdown__menu.-inverse.-w--xs
-                    a.chi-dropdown__menu-item.-active(href='#') 20
-                    a.chi-dropdown__menu-item(href='#') 40
-                    a.chi-dropdown__menu-item(href='#') 60
-                    a.chi-dropdown__menu-item(href='#') 80
-                    a.chi-dropdown__menu-item(href='#') All
-                span.chi-pagination__label per page
-            .chi-pagination__center
-              .chi-pagination__button-group.chi-button-group
-                a(class=`chi-button -icon -light -flat`, href='#', aria-label='Previous page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-left", aria-hidden='true')
-                a(class=`chi-button -flat -light`, href='#') 1
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 3
-                a(class=`chi-button -flat -light`, href='#') 4
-                a(class=`chi-button -flat -light -active`, href='#') 5
-                a(class=`chi-button -flat -light`, href='#') 6
-                a(class=`chi-button -flat -light`, href='#') 7
-                div(class=`chi-button -flat -light -disabled`) ...
-                a(class=`chi-button -flat -light`, href='#') 12
-                a(class=`chi-button -icon -flat -light`, href='#', aria-label='Next page')
-                  .chi-button__content
-                    i(class="chi-icon icon-chevron-right", aria-hidden='true')
-            .chi-pagination__end
-              .chi-pagination__jumper
-                label.chi-pagination__label(for="jumper-input-25") Go to page:
-                input(type='text', class='chi-input', id='jumper-input-25')
-
-  .example-tabs.-pl--2
-    ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
-      li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
-    :code(lang='html')
-      <div class="chi-data-table -inverse">
-      </div>
-      
-      
 h3 Portal
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table.-portal
+    .chi-data-table.-portal.-compact
       .chi-data-table__head
         .chi-data-table__row
           .chi-data-table__cell
@@ -2642,13 +2741,13 @@ h3 Portal
   .chi-tabs-panel#webcomponent-base
   .chi-tabs-panel.-active#html-base
     :code(lang='html')
-      <div class="chi-data-table -portal">
+      <div class="chi-data-table -portal -compact">
       </div>
 
 h3 Portal -- Accordion
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table.-portal.-accordion
+    .chi-data-table.-portal.-compact
       .chi-data-table__head
         .chi-data-table__row
           .chi-data-table__cell.-expandable
@@ -2668,7 +2767,7 @@ h3 Portal -- Accordion
             i.chi-icon.icon-plus.-xs
           .chi-data-table__cell.-name
             div Abe Salazar
-          .chi-data-table__cell
+          .chi-data-table__cell.-name
             div abe.salazar@domain.com
           .chi-data-table__cell
             div 555-995-5348
@@ -2681,7 +2780,7 @@ h3 Portal -- Accordion
             i.chi-icon.icon-plus.-xs
           .chi-data-table__cell.-name
             div Ashley Macias
-          .chi-data-table__cell
+          .chi-data-table__cell.-name
             div ashley.macias@domain.com
           .chi-data-table__cell
             div 543-723-8733
@@ -2694,7 +2793,7 @@ h3 Portal -- Accordion
             i.chi-icon.icon-plus.-xs
           .chi-data-table__cell.-name
             div Cameron Hodge
-          .chi-data-table__cell
+          .chi-data-table__cell.-name
             div cameron.hodge@domain.com
           .chi-data-table__cell
             div 509-635-9551
@@ -2732,13 +2831,13 @@ h3 Portal -- Accordion
   .chi-tabs-panel#webcomponent-base
   .chi-tabs-panel.-active#html-base
     :code(lang='html')
-      <div class="chi-data-table -portal -accordion">
+      <div class="chi-data-table -portal -compact">
       </div>
       
 h3 Portal -- Accordion Expanded
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table.-portal.-accordion
+    .chi-data-table.-portal.-compact
       .chi-data-table__head
         .chi-data-table__row
           .chi-data-table__cell.-expandable
@@ -2780,15 +2879,34 @@ h3 Portal -- Accordion Expanded
           .chi-data-table__cell
             div April 8, 2020
         .chi-data-table__row-child
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell.-name
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-child
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell.-name
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row.-collapsed
           .chi-data-table__cell.-expandable
-            i.chi-icon.icon-plus.-xs
           .chi-data-table__cell.-name
             div Cameron Hodge
-          .chi-data-table__cell
+          .chi-data-table__cell.-name
             div cameron.hodge@domain.com
           .chi-data-table__cell
             div 509-635-9551
@@ -2826,13 +2944,13 @@ h3 Portal -- Accordion Expanded
   .chi-tabs-panel#webcomponent-base
   .chi-tabs-panel.-active#html-base
     :code(lang='html')
-      <div class="chi-data-table -portal -accordion">
+      <div class="chi-data-table -portal -compact">
       </div>
       
 h3 Portal -- Accordion Expanded -- Child
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table.-portal.-accordion
+    .chi-data-table.-portal.-compact
       .chi-data-table__head
         .chi-data-table__row
           .chi-data-table__cell.-expandable
@@ -2874,9 +2992,29 @@ h3 Portal -- Accordion Expanded -- Child
           .chi-data-table__cell
             div April 8, 2020
         .chi-data-table__row-child.-collapsed
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell.-name
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-child.-collapsed
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell.-name
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row.-collapsed
           .chi-data-table__cell.-expandable
             i.chi-icon.icon-plus.-xs
@@ -2920,13 +3058,13 @@ h3 Portal -- Accordion Expanded -- Child
   .chi-tabs-panel#webcomponent-base
   .chi-tabs-panel.-active#html-base
     :code(lang='html')
-      <div class="chi-data-table -portal -accordion">
+      <div class="chi-data-table -portal -compact">
       </div>
 
 h3 Portal -- Accordion Expanded -- Child Expanded
 .example.-mb--3
   .-p--3.-p-md--5
-    .chi-data-table.-portal.-accordion
+    .chi-data-table.-portal.-compact
       .chi-data-table__head
         .chi-data-table__row
           .chi-data-table__cell.-expandable
@@ -2968,21 +3106,77 @@ h3 Portal -- Accordion Expanded -- Child Expanded
           .chi-data-table__cell
             div April 8, 2020
         .chi-data-table__row-child.-expanded
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-grand-child
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-grand-child
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-grand-child
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-grand-child
-            div Some random content
-        .chi-data-table__row-grand-child
-            div Some random content
-        .chi-data-table__row-grand-child
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row-child.-collapsed
-            div Some random content
+          .chi-data-table__cell.-expandable
+          .chi-data-table__cell.-name
+            div Ashley Macias
+          .chi-data-table__cell
+            div ashley.macias@domain.com
+          .chi-data-table__cell
+            div 543-723-8733
+          .chi-data-table__cell
+            div 4 W Chapel St, San Jose, California, 95129, USA
+          .chi-data-table__cell
+            div April 8, 2020
         .chi-data-table__row.-collapsed
           .chi-data-table__cell.-expandable
             i.chi-icon.icon-plus.-xs
@@ -3026,7 +3220,7 @@ h3 Portal -- Accordion Expanded -- Child Expanded
   .chi-tabs-panel#webcomponent-base
   .chi-tabs-panel.-active#html-base
     :code(lang='html')
-      <div class="chi-data-table -portal -accordion">
+      <div class="chi-data-table -portal -compact">
       </div>      
                 
 script.

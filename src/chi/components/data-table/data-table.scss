@@ -78,10 +78,6 @@ $sizes: (
             transition: transform 0.2s ease-in-out;
           }
         }
-
-        &.-expandable {
-          flex-basis: 2.25rem;
-        }
       }
     }
   }
@@ -116,7 +112,8 @@ $sizes: (
   }
 
   &__footer {
-    padding: 1.5rem 0;
+    background-color: set-color(white);
+    padding: 1.5rem 1rem;
   }
 
   &__row {
@@ -161,7 +158,10 @@ $sizes: (
       box-shadow: inset 0.25rem 0 0 $primary-color;
 
       @include respond-to(md) {
-        border-bottom: 0.0625rem solid set-color(grey, 30);
+        background-color: set-color(blue, 10);
+        border-bottom: 0.0625rem solid set-color(grey, 20);
+        display: flex;
+        flex-direction: row;
         padding: 1.5rem 2rem;
       }
     }
@@ -182,9 +182,24 @@ $sizes: (
         flex-grow: 0;
       }
 
+      .chi-icon {
+        &.icon-plus,
+        &.icon-minus {
+          color: $primary-color;
+        }
+      }
+
       &::before {
         display: none;
       }
+    }
+
+    &.-expandable {
+      flex-basis: 2.25rem;
+    }
+
+    &.-selectable {
+      flex-basis: 3rem;
     }
 
     & .-asociated {
@@ -356,13 +371,24 @@ $sizes: (
       background-color: set-color(grey, 90);
 
       .chi-data-table__cell {
-        border-bottom: 0.0625rem solid set-color(grey, 80);
+        @include respond-to(md) {
+          border-bottom: 0.0625rem solid set-color(grey, 80);
+        }
       }
+    }
+
+    .chi-data-table__footer {
+      background-color: set-color(grey, 90);
     }
 
     .chi-data-table__row {
       background-color: set-color(grey, 90);
+      border-bottom: 0.0625rem solid set-color(grey, 80);
       color: set-color(white);
+
+      @include respond-to(md) {
+        border-bottom: 0;
+      }
 
       &.-active {
         background-color: rgba(set-color(mint, 40), 0.08);
@@ -490,63 +516,10 @@ $sizes: (
 
     .chi-data-table__body {
       .chi-data-table__row {
-        border-bottom: 0;
-        margin-top: 0.5rem;
-        padding: 0;
-
-        &:first-child {
-          margin-top: 0;
-        }
-
         @include respond-to(md) {
-          margin-top: 0;
 
           &:nth-child(even) {
             background-color: $portal-color-background-table-tr-alt;
-          }
-        }
-
-        .chi-data-table__cell {
-          border-bottom: 0;
-          padding: 0.75rem 1rem;
-
-          @include respond-to(md) {
-            padding: 0.75rem;
-          }
-
-          &.-name {
-            background-color: set-color(grey, 20);
-            justify-content: space-between;
-
-            &::before {
-              display: none;
-            }
-
-            &::after {
-              content: '\e920';
-              font-family: 'chi';
-              font-size: 0.75rem;
-              font-weight: normal;
-              height: 1rem;
-              width: 0.75rem;
-            }
-
-            @include respond-to(md) {
-              background-color: transparent;
-              justify-content: flex-start;
-
-              &::after {
-                display: none;
-              }
-            }
-          }
-
-          &:not(.-name) {
-            display: none;
-
-            @include respond-to(md) {
-              display: flex;
-            }
           }
         }
 
@@ -565,140 +538,9 @@ $sizes: (
         &.-expanded {
           background-color: set-color(grey, 20);
 
-          .chi-data-table__cell {
-            &.-name {
-              box-shadow: inset 0.25rem 0 0 $primary-color;
-
-              > div {
-                &::before {
-                  content: '\e974';
-                }
-              }
-            }
-          }
-
           @include respond-to(md) {
             background-color: set-color(blue, 20);
             display: flex;
-
-            .chi-data-table__cell {
-              &.-name {
-                box-shadow: none;
-              }
-            }
-          }
-        }
-
-        &-child,
-        &-grand-child {
-          background-color: set-color(grey,20);
-          display: flex;
-          justify-content: space-between;
-          padding: 0.75rem 1rem 0.75rem 2.25rem;
-
-          &::after {
-            content: '\e920';
-            font-family: 'chi';
-            font-size: 0.75rem;
-            font-weight: normal;
-            height: 1rem;
-            width: 0.75rem;
-          }
-
-          @include respond-to(md) {
-            background-color: set-color(white);
-            justify-content: flex-start;
-            padding: 1.5rem 2rem 1.5rem 3rem;
-
-            &::after {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-
-    &.-accordion {
-      .chi-data-table__body {
-        .chi-data-table__row {
-          .chi-data-table__cell {
-            &.-name {
-              > div {
-                &::before {
-                  color: $primary-color;
-                  content: '\e97d';
-                  font-family: 'chi';
-                  font-size: 0.75rem;
-                  font-weight: normal;
-                  height: 1rem;
-                  margin-right: 0.5rem;
-                  width: 0.75rem;
-
-                  @include respond-to(md) {
-                    display: none;
-                  }
-                }
-              }
-            }
-
-            &.-expandable {
-              .chi-icon {
-                color: $primary-color;
-              }
-            }
-          }
-
-          &.-expanded {
-            .chi-data-table__cell {
-              &.-name {
-                > div {
-                  &::before {
-                    content: '\e974';
-                  }
-                }
-              }
-            }
-          }
-
-          &-child {
-            &.-collapsed,
-            &.-expanded {
-              > div {
-                &::before {
-                  color: $primary-color;
-                  font-family: 'chi';
-                  font-size: 0.75rem;
-                  font-weight: normal;
-                  height: 1rem;
-                  margin-right: 0.5rem;
-                  width: 0.75rem;
-
-                  @include respond-to(md) {
-                    display: none;
-                  }
-                }
-              }
-            }
-
-            &.-collapsed {
-              > div {
-                &::before {
-                  content: '\e97d';
-                }
-              }
-            }
-
-            &.-expanded {
-              > div {
-                &::before {
-                  content: '\e974';
-                }
-              }
-            }
-          }
-
-          &-grand-child {
-            padding-left: 3.5rem;
           }
         }
       }
@@ -826,6 +668,156 @@ $sizes: (
               border-top-width: 0;
             }
           }
+        }
+      }
+    }
+  }
+
+  &.-compact {
+    .chi-data-table__body {
+      .chi-data-table__cell {
+        padding: 0;
+
+        @include respond-to(md) {
+          border-bottom: 0.0625rem solid set-color(grey, 20);
+          padding: 0.75rem;
+        }
+
+        &.-name {
+          &::before {
+            display: none;
+          }
+        }
+
+        &:not(.-name) {
+          display: none;
+
+          @include respond-to(md) {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    .chi-data-table__row,
+    .chi-data-table__row-child,
+    .chi-data-table__row-grand-child {
+      position: relative;
+
+      &::after {
+        content: '\e920';
+        font-family: 'chi';
+        font-size: 0.75rem;
+        font-weight: normal;
+        height: 1rem;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-0.5rem);
+        width: 0.75rem;
+
+        @include respond-to(md) {
+          display: none;
+        }
+      }
+
+      &.-collapsed,
+      &.-expanded {
+        &::before {
+          color: $primary-color;
+          content: '\e97d';
+          font-family: 'chi';
+          font-weight: $font-weight-normal;
+          position: absolute;
+
+          @include respond-to(md) {
+            display: none;
+          }
+        }
+      }
+
+      &.-expanded {
+        &::before {
+          content: '\e974';
+        }
+      }
+    }
+
+    .chi-data-table__row {
+      background-color: set-color(grey, 20);
+      border-bottom: 0;
+      margin-top: 0.5rem;
+      padding: 1rem 1.75rem 1rem 1rem;
+
+      @include respond-to(md) {
+        background-color: transparent;
+        margin-top: 0;
+        padding: 0;
+      }
+
+      &.-collapsed,
+      &.-expanded {
+        padding-left: 1.75rem;
+
+        &::before {
+          font-size: 0.75rem;
+          height: 1rem;
+          left: 0.5rem;
+          top: 1rem;
+          width: 0.75rem;
+        }
+
+        @include respond-to(md) {
+          padding-left: 0;
+        }
+      }
+
+      &-child,
+      &-grand-child {
+        background-color: set-color(grey, 20);
+        font-size: 0.75rem;
+        padding: 0.75rem 1rem 0.75rem 1.75rem;
+
+        @include respond-to(md) {
+          background-color: set-color(blue, 10);
+          border-bottom: 0;
+          font-size: 0.875rem;
+          padding: 0;
+        }
+
+        &.-collapsed,
+        &.-expanded {
+          padding-left: 2.75rem;
+
+          &::before {
+            font-size: 0.625rem;
+            height: 0.875rem;
+            left: 1.75rem;
+            top: 0.75rem;
+            width: 0.625rem;
+          }
+
+          @include respond-to(md) {
+            padding-left: 0;
+          }
+        }
+      }
+
+      &-grand-child {
+        padding-left: 2.75rem;
+
+        @include respond-to(md) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  &.-portal {
+    .chi-data-table__body {
+      .chi-data-table__cell {
+        @include respond-to(md) {
+          border-bottom: 0;
         }
       }
     }
