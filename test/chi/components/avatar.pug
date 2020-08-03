@@ -2,7 +2,7 @@
 title: Avatar
 ---
 - var types = ['img', 'icon', 'icon-web-font', 'letter', 'double-letter', 'avatar-group'];
-- var colors = ["default", "grey", "red", "pink", "purple", "indigo", "blue", "light-blue", "teal", "mint", "green", "yellow", "orange", "light", "secondary", "primary", "inverse"];
+- var colors = ["default", "grey", "red", "pink", "purple", "indigo", "blue", "light-blue", "teal", "mint", "green", "yellow", "orange", "secondary", "primary"];
 - var sizes = ['default', 'xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl'];
 - var transparents = [false, true];
 
@@ -84,5 +84,4 @@ each type in types
                             [`-transparent`]: transparent
                           }
                         ) L 
-                        | Label&nbsp;
-                        span=  color
+                        | Label #{color}
