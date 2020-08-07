@@ -2,11 +2,11 @@
 title: Avatar
 ---
 - var types = ['img', 'icon', 'icon-web-font', 'letter', 'double-letter', 'avatar-group'];
-- var colors = ["default", "grey", "red", "pink", "purple", "indigo", "blue", "light-blue", "teal", "mint", "green", "yellow", "orange", "secondary", "primary"];
+- var colors = ["default", "grey", "red", "pink", "purple", "indigo", "blue", "light-blue", "teal", "mint", "green", "yellow", "orange", "light", "secondary", "primary", "inverse"];
 - var sizes = ['default', 'xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl'];
 - var transparents = [false, true];
 
-each type in types
+each type in ['img', 'icon', 'icon-web-font', 'letter', 'double-letter']
   div(class=`test-${type}`)
     span.-text--h2= `Avatar / ${type}`
     table(cellpadding="0", cellspacing="0")
@@ -73,8 +73,25 @@ each type in types
                           [`-transparent`]: transparent
                         }
                       ) AA
-
-                    else if type === 'avatar-group'
+                    
+each type in ['avatar-group']
+  div(class=`test-${type}`)
+    span.-text--h2= `Avatar / ${type}`
+    table(cellpadding="0", cellspacing="0")
+      thead
+        tr
+          th
+          each size in sizes
+            th.-p--1.-text--center=size
+      tbody
+        each color in ["default", "grey", "red", "pink", "purple", "indigo", "blue", "light-blue", "teal", "mint", "green", "yellow", "orange", "secondary", "primary"]
+          each transparent in transparents
+            if !transparent || (color!=='default' && color!=='light' && color!=='inverse' && (type==='icon' || type==='icon-web-font' || type==='letter' || type==='double-letter'))
+              tr(class={'-bg--black': color==='light' || color==='inverse'})
+                td(class={'-text--white': color==='light' || color==='inverse'})=color + (transparent ? ' trans bg' : '')
+                each size in sizes
+                  td.-p-1
+                    if type === 'avatar-group'
                       div.chi-avatar-group
                         div(
                           class={
