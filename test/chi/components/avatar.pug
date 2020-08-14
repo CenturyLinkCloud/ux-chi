@@ -90,7 +90,7 @@ each type in ['avatar-group']
               tr(class={'-bg--black': color==='light' || color==='inverse'})
                 td(class={'-text--white': color==='light' || color==='inverse'})=color + (transparent ? ' trans bg' : '')
                 each size in sizes
-                  td.-p-1
+                  td.-p--1
                     if type === 'avatar-group'
                       div.chi-avatar-group
                         div(
@@ -100,5 +100,5 @@ each type in ['avatar-group']
                             [`-${size}`]: style !== 'default',
                             [`-transparent`]: transparent
                           }
-                        ) L 
-                        | Label #{color}
+                        ) L
+                        | Label <br> #{color}
