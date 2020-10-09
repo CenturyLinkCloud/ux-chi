@@ -249,6 +249,47 @@ h3 Inline Inputs
         </div>
       </div>
 
+h2 Search bar
+.example.-mb--3
+  .-p--3
+    //- .chi-form__item(style="max-width:20rem")
+    //-   chi-label(for="example__icon-right-aligned") Label
+    //-   chi-text-input(
+    //-     icon-right='search',
+    //-     icon-right-color='muted',
+    //-     placeholder="Placeholder",
+    //-     value="Sample Text"
+    //-     id="example__icon-right-aligned"
+    //-   )
+    .chi-form__item(style="max-width:20rem")
+      label.chi-label(for='example__icon-right-aligned') Label
+      .chi-input__wrapper.-icon--right.-search
+        input#example__icon-right-aligned.chi-input(type='search' placeholder='Placeholder' value='Sample text' autocomplete='off')
+        i.chi-icon.icon-x.-icon--muted
+        i.chi-icon.icon-search.-icon--muted
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-input-icon-right
+      li.-active
+        a(href=`#webcomponent-input-icon-right`) Web Component
+      li
+        a(href=`#html-input-icon-right`) HTML Blueprint
+  .chi-tabs-panel.-active#webcomponent-input-icon-right
+    :code(lang="html")
+      <div class="chi-form__item">
+        <chi-label for="example__icon-right-aligned">Label</chi-label>
+        <chi-text-input icon-right="search" icon-right-color="muted" placeholder="Placeholder" value="Sample Text" id="example__icon-right-aligned"></chi-text-input>
+      </div>
+  .chi-tabs-panel#html-input-icon-right
+    :code(lang="html")
+      <div class="chi-form__item">
+        <label class="chi-label" for="example__icon-right-aligned">Label</label>
+        <div class="chi-input__wrapper -icon--right -search">
+          <input type="search" class="chi-input" placeholder="Placeholder" value="Sample text" id="example__icon-right-aligned" autocomplete="off">
+          <i class="chi-icon icon-x -icon--muted"></i>
+          <i class="chi-icon icon-search -icon--muted"></i>
+        </div>
+      </div>
+
 h2 Icons
 p.-text
   | To add icons to a text input, wrap the input in a <code>div</code> using the class
