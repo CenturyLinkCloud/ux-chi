@@ -141,6 +141,13 @@ export class TextInput {
     this.eventChange.emit(newValue);
   }
 
+  _cleanInput(ev: Event) {
+    const input = (ev.target as HTMLElement).parentNode.querySelector('input[type=search]');
+
+    (input as HTMLInputElement).value = '';
+    (input as HTMLInputElement).focus();
+  }
+
   componentWillLoad() {
     this.stateValidation(this.state);
     this.iconLeftColorValidation(this.iconLeftColor);
@@ -170,16 +177,27 @@ export class TextInput {
     />;
     const iconClasses = `
       ${this.iconLeft ? '-icon--left' : ''}
-      ${this.iconRight ? '-icon--right' : ''}
+      ${this.iconRight || this.type === 'search' ? '-icon--right' : ''}
+      ${this.type === 'search' ? '-search' : ''}
     `;
     const iconLeft = this.iconLeft && <chi-icon color={this.iconLeftColor || null} icon={this.iconLeft} />;
     const iconRight = this.iconRight && <chi-icon color={this.iconRightColor || null} icon={this.iconRight} />;
+    let searchXIcon;
+    let searchIcon;
+    
+    if (this.type === 'search') {
+      searchXIcon = <i onClick={(ev) => this._cleanInput(ev)}
+      class="chi-icon icon-x -icon--muted"></i>;
+      searchIcon = <i class="chi-icon icon-search -icon--muted"></i>
+    }
 
-    const input = this.iconLeft || this.iconRight ?
+    const input = this.iconLeft || this.iconRight || this.type === 'search' ?
       <div class={`chi-input__wrapper ${iconClasses}`}>
         {inputElement}
         {iconLeft}
         {iconRight}
+        {searchXIcon}
+        {searchIcon}
       </div> : inputElement;
 
     return input;
