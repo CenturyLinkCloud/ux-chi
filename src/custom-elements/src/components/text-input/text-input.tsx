@@ -174,6 +174,7 @@ export class TextInput {
       onBlur={() => this.eventBlur.emit()}
       onInput={(ev) => this._handleValueInput(ev)}
       onChange={(ev) => this._handleValueChange(ev)}
+      autocomplete={this.type === 'search' ? 'off' : 'on'}
     />;
     const iconClasses = `
       ${this.iconLeft ? '-icon--left' : ''}
@@ -184,11 +185,11 @@ export class TextInput {
     const iconRight = this.iconRight && <chi-icon color={this.iconRightColor || null} icon={this.iconRight} />;
     let searchXIcon;
     let searchIcon;
-    
+
     if (this.type === 'search') {
       searchXIcon = <i onClick={(ev) => this._cleanInput(ev)}
-      class="chi-icon icon-x -icon--muted"></i>;
-      searchIcon = <i class="chi-icon icon-search -icon--muted"></i>
+      class="chi-icon icon-x"></i>;
+      searchIcon = <i class="chi-icon icon-search"></i>
     }
 
     const input = this.iconLeft || this.iconRight || this.type === 'search' ?

@@ -187,51 +187,5 @@ $sizes: (
         }
       }
     }
-
-    &.-search {
-      input {
-        &[type='search'] {
-          &.chi-input {
-            padding-right: 3.875rem;
-
-            &.-sm {
-              padding-right: 3.375rem;
-            }
-
-            &.-md {
-              padding-right: 3.875rem;
-            }
-
-            &.-lg,
-            &.-xl {
-              padding-right: 4.875rem;
-
-              & ~ .chi-icon,
-              & ~ chi-icon {
-                &.icon-x {
-                  cursor: pointer;
-                  right: 2.1875rem;
-                }
-              }
-            }
-
-            & ~ .chi-icon,
-            & ~ chi-icon {
-              &.icon-x {
-                cursor: pointer;
-                right: 1.9375rem;
-              }
-            }
-          }
-
-          &::-webkit-search-decoration,
-          &::-webkit-search-cancel-button,
-          &::-webkit-search-results-button,
-          &::-webkit-search-results-decoration {
-            display: none;
-          }
-        }
-      }
-    }
   }
 }

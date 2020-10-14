@@ -1,0 +1,45 @@
+h2 Examples
+p.-text
+  | To render a search input, apply the class <code>chi-input</code> to an <code>input type="search"</code>.
+
+h3 Base
+.example.-mb--3
+  .-p--3
+    .chi-form__item(style="max-width:20rem")
+      chi-label(for="example__base") Label
+      chi-text-input(
+        type="search"
+        placeholder="Placeholder",
+        value="Sample Text"
+        id="example__base"
+      )
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-active
+        a(href=`#webcomponent-base`) Web Component
+      li
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel.-active#webcomponent-base
+    :code(lang="html")
+      <div class="chi-form__item">
+        <chi-label for="example__base">Label</chi-label>
+        <chi-text-input id="example__base" type="search" placeholder="Placeholder" value="Sample Text"></chi-text-input>
+      </div>
+  .chi-tabs-panel#html-base
+    :code(lang="html")
+      <div class="chi-form__item">
+        <label class="chi-label" for="example__base">Label</label>
+        <div class="chi-input__wrapper -icon--right -search">
+          <input type="search" class="chi-input" placeholder="Placeholder" value="Sample text" id="example__base" autocomplete="off">
+          <i class="chi-icon icon-x"></i>
+          <i class="chi-icon icon-search"></i>
+        </div>
+      </div>
+
+script.
+  document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      chi.tab(document.querySelectorAll('.chi-tabs-panel .chi-tabs'));
+    }
+  );
