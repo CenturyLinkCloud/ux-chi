@@ -1,0 +1,9 @@
+.no-focus-outline {
+  a,
+  button,
+  input {
+    &.chi-button {
+      outline: none !important;
+    }
+  }
+}
