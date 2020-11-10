@@ -15,7 +15,6 @@ import { RangeSlider, factory as rangeSlider } from "./components/range-slider";
 import { Sidenav, factory as sidenav } from "./components/sidenav";
 import { Tab, factory as tab } from './components/tab';
 import { Tooltip, factory as tooltip } from "./components/tooltip";
-import focusVisibility from './focus';
 
 export {
   chi as core,
@@ -51,6 +50,5 @@ export {
   Tab,
   Tooltip,
 
-  EXPANSION_PANEL_STATES,
-  focusVisibility
+  EXPANSION_PANEL_STATES
 };

@@ -211,6 +211,4 @@ onLoad(() => {
       }
     });
   }
-
-  chi.focusVisibility();
 });

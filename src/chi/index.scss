@@ -69,6 +69,7 @@
   @import 'utilities/spacing';
   @import 'utilities/vertical-align';
   @import 'utilities/zindex';
+  @import 'utilities/focusVisibility';
   @import 'skeletons/alert';
   @import 'skeletons/badge';
   @import 'skeletons/brand';
@@ -80,6 +81,5 @@
   @import 'skeletons/textarea';
   @import 'skeletons/text-input';
   @import 'skeletons/toggle-switch';
-  @import './focusVisibility.scss';
 }
 // sass-lint:enable clean-import-paths
