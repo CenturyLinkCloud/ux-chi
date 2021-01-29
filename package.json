@@ -17,7 +17,8 @@
     "test-ce": "gulp test:custom-elements",
     "test:e2e": "gulp test:e2e",
     "test:e2e:interactive": "gulp test:e2e:interactive",
-    "echo": "gulp --version"
+    "echo": "gulp --version",
+    "sri": "gulp sri"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
