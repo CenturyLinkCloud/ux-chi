@@ -21,14 +21,14 @@ ENV TERM=xterm-256color
 RUN echo "whoami: $(whoami)"
 RUN npm config -g set user $(whoami)
 
-ENV CYPRESS_CACHE_FOLDER=/tmp/.cache/Cypress
-RUN npm install -g "cypress@3.8.3" "typescript"
+# ENV CYPRESS_CACHE_FOLDER=/tmp/.cache/Cypress
+# RUN npm install -g "cypress@3.8.3" "typescript"
 
-RUN cypress verify
+# RUN cypress verify
 
-RUN cypress cache path
-RUN cypress cache list
-RUN cypress -v
+# RUN cypress cache path
+# RUN cypress cache list
+# RUN cypress -v
 
 RUN ls -la /root
 RUN chmod 755 /root
