@@ -5,8 +5,6 @@ function die() { echo "ERROR: $*" 1>&2 ; exit 1; }
 TMPDIR=$(mktemp -d)
 REPO_PATH=$(cd $(dirname $0)/..; pwd)
 
-sudo chown jenkins:jenkins ${TMPDIR}
-
 if [ "x$1" = "xalias" ]; then
   if [ -f ~/.bash_profile ]; then
     sed -i.back '/^alias chi=/d' ~/.bash_profile
@@ -66,5 +64,3 @@ else
               -v ${REPO_PATH}:/chi \
               chi $1
 fi
-
-sudo chown -R jenkins:jenkins ${REPO_PATH}

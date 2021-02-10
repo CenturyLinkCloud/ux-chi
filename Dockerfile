@@ -2,15 +2,6 @@ FROM node:dubnium-stretch
 
 ENV BABEL_DISABLE_CACHE=1
 
-ARG user=jenkins
-ARG group=jenkins
-ARG uid=1341
-ARG gid=1341
-RUN getent group ${gid} || groupadd -g ${gid} ${group}
-RUN useradd -c "Jenkins user" -d /home/${user} -u ${uid} -g ${gid} -m ${user}
-
-USER root
-
 # Add Tini
 ENV TINI_VERSION v0.18.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
