@@ -104,7 +104,6 @@ case ${OPTION} in
         npx gulp serve 2>&1 >/dev/null &
         ./node_modules/.bin/cypress run
         npx gulp serve:stop
-        rm -rf /chi/src/chi-vue/dist
         ;;
     approve)
         cd /chi
