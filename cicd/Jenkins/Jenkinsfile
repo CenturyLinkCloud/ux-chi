@@ -128,7 +128,7 @@ pipeline {
         steps {
           script {
             sh script: """
-                scripts/docker.sh alias
+                scripts/dockerCI.sh alias
                 source ~/.bash_profile
                 chi test
             """, label: "Running Chi from its container as always" 
