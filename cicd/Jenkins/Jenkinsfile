@@ -132,6 +132,7 @@ pipeline {
                 source ~/.bash_profile
                 ls -lah
                 chi test
+                chi test-e2e
             """, label: "Running Chi from its container as always" 
           }
         }
