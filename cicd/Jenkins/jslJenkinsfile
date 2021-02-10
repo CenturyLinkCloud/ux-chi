@@ -184,6 +184,9 @@ pipeline {
           }
         }
       }
+      stage ('Cleaning...') {
+        cleanWs()
+      }
     }
     post {
       /*
