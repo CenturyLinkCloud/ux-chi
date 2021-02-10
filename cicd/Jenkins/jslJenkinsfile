@@ -131,8 +131,8 @@ pipeline {
             }
             steps {
               script {
-                jslYarnWrapper('install --unsafe-perm=true --allow-root')
-                jslBuildNpm('run build')
+                jslYarnWrapper('install')
+                jslNpmWrapper('run build')
               }
             }
           }
@@ -154,7 +154,7 @@ pipeline {
               script {
                 dir('src/custom-elements') {
                   jslYarnWrapper('install')
-                  jslBuildNpm('run build')
+                  jslNpmWrapper('run build')
                 }
               }
             }
@@ -177,7 +177,7 @@ pipeline {
               script {
                 dir('src/chi-vue') {
                   jslYarnWrapper('install')
-                  jslBuildNpm('run build:component')
+                  jslNpmWrapper('run build:component')
                 }
               }
             }
