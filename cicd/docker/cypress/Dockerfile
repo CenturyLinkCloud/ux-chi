@@ -21,7 +21,7 @@ ENV TERM=xterm-256color
 RUN echo "whoami: $(whoami)"
 RUN npm config -g set user $(whoami)
 
-ENV CYPRESS_CACHE_FOLDER=/root/.cache/Cypress
+ENV CYPRESS_CACHE_FOLDER=/home/jenkins/.cache/Cypress
 RUN npm install -g "cypress@3.8.3" "typescript"
 
 RUN cypress verify
