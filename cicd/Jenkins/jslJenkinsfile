@@ -255,9 +255,67 @@ pipeline {
           }
         }
       }
+      stage ('Tests') {
+        parallel {
+          stage ('Unit Testing') {
+            // agent {
+
+            // }
+            when {
+              beforeAgent true
+              not { branch 'master' }
+            }
+            steps {
+              // script {
+                echo "This will run Unit tests"
+              // }
+            }
+          }
+          stage ('E2E Testing') {
+            // agent {
+
+            // }
+            when {
+              beforeAgent true
+              not { branch 'master' }
+            }
+            steps {
+              // script {
+                echo "This will run E2E tests"
+              // }
+            }
+          }
+        }
+      }
+      stage ('Publish to S3') {
+        parallel {
+          stage ('Publish Dev/Beta build') {
+            when {
+              beforeAgent true
+              not { branch 'master' }
+            }
+            steps {
+              // script {
+                echo "This will publish dev build to S3"
+              // }
+            }
+          }
+          stage ('Publish Prod Build') {
+            when {
+              beforeAgent true
+              branch 'master'
+            }
+            steps {
+              // script {
+                echo "This will publish Prod build to S3 & CDN"
+              // }
+            }
+          }
+        }
+      }
       stage ('Cleaning...') {
         steps {
-          cleanWs()
+          echo "Pipeline finished!"
         }
       }
     }
