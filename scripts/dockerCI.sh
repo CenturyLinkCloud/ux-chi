@@ -48,7 +48,7 @@ fi
 
 if [ "x$1" = "xstart" ]; then
 
-  docker run --rm --name chi \
+  docker run --rm -t --name chi \
           --privileged \
           -v ${REPO_PATH}:/chi \
           -p 8000:8000 \
@@ -57,7 +57,7 @@ if [ "x$1" = "xstart" ]; then
           -p 3333:3333 \
           chi
 else
-  docker run --rm \
+  docker run --rm -t \
               --privileged \
               --shm-size=2gb \
               --cap-add=SYS_ADMIN \
