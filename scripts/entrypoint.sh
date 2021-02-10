@@ -17,7 +17,6 @@ PREFIX_VUE="$(tput setaf 4)[VUE]$(tput sgr0) "
 if [ ! -h /chi/src/chi-vue/dist ]; then
     if [ -d /chi/src/chi-vue/dist ]; then
         echo -e "${RED}src/chi-vue/dist is a directory. Please, remove it${NC}";
-        rm -rf /chi/src/chi-vue/dist;
         exit 1;
     fi
     ln -s /chi/dist/js/vue /chi/src/chi-vue/dist || ( echo "Cannot create symbolic link from src/chi-vue/dist to dist/js/vue"; exit 1 )
@@ -26,7 +25,6 @@ fi
 if [ ! -h /chi/src/custom-elements/dist ]; then
     if [ -d /chi/src/custom-elements/dist ]; then
         echo -e "${RED}src/custom-elements/dist is a directory. Please, remove it${NC}";
-        rm -rf /chi/src/custom-elements/dist;
         exit 1;
     fi
     ln -s /chi/dist/js/ce /chi/src/custom-elements/dist || ( echo "Cannot create symbolic link from src/custom-elements/dist to dist/js/ce"; exit 1 )
