@@ -12,7 +12,7 @@ if [ "x$1" = "xalias" ]; then
     if [ "${lastline: -1}" != $'\n' ]; then
         echo >> ~/.bash_profile
     fi
-    echo "alias chi=\"${REPO_PATH}/scripts/dockerCI.sh\"" >> ~/.bash_profile
+    echo "alias chi=\"${REPO_PATH}/scripts/docker.sh\"" >> ~/.bash_profile
     echo "execute: . ~/.bash_profile"
   fi
   exit 0
