@@ -89,7 +89,7 @@ pipeline {
     // https://www.jenkins.io/doc/book/pipeline/syntax/#agent
     //Add agent sections in stages/stage if needed.
     
-    agent { none }
+    agent none
 
     options {
       
