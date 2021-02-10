@@ -131,7 +131,7 @@ pipeline {
             }
             steps {
               script {
-                jslYarnWrapper('install')
+                jslYarnWrapper('install --unsafe-perm=true --allow-root')
                 jslBuildNpm('run build')
               }
             }
