@@ -184,6 +184,77 @@ pipeline {
           }
         }
       }
+      stage('Build for Production') {
+        parallel {
+          stage ('Building Chi') {
+            when {
+                beforeAgent true
+                branch 'master'
+            } 
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/cypress'
+                label 'Docker-enabled'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_CREDENTIALS
+              }
+            }
+            steps {
+              script {
+                jslYarnWrapper('install')
+                jslNpmWrapper('run build')
+              }
+            }
+          }
+          stage ('Building Custom elements') {
+            when {
+                beforeAgent true
+                branch 'master'
+            } 
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/cypress'
+                label 'Docker-enabled'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_CREDENTIALS
+              }
+            }
+            steps {
+              script {
+                dir('src/custom-elements') {
+                  jslYarnWrapper('install')
+                  jslNpmWrapper('run build')
+                }
+              }
+            }
+          }
+          stage ('Building Chi-vue') {
+            when {
+                beforeAgent true
+                branch 'master'
+            } 
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/cypress'
+                label 'Docker-enabled'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_CREDENTIALS
+              }
+            }
+            steps {
+              script {
+                dir('src/chi-vue') {
+                  jslYarnWrapper('install')
+                  jslNpmWrapper('run build:component')
+                }
+              }
+            }
+          }
+        }
+      }
       stage ('Cleaning...') {
         steps {
           cleanWs()
