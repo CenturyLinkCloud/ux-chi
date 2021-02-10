@@ -130,6 +130,8 @@ pipeline {
             sh script: """
                 scripts/dockerCI.sh alias
                 source ~/.bash_profile
+                rm -rf src/chi-vue/dist
+                rm -rf src/custom-elements/dist
                 chi test
             """, label: "Running Chi from its container as always" 
           }
