@@ -16,7 +16,7 @@ library(
           $class: 'GitSCMSource',
           remote: "git@github.com:jfranciscohernbal/jsl-jenkins-shared-library.git",
           credentialsId: 'SCMAUTO_SSH_DEVOPS_PIPELINE',
-          extensions: [[$class: 'CleanBeforeCheckout']]
+          extensions: [[$class: 'WipeWorkspace']]
         ]
       )
     ) _
@@ -113,21 +113,25 @@ pipeline {
 
     stages {
 
-      stage('Build') {
-        // when {
-        //   //https://www.jenkins.io/doc/book/pipeline/syntax/#when
-        //   //Use it to decide when this stage runs to select the pipeline flow
-        // } 
-        // agent {
+      stage('PR Build') {
+        when {
+            beforeAgent true
+            not { branch 'master' }
+        } 
+        agent {
         //   dockerfile {
-        //     filename 'Dockerfile'
-        //     dir 'cicd/docker/helm'
-        //     label 'Docker-enabled'
+            // filename 'Dockerfile'
+            // dir 'cicd/docker/helm'
+            label 'Docker-enabled'
         //   }
-        // }
+        }
         steps {
           script {
-            echo "TESTING JENKINSFILE FOR CHI REPO" 
+            sh script: """
+                scripts/docker.sh alias
+                source ~/.bash_profile
+                chi test
+            """, label: "Running Chi from its container as always" 
           }
         }
       }
