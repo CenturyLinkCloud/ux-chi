@@ -89,7 +89,9 @@ pipeline {
     // https://www.jenkins.io/doc/book/pipeline/syntax/#agent
     //Add agent sections in stages/stage if needed.
     
-    agent none
+    agent {
+        label 'Docker-enabled'
+    }
 
     options {
       
@@ -116,13 +118,13 @@ pipeline {
             beforeAgent true
             not { branch 'master' }
         } 
-        agent {
-        //   dockerfile {
-            // filename 'Dockerfile'
-            // dir 'cicd/docker/helm'
-            label 'Docker-enabled'
-        //   }
-        }
+        // agent {
+        // //   dockerfile {
+        //     // filename 'Dockerfile'
+        //     // dir 'cicd/docker/helm'
+        //     label 'Docker-enabled'
+        // //   }
+        // }
         steps {
           script {
             sh script: """
