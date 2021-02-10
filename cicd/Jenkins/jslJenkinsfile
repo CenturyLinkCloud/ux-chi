@@ -131,6 +131,7 @@ pipeline {
             }
             steps {
               script {
+                jslYarnWrapper('install')
                 jslBuildNpm('run build')
               }
             }
@@ -151,8 +152,10 @@ pipeline {
             }
             steps {
               script {
-                dir('src/custom-elements')
-                jslBuildNpm('run build')
+                dir('src/custom-elements') {
+                  jslYarnWrapper('install')
+                  jslBuildNpm('run build')
+                }
               }
             }
           }
@@ -172,8 +175,10 @@ pipeline {
             }
             steps {
               script {
-                dir('src/chi-vue')
-                jslBuildNpm('run build:component')
+                dir('src/chi-vue') {
+                  jslYarnWrapper('install')
+                  jslBuildNpm('run build:component')
+                }
               }
             }
           }
