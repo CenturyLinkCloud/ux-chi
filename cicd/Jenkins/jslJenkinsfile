@@ -112,7 +112,72 @@ pipeline {
     }
 
     stages {
+      stage('Summary') {
+        steps {
+          script {
+            sh script: """
+                echo "PROJECT_NAME: ${PROJECT_NAME}"
+                echo "DOCKER_REPO: ${DOCKER_REPO}"
+                echo "GIT_BRANCH: ${GIT_BRANCH}"
+                echo "GIT_COMMIT: ${GIT_COMMIT}"
+                echo "BRANCH_NAME: ${BRANCH_NAME}"
+                echo "COMMIT_ID: ${COMMIT_ID}"
+                echo "PULL_REQUEST: ${PULL_REQUEST}"
+                echo "CHANGE_ID: ${env.CHANGE_ID}"
+                echo "IMAGE_NAME: ${IMAGE_NAME}"
+                echo "IMAGE_TAG: ${IMAGE_TAG}"                        
+            """, label: "Details summary"
+          }
+        }
+      }
+      stage('Authorize - Prod only') {
+        when {
+          branch 'master'
+        }
+        steps {
+          script {
+            jslDeploymentControlKnob()
+          }
+        }
+      }
+      stage('Static Code Analysis') {
+        parallel {
+          stage('Linting') {
+            when {
+              beforeAgent true
+              not { branch PROD_BRANCH }
+            }
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'cicd/docker/cypress'
+                    label 'Docker-enabled'
+                    //registryUrl DOCKER_REGISTRY
+                    //registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+                }
+            }
+            steps {
+              script{
+                jslNpmWrapper('ci')
+                jslNpmWrapper('run lint')
+                jslNpmWrapper('run prettier:checker')
+              }
+            }
+          }
 
+          stage('DevSecOps') {
+            when {
+              beforeAgent true
+              not { branch PROD_BRANCH }
+            }
+            steps {
+              script {
+                jslGitHubSecurityAlert()
+              }
+            }
+          }
+        }
+      }
       stage('PR Build') {
         parallel {
           stage ('Building Chi') {
