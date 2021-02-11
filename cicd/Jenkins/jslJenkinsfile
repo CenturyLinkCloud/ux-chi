@@ -323,9 +323,15 @@ pipeline {
       stage ('Tests') {
         parallel {
           stage ('Unit Testing') {
-            // agent {
-
-            // }
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/cypress'
+                label 'Docker-enabled'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_CREDENTIALS
+              }
+            }
             when {
               beforeAgent true
               not { branch 'master' }
