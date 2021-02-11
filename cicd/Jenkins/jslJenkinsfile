@@ -621,7 +621,6 @@ pipeline {
           }            
         }
       }
-    }
       stage ('Cleaning...') {
         steps {
           echo "Pipeline finished!"
