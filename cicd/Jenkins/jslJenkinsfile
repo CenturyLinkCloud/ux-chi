@@ -331,9 +331,18 @@ pipeline {
               not { branch 'master' }
             }
             steps {
-              // script {
+              script {
+                sh script: """
+                  rm -rf reports test/bitmaps_test
+                  mkdir -p reports/html_report/non_responsive{,_ce}
+                  mkdir -p reports/html_report/responsive
+                  cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive_ce/bitmaps_reference
+                  cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
+                  cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
+                """, label: "Copying config files"
+                jslNpmWrapper('run test')
                 echo "This will run Unit tests"
-              // }
+              }
             }
           }
           stage ('E2E Testing') {
