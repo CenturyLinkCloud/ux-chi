@@ -148,13 +148,13 @@ pipeline {
               not { branch 'master' }
             }
             agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir 'cicd/docker/cypress'
-                    label 'Docker-enabled'
-                    //registryUrl DOCKER_REGISTRY
-                    //registryCredentialsId DOCKER_LOGIN_CREDENTIALS
-                }
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/cypress'
+                label 'Docker-enabled'
+                //registryUrl DOCKER_REGISTRY
+                //registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+              }
             }
             steps {
               script{
@@ -173,6 +173,42 @@ pipeline {
             steps {
               script {
                 jslGitHubSecurityAlert()
+              }
+            }
+          }
+          stage('Package Version') {
+            steps {
+              script {
+                sh(script: """
+                    git whatchanged -1 --format=oneline
+                    git diff origin/master package.json | grep '"version":' || echo No package.json changes
+                    git diff origin/master package-lock.json | grep '"version":' || echo No package-lock.json changes
+                    if [ \$(git diff origin/master package.json | grep '"version":' | wc -l) -eq 2 ]; then
+                        if [ \$(git diff origin/master package-lock.json | grep '"version":' | wc -l) -lt 2 ]; then
+                            echo "##########################################################################################"
+                            echo "### VERSION UPDATE package-lock.json IS REQUIRED ALONG WITH package.json               ###"
+                            echo "##########################################################################################"
+                            exit -1
+                        fi
+                        if [ \$(git whatchanged -1 --format=oneline | wc -l) -gt 3 ]; then
+                            echo "##########################################################################################"
+                            echo "### PACKAGE VERSION INCREASED ALONG WITH OTHER CHANGES - TESTS ABORTED                 ###"
+                            echo "### A SEPARATE PULL REQUEST MUST BE CREATED TO BUMP UP PACKAGE VERSION                 ###"
+                            echo "##########################################################################################"
+                            exit -1
+                        fi
+                    fi
+                    git diff HEAD~1 HEAD package.json
+                    rm -rf version_bump
+                    if [ \$(git diff HEAD~1 HEAD package.json | grep '"version":' | wc -l) -eq 2 ]; then
+                      echo -n "yes" > version_bump
+                    else
+                      echo -n "no" > version_bump
+                    fi
+                    cat version_bump
+                    echo "All good."
+                """, label: "Package version validation")
+                stash name: "VERSION_BUMP", includes: "version_bump"
               }
             }
           }
@@ -320,6 +356,22 @@ pipeline {
           }
         }
       }
+      stage ('Cache clean') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/cypress'
+            label 'Docker-enabled'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_CREDENTIALS
+          }
+        }
+        steps {
+          script {
+            jslYarnWrapper('cache clean')
+          }
+        }
+      }
       stage ('Tests') {
         parallel {
           stage ('Unit Testing') {
@@ -338,16 +390,16 @@ pipeline {
             }
             steps {
               script {
-                sh script: """
-                  rm -rf reports test/bitmaps_test
-                  mkdir -p reports/html_report/non_responsive{,_ce}
-                  mkdir -p reports/html_report/responsive
-                  cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive_ce/bitmaps_reference
-                  cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
-                  cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
-                """, label: "Copying config files"
-                jslNpmWrapper('run test')
-                echo "This will run Unit tests"
+                // sh script: """
+                //   rm -rf reports test/bitmaps_test
+                //   mkdir -p reports/html_report/non_responsive{,_ce}
+                //   mkdir -p reports/html_report/responsive
+                //   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive_ce/bitmaps_reference
+                //   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
+                //   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
+                // """, label: "Copying config files"
+                // jslNpmWrapper('run test')
+                echo "This will run Unit tests - Disabled until I fix permissions issues."
               }
             }
           }
@@ -361,34 +413,225 @@ pipeline {
             }
             steps {
               // script {
-                echo "This will run E2E tests"
+                echo "This will run E2E tests, when NPX is added to the JSL"
               // }
             }
           }
         }
       }
-      stage ('Publish to S3') {
-        parallel {
-          stage ('Publish Dev/Beta build') {
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
-            steps {
-              // script {
-                echo "This will publish dev build to S3"
-              // }
+      stage('Coverage'){
+        when {
+          beforeAgent true
+          not { branch PROD_BRANCH }
+        }
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/cypress'
+            label 'Docker-enabled'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+          }
+        }
+        steps {
+          script {
+            // jslYarnWrapper('install')
+            // sh "rm -rf .nyc_output*"
+            // sh "rm -rf coverage/"
+            // unstash name: "NYC_OUTPUT_UNIT"
+            // unstash name: "NYC_OUTPUT_E2E"
+            // jslNpmWrapper('run cover:merge')
+            // archiveArtifacts artifacts: '.nyc_output/**'
+            // jslNpmWrapper('run cover:report:jenkins || echo Error when evaluating coverage report!')
+            // stash name: "COVERAGE", includes: "coverage/**"
+            // archiveArtifacts artifacts: 'coverage/**'
+            // jslQualityGateCodeCoverage('./cicd/docker/SonarQube/sonar-project.properties')
+            echo "Coverage will be enabled as soon as Sonarqube is available for CHI"
+          }
+        }
+      }
+      stage('Coverage upload to Sonarqube'){
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/cypress'
+            label 'Docker-enabled'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+          }
+        }
+        steps {
+          script {
+            // try {
+            //   unstash name: "COVERAGE"
+            // }  catch (Exception e) {
+            //   echo "No coverage data"
+            // }
+            // jslSonarQubeStaticAnalysis('./cicd/docker/SonarQube/sonar-project.properties', env.SONARQUBE_CREDENTIALS)
+            echo "Coverage upload will be enabled as soon as Sonarqube is available for CHI"
+          }
+        }
+      }
+      stage('Quality Gate Check'){
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/cypress'
+            label 'Docker-enabled'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+          }
+        }
+        steps {
+          script {
+            // jslQualityGate()
+            echo "Quality gate check will be enabled as soon as Sonarqube is available for CHI"
+          }
+        }
+      }
+      stage('Smoke Tests') {
+        when {
+          beforeAgent true
+          allOf {
+            not { branch 'master' }
+            expression{ return currentBuild.currentResult.toLowerCase() == "success" }
+          }
+        }
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/cypress'
+            label 'Docker-enabled'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+          }
+        }
+        steps {
+          script {
+            // unstash name: "E2E_REPORTS"
+            // def cypress_url = parseIngressUrl()
+            // echo "Deployment is reachable at ${cypress_url}"
+            // jslNpmWrapper('ci')
+            // jslNpmWrapper("run test:smoke:jenkins -- --url ${cypress_url} || echo Smoke Tests failed!")
+            // echo "Smoke Tests completed"
+            // jslPublishTestResults('tests/e2e/reports/*xml')
+            // stash name: "E2E_REPORTS", includes: "tests/e2e/reports/**"
+
+            // def VIDEOS_AVAILABLE = -1
+            // VIDEOS_AVAILABLE = sh(script: "ls tests/e2e/videos/*", returnStatus: true)
+            // if (VIDEOS_AVAILABLE == 0) {
+            //   archiveArtifacts artifacts: 'tests/e2e/videos/**/*'
+            // }
+            // def SCREENSHOTS_AVAILABLE = -1
+            // SCREENSHOTS_AVAILABLE = sh(script: "ls tests/e2e/screenshots/*", returnStatus: true)
+            // if (SCREENSHOTS_AVAILABLE == 0) {
+            //   archiveArtifacts artifacts: 'tests/e2e/screenshots/**/*'
+            echo "Depends on NPX being available for testing on the JSL"
             }
           }
-          stage ('Publish Prod Build') {
-            when {
-              beforeAgent true
-              branch 'master'
+        }
+      }
+      stage('Adoption Stats') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/jira'
+            label 'Docker-enabled'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+          }
+        }
+        steps {
+          script {
+            // try {
+            //   unstash name: "E2E_REPORTS"
+            //   jslAdoptionMain('tests/e2e/reports/*xml')
+            // } catch (Exception e) {
+            //   try {
+            //     unstash name: "UNIT_REPORTS"
+            //     jslAdoptionMain('tests/unit/reports/*xml')
+            //     echo "No E2E results found, reporting only unit"
+            //   } catch (Exception exc) {
+            //     echo "No E2E or Unit results found, reporting simple unit"
+            //     unstash name: "TEST_PROD"
+            //     jslAdoptionMain('test-results.xml')
+            //   }
+            echo "Adoption stats will be enabled as soon as E2E testing is enabled"
+            }
+          }
+        }
+      }
+      stage('Version check & Publish') {
+        when {
+          beforeAgent true
+          expression {
+            unstash name: "VERSION_BUMP"
+            def versionBump = readFile file: "version_bump"
+            echo "Publish condition: GIT_BRANCH is _${env.GIT_BRANCH.trim().toLowerCase()}_"
+            echo "Publish condition: currentResult is _${currentBuild.currentResult.toLowerCase()}_"
+            echo "Publish condition: versionBump is _${versionBump.trim()}_"
+            return versionBump.trim() == "yes" && currentBuild.currentResult.toLowerCase() == "success" && ['origin/master', 'origin/main', 'master', 'main'].contains(env.GIT_BRANCH.trim().toLowerCase())
+          }
+        }
+        stages {
+          stage('GitHub Release') {
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/cypress'
+                label 'Docker-enabled'
+              }
             }
             steps {
-              // script {
-                echo "This will publish Prod build to S3 & CDN"
-              // }
+              script {
+                // def packageJson = readJSON file: 'package.json'
+                // def tagName = "${packageJson.version}"
+                // echo "Release tag is ${tagName}"
+                // def releaseId = jslGitHubReleaseGetId(tagName)
+                // sh "touch do_release"
+                // if (releaseId == null) {
+                //   def committishName = GIT_BRANCH
+                //   if (GIT_BRANCH.startsWith('origin/')) {
+                //     committishName = GIT_BRANCH.split("/")[1]
+                //   }
+                //   releaseId = jslGitHubReleaseCreate(tagName, committishName)
+                //   if (releaseId == null) {
+                //     throw new Exception("There was an error publishing the release")
+                //   }
+                //   sh "echo -n yes > do_release"
+                // } else {
+                //   echo "A release already exists for ${tagName}"
+                //   sh "echo -n no > do_release"
+                // }
+                // stash name: "DO_RELEASE", includes: "do_release"
+                echo "Active development, will activate as soon as this works"
+              }
+            }
+          }
+          stage ('Publish to S3') {
+            parallel {
+              stage ('Publish Dev/Beta build') {
+                when {
+                  beforeAgent true
+                  not { branch 'master' }
+                }
+                steps {
+                  // script {
+                    echo "This will publish dev build to S3"
+                  // }
+                }
+              }
+              stage ('Publish Prod Build') {
+                when {
+                  beforeAgent true
+                  branch 'master'
+                }
+                steps {
+                  // script {
+                    echo "This will publish Prod build to S3 & CDN"
+                  // }
+                }
+              }
             }
           }
         }
