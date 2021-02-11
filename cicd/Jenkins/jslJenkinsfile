@@ -422,7 +422,7 @@ pipeline {
       stage('Coverage'){
         when {
           beforeAgent true
-          not { branch PROD_BRANCH }
+          not { branch 'master' }
         }
         agent {
           dockerfile {
