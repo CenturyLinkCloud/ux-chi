@@ -145,7 +145,7 @@ pipeline {
           stage('Linting') {
             when {
               beforeAgent true
-              not { branch PROD_BRANCH }
+              not { branch 'master' }
             }
             agent {
                 dockerfile {
@@ -168,7 +168,7 @@ pipeline {
           stage('DevSecOps') {
             when {
               beforeAgent true
-              not { branch PROD_BRANCH }
+              not { branch 'master' }
             }
             steps {
               script {
