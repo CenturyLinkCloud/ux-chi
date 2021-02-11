@@ -356,22 +356,6 @@ pipeline {
           }
         }
       }
-      stage ('Cache clean') {
-        agent {
-          dockerfile {
-            filename 'Dockerfile'
-            dir 'cicd/docker/cypress'
-            label 'Docker-enabled'
-            // registryUrl DOCKER_REGISTRY
-            // registryCredentialsId DOCKER_CREDENTIALS
-          }
-        }
-        steps {
-          script {
-            jslYarnWrapper('cache clean')
-          }
-        }
-      }
       stage ('Tests') {
         parallel {
           stage ('Unit Testing') {
@@ -400,6 +384,7 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
                 """, label: "Copying config files"
+                jslYarnWrapper('cache clean')
                 jslNpmWrapper('run test')
                 echo "This will run Unit tests - Disabled until I fix permissions issues."
               }
@@ -609,34 +594,34 @@ pipeline {
             }
           }
         }
-        stage ('Publish to S3') {
-          parallel {
-            stage ('Publish Dev/Beta build') {
-              when {
-                beforeAgent true
-                not { branch 'master' }
-              }
-              steps {
-                // script {
-                  echo "This will publish dev build to S3"
-                // }
-              }
+      }
+      stage ('Publish to S3') {
+        parallel {
+          stage ('Publish Dev/Beta build') {
+            when {
+              beforeAgent true
+              not { branch 'master' }
             }
-            stage ('Publish Prod Build') {
-              when {
-                beforeAgent true
-                branch 'master'
-              }
-              steps {
-                // script {
-                  echo "This will publish Prod build to S3 & CDN"
-                // }
-              }
+            steps {
+              // script {
+                echo "This will publish dev build to S3"
+              // }
             }
-                        
           }
+          stage ('Publish Prod Build') {
+            when {
+              beforeAgent true
+              branch 'master'
+            }
+            steps {
+              // script {
+                echo "This will publish Prod build to S3 & CDN"
+              // }
+            }
+          }            
         }
       }
+    }
       stage ('Cleaning...') {
         steps {
           echo "Pipeline finished!"
