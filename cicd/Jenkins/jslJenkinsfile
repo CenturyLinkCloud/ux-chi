@@ -527,7 +527,6 @@ pipeline {
             // if (SCREENSHOTS_AVAILABLE == 0) {
             //   archiveArtifacts artifacts: 'tests/e2e/screenshots/**/*'
             echo "Depends on NPX being available for testing on the JSL"
-            }
           }
         }
       }
@@ -557,7 +556,6 @@ pipeline {
             //     jslAdoptionMain('test-results.xml')
             //   }
             echo "Adoption stats will be enabled as soon as E2E testing is enabled"
-            }
           }
         }
       }
