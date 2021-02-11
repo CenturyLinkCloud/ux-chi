@@ -158,13 +158,12 @@ pipeline {
             }
             steps {
               script{
-                jslNpmWrapper('ci')
+                jslYarnWrapper('install')
                 jslNpmWrapper('run lint')
                 jslNpmWrapper('run prettier:checker')
               }
             }
           }
-
           stage('DevSecOps') {
             when {
               beforeAgent true
