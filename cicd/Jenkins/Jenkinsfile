@@ -381,9 +381,9 @@ pipeline {
             steps {
               script {
                 // jslYarnWrapper('cache clean')
-                // jslNpmWrapper('run build')
-                unstash name: "DIST-CHI"
-                unstash name: "NODEMODULES-CHI"
+                jslNpmWrapper('run build')
+                //unstash name: "DIST-CHI"
+                //unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   // jslNpmWrapper('run build')
                   unstash name: "DIST-CHI-CE"
