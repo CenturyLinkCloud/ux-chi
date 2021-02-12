@@ -385,6 +385,7 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
                 """, label: "Copying config files"
+                jslYarnWrapper('install')
                 jslYarnWrapper('cache clean')
                 jslNpmWrapper('run test')
                 echo "This will run Unit tests - Disabled until I fix permissions issues."
