@@ -390,9 +390,9 @@ pipeline {
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  // jslNpmWrapper('run build:component')
-                  unstash name: "DIST-CHI-VUE"
-                  unstash name: "NODEMODULES-CHI-VUE"
+                  jslNpmWrapper('run build:component')
+                  // unstash name: "DIST-CHI-VUE"
+                  // unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
                   whoami
