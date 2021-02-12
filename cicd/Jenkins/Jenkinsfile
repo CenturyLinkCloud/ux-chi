@@ -234,6 +234,8 @@ pipeline {
               script {
                 jslYarnWrapper('install')
                 jslNpmWrapper('run build')
+                stash name: "DIST-CHI", includes: "dist/**"
+                stash name: "NODEMODULES-CHI", includes: "node_modules/**"
               }
             }
           }
@@ -256,6 +258,8 @@ pipeline {
                 dir('src/custom-elements') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build')
+                  stash name: "DIST-CHI-CE", includes: "dist/**"
+                  stash name: "NODEMODULES-CHI-CE", includes: "node_modules/**"
                 }
               }
             }
@@ -279,6 +283,8 @@ pipeline {
                 dir('src/chi-vue') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build:component')
+                  stash name: "DIST-CHI-VUE", includes: "dist/**"
+                  stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
                 }
               }
             }
@@ -374,6 +380,16 @@ pipeline {
             }
             steps {
               script {
+                unstash name: "DIST-CHI"
+                unsstash name: "NODEMODULES-CHI"
+                dir ('src/custom-elements') {
+                  unstash name: "DIST-CHI-CE"
+                  unsstash name: "NODEMODULES-CHI-CE"
+                }
+                dir ('src/chi-vue') {
+                  unstash name: "DIST-CHI-VUE"
+                  unsstash name: "NODEMODULES-CHI-VUE"
+                }
                 sh script: """
                   whoami
                   ls -lrta
@@ -385,8 +401,6 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
                 """, label: "Copying config files"
-                jslYarnWrapper('install')
-                jslYarnWrapper('cache clean')
                 jslNpmWrapper('run test')
                 echo "This will run Unit tests - Disabled until I fix permissions issues."
               }
