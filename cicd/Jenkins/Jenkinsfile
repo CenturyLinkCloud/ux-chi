@@ -381,14 +381,14 @@ pipeline {
             steps {
               script {
                 unstash name: "DIST-CHI"
-                unsstash name: "NODEMODULES-CHI"
+                unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   unstash name: "DIST-CHI-CE"
-                  unsstash name: "NODEMODULES-CHI-CE"
+                  unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
                   unstash name: "DIST-CHI-VUE"
-                  unsstash name: "NODEMODULES-CHI-VUE"
+                  unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
                   whoami
