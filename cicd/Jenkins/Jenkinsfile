@@ -380,19 +380,24 @@ pipeline {
             }
             steps {
               script {
-                // jslYarnWrapper('cache clean')
-                // jslNpmWrapper('run build')
-                unstash name: "DIST-CHI"
-                unstash name: "NODEMODULES-CHI"
+                jslYarnWrapper('install')
+                jslYarnWrapper('cache clean')
+                jslNpmWrapper('run build')
+                // unstash name: "DIST-CHI"
+                // unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
-                  // jslNpmWrapper('run build')
-                  unstash name: "DIST-CHI-CE"
-                  unstash name: "NODEMODULES-CHI-CE"
+                  jslYarnWrapper('install')
+                  jslYarnWrapper('cache clean')
+                  jslNpmWrapper('run build')
+                  // unstash name: "DIST-CHI-CE"
+                  // unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  // jslNpmWrapper('run build:component')
-                  unstash name: "DIST-CHI-VUE"
-                  unstash name: "NODEMODULES-CHI-VUE"
+                  jslYarnWrapper('install')
+                  jslYarnWrapper('cache clean')
+                  jslNpmWrapper('run build:component')
+                  // unstash name: "DIST-CHI-VUE"
+                  // unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
                   whoami
