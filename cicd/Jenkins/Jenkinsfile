@@ -364,6 +364,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
+                args '--rm -t --privileged --shm-size=2gb --cap-add=SYS_ADMIN'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
