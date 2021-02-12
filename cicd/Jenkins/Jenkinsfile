@@ -158,8 +158,8 @@ pipeline {
             }
             steps {
               script{
-                jslNpmWrapper('ci')
                 jslYarnWrapper('install')
+                jslNpmWrapper('ci')
                 jslNpmWrapper('run lint:fix')
                 // jslNpmWrapper('run prettier:checker')
                 // echo "No full linting implemented in repo, skipping until linting is implemented globally"
