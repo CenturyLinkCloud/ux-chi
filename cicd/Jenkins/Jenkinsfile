@@ -158,6 +158,7 @@ pipeline {
             }
             steps {
               script{
+                sh "rm -rf node_modules"
                 jslYarnWrapper('install')
                 jslNpmWrapper('ci')
                 jslNpmWrapper('run lint:fix')
