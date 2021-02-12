@@ -150,7 +150,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 //registryUrl DOCKER_REGISTRY
                 //registryCredentialsId DOCKER_LOGIN_CREDENTIALS
@@ -224,7 +224,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -247,7 +247,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -272,7 +272,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -301,7 +301,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -322,7 +322,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -345,7 +345,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -368,7 +368,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -507,7 +507,7 @@ pipeline {
         agent {
           dockerfile {
             filename 'Dockerfile'
-            dir 'cicd/docker/chi'
+            dir 'cicd/docker/sonar-scanner'
             label 'Docker-enabled'
             // registryUrl DOCKER_REGISTRY
             // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
@@ -583,7 +583,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/chi'
+                dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
               }
             }
