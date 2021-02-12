@@ -18,9 +18,6 @@ ENV _X11_NO_MITSHM=1
 ENV _MITSHM=0
 ENV TERM=xterm-256color
 
-RUN echo "whoami: $(whoami)"
-RUN npm config -g set user $(whoami)
-
 # ENV CYPRESS_CACHE_FOLDER=/tmp/.cache/Cypress
 # RUN npm install -g "cypress@3.8.3" "typescript"
 
@@ -35,7 +32,6 @@ RUN chmod 755 /root
 
 RUN apt-get -y update && \
     apt-get -y install jq yajl-tools default-jre
-RUN npm i -g @vue/cli@4.5.2
 
 WORKDIR /home/node
 
