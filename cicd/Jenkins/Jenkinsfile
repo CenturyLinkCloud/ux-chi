@@ -368,7 +368,7 @@ pipeline {
             agent {
               dockerfile {
                 filename 'Dockerfile'
-                dir 'cicd/docker/cypress'
+                dir 'cicd/docker/chi'
                 label 'Docker-enabled'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
@@ -380,23 +380,20 @@ pipeline {
             }
             steps {
               script {
-                jslYarnWrapper('install')
+                jslYarnWrapper('cache clean')
                 jslNpmWrapper('run build')
                 // unstash name: "DIST-CHI"
                 // unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
-                  jslYarnWrapper('install')
                   jslNpmWrapper('run build')
                   // unstash name: "DIST-CHI-CE"
                   // unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  jslYarnWrapper('install')
                   jslNpmWrapper('run build:component')
                   // unstash name: "DIST-CHI-VUE"
                   // unstash name: "NODEMODULES-CHI-VUE"
                 }
-                jslYarnWrapper('cache clean')
                 sh script: """
                   whoami
                   ls -lrta
