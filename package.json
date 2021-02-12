@@ -27,7 +27,7 @@
     "acorn": "7.1.1",
     "autoprefixer": "9.4.9",
     "babel-loader": "8.1.0",
-    "backstopjs": "3.8.8",
+    "backstopjs": "4.5.1",
     "browser-sync": "2.26.3",
     "cssnano": "4.1.10",
     "cypress": "3.3.1",
