@@ -158,6 +158,7 @@ pipeline {
             }
             steps {
               script{
+                jslNpmWrapper('ci')
                 jslYarnWrapper('install')
                 jslNpmWrapper('run lint:fix')
                 // jslNpmWrapper('run prettier:checker')
