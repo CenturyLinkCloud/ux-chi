@@ -158,10 +158,10 @@ pipeline {
             }
             steps {
               script{
-                // jslYarnWrapper('install')
-                // jslNpmWrapper('run lint')
+                jslYarnWrapper('install')
+                jslNpmWrapper('run lint:fix')
                 // jslNpmWrapper('run prettier:checker')
-                echo "No full linting implemented in repo, skipping until linting is implemented globally"
+                // echo "No full linting implemented in repo, skipping until linting is implemented globally"
               }
             }
           }
@@ -381,18 +381,18 @@ pipeline {
             steps {
               script {
                 // jslYarnWrapper('cache clean')
-                jslNpmWrapper('run build')
-                //unstash name: "DIST-CHI"
-                //unstash name: "NODEMODULES-CHI"
+                // jslNpmWrapper('run build')
+                unstash name: "DIST-CHI"
+                unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   // jslNpmWrapper('run build')
                   unstash name: "DIST-CHI-CE"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  jslNpmWrapper('run build:component')
-                  // unstash name: "DIST-CHI-VUE"
-                  // unstash name: "NODEMODULES-CHI-VUE"
+                  // jslNpmWrapper('run build:component')
+                  unstash name: "DIST-CHI-VUE"
+                  unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
                   whoami
