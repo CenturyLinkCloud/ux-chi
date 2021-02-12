@@ -158,9 +158,7 @@ pipeline {
             }
             steps {
               script{
-                sh "rm -rf node_modules"
                 jslYarnWrapper('install')
-                jslNpmWrapper('ci')
                 jslNpmWrapper('run lint:fix')
                 // jslNpmWrapper('run prettier:checker')
                 // echo "No full linting implemented in repo, skipping until linting is implemented globally"
@@ -236,8 +234,6 @@ pipeline {
               script {
                 jslYarnWrapper('install')
                 jslNpmWrapper('run build')
-                stash name: "DIST-CHI", includes: "dist/**"
-                stash name: "NODEMODULES-CHI", includes: "node_modules/**"
               }
             }
           }
@@ -260,8 +256,6 @@ pipeline {
                 dir('src/custom-elements') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build')
-                  stash name: "DIST-CHI-CE", includes: "dist/**"
-                  stash name: "NODEMODULES-CHI-CE", includes: "node_modules/**"
                 }
               }
             }
@@ -285,8 +279,6 @@ pipeline {
                 dir('src/chi-vue') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build:component')
-                  stash name: "DIST-CHI-VUE", includes: "dist/**"
-                  stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
                 }
               }
             }
