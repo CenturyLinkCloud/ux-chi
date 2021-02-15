@@ -364,7 +364,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--rm -t --privileged --shm-size=2gb --cap-add=SYS_ADMIN'
+                args '--rm -t --shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -405,9 +405,16 @@ pipeline {
             }
           }
           stage ('E2E Testing') {
-            // agent {
-
-            // }
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/sonar-scanner'
+                label 'Docker-enabled'
+                args '--rm -t --shm-size=2gb'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_CREDENTIALS
+              }
+            }
             when {
               beforeAgent true
               not { branch 'master' }
