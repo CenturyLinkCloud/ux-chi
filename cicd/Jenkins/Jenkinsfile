@@ -381,24 +381,21 @@ pipeline {
             }
             steps {
               script {
-                // jslYarnWrapper('install')
-                // jslYarnWrapper('cache clean')
-                // jslNpmWrapper('run build')
+                sh "rm -rf /dist"
+                sh "rm -rf /node_modules"
                 unstash name: "DIST-CHI"
-                // unstash name: "NODEMODULES-CHI"
+                unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
-                  // jslYarnWrapper('install')
-                  // jslYarnWrapper('cache clean')
-                  // jslNpmWrapper('run build')
+                  sh "rm -rf /dist"
+                  sh "rm -rf /node_modules"
                   unstash name: "DIST-CHI-CE"
-                  // unstash name: "NODEMODULES-CHI-CE"
+                  unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  // jslYarnWrapper('install')
-                  // jslYarnWrapper('cache clean')
-                  // jslNpmWrapper('run build:component')
+                  sh "rm -rf /dist"
+                  sh "rm -rf /node_modules"
                   unstash name: "DIST-CHI-VUE"
-                  // unstash name: "NODEMODULES-CHI-VUE"
+                  unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
                   whoami
@@ -433,24 +430,21 @@ pipeline {
             }
             steps {
               script {
-                jslYarnWrapper('install')
-                jslYarnWrapper('cache clean')
-                // jslNpmWrapper('run build')
+                sh "rm -rf /dist"
+                sh "rm -rf /node_modules"
                 unstash name: "DIST-CHI"
-                // unstash name: "NODEMODULES-CHI"
+                unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
-                  // jslYarnWrapper('install')
-                  // jslYarnWrapper('cache clean')
-                  // jslNpmWrapper('run build')
+                  sh "rm -rf /dist"
+                  sh "rm -rf /node_modules"
                   unstash name: "DIST-CHI-CE"
-                  // unstash name: "NODEMODULES-CHI-CE"
+                  unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  // jslYarnWrapper('install')
-                  // jslYarnWrapper('cache clean')
-                  // jslNpmWrapper('run build:component')
+                  sh "rm -rf /dist"
+                  sh "rm -rf /node_modules"
                   unstash name: "DIST-CHI-VUE"
-                  // unstash name: "NODEMODULES-CHI-VUE"
+                  unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """npx gulp serve 2>&1 >/dev/null &
                   ./node_modules/.bin/cypress run
