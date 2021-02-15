@@ -432,8 +432,10 @@ pipeline {
               script {
                 sh "rm -rf /dist"
                 sh "rm -rf /node_modules"
+                jslYarnWrapper('install')
+                jslYarnWrapper('cache clean')
                 unstash name: "DIST-CHI"
-                unstash name: "NODEMODULES-CHI"
+                // unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   sh "rm -rf /dist"
                   sh "rm -rf /node_modules"
