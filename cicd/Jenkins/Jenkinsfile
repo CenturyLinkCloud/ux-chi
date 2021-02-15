@@ -370,7 +370,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--rm -t --shm-size=2gb'
+                args '--shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -385,20 +385,20 @@ pipeline {
                 // jslYarnWrapper('cache clean')
                 // jslNpmWrapper('run build')
                 unstash name: "DIST-CHI"
-                unstash name: "NODEMODULES-CHI"
+                // unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   // jslYarnWrapper('install')
                   // jslYarnWrapper('cache clean')
                   // jslNpmWrapper('run build')
-                  unstash name: "DIST-CHI"
-                  unstash name: "NODEMODULES-CHI"
+                  unstash name: "DIST-CHI-CE"
+                  // unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
                   // jslYarnWrapper('install')
                   // jslYarnWrapper('cache clean')
                   // jslNpmWrapper('run build:component')
-                  unstash name: "DIST-CHI"
-                  unstash name: "NODEMODULES-CHI"
+                  unstash name: "DIST-CHI-VUE"
+                  // unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
                   whoami
@@ -422,7 +422,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--rm -t --shm-size=2gb'
+                args '--shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -433,7 +433,29 @@ pipeline {
             }
             steps {
               script {
-                sh "npx version"
+                jslYarnWrapper('install')
+                jslYarnWrapper('cache clean')
+                // jslNpmWrapper('run build')
+                unstash name: "DIST-CHI"
+                // unstash name: "NODEMODULES-CHI"
+                dir ('src/custom-elements') {
+                  // jslYarnWrapper('install')
+                  // jslYarnWrapper('cache clean')
+                  // jslNpmWrapper('run build')
+                  unstash name: "DIST-CHI-CE"
+                  // unstash name: "NODEMODULES-CHI-CE"
+                }
+                dir ('src/chi-vue') {
+                  // jslYarnWrapper('install')
+                  // jslYarnWrapper('cache clean')
+                  // jslNpmWrapper('run build:component')
+                  unstash name: "DIST-CHI-VUE"
+                  // unstash name: "NODEMODULES-CHI-VUE"
+                }
+                sh script: """npx gulp serve 2>&1 >/dev/null &
+                  ./node_modules/.bin/cypress run
+                  npx gulp serve:stop
+                """, label: "Running NPX before adding JSL file, TEST."
                 echo "This will run E2E tests, when NPX is added to the JSL"
               }
             }
