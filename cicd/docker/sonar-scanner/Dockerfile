@@ -52,3 +52,4 @@ ENV SONAR_SCANNER_OPTS="-Dcom.sun.net.ssl.checkRevocation=false -Djavax.net.ssl.
 RUN chmod -R 777 /home/node/sonar-scanner-4.3.0.2102-linux
 RUN usermod -a -G staff node
 RUN usermod -a -G staff ${user}
+USER jenkins
