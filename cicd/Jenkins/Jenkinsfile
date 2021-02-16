@@ -141,22 +141,22 @@ pipeline {
         }
       }
       stage('Static Code Analysis') {
-        agent {
-          dockerfile {
-            filename 'Dockerfile'
-            dir 'cicd/docker/sonar-scanner'
-            label 'Docker-enabled'
-            args '--shm-size=2gb'
-            // registryUrl DOCKER_REGISTRY
-            // registryCredentialsId DOCKER_CREDENTIALS
-          }
-        }
-        when {
-          beforeAgent true
-          not { branch 'master' }
-        }
-        stages {
+        parallel {
           stage('Linting') {
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/sonar-scanner'
+                label 'Docker-enabled'
+                args '--shm-size=2gb'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_CREDENTIALS
+              }
+            }
+            when {
+              beforeAgent true
+              not { branch 'master' }
+            }
             steps {
               script{
                 // jslYarnWrapper('install')
