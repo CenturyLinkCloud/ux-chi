@@ -155,7 +155,7 @@ pipeline {
           beforeAgent true
           not { branch 'master' }
         }
-        parallel {
+        stages {
           stage('Linting') {
             steps {
               script{
@@ -226,7 +226,7 @@ pipeline {
           beforeAgent true
           not { branch 'master' }
         }
-        parallel {
+        stages {
           stage ('Building Chi') {
             steps {
               script {
@@ -278,7 +278,7 @@ pipeline {
           beforeAgent true
           branch 'master'
         }
-        parallel {
+        stages {
           stage ('Building Chi') {
             steps {
               script {
@@ -310,21 +310,21 @@ pipeline {
         }
       }
       stage ('Tests') {
-        agent {
-          dockerfile {
-            filename 'Dockerfile'
-            dir 'cicd/docker/sonar-scanner'
-            label 'Docker-enabled'
-            args '--shm-size=2gb'
-            // registryUrl DOCKER_REGISTRY
-            // registryCredentialsId DOCKER_CREDENTIALS
+          agent {
+            dockerfile {
+              filename 'Dockerfile'
+              dir 'cicd/docker/sonar-scanner'
+              label 'Docker-enabled'
+              args '--shm-size=2gb'
+              // registryUrl DOCKER_REGISTRY
+              // registryCredentialsId DOCKER_CREDENTIALS
+            }
           }
-        }
-        when {
-          beforeAgent true
-          not { branch 'master' }
-        }
-        parallel {
+          when {
+            beforeAgent true
+            not { branch 'master' }
+          }
+        stages {
           stage ('Unit Testing') {
             steps {
               script {
