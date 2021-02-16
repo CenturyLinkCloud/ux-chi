@@ -5,6 +5,7 @@ order: 1
 ---
 
 h2 Buttons
+h3 Text
 .example.-mb--3
   .-p--3.-d--flex.-align-items--center
     .-pr--2
@@ -17,6 +18,20 @@ h2 Buttons
     <button class="chi-button -primary -lg -uppercase -px--4">Primary</button>
     <button class="chi-button -primary -outline -lg -bg--white -uppercase -px--4">Secondary</button>
     <button class="chi-button -primary -outline -sm -bg--white -px--2">Tertiary</button>
+
+h3 Icons
+.example.-mb--3
+  .-p--3.-d--flex.-align-items--center
+    .-pr--2
+      button.chi-button.-icon.-flat.-bg--none.-opacity-hover--80(aria-label="Button action")
+        .chi-button__content
+          i.chi-icon.icon-refresh
+  :code(lang="html")
+    <button class="chi-button -icon -flat -bg--none -opacity-hover--80" aria-label="Button action">
+      <div class="chi-button__content">
+        <i class="chi-icon icon-refresh"></i>
+      </div>
+    </button>
 
 h2 Alerts
 .example.-mb--3
@@ -253,13 +268,13 @@ h3 Base
           | Aenean pretium massa sed vehicula porta. Phasellus id metus felis.
           | Ut felis magna, facilisis ut malesuada nec.
   .example-tabs.-pl--2
-    ul.chi-tabs#example-portal-base
+    ul.chi-tabs#example-portal-cards
       li.-disabled
-        a(href=`#webcomponent-portal-base`) Web Component
+        a(href=`#webcomponent-portal-cards`) Web Component
       li.-active
-        a(href=`#html-portal-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-portal-base
-  .chi-tabs-panel.-active#html-portal-base
+        a(href=`#html-portal-cards`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-cards
+  .chi-tabs-panel.-active#html-portal-cards
     :code(lang="html")
       <div class="chi-card -portal">
         <div class="chi-card__header -sm">
@@ -281,13 +296,13 @@ h3 Highlight
           | Aenean pretium massa sed vehicula porta. Phasellus id metus felis.
           | Ut felis magna, facilisis ut malesuada nec.
   .example-tabs.-pl--2
-    ul.chi-tabs#example-portal-base
+    ul.chi-tabs#example-portal-cards-highlight
       li.-disabled
-        a(href=`#webcomponent-portal-base`) Web Component
+        a(href=`#webcomponent-portal-cards-highlight`) Web Component
       li.-active
-        a(href=`#html-portal-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-portal-base
-  .chi-tabs-panel.-active#html-portal-base
+        a(href=`#html-portal-cards-highlight`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-cards-highlight
+  .chi-tabs-panel.-active#html-portal-cards-highlight
     :code(lang="html")
       <div class="chi-card -portal -highlight">
         <div class="chi-card__header -sm">
@@ -304,7 +319,7 @@ p.-text Use cards with tabs for organizing enterprise portal card content into s
   .-p--3
     .chi-card.-portal(style="max-width:20rem;")
       .chi-card__tabs
-        ul.chi-tabs.-sm
+        ul.chi-tabs.-xs
           li.-active
             a(href='#') Active Tab
           li
@@ -316,17 +331,17 @@ p.-text Use cards with tabs for organizing enterprise portal card content into s
           | Aenean pretium massa sed vehicula porta. Phasellus id metus felis.
           | Ut felis magna, facilisis ut malesuada nec.
   .example-tabs.-pl--2
-    ul.chi-tabs#example-portal-tabs
+    ul.chi-tabs#example-portal-cards-tabs
       li.-disabled
-        a(href=`#webcomponent-portal-tabs`) Web Component
+        a(href=`#webcomponent-portal-cards-tabs`) Web Component
       li.-active
-        a(href=`#html-portal-tabs`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-portal-tabs
-  .chi-tabs-panel.-active#html-portal-tabs
+        a(href=`#html-portal-cards-tabs`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-cards-tabs
+  .chi-tabs-panel.-active#html-portal-cards-tabs
     :code(lang="html")
       <div class="chi-card -portal">
         <div class="chi-card__tabs">
-          <ul class="chi-tabs -sm">
+          <ul class="chi-tabs -xs">
             <li class="-active">
               <a href="#">Active Tab</a>
             </li>
@@ -343,7 +358,8 @@ p.-text Use cards with tabs for organizing enterprise portal card content into s
         </div>
       </div>
 
-h3 Table
+h2 Table
+h3 Base
 .example.-mb--3
   .-p--3
     .chi-card.-portal
@@ -374,13 +390,13 @@ h3 Table
               td name-3
               td Nov 5, 2020 10:15 AM
   .example-tabs.-pl--2
-    ul.chi-tabs#example-portal-tabs
+    ul.chi-tabs#example-portal-table
       li.-disabled
-        a(href=`#webcomponent-portal-tabs`) Web Component
+        a(href=`#webcomponent-portal-table`) Web Component
       li.-active
-        a(href=`#html-portal-tabs`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-portal-tabs
-  .chi-tabs-panel.-active#html-portal-tabs
+        a(href=`#html-portal-table`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-table
+  .chi-tabs-panel.-active#html-portal-table
     :code(lang="html")
       <div class="chi-card -portal">
         <div class="chi-card__header -sm">
@@ -416,6 +432,382 @@ h3 Table
         </div>
       </div>
 
+h3 Table with header cells in the top row and first column
+.example.-mb--3
+  .-p--3
+    .chi-card.-portal
+      .chi-card__header.-sm
+        .chi-card__title
+          | Title
+      .chi-card__content.-p--0
+        .-p--2
+          .chi-picker-group.-portal
+            .chi-picker-group__content
+              input.chi-picker__input(type="radio" name="unique-name-ba" id="unique-id-ba1" checked)
+              label(for="unique-id-ba1") Option 1
+              input.chi-picker__input(type="radio" name="unique-name-ba" id="unique-id-ba2")
+              label(for="unique-id-ba2") Option 2
+              input.chi-picker__input(type="radio" name="unique-name-ba" id="unique-id-ba3")
+              label(for="unique-id-ba3") Option 3
+        .-overflow--auto
+          table.chi-table.-bordered.-striped.-xs.-text--center
+            tr
+              td.-th
+              th(scope="col") ABQ1
+              th(scope="col") ABY1
+              th(scope="col") AKN4
+              th(scope="col") ANT1
+              th(scope="col") ANT2
+              th(scope="col") ATL12
+              th(scope="col") ATL14
+              th(scope="col") AUS1
+              th(scope="col") AUS3
+              th(scope="col") BCH1
+              th(scope="col") BER1
+            tr
+              th(scope="row") ABQ1
+              td.-bg--info-light 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+            tr
+              th(scope="row") ABY1
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+              td 42
+            tr
+              th(scope="row") AKN4
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+              td 127
+            tr
+              th(scope="row") ANT1
+              td 21
+              td 21
+              td 21
+              td.-bg--danger-lighter.-b--1.-b--danger 52
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+            tr
+              th(scope="row") ANT2
+              td 136
+              td 136
+              td 136
+              td 136
+              td 136
+              td 136
+              td 136
+              td 136
+              td 136
+              td.-bg--warning-lighter.-b--1.-b--warning 180
+              td 136
+            tr
+              th(scope="row") ATL12
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+              td 164
+            tr
+              th(scope="row") ATL14
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+            tr
+              th(scope="row") AUS1
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+              td 52
+            tr
+              th(scope="row") AUS3
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+              td 32
+            tr
+              th(scope="row") BCH1
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+              td 21
+            tr
+              th(scope="row") BER1
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+              td 31
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-header-cells-first-column
+      li.-disabled
+        a(href=`#webcomponent-header-cells-first-column`) Web Component
+      li.-active
+        a(href=`#html-header-cells-first-column`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-header-cells-first-column
+  .chi-tabs-panel.-active#html-header-cells-first-column
+    :code(lang="html")
+      <div class="chi-card -portal">
+        <div class="chi-card__header -sm">
+          <div class="chi-card__title">Title</div>
+        </div>
+        <div class="chi-card__content -p--0">
+          <div class="-p--2">
+            <div class="chi-picker-group -portal">
+              <div class="chi-picker-group__content">
+                <input class="chi-picker__input" type="radio" name="unique-name-ba" id="unique-id-ba1" checked="checked" />
+                <label for="unique-id-ba1">Option 1</label>
+                <input class="chi-picker__input" type="radio" name="unique-name-ba" id="unique-id-ba2" />
+                <label for="unique-id-ba2">Option 2</label>
+                <input class="chi-picker__input" type="radio" name="unique-name-ba" id="unique-id-ba3" />
+                <label for="unique-id-ba3">Option 3</label>
+              </div>
+            </div>
+          </div>
+          <div class="-overflow--auto">
+            <table class="chi-table -bordered -striped -xs -text--center">
+              <tr>
+                <td class="-th"></td>
+                <th scope="col">ABQ1</th>
+                <th scope="col">ABY1</th>
+                <th scope="col">AKN4</th>
+                <th scope="col">ANT1</th>
+                <th scope="col">ANT2</th>
+                <th scope="col">ATL12</th>
+                <th scope="col">ATL14</th>
+                <th scope="col">AUS1</th>
+                <th scope="col">AUS3</th>
+                <th scope="col">BCH1</th>
+                <th scope="col">BER1</th>
+              </tr>
+              <tr>
+                <th scope="row">ABQ1</th>
+                <td class="-bg--info-light">52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+              </tr>
+              <tr>
+                <th scope="row">ABY1</th>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <th scope="row">AKN4</th>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+                <td>127</td>
+              </tr>
+              <tr>
+                <th scope="row">ANT1</th>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td class="-bg--danger-lighter -b--1 -b--danger">52</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+              </tr>
+              <tr>
+                <th scope="row">ANT2</th>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td>136</td>
+                <td class="-bg--warning-lighter -b--1 -b--warning">180</td>
+                <td>136</td>
+              </tr>
+              <tr>
+                <th scope="row">ATL12</th>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+                <td>164</td>
+              </tr>
+              <tr>
+                <th scope="row">ATL14</th>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+              </tr>
+              <tr>
+                <th scope="row">AUS1</th>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+                <td>52</td>
+              </tr>
+              <tr>
+                <th scope="row">AUS3</th>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+              </tr>
+              <tr>
+                <th scope="row">BCH1</th>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+                <td>21</td>
+              </tr>
+              <tr>
+                <th scope="row">BER1</th>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
 h3 Table + tabs
 .example.-mb--3
   .-p--3
@@ -423,7 +815,7 @@ h3 Table + tabs
       .chi-card__tabs
         .chi-card__title
           | Title
-        ul.chi-tabs.-sm
+        ul.chi-tabs.-xs
           li.-active
             a(href='#') Active Tab
           li
@@ -454,18 +846,18 @@ h3 Table + tabs
               td name-3
               td Nov 5, 2020 10:15 AM
   .example-tabs.-pl--2
-    ul.chi-tabs#example-portal-tabs
+    ul.chi-tabs#example-portal-table-tabs
       li.-disabled
-        a(href=`#webcomponent-portal-tabs`) Web Component
+        a(href=`#webcomponent-portal-table-tabs`) Web Component
       li.-active
-        a(href=`#html-portal-tabs`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-portal-tabs
-  .chi-tabs-panel.-active#html-portal-tabs
+        a(href=`#html-portal-table-tabs`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-table-tabs
+  .chi-tabs-panel.-active#html-portal-table-tabs
     :code(lang="html")
       <div class="chi-card -portal">
         <div class="chi-card__tabs">
           <div class="chi-card__title">Title</div>
-          <ul class="chi-tabs -sm">
+          <ul class="chi-tabs -xs">
             <li class="-active">
               <a href="#">Active Tab</a>
             </li>
@@ -507,7 +899,485 @@ h3 Table + tabs
         </div>
       </div>
 
+h2 Data table
+.example.-mb--3
+  .-p--3
+    .chi-card.-portal.-bg--white.-bg-md--grey-15
+      .chi-card__header.-sm
+        .chi-card__title Title
+      .chi-card__content.-p--0
+        .chi-data-table.-portal.-compact
+          .chi-data-table__head
+            .chi-data-table__row
+              .chi-data-table__cell
+                div Name
+              .chi-data-table__cell
+                div ID
+              .chi-data-table__cell
+                div Last Login
+          .chi-data-table__body
+            .chi-data-table__row
+              .chi-data-table__cell.-key.-bold
+                div Name 1
+              .chi-data-table__cell.-key
+                div name-1
+              .chi-data-table__cell
+                div Dec 18, 2020 3:26 PM
+            .chi-data-table__row
+              .chi-data-table__cell.-key.-bold
+                div Name 2
+              .chi-data-table__cell.-key
+                div name-2
+              .chi-data-table__cell
+                div Dec 18, 2020 2:38 AM
+            .chi-data-table__row
+              .chi-data-table__cell.-key.-bold
+                div Name 3
+              .chi-data-table__cell.-key
+                div name-3
+              .chi-data-table__cell
+                div Nov 5, 2020 10:15 AM
+          .chi-data-table__footer
+            nav.chi-pagination.-compact(role='navigation', aria-label='Pagination')
+              .chi-pagination__content
+                .chi-pagination__start
+                  .chi-pagination__results
+                    span.chi-pagination__label 240 Results
+                .chi-pagination__center
+                  .chi-pagination__button-group.chi-button-group
+                    a(class=`chi-button -icon -flat -sm`, href='#', aria-label='Previous page')
+                      .chi-button__content
+                        i(class="chi-icon icon-chevron-left", aria-hidden='true')
+                  .chi-pagination__label
+                    strong 2
+                    span of
+                    strong 3
+                  .chi-pagination__button-group.chi-button-group
+                    a(class=`chi-button -icon -flat -sm`, href='#', aria-label='Next page')
+                      .chi-button__content
+                        i(class="chi-icon icon-chevron-right", aria-hidden='true')
+                .chi-pagination__end
+
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-portal-data-table
+      li.-disabled
+        a(href=`#webcomponent-portal-data-table`) Web Component
+      li.-active
+        a(href=`#html-portal-data-table`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-data-table
+  .chi-tabs-panel.-active#html-portal-data-table
+    :code(lang='html')
+      <div class="chi-card -portal -bg--white -bg-md--grey-15">
+        <div class="chi-card__header -sm">
+          <div class="chi-card__title">Title</div>
+        </div>
+        <div class="chi-card__content -p--0">
+          <div class="chi-data-table -portal -compact">
+            <div class="chi-data-table__head">
+              <div class="chi-data-table__row">
+                <div class="chi-data-table__cell">
+                  <div>Name</div>
+                </div>
+                <div class="chi-data-table__cell">
+                  <div>ID</div>
+                </div>
+                <div class="chi-data-table__cell">
+                  <div>Last Login</div>
+                </div>
+              </div>
+            </div>
+            <div class="chi-data-table__body">
+              <div class="chi-data-table__row">
+                <div class="chi-data-table__cell -key -bold">
+                  <div>Name 1</div>
+                </div>
+                <div class="chi-data-table__cell -key">
+                  <div>name-1</div>
+                </div>
+                <div class="chi-data-table__cell">
+                  <div>Dec 18, 2020 3:26 PM</div>
+                </div>
+              </div>
+              <div class="chi-data-table__row">
+                <div class="chi-data-table__cell -key -bold">
+                  <div>Name 2</div>
+                </div>
+                <div class="chi-data-table__cell -key">
+                  <div>name-2</div>
+                </div>
+                <div class="chi-data-table__cell">
+                  <div>Dec 18, 2020 2:38 AM</div>
+                </div>
+              </div>
+              <div class="chi-data-table__row">
+                <div class="chi-data-table__cell -key -bold">
+                  <div>Name 3</div>
+                </div>
+                <div class="chi-data-table__cell -key">
+                  <div>name-3</div>
+                </div>
+                <div class="chi-data-table__cell">
+                  <div>Nov 5, 2020 10:15 AM</div>
+                </div>
+              </div>
+            </div>
+            <div class="chi-data-table__footer">
+              <nav class="chi-pagination -compact" role="navigation" aria-label="Pagination">
+                <div class="chi-pagination__content">
+                  <div class="chi-pagination__start">
+                    <div class="chi-pagination__results">
+                      <span class="chi-pagination__label">240 Results</span>
+                    </div>
+                  </div>
+                  <div class="chi-pagination__center">
+                    <div class="chi-pagination__button-group chi-button-group">
+                      <a class="chi-button -icon -flat -sm" href="#" aria-label="Previous page">
+                        <div class="chi-button__content">
+                          <i class="chi-icon icon-chevron-left" aria-hidden="true"></i>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="chi-pagination__label">
+                      <strong>2</strong>
+                      <span>of</span>
+                      <strong>3</strong>
+                    </div>
+                    <div class="chi-pagination__button-group chi-button-group">
+                      <a class="chi-button -icon -flat -sm" href="#" aria-label="Next page">
+                        <div class="chi-button__content">
+                          <i class="chi-icon icon-chevron-right" aria-hidden="true"></i>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="chi-pagination__end"></div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
 h2 Stat
+h3 Compact
+p.-text
+  | Apply <code>-portal</code> and <code>-compact</code> to easily theme a Stat for portal dashboards where vertical space is limited.
+.example.-mb--3
+  .-p--3(style="overflow-x: auto;height:10rem")
+    div(style="width: 1220px;")
+      .chi-grid
+        .chi-col.-w--2
+          .chi-stat.-portal.-compact
+            .chi-stat__content
+              .chi-stat-metric
+                .chi-stat-metric__title
+                  | Utilization
+                .chi-label__help
+                  button.chi-button.-icon.-sm.-flat.-light(id="example__help-button" aria-label="Help" data-target="#example__help-popover" data-position="bottom")
+                    i.chi-icon.icon-circle-info-outline
+                  section.chi-popover.chi-popover--bottom(id="example__help-popover" aria-modal="true" role="dialog")
+                    .chi-popover__content
+                      p.chi-popover__text
+                        | Helpful information goes here.
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 4
+                .chi-stat-submetric__title
+                  | High
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 16
+                .chi-stat-submetric__title
+                  | Elevated
+        .chi-col.-w--2
+          .chi-stat.-portal.-compact
+            .chi-stat__content
+              .chi-stat-metric
+                .chi-stat-metric__title
+                  | Performance
+                .chi-label__help
+                  button.chi-button.-icon.-sm.-flat.-light(id="example__help-button2" aria-label="Help" data-target="#example__help-popover2" data-position="bottom")
+                    i.chi-icon.icon-circle-info-outline
+                  section.chi-popover.chi-popover--bottom(id="example__help-popover2" aria-modal="true" role="dialog")
+                    .chi-popover__content
+                      p.chi-popover__text
+                        | Helpful information goes here.
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 0
+                .chi-stat-submetric__title
+                  | Critical
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 1
+                .chi-stat-submetric__title
+                  | Impacted
+        .chi-col.-w--2
+          .chi-stat.-portal.-compact.-active
+            .chi-stat__content
+              .chi-stat-metric
+                .chi-stat-metric__title
+                  | Status
+                .chi-label__help
+                  button.chi-button.-icon.-sm.-flat.-light(id="example__help-button3" aria-label="Help" data-target="#example__help-popover3" data-position="bottom")
+                    i.chi-icon.icon-circle-info-outline
+                  section.chi-popover.chi-popover--bottom(id="example__help-popover3" aria-modal="true" role="dialog")
+                    .chi-popover__content
+                      p.chi-popover__text
+                        | Helpful information goes here.
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 12
+                .chi-stat-submetric__title
+                  | Down
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 333
+                .chi-stat-submetric__title
+                  | Up
+        .chi-col.-w--2
+          .chi-stat.-portal.-compact
+            .chi-stat__content
+              .chi-stat-metric
+                .chi-stat-metric__title
+                  | Threshold Alerts
+                .chi-label__help
+                  button.chi-button.-icon.-sm.-flat.-light(id="example__help-button4" aria-label="Help" data-target="#example__help-popover4" data-position="bottom")
+                    i.chi-icon.icon-circle-info-outline
+                  section.chi-popover.chi-popover--bottom(id="example__help-popover4" aria-modal="true" role="dialog")
+                    .chi-popover__content
+                      p.chi-popover__text
+                        | Helpful information goes here.
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 0
+                .chi-stat-submetric__title
+                  | Warnings
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 0
+                .chi-stat-submetric__title
+                  | Watches
+        .chi-col.-w--2
+          .chi-stat.-portal.-compact
+            .chi-stat__content
+              .chi-stat-metric
+                .chi-stat-metric__title
+                  | Repair Tickets
+                .chi-label__help
+                  button.chi-button.-icon.-sm.-flat.-light(id="example__help-button5" aria-label="Help" data-target="#example__help-popover5" data-position="bottom")
+                    i.chi-icon.icon-circle-info-outline
+                  section.chi-popover.chi-popover--bottom(id="example__help-popover5" aria-modal="true" role="dialog")
+                    .chi-popover__content
+                      p.chi-popover__text
+                        | Helpful information goes here.
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 2
+                .chi-stat-submetric__title
+                  | Active
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 1
+                .chi-stat-submetric__title
+                  | Closed
+        .chi-col.-w--2
+          .chi-stat.-portal.-compact
+            .chi-stat__content
+              .chi-stat-metric
+                .chi-stat-metric__title
+                  | Sch Maintenance
+                .chi-label__help
+                  button.chi-button.-icon.-sm.-flat.-light(id="example__help-button6" aria-label="Help" data-target="#example__help-popover6" data-position="bottom")
+                    i.chi-icon.icon-circle-info-outline
+                  section.chi-popover.chi-popover--bottom(id="example__help-popover6" aria-modal="true" role="dialog")
+                    .chi-popover__content
+                      p.chi-popover__text
+                        | Helpful information goes here.
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 2
+                .chi-stat-submetric__title
+                  | In Progress
+              .chi-stat-submetric
+                .chi-stat-submetric__value
+                  | 2
+                .chi-stat-submetric__title
+                  | Upcoming
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-portal-base
+      li.-disabled
+        a(href=`#webcomponent-portal-base`) Web Component
+      li.-active
+        a(href=`#html-portal-base`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-base
+  .chi-tabs-panel.-active#html-portal-base
+    .chi-tab__description
+      span.-text--grey
+        | This HTML Blueprint requires JavaScript.
+        | You may use your own solution, or use Chi's vanilla JavaScript solution,
+        | <a href="../../../getting-started/installation">Chi.js</a>.
+    :code(lang="html")
+      <div class="chi-grid">
+        <div class="chi-col -w--2">
+          <div class="chi-stat -portal -compact">
+            <div class="chi-stat__content">
+              <div class="chi-stat-metric">
+                <div class="chi-stat-metric__title">Utilization</div>
+                <div class="chi-label__help">
+                  <button class="chi-button -icon -sm -flat -light" id="example__help-button" aria-label="Help" data-target="#example__help-popover" data-position="bottom"><i class="chi-icon icon-circle-info-outline"></i></button>
+                  <section class="chi-popover chi-popover--bottom" id="example__help-popover" aria-modal="true" role="dialog">
+                    <div class="chi-popover__content">
+                      <p class="chi-popover__text">Helpful information goes here.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">4</div>
+                <div class="chi-stat-submetric__title">High</div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">16</div>
+                <div class="chi-stat-submetric__title">Elevated</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chi-col -w--2">
+          <div class="chi-stat -portal -compact">
+            <div class="chi-stat__content">
+              <div class="chi-stat-metric">
+                <div class="chi-stat-metric__title">Performance</div>
+                <div class="chi-label__help">
+                  <button class="chi-button -icon -sm -flat -light" id="example__help-button2" aria-label="Help" data-target="#example__help-popover2" data-position="bottom"><i class="chi-icon icon-circle-info-outline"></i></button>
+                  <section class="chi-popover chi-popover--bottom" id="example__help-popover2" aria-modal="true" role="dialog">
+                    <div class="chi-popover__content">
+                      <p class="chi-popover__text">Helpful information goes here.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">0</div>
+                <div class="chi-stat-submetric__title">Critical</div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">1</div>
+                <div class="chi-stat-submetric__title">Impacted</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chi-col -w--2">
+          <div class="chi-stat -portal -compact -active">
+            <div class="chi-stat__content">
+              <div class="chi-stat-metric">
+                <div class="chi-stat-metric__title">Status</div>
+                <div class="chi-label__help">
+                  <button class="chi-button -icon -sm -flat -light" id="example__help-button3" aria-label="Help" data-target="#example__help-popover3" data-position="bottom"><i class="chi-icon icon-circle-info-outline"></i></button>
+                  <section class="chi-popover chi-popover--bottom" id="example__help-popover3" aria-modal="true" role="dialog">
+                    <div class="chi-popover__content">
+                      <p class="chi-popover__text">Helpful information goes here.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">12</div>
+                <div class="chi-stat-submetric__title">Down</div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">333</div>
+                <div class="chi-stat-submetric__title">Up</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chi-col -w--2">
+          <div class="chi-stat -portal -compact">
+            <div class="chi-stat__content">
+              <div class="chi-stat-metric">
+                <div class="chi-stat-metric__title">Threshold Alerts</div>
+                <div class="chi-label__help">
+                  <button class="chi-button -icon -sm -flat -light" id="example__help-button4" aria-label="Help" data-target="#example__help-popover4" data-position="bottom"><i class="chi-icon icon-circle-info-outline"></i></button>
+                  <section class="chi-popover chi-popover--bottom" id="example__help-popover4" aria-modal="true" role="dialog">
+                    <div class="chi-popover__content">
+                      <p class="chi-popover__text">Helpful information goes here.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">0</div>
+                <div class="chi-stat-submetric__title">Warnings</div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">0</div>
+                <div class="chi-stat-submetric__title">Watches</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chi-col -w--2">
+          <div class="chi-stat -portal -compact">
+            <div class="chi-stat__content">
+              <div class="chi-stat-metric">
+                <div class="chi-stat-metric__title">Repair Tickets</div>
+                <div class="chi-label__help">
+                  <button class="chi-button -icon -sm -flat -light" id="example__help-button5" aria-label="Help" data-target="#example__help-popover5" data-position="bottom"><i class="chi-icon icon-circle-info-outline"></i></button>
+                  <section class="chi-popover chi-popover--bottom" id="example__help-popover5" aria-modal="true" role="dialog">
+                    <div class="chi-popover__content">
+                      <p class="chi-popover__text">Helpful information goes here.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">2</div>
+                <div class="chi-stat-submetric__title">Active</div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">1</div>
+                <div class="chi-stat-submetric__title">Closed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chi-col -w--2">
+          <div class="chi-stat -portal -compact">
+            <div class="chi-stat__content">
+              <div class="chi-stat-metric">
+                <div class="chi-stat-metric__title">Sch Maintenance</div>
+                <div class="chi-label__help">
+                  <button class="chi-button -icon -sm -flat -light" id="example__help-button6" aria-label="Help" data-target="#example__help-popover6" data-position="bottom"><i class="chi-icon icon-circle-info-outline"></i></button>
+                  <section class="chi-popover chi-popover--bottom" id="example__help-popover6" aria-modal="true" role="dialog">
+                    <div class="chi-popover__content">
+                      <p class="chi-popover__text">Helpful information goes here.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">2</div>
+                <div class="chi-stat-submetric__title">In Progress</div>
+              </div>
+              <div class="chi-stat-submetric">
+                <div class="chi-stat-submetric__value">2</div>
+                <div class="chi-stat-submetric__title">Upcoming</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>chi.popover(document.getElementById('example__help-button'));</script>
+      <script>chi.popover(document.getElementById('example__help-button2'));</script>
+      <script>chi.popover(document.getElementById('example__help-button3'));</script>
+      <script>chi.popover(document.getElementById('example__help-button4'));</script>
+      <script>chi.popover(document.getElementById('example__help-button5'));</script>
+      <script>chi.popover(document.getElementById('example__help-button6'));</script>
+
 h3 Base
 .example.-mb--3
   .-p--3
@@ -565,13 +1435,13 @@ h3 Base
               .chi-stat-submetric__title
                 | Planned
   .example-tabs.-pl--2
-    ul.chi-tabs#example-base
+    ul.chi-tabs#example-portal-stat
       li.-disabled
-        a(href=`#webcomponent-base`) Web Component
+        a(href=`#webcomponent-portal-stat`) Web Component
       li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
+        a(href=`#html-portal-stat`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-stat
+  .chi-tabs-panel.-active#html-portal-stat
     :code(lang="html")
       <div class="chi-grid">
         <div class="chi-col -w--6 -w-lg--3 -pb--2 -pb-lg--0">
@@ -677,13 +1547,13 @@ h3 Stat with Background Icons
             .chi-stat-background-icon
               i.chi-icon.icon-mail
   .example-tabs.-pl--2
-    ul.chi-tabs#example-base
+    ul.chi-tabs#example-portal-stat-icons
       li.-disabled
-        a(href=`#webcomponent-base`) Web Component
+        a(href=`#webcomponent-portal-stat-icons`) Web Component
       li.-active
-        a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
-  .chi-tabs-panel.-active#html-base
+        a(href=`#html-portal-stat-icons`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-stat-icons
+  .chi-tabs-panel.-active#html-portal-stat-icons
     :code(lang="html")
       <div class="chi-grid">
         <div class="chi-col -w--6 -w-lg--3 -pb--2 -pb-lg--0">
@@ -740,10 +1610,330 @@ h3 Stat with Background Icons
         </div>
       </div>
 
+h2 Modal
+h3 Base
+.example.-mb--3
+  .chi-backdrop.-p--6.-position--relative.-z--0
+    .chi-backdrop__wrapper
+      section.chi-modal.-portal(role="dialog", aria-label="Modal description", aria-modal="true")
+        header.chi-modal__header
+          h2.chi-modal__title Modal Title
+          button(class='chi-button -icon -close', aria-label='Close')
+            .chi-button__content
+              i.chi-icon.icon-x
+        .chi-modal__content
+          p.-text.-m--0 Modal content
+        footer.chi-modal__footer
+          button.chi-button.-primary.-outline.-lg.-px--4.-text--uppercase Cancel
+          button.chi-button.-primary.-lg.-px--4.-text--uppercase Save
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-portal-modal
+      li.-disabled
+        a(href=`#webcomponent-portal-modal`) Web Component
+      li.-active
+        a(href=`#html-portal-modal`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-modal
+  .chi-tabs-panel.-active#html-portal-modal
+    .chi-tab__description
+      span.-text--grey
+        | This HTML Blueprint requires JavaScript.
+        | You may use your own solution, or use Chi's vanilla JavaScript solution,
+        | <a href="../../getting-started/installation">Chi.js</a>.
+    :code(lang="html")
+      <!-- Trigger -->
+      <button id="modal-trigger-base" class="chi-button chi-modal__trigger" data-target="#modal-base">
+        Launch portal modal
+      </button>
+
+      <!-- Modal -->
+      <div class="chi-backdrop -closed">
+        <div class="chi-backdrop__wrapper">
+          <section id="modal-base" class="chi-modal -portal" role="dialog" aria-label="Modal description" aria-modal="true">
+            <header class="chi-modal__header">
+              <h2 class="chi-modal__title">Modal Title</h2>
+              <button class="chi-button -icon -close" data-dismiss="modal" aria-label="Close">
+                <div class="chi-button__content">
+                  <i class="chi-icon icon-x"></i>
+                </div>
+              </button>
+            </header>
+            <div class="chi-modal__content">
+              <p class="-text -m--0">Modal content</p>
+            </div>
+            <footer class="chi-modal__footer">
+              <button class="chi-button -primary -outline -lg -px--4 -text--uppercase">Cancel</button>
+              <button class="chi-button -primary -lg -px--4 -text--uppercase">Save</button>
+            </footer>
+          </section>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <script>chi.modal(document.getElementById('modal-trigger-base'));</script>
+
+h3 Alert
+.example.-mb--3
+  .chi-backdrop.-p--6.-position--relative.-z--0
+    .chi-backdrop__wrapper
+      section.chi-modal.-portal(role="dialog", aria-label="Modal description", aria-modal="true")
+        header.chi-modal__header
+          h2.chi-modal__title Alert Modal Title
+          button(class='chi-button -icon -close', aria-label='Close')
+            .chi-button__content
+              i.chi-icon.icon-x
+        .chi-modal__content
+          .-d--flex
+            i.chi-icon.icon-circle-x.-sm--3.-icon--danger.-mr--2
+            .-w--100
+              p.-text--bold.-m--0 Replace this subhead text with specific text from project documentation
+              p.-mt--1.-mb--0
+                | Supporting text to explain the subhead text. Check user story to customize based on requirements.
+                | This is placeholder text to show spacing and line height. Replace this text with text provided in requirements.
+        footer.chi-modal__footer
+          button.chi-button.-primary.-lg.-text--uppercase.-px--4 Button
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-portal-modal-alert
+      li.-disabled
+        a(href=`#webcomponent-portal-modal-alert`) Web Component
+      li.-active
+        a(href=`#html-portal-modal-alert`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-modal-alert
+  .chi-tabs-panel.-active#html-portal-modal-alert
+    .chi-tab__description
+      span.-text--grey
+        | This HTML Blueprint requires JavaScript.
+        | You may use your own solution, or use Chi's vanilla JavaScript solution,
+        | <a href="../../getting-started/installation">Chi.js</a>.
+    :code(lang="html")
+      <!-- Trigger -->
+      <button id="modal-trigger-alert" class="chi-button chi-modal__trigger" data-target="#modal-alert">
+        Launch portal alert modal
+      </button>
+
+      <!-- Modal -->
+      <div class="chi-backdrop -closed">
+        <div class="chi-backdrop__wrapper">
+          <section id="modal-alert" class="chi-modal -portal" role="dialog" aria-label="Modal description" aria-modal="true">
+            <header class="chi-modal__header">
+              <h2 class="chi-modal__title">Alert Modal Title</h2>
+              <button class="chi-button -icon -close" data-dismiss="modal" aria-label="Close">
+                <div class="chi-button__content">
+                  <i class="chi-icon icon-x"></i>
+                </div>
+              </button>
+            </header>
+            <div class="chi-modal__content">
+              <div class="-d--flex">
+                <i class="chi-icon icon-circle-x -sm--3 -icon--danger -mr--2"></i>
+                <div class="-w--100">
+                  <p class="-text--bold -m--0">Replace this subhead text with specific text from project documentation</p>
+                  <p class="-mt--1 -mb--0">Supporting text to explain the subhead text. Check user story to customize based on requirements. This is placeholder text to show spacing and line height. Replace this text with text provided in requirements.</p>
+                </div>
+              </div>
+            </div>
+            <footer class="chi-modal__footer">
+              <button class="chi-button -primary -lg -text--uppercase -px--4">Button</button>
+            </footer>
+          </section>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <script>chi.modal(document.getElementById('modal-trigger-alert'));</script>
+
+h2 Drawer
+.example.-mb--3.-overflow--hidden
+  .-position--relative.-z--0.-overflow--hidden(style="height:30rem;")
+    .chi-backdrop.-position--absolute
+      .chi-backdrop__wrapper
+        #drawer-23.chi-drawer.-bottom.-portal.-active.-position--absolute
+          .chi-drawer__header
+            span.chi-drawer__title
+              | Drawer title here
+            button.chi-button.-icon.-close(aria-label='Close')
+              .chi-button__content
+                i.chi-icon.icon-x
+          .chi-drawer__content
+            .-p--2.-text Drawer content here
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-portal-drawer
+      li.-disabled
+        a(href=`#webcomponent-portal-drawer`) Web Component
+      li.-active
+        a(href=`#html-portal-drawer`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-drawer
+  .chi-tabs-panel.-active#html-portal-drawer
+    .chi-tab__description
+      span.-text--grey
+        | This HTML Blueprint requires JavaScript.
+        | You may use your own solution, or use Chi's vanilla JavaScript solution,
+        | <a href="../../getting-started/installation">Chi.js</a>.
+    :code(lang="html")
+      <!-- Trigger -->
+      <button id="drawer-trigger" class="chi-button -primary chi-drawer__trigger" data-target="#drawer">Launch demo drawer</button>
+
+      <!-- Drawer -->
+      <div class="chi-backdrop -closed">
+        <div class="chi-backdrop__wrapper">
+          <div id="drawer" class="chi-drawer -bottom -portal">
+            <div class="chi-drawer__header">
+              <span class="chi-drawer__title">
+                Drawer title here
+              </span>
+              <button class="chi-button -icon -close" aria-label="Close">
+                <div class="chi-button__content">
+                  <i class="chi-icon icon-x"></i>
+                </div>
+              </button>
+            </div>
+            <div class="chi-drawer__content">
+              <div class="-p--2 -text">Drawer content here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <script>chi.drawer(document.getElementById('drawer-trigger'));</script>
+
+h2 Accordion
+.example.-mb--3
+  .-p--3
+    .chi-accordion.-portal#example-portal
+      .chi-accordion__item
+        button.chi-accordion__trigger
+          .chi-accordion__title
+            | Accordion 1
+          i.chi-icon.icon-chevron-down
+        .chi-accordion__content
+          p.chi-accordion__text Content goes here
+      .chi-accordion__item.-expanded
+        button.chi-accordion__trigger
+          .chi-accordion__title
+            | Accordion 2
+          i.chi-icon.icon-chevron-down
+        .chi-accordion__content
+          p.chi-accordion__text Content goes here
+      .chi-accordion__item
+        button.chi-accordion__trigger
+          .chi-accordion__title
+            | Accordion 3
+          i.chi-icon.icon-chevron-down
+        .chi-accordion__content
+          p.chi-accordion__text Content goes here
+      .chi-accordion__item
+        button.chi-accordion__trigger
+          .chi-accordion__title
+           | Accordion 4
+          i.chi-icon.icon-chevron-down
+        .chi-accordion__content
+          p.chi-accordion__text Content goes here
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-portal-accordion
+      li.-disabled
+        a(href=`#webcomponent-portal-accordion`) Web Component
+      li.-active
+        a(href=`#html-portal-accordion`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-portal-accordion
+  .chi-tabs-panel.-active#html-portal-accordion
+    .chi-tab__description
+      span.-text--grey
+        | This HTML Blueprint requires JavaScript.
+        | You may use your own solution, or use Chi's vanilla JavaScript solution,
+        | <a href="../../getting-started/installation">Chi.js</a>.
+    :code(lang="html")
+      <div class="chi-accordion -portal" id="example-portal">
+        <div class="chi-accordion__item">
+          <button class="chi-accordion__trigger">
+            <div class="chi-accordion__title">Accordion 1</div>
+            <i class="chi-icon icon-chevron-down"></i>
+          </button>
+          <div class="chi-accordion__content">
+            <p class="chi-accordion__text">Content goes here</p>
+          </div>
+        </div>
+        <div class="chi-accordion__item -expanded">
+          <button class="chi-accordion__trigger">
+            <div class="chi-accordion__title">Accordion 2</div>
+            <i class="chi-icon icon-chevron-down"></i>
+          </button>
+          <div class="chi-accordion__content">
+            <p class="chi-accordion__text">Content goes here</p>
+          </div>
+        </div>
+        <div class="chi-accordion__item">
+          <button class="chi-accordion__trigger">
+            <div class="chi-accordion__title">Accordion 3</div>
+            <i class="chi-icon icon-chevron-down"></i>
+          </button>
+          <div class="chi-accordion__content">
+            <p class="chi-accordion__text">Content goes here</p>
+          </div>
+        </div>
+        <div class="chi-accordion__item">
+          <button class="chi-accordion__trigger">
+            <div class="chi-accordion__title">Accordion 4</div>
+            <i class="chi-icon icon-chevron-down"></i>
+          </button>
+          <div class="chi-accordion__content">
+            <p class="chi-accordion__text">Content goes here</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const accordionPortal = document.getElementById('example-portal');
+
+        chi.accordion(accordionPortal);
+      </script>
+
+h2 Picker Group
+.example.-mb--3
+  .-p--3
+    fieldset
+      legend.chi-label Select an option
+      .chi-picker-group.-portal
+        .chi-picker-group__content
+          each i in [1, 2, 3, 4]
+            input.chi-picker__input(type='radio', name='unique-name-ch', id=`unique-id-ch${i}`, checked=(i === 1), disabled=(i === 4))
+            label(for=`unique-id-ch${i}`)
+              = 'Option ' + `${i}`
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-picker-group
+      li.-disabled
+        a(href=`#webcomponent-picker-group`) Web Component
+      li.-active
+        a(href=`#html-picker-group`) HTML Blueprint
+  .chi-tabs-panel#webcomponent-picker-group
+  .chi-tabs-panel.-active#html-picker-group
+    :code(lang='html')
+      <fieldset>
+        <legend class="chi-label">Select an option</legend>
+        <div class="chi-picker-group -portal">
+          <div class="chi-picker-group__content">
+            <input class="chi-picker__input" type="radio" name="unique-name-ch" id="unique-id-ch1" checked>
+            <label for="unique-id-ch1">Option 1</label>
+            <input class="chi-picker__input" type="radio" name="unique-name-ch" id="unique-id-ch2">
+            <label for="unique-id-ch2">Option 2</label>
+            <input class="chi-picker__input" type="radio" name="unique-name-ch" id="unique-id-ch3">
+            <label for="unique-id-ch3">Option 3</label>
+            <input class="chi-picker__input" type="radio" name="unique-name-ch" id="unique-id-ch4" disabled>
+            <label for="unique-id-ch4">Option 4</label>
+          </div>
+        </div>
+      </fieldset>
+
 script.
   document.addEventListener(
     'DOMContentLoaded',
     function() {
+      chi.accordion(document.getElementById('example-portal'));
       chi.tab(document.querySelectorAll('.chi-tabs-panel .chi-tabs'));
+      chi.popover(document.getElementById('example__help-button'));
+      chi.popover(document.getElementById('example__help-button2'));
+      chi.popover(document.getElementById('example__help-button3'));
+      chi.popover(document.getElementById('example__help-button4'));
+      chi.popover(document.getElementById('example__help-button5'));
+      chi.popover(document.getElementById('example__help-button6'));
     }
   );

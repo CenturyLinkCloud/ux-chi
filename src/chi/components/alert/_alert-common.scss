@@ -74,11 +74,12 @@ $states: (
 
     .chi-alert__content {
       flex-grow: 0;
+      width: auto;
     }
   }
 
   > .chi-icon,
-  > chi-icon .chi-icon,
+  > chi-icon .chi-icon, // sass-lint:disable-line force-element-nesting
   .chi-alert__icon {
     &:not(.icon-x) {
       flex-shrink: 0;
@@ -115,7 +116,7 @@ $states: (
       }
 
       .chi-alert__icon,
-      > chi-icon .chi-icon {
+      > chi-icon .chi-icon { // sass-lint:disable-line force-element-nesting
         color: map-get(map-get($states, $state), color);
       }
 
@@ -133,6 +134,7 @@ $states: (
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    width: 100%;
 
     .chi-alert__title {
       font-size: $font-size-base;
@@ -165,7 +167,7 @@ $states: (
   }
 
   > .chi-button,
-  > chi-button .chi-button {
+  > chi-button .chi-button { // sass-lint:disable-line force-element-nesting
     &.-close,
     &.chi-alert__close-button {
       align-self: flex-start;
@@ -185,8 +187,8 @@ $states: (
   &.-lg {
     padding: 1.0625rem 1.5rem;
 
-    > i.chi-icon,
-    > chi-icon .chi-icon,
+    > .chi-icon,
+    > chi-icon .chi-icon, // sass-lint:disable-line force-element-nesting
     .chi-alert__icon {
       &:not(.icon-x) {
         font-size: 1.25rem;
@@ -197,7 +199,7 @@ $states: (
     }
 
     > .chi-button,
-    > chi-button .chi-button {
+    > chi-button .chi-button { // sass-lint:disable-line force-element-nesting
       &.-close,
       &.chi-alert__close-button {
         padding: 0;

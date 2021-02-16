@@ -40,6 +40,11 @@ $sizes: (
   display: inline-flex;
   justify-content: center;
 
+  &__content {
+    display: flex;
+    width: 100%;
+  }
+
   input {
     &[type='radio'] {
       &.chi-picker__input {
@@ -150,6 +155,18 @@ $sizes: (
           }
         }
       }
+
+      &[disabled],
+      &.-disabled {
+        &.chi-picker__input {
+          & + label {
+            background-color: $color-background-base-dark;
+            box-shadow: none;
+            color: $color-text-muted-light;
+            pointer-events: none;
+          }
+        }
+      }
     }
   }
 
@@ -163,6 +180,23 @@ $sizes: (
             @each $type in map-keys($sizes) {
               &.-#{$type} {
                 padding-right: map-get(map-get($sizes, $type), padding_checked);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.-portal {
+    input {
+      &[type='radio'] {
+        &.chi-picker__input {
+          &:not(:checked) {
+            & + label {
+              &:hover {
+                background-color: $color-background-base;
+                color: $color-text-primary;
               }
             }
           }

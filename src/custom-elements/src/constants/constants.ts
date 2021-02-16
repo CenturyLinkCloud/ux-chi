@@ -35,3 +35,15 @@ export const TEXT_INPUT_TYPES = [
   'week'
 ] as const;
 export type TextInputTypes = typeof TEXT_INPUT_TYPES[number];
+
+export const DATE_PICKER_MODES = ['date', 'datetime'];
+export type DatePickerModes = typeof DATE_PICKER_MODES[number];
+
+export const CHI_TIME_AUTO_SCROLL_DELAY = 50;
+export const CHI_TIME_SCROLL_ADJUSTMENT = 24;
+
+export const TIME_PICKER_FORMATS = ['12hours', '24hours'];
+export type DatePickerFormats = typeof TIME_PICKER_FORMATS[number];
+
+export const DATE_LOCALES = ['en', 'es', 'pt', 'fr', 'de', 'ja', 'zh'] as const;
+export type DataLocales = typeof DATE_LOCALES[number];

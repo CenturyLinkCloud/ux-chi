@@ -237,6 +237,7 @@
 
   .chi-mobile-nav__drawers {
     .chi-drawer {
+      box-shadow: none;
       display: block;
       left: 23rem;
       transition-duration: 0.3s;
@@ -290,6 +291,7 @@
 }
 
 /* IE11 CSS hack */
+// sass-lint:disable no-vendor-prefixes
 @media all and (-ms-high-contrast: none) {
   .chi-mobile-nav {
     .chi-drawer {
@@ -316,3 +318,4 @@
     }
   }
 }
+// sass-lint:enable no-vendor-prefixes

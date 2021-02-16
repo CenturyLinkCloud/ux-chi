@@ -192,23 +192,6 @@ $animation-duration: 0.5s;
   &.-portal {
     .chi-drawer__header {
       background-color: $color-background-secondary;
-
-      &,
-      .chi-drawer__title {
-        color: $color-text-base;
-      }
-
-      button {
-        &.chi-button {
-          &.-close {
-            i {
-              &.chi-icon {
-                color: $color-text-base;
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -218,6 +201,7 @@ $animation-duration: 0.5s;
 }
 
 /* IE11 CSS hack */
+// sass-lint:disable-block no-vendor-prefixes
 @media all and (-ms-high-contrast: none) {
   .chi-drawer {
     .-close {

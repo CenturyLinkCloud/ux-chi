@@ -131,12 +131,26 @@
   &.-lg {
     & > li {
       & > a {
-        line-height: $line-height-lg;
+        line-height: $line-height-sm;
         padding-bottom: 0.75rem;
         padding-top: 0.75rem;
 
         & > .chi-icon {
-          margin-top: 0.25rem;
+          margin-top: 0.0625rem;
+        }
+      }
+    }
+  }
+
+  &.-xl {
+    & > li {
+      & > a {
+        line-height: $line-height;
+        padding-bottom: 0.875rem;
+        padding-top: 0.875rem;
+
+        & > .chi-icon {
+          margin-top: 0.1875rem;
         }
       }
     }
@@ -281,7 +295,7 @@
               height: 0.6875rem;
               left: 2.375rem;
               position: absolute;
-              top: 0.125rem;
+              top: 0.375rem;
               width: 0.6875rem;
               z-index: 1;
             }
@@ -337,8 +351,36 @@
       }
     }
 
-    &:not(.-sliding) > li.-active:not(.-has-active) > a {
-      background-color: $color-background-primary-light;
+    &:not(.-sliding) {
+      & > li {
+        &.-active:not(.-has-active) {
+          & > a {
+            background-color: $color-background-primary-light;
+          }
+        }
+      }
+    }
+
+    &.-sm {
+      > li {
+        > .chi-tabs_item {
+          justify-content: center;
+          min-height: 2.5rem;
+        }
+
+        .chi-tabs__subtabs {
+          > li {
+            > .chi-tabs_item {
+              justify-content: center;
+              min-height: 2rem;
+
+              &::before {
+                top: 0.125rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -409,7 +451,6 @@
       }
 
       & > a {
-        font-size: $font-size-xs;
         padding: 0.8125rem 0 0.6875rem 0;
       }
     }
@@ -559,7 +600,6 @@
       &:not(.-sliding).-animated .chi-tabs__subtabs > li.-active:not(.-has-active) > a {
         box-shadow: inset 0.125rem 0 0 $color-white;
       }
-      // sass-lint:disable-block force-element-nesting
 
       & > li {
         &.-active > a {

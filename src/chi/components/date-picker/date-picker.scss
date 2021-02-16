@@ -35,6 +35,7 @@ $monday-starting-week: (
   width: 14rem;
 
   &__day {
+    border-radius: $border-radius-base;
     font-weight: $font-weight-normal;
     line-height: 2rem;
     text-align: center;
@@ -157,6 +158,25 @@ $monday-starting-week: (
           margin-left: calc(100% * #{$column-start} / 7);
         }
       }
+    }
+  }
+
+  & + .chi-time-picker {
+    box-shadow: inset 0.0625rem 0 0 0 $color-border-base;
+    margin-left: 0.75rem;
+  }
+}
+
+.-time {
+  section {
+    &.chi-popover {
+      max-width: 30rem;
+    }
+
+    .chi-time-picker {
+      box-shadow: inset 0.0625rem 0 0 0 $color-border-base;
+      margin-left: 0.75rem;
+      padding: 0.5rem;
     }
   }
 }

@@ -1,4 +1,196 @@
 # CHANGELOG
+## 3.8.0 (January 28, 2021)
+### Components
+#### Added
+* Added: Focus utility to Chi.js to hide `:focus` outlines on links, buttons, and inputs if user is using a pointing device.
+* Added: Popover now supports the attribute `closable` to render Popover components with a close button.
+* Added: Icons `icon-edge-solutions`, `icon-edit-create`.
+* Added: Overflow utility to control how content overflows an element.
+* Added: Text utility now supports the class `-text--boldest` to render text with the boldest font-weight value available.
+* Added: Date web component now supports the ability to change language.
+* Added: Tooltip component now supports events `chiTooltipShow` and `chiTooltipHide`.
+* Added: Popover Chi.js component now supports events `chiPopoverShow`, `chiPopoverHide`, `chiPopoverShown`, and `chiPopoverHidden`.
+* Added: Drawer Chi.js component now supports events `chiDrawerShow`, `chiDrawerHide`, `chiDrawerShown`, and `chiDrawerHidden`.
+* Added: Dropdown component now supports events `chiDropdownShow` and `chiDropdownHide`.
+* Added: Data table now supports three level rows.
+#### Changed
+* Changed: Tab component has been updated with accessibility improvements including full keyboard navigation.
+* Changed: Data table striped row behavior on child rows has been improved.
+* Changed: Data table headers have been improved to better support table sorting.
+* Changed: Time picker component has been updated with improved formatting and UX enhancements.
+#### Fixed
+* Fixed: Pagination buttons placed in a form triggered an unexpected submit due to a missing `type="button"` attribute.
+* Fixed: Buttons in Card, Modal, and Expansion Panel footers did not automatically render margin between sibling web component buttons.
+### Documentation
+#### Added
+* Added: Tooltip now includes an example for tooltips on disabled buttons.
+* Added: Portal templates have been updated to include a new common table style with header cells in the top row and first column.
+#### Fixed
+* Fixed: Spinner button documentation examples contained an unnecessary closing div tag.
+
+## 3.7.0 (January 14, 2021)
+### Components
+#### Added
+* Added: Icons `icon-arrow-sort`, `icon-compose-cancel`.
+#### Changed
+* Changed: Icons `icon-compose`, `icon-edit`, `icon-edit-cancel`.
+* Changed: Data table sort arrow icons now render slightly bolder.
+### Documentation
+#### Fixed
+* Fixed: Accessibility documentation typos have been resolved.
+
+## 3.6.0 (December 22, 2020)
+### Components
+#### Added
+* Added: Time picker and Datetime picker components to allow users to enter a time through text input or choose a time from a picker.
+* Added: Date Picker web component now supports `resetDate` method.
+#### Changed
+* Changed: Modal components with theme `-portal` now align buttons in `chi-modal__footer` to the right (Chi's default) instead of center.
+* Changed: Picker group components with theme `-portal` now include a text color change on hover.
+* Changed: Accordion components with theme `-portal` now render nested accordions with a border.
+* Changed: Tab components with size class `-xs` no longer alter a tab items font-size, only padding. To alter font-size, please use the text size utility class `-text--xs` instead.
+* Changed: Stat components with theme `-portal`, `-compact`, and info/help icons now include an alignment improvement to better support long metric titles.
+### Documentation
+#### Added
+* Added: Accessibility documentation has been added to define how to make web content more accessible to people with disabilities.
+#### Changed
+* Changed: Tab components with theme `-portal` now render tab examples using the `-xs` size class instead of `-sm`.
+
+## 3.5.0 (December 4, 2020)
+### Components
+#### Added
+* Added: Flex utility now includes support for flex-basis to specify the initial size of flex items.
+* Added: Stat components with theme `-portal` now include `-compact` support for displaying KPIs when vertical space is limited.
+* Added: Flag icon component to render Lumen country/region flag icons.
+* Added: Popover component now supports opening on hover.
+* Added: Range slider E2E tests.
+#### Changed
+* Changed: Stat components with theme `-portal` now render active items with black text instead of white for color contrast compliance.
+* Changed: Footer internal has been updated with improved footer link styles and a new language drop down design.
+### Documentation
+#### Added
+* Added: Portal Templates section now includes examples for Accordion, Data Table, and Drawer.
+#### Changed
+* Changed: Duplicate IDs detected on the following pages have been changed: Accordion, Data Table, Card, Checkbox, Dropdown, Expansion Panel, Footer, Header, Sidenav, and Stat.
+* Changed: Unnecessary IDs in Toggle switch example code have been removed.
+#### Fixed
+* Fixed: Table documentation examples with theme `-portal` were missing size class `-sm`.
+
+## 3.4.0 (November 13, 2020)
+### Components
+#### Added
+* Added: Accordion component to toggle between showing and hiding content.
+* Added: Data table component to present data sets in a simple and organized way. Unlike standard HTML tables, data table is responsive and compatible with all screen sizes.
+* Added: Modal JavaScript now supports chiModalShown and chiModalHidden event emission.
+* Added: Picker and Picker group now support styles for disabled states.
+* Added: Number input now supports styles for required states.
+#### Changed
+* Changed: Tooltip animation is now more subtle based on UX feedback.
+* Changed: Badge component now supports text size utility classes.
+* Changed: Radio button, Checkbox, and Toggle switch styles have been simplified to reduce size of chi.css.
+* Changed: Label wrappers `chi-label__wrapper` can now be rendered outside of `chi-form__item` to support forms with `legend` tags.
+* Changed: File input disabled state is now consistent with button disabled state.
+* Changed: Number input expanded disabled state is now consistent with button disabled state.
+* Changed: Number input no longer renders semantic border and focus colors when disabled.
+* Changed: Text input, Textarea, Number input, and Date picker disabled text color has been updated.
+* Changed: Tabs with class -vertical and -portal now render first level tab items with a min-height.
+#### Fixed
+* Fixed: Base Number input did not support disabled button styles in min/max scenarios.
+* Fixed: Sass lint warnings have been resolved.
+### Documentation
+#### Added
+* Added: Radio button documentation now includes examples for Base, Checked, Disabled, Required, Optional, Help, and Error.
+* Added: Select documentation now includes examples for Required, Optional, Help, Message, and Error.
+* Added: Picker group documentation now includes examples for Checked, Disabled, Required, Optional, Help, and Error.
+* Added: Picker documentation now includes examples for Checked, Disabled, Required, Optional, Help, and Error.
+* Added: Number input documentation now includes examples for Min, Max, Step, Required, Help, Message, and Error.
+* Added: Tab documentation now includes examples for all horizontal and vertical sizes.
+#### Changed
+* Changed: Header portal documentation examples now include tooltips on icon buttons.
+* Changed: Chi version check banner alert color has been changed to appear more prominent.
+#### Fixed
+* Fixed: Tab documentation used same ID for three different tab examples.
+
+## 3.3.0 (October 30, 2020)
+### Components
+#### Added
+* Added: Form inputs now support Help icon buttons to display helpful information about an input in a popover.
+* Added: Checkbox now supports a danger state for providing error feedback to users when validation fails.
+* Added: Text input and Textarea now support the readonly attribute to prevent users from changing their value.
+* Added: Textarea now supports the placeholder attribute to provide users with an example of the type of data that can be entered into an input.
+* Added: Icons `icon-compose`, `icon-reload`.
+* Added: Progress component now includes web component support.
+* Added: Dropdown component now includes cypress tests.
+* Added: Mobile navigation now includes cypress tests.
+* Added: Modal now includes cypress tests.
+* Added: Popover now includes cypress tests.
+* Added: Tabs now includes cypress tests.
+#### Changed
+* Changed: Checkbox display from block to flex to support required and help states.
+* Changed: Form items with -row layout now apply a padding-right to child input labels to eliminate need for a spacing utility class.
+* Changed: Form items with label wrapper now style icons using a child combinator instead of a descendant combinator to support help icon buttons.
+* Changed: Icons `icon-circle-reload` and `icon-circle-reload-outline` have been updated for consistency with `icon-reload`.
+* Changed: Select component class has been renamed from `chi-input` to `chi-select`.
+* Changed: File input component class has been renamed from `chi-input` to `chi-file-input`.
+* Changed: Range slider component class has been renamed from `chi-input` to `chi-range-slider`.
+* Changed: Text input component styles have been optimized to reduce chi.css file size.
+* Changed: Button group component styles have been optimized to reduce chi.css file size.
+#### Fixed
+* Fixed: Label required asterisk color no longer fails color contrast test.
+* Fixed: Textarea web component specific styles were not loading due to an incorrect :host() pseudo-class.
+* Fixed: Alert content text was not wrapping correctly in IE11.
+* Fixed: Brand web component skeleton was rendering with the width and height values of CenturyLink logo instead of Lumen logo.
+* Fixed: Button web component skeleton rendered with an inconsistent display property that caused skeletons to stack instead of rendering inline.
+* Fixed: Button web component skeleton was not respecting icon button sizes.
+* Fixed: Progress web component skeleton rendered with a margin that caused the component to jump after preloading. 
+### Documentation
+#### Added
+* Added: Installation page now includes framework specific boilerplates for Vue, Stencil, Angular, and React.
+* Added: Checkbox documentation examples for: Checked, Required, Help, Message, Error, and Grid.
+* Added: Text input documentation examples for: Readonly, Placeholder, Required, Optional, Help, Message, and Error.
+* Added: Textarea documentation examples for: Readonly, Placeholder, Required, Optional, Help, Message, and Error.
+* Added: Textarea documentation examples for Layout Variations.
+* Added: Portal templates page now includes an example for alert Modals.
+#### Changed
+* Changed: Checkbox documentation code samples have been improved.
+* Changed: Text Input documentation code samples have been improved.
+* Changed: Textarea documentation code samples have been improved.
+
+## 3.2.0 (October 20, 2020)
+### Components
+#### Added
+* Added: Vertical-align utility for customizing the vertical alignment of inline and table cell elements.
+* Added: Opacity utility for customizing an elements opacity level.
+* Added: Backstop and Cypress tests for Label component.
+#### Changed
+* Changed: Base button icon color has been changed from $color-text-base (Grey 100) to $color-icon-base (Grey 80).
+* Changed: Toggle switch component no longer displays a margin-top when chi-label is present.
+* Changed: Sidenav component Cypress tests have been improved.
+#### Fixed
+* Fixed: Vertical alignment of Toggle switch and Number input web component has been improved.
+### Documentation
+#### Added
+* Added: Portal templates now include an example for portal themed icon buttons.
+
+## 3.1.1 (October 9, 2020)
+### Components
+#### Changed
+* Changed: Stat component portal theme now includes a min-height.
+* Changed: Badge component now renders in a pill shape to visually differentiate them from buttons.
+* Changed: Badge component now includes a min-width for rendering single characters consistently.
+* Changed: Table striped rows from odd to even for consistency with enterprise portals.
+* Changed: Flex utility overrides now include an !important for greater specificity.
+* Changed: Number input width has been updated for better compatibility with Grid.
+#### Fixed
+* Fixed: Picker group bug which prevented child items from stretching to fill their parent containers vertical space.
+* Fixed: Sidenav cypress test click inconsistency when running tests in cypress GUI.
+* Fixed: Picker group active item rendered an incorrect background-color on hover.
+* Fixed: Number input web component min/max adjustment when user changed value manually twice.
+### Documentation
+#### Added
+* Added: Dropdown JS component now includes documentation for methods.
+* Added: Modal JS component now includes documentation for methods.
+
 ## 3.1.0 (September 22, 2020)
 ### Components
 #### Added
@@ -12,7 +204,6 @@
 ### Documentation
 #### Added
 * Added: Documentation for disabled button state to button component.
-
 
 ## 3.0.0 (September 13, 2020)
 ### Components

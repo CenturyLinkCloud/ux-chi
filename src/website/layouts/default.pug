@@ -41,6 +41,17 @@ html.chi(lang="en")
                         include partials/titlebar
                     section.chi-grid__container.-pt--3
                         != contents
+                        
+        else if wide_container
+            main.docs-body.chi-grid__container-wide
+                nav.docs-sidenav
+                    include partials/sidenav
+
+                article.docs-article
+                    header.docs-titlebar
+                        include partials/titlebar
+                    section.chi-grid__container.-pt--3
+                        != contents
         else
             main.docs-body
                 nav.docs-sidenav

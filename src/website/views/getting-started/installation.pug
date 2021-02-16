@@ -10,7 +10,7 @@ p.-text
   | performant option for loading assets into your Lumen project.
 .-mb--2
   :code(lang='html')
-    <link rel="stylesheet" href="https://assets.ctl.io/chi/3.1.0/chi.css">
+    <link rel="stylesheet" href="https://assets.ctl.io/chi/3.8.0/chi.css">
 
 p.-text
   | Next, add the <code>chi</code> CSS class to the <code>&lt;html&gt;</code> tag of your document to properly scope the styles.
@@ -35,8 +35,8 @@ p.-text
   | code before the closing <code>&lt;head&gt;</code> tag.
   .-mb--2
   :code(lang='html')
-    <link rel="icon" type="image/svg+xml" href="https://assets.ctl.io/chi/3.1.0/assets/images/favicon.svg">
-    <link rel="alternate icon" href="https://assets.ctl.io/chi/3.1.0/assets/images/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="https://assets.ctl.io/chi/3.8.0/assets/images/favicon.svg">
+    <link rel="alternate icon" href="https://assets.ctl.io/chi/3.8.0/assets/images/favicon.ico">
 
 h2.-text--h2.-text--bold JavaScript
 .chi-badge.-dark.-outline.-xs.-mb--1
@@ -65,7 +65,7 @@ ul#chi-js-tabs.chi-tabs.-border
     | file from the Lumen Assets Server. In this solution Popper.js and Day.js are bundled into the file.
   .-mb--2
     :code(lang='html')
-      <script src="https://assets.ctl.io/chi/3.1.0/js/chi.js"></script>
+      <script src="https://assets.ctl.io/chi/3.8.0/js/chi.js"></script>
 #chi-js-tabs--amd.chi-tabs-panel
   p.-text
     | If you use RequireJS or any other AMD compatible module loader in your project, you will find the AMD compatible
@@ -101,13 +101,13 @@ p.-text
 
 .-mb--2
   :code(lang='html')
-    <script type="module" src="https://assets.ctl.io/chi/3.1.0/js/ce/ux-chi-ce/ux-chi-ce.esm.js"></script>
-    <script nomodule="" src="https://assets.ctl.io/chi/3.1.0/js/ce/ux-chi-ce/ux-chi-ce.js"></script>
+    <script type="module" src="https://assets.ctl.io/chi/3.8.0/js/ce/ux-chi-ce/ux-chi-ce.esm.js"></script>
+    <script nomodule="" src="https://assets.ctl.io/chi/3.8.0/js/ce/ux-chi-ce/ux-chi-ce.js"></script>
 
 p.-text.-mb--3
   | After placing the files in your header, you are now ready to use the Web Components described in this documentation.
 
-.chi-expansion-panel.-web-components.-pb--5
+.chi-expansion-panel.-web-components
   .chi-epanel.-no-step(data-chi-epanel-group="web-component-details")
     .chi-epanel__header
       .chi-epanel__title.-w--100(data-chi-epanel-action="toggle")
@@ -177,6 +177,97 @@ p.-text.-mb--3
                     document.getElementById("drawer").hide();   // This sets the active property to false
                     document.getElementById("drawer").toggle(); // This toggles the state of the active property
                   </script>
+
+h2.-text--h2.-mt--3 Framework specific boilerplates
+p.-text
+  | The boilerplates include:
+table.chi-table.-bordered.-text--center.-mb--5
+  thead
+    tr
+      th.-text--center
+        .-sr--only Framework
+      th.-text--center chi.css
+      th.-text--center chi.js
+      th.-text--center Web components
+      th.-text--center Favicon
+      th.-text--center Download
+  tbody
+    tr
+      td.-text--bold Vue
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        a.chi-button(href='../../boilerplates/chi-vue-boilerplate.zip')
+          .chi-button__content
+            i.chi-icon.icon-circle-arrow-down-outline
+            span Download
+    tr
+      td.-text--bold Stencil
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        a.chi-button(href='../../boilerplates/chi-stencil-boilerplate.zip')
+          .chi-button__content
+            i.chi-icon.icon-circle-arrow-down-outline
+            span Download
+    tr
+      td.-text--bold Angular
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        a.chi-button(href='../../boilerplates/chi-angular-boilerplate.zip')
+          .chi-button__content
+            i.chi-icon.icon-circle-arrow-down-outline
+            span Download
+    tr
+      td.-text--bold React
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        a.chi-button(href='../../boilerplates/chi-react-boilerplate.zip')
+          .chi-button__content
+            i.chi-icon.icon-circle-arrow-down-outline
+            span Download
+    tr
+      td.-text--bold Vue + ES6
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        i.chi-icon.icon-check.-icon--success
+      td
+        a.chi-button(href='../../boilerplates/chi-vue-es6-boilerplate.zip')
+          .chi-button__content
+            i.chi-icon.icon-circle-arrow-down-outline
+            span Download
+
 
 script.
   chi.tab(document.getElementById('chi-js-tabs'));

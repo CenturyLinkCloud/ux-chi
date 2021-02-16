@@ -278,6 +278,7 @@ $font-weight-normal: 400;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 $font-weight-extra-bold: 800;
+$font-weight-black: 900;
 $font-weight-base: $font-weight-normal;
 
 // Line height
@@ -295,9 +296,10 @@ $border-radius: $border-radius-base;
 
 // Opacity
 $opacity-0: 0;
-$opacity-30: 0.3;
-$opacity-50: 0.5;
-$opacity-70: 0.7;
+$opacity-20: 0.2;
+$opacity-40: 0.4;
+$opacity-60: 0.6;
+$opacity-80: 0.8;
 $opacity-100: 1;
 
 // Shadows

@@ -23,6 +23,34 @@
                 color: $color-text-primary;
               }
             }
+
+            .chi-tabs__subtabs {
+              .chi-accordion {
+                &.accessibility-accordion {
+                  .chi-accordion__trigger {
+                    padding-bottom: 0.5rem;
+                    padding-left: 2.5rem;
+                    padding-top: 0.5rem;
+
+                    .chi-accordion__title {
+                      font-size: $font-size-sm;
+                      font-weight: $font-weight-base;
+                      line-height: $line-height-sm;
+                    }
+                  }
+
+                  .chi-accordion__content {
+                    .chi-tabs__subtabs {
+                      li {
+                        a {
+                          padding-left: 3.5rem;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -109,11 +137,39 @@
                       }
                     }
                   }
+
+                  .chi-accordion {
+                    &.accessibility-accordion {
+                      .chi-accordion__trigger {
+                        padding-bottom: 0.5rem;
+                        padding-left: 2.5rem;
+                        padding-top: 0.5rem;
+
+                        .chi-accordion__title {
+                          font-size: $font-size-sm;
+                          font-weight: $font-weight-base;
+                          line-height: $line-height-sm;
+                        }
+                      }
+
+                      .chi-accordion__content {
+                        .chi-tabs__subtabs {
+                          li {
+                            a {
+                              padding-left: 3.5rem;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         }
+
+
       }
 
       .docs-article {
@@ -370,6 +426,10 @@
               font-size: $font-size-h4;
               line-height: 2rem;
               margin: 0.5rem 0;
+
+              > a {
+                cursor: pointer;
+              }
             }
 
             h4 {
@@ -441,6 +501,28 @@
           background-size: 12px 12px;
           overflow: hidden;
           width: 100%;
+        }
+
+        .example-vertical-align {
+          background-image: linear-gradient(180deg, $color-background-secondary 0, $color-background-base 1px);
+          background-repeat: repeat-y;
+          background-size: 100% 1.5rem;
+          padding-bottom: 0.25rem;
+
+          &__block {
+            height: 3rem;
+            width: 0.5rem;
+          }
+        }
+      }
+
+      &.chi-grid__container-wide {
+        .docs-article {
+          .chi-grid__container {
+            @include respond-to(xl) {
+              max-width: 1200px;
+            }
+          }
         }
       }
     }

@@ -6,6 +6,273 @@ script(type='module' src='../../js/ce/ux-chi-ce/ux-chi-ce.esm.js')
 script(nomodule='' src='../../js/ce/ux-chi-ce/ux-chi-ce.js')
 
 .changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.8.0" target="_blank">Chi v3.8.0</a>
+  .-text--grey.-text--md January 28, 2021
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Focus utility to Chi.js to hide <code>:focus</code> outlines on links, buttons, and inputs if user is using a pointing device.
+      li Added: Popover now supports the attribute <code>closable</code> to render Popover components with a close button.
+      li Added: Icons <code>icon-edge-solutions</code>, <code>icon-edit-create</code>.
+      li Added: Overflow utility to control how content overflows an element.
+      li Added: Text utility now supports the class <code>-text--boldest</code> to render text with the boldest font-weight value available.
+      li Added: Date web component now supports the ability to change language.
+      li Added: Tooltip component now supports events <code>chiTooltipShow</code> and <code>chiTooltipHide</code>.
+      li Added: Popover Chi.js component now supports events <code>chiPopoverShow</code>, <code>chiPopoverHide</code>, <code>chiPopoverShown</code>, and <code>chiPopoverHidden</code>.
+      li Added: Drawer Chi.js component now supports events <code>chiDrawerShow</code>, <code>chiDrawerHide</code>, <code>chiDrawerShown</code>, and <code>chiDrawerHidden</code>.
+      li Added: Dropdown component now supports events <code>chiDropdownShow</code> and <code>chiDropdownHide</code>.
+      li Added: Data table now supports three level rows.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Tab component has been updated with accessibility improvements including full keyboard navigation.
+      li Changed: Data table striped row behavior on child rows has been improved.
+      li Changed: Data table headers have been improved to better support table sorting.
+      li Changed: Time picker component has been updated with improved formatting and UX enhancements.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Pagination buttons placed in a form triggered an unexpected submit due to a missing <code>type="button"</code> attribute.
+      li Fixed: Buttons in Card, Modal, and Expansion Panel footers did not automatically render margin between sibling web component buttons.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Tooltip now includes an example for tooltips on disabled buttons.
+      li Added: Portal templates have been updated to include a new common table style with header cells in the top row and first column.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Spinner button documentation examples contained an unnecessary closing div tag.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.7.0" target="_blank">Chi v3.7.0</a>
+  .-text--grey.-text--md January 14, 2021
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Icons <code>icon-arrow-sort</code>, <code>icon-compose-cancel</code>.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Icons <code>icon-compose</code>, <code>icon-edit</code>, <code>icon-edit-cancel</code>.
+      li Changed: Data table sort arrow icons now render slightly bolder.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Accessibility documentation typos have been resolved.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.6.0" target="_blank">Chi v3.6.0</a>
+  .-text--grey.-text--md December 22, 2020
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Time picker and Datetime picker components to allow users to enter a time through text input or choose a time from a picker.
+      li Added: Date Picker web component now supports <code>resetDate</code> method.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Modal components with theme <code>-portal</code> now align buttons in <code>chi-modal__footer</code> to the right (Chi's default) instead of center.
+      li Changed: Picker group components with theme <code>-portal</code> now include a text color change on hover.
+      li Changed: Accordion components with theme <code>-portal</code> now render nested accordions with a border.
+      li Changed: Tab components with size class <code>-xs</code> no longer alter a tab items font-size, only padding. To alter font-size, please use the text size utility class <code>-text--xs</code> instead.
+      li Changed: Stat components with theme <code>-portal</code>, <code>-compact</code>, and info/help icons now include an alignment improvement to better support long metric titles.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Accessibility documentation has been added to define how to make web content more accessible to people with disabilities.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Tab components with theme <code>-portal</code> now render tab examples using the <code>-xs</code> size class instead of <code>-sm</code>.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.5.0" target="_blank">Chi v3.5.0</a>
+  .-text--grey.-text--md December 4, 2020
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Flex utility now includes support for flex-basis to specify the initial size of flex items.
+      li Added: Stat components with theme <code>-portal</code> now include <code>-compact</code> support for displaying KPIs when vertical space is limited.
+      li Added: Flag icon component to render Lumen country/region flag icons.
+      li Added: Popover component now supports opening on hover.
+      li Added: Range slider E2E tests.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Stat components with theme <code>-portal</code> now render active items with black text instead of white for color contrast compliance.
+      li Changed: Footer internal has been updated with improved footer link styles and a new language drop down design.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Portal Templates section now includes examples for Accordion, Data Table, and Drawer.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Duplicate IDs detected on the following pages have been changed: Accordion, Data Table, Card, Checkbox, Dropdown, Expansion Panel, Footer, Header, Sidenav, and Stat.
+      li Changed: Unnecessary IDs in Toggle switch example code have been removed.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Table documentation examples with theme <code>-portal</code> were missing size class <code>-sm</code>.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.4.0" target="_blank">Chi v3.4.0</a>
+  .-text--grey.-text--md November 13, 2020
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Accordion component to toggle between showing and hiding content.
+      li Added: Data table component to present data sets in a simple and organized way. Unlike standard HTML tables, data table is responsive and compatible with all screen sizes.
+      li Added: Modal JavaScript now supports <code>chiModalShown</code> and <code>chiModalHidden</code> event emission.
+      li Added: Picker and Picker group now support styles for disabled states.
+      li Added: Number input now supports styles for required states.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Tooltip animation is now more subtle based on UX feedback.
+      li Changed: Badge component now supports text size utility classes.
+      li Changed: Radio button, Checkbox, and Toggle switch styles have been simplified to reduce size of chi.css.
+      li Changed: Label wrappers <code>chi-label__wrapper</code> can now be rendered outside of <code>chi-form__item</code> to support forms with <code>legend</code> tags.
+      li Changed: File input disabled state is now consistent with button disabled state.
+      li Changed: Number input expanded disabled state is now consistent with button disabled state.
+      li Changed: Number input no longer renders semantic border and focus colors when disabled.
+      li Changed: Text input, Textarea, Number input, and Date picker disabled text color has been updated.
+      li Changed: Tabs with class <code>-vertical</code> and <code>-portal</code> now render first level tab items with a min-height.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Base Number input did not support disabled button styles in min/max scenarios.
+      li Fixed: Sass lint warnings have been resolved.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Radio button documentation now includes examples for Base, Checked, Disabled, Required, Optional, Help, and Error.
+      li Added: Select documentation now includes examples for Required, Optional, Help, Message, and Error.
+      li Added: Picker group documentation now includes examples for Checked, Disabled, Required, Optional, Help, and Error.
+      li Added: Picker documentation now includes examples for Checked, Disabled, Required, Optional, Help, and Error.
+      li Added: Number input documentation now includes examples for Min, Max, Step, Required, Help, Message, and Error.
+      li Added: Tab documentation now includes examples for all horizontal and vertical sizes.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Header portal documentation examples now include tooltips on icon buttons.
+      li Changed: Chi version check banner alert color has been changed to appear more prominent.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Tab documentation used same ID for three different tab examples.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.3.0" target="_blank">Chi v3.3.0</a>
+  .-text--grey.-text--md October 30, 2020
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Form inputs now support Help icon buttons to display helpful information about an input in a popover.
+      li Added: Checkbox now supports a danger state for providing error feedback to users when validation fails.
+      li Added: Text input and Textarea now support the readonly attribute to prevent users from changing their value.
+      li Added: Textarea now supports the placeholder attribute to provide users with an example of the type of data that can be entered into an input.
+      li Added: Icons <code>icon-compose</code>, <code>icon-reload</code>.
+      li Added: Progress now includes web component support.
+      li Added: Dropdown component now includes cypress tests.
+      li Added: Mobile navigation now includes cypress tests.
+      li Added: Modal now includes cypress tests.
+      li Added: Popover now includes cypress tests.
+      li Added: Tabs now includes cypress tests.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Checkbox display from block to flex to support required and help states.
+      li Changed: Form items with -row layout now apply a padding-right to child input labels to eliminate need for a spacing utility class.
+      li Changed: Form items with label wrapper now style icons using a child combinator instead of a descendant combinator to support help icon buttons.
+      li Changed: Icons <code>icon-circle-reload</code> and <code>icon-circle-reload-outline</code> have been updated for consistency with <code>icon-reload</code>.
+      li Changed: Select component class has been renamed from <code>chi-input</code> to <code>chi-select</code>.
+      li Changed: File input component class has been renamed from <code>chi-input</code> to <code>chi-file-input</code>.
+      li Changed: Range slider component class has been renamed from <code>chi-input</code> to <code>chi-range-slider</code>.
+      li Changed: Text input component styles have been optimized to reduce chi.css file size.
+      li Changed: Button group component styles have been optimized to reduce chi.css file size.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Label required asterisk color no longer fails color contrast test.
+      li Fixed: Textarea web component specific styles were not loading due to an incorrect :host() pseudo-class.
+      li Fixed: Alert content text was not wrapping correctly in IE11.
+      li Fixed: Brand web component skeleton was rendering with the width and height values of CenturyLink logo instead of Lumen logo.
+      li Fixed: Button web component skeleton rendered with an inconsistent display property that caused skeletons to stack instead of rendering inline.
+      li Fixed: Button web component skeleton was not respecting icon button sizes.
+      li Fixed: Progress web component skeleton rendered with a margin that caused the component to jump after preloading.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Installation page now includes framework specific boilerplates for Vue, Stencil, Angular, and React.
+      li Added: Checkbox documentation examples for: Checked, Required, Help, Message, Error, and Grid.
+      li Added: Text input documentation examples for: Readonly, Placeholder, Required, Optional, Help, Message, and Error.
+      li Added: Textarea documentation examples for: Readonly, Placeholder, Required, Optional, Help, Message, and Error.
+      li Added: Textarea documentation examples for Layout Variations.
+      li Added: Portal templates page now includes an example for alert Modals.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Checkbox documentation code samples have been improved.
+      li Changed: Text Input documentation code samples have been improved.
+      li Changed: Textarea documentation code samples have been improved.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.2.0" target="_blank">Chi v3.2.0</a>
+  .-text--grey.-text--md October 20, 2020
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Vertical-align utility for customizing the vertical alignment of inline and table cell elements.
+      li Added: Opacity utility for customizing an elements opacity level.
+      li Added: Backstop and Cypress tests for Label component.
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Base button icon color has been changed from $color-text-base (Grey 100) to $color-icon-base (Grey 80).
+      li Changed: Toggle switch component no longer displays a margin-top when chi-label is present.
+      li Changed: Sidenav component Cypress tests have been improved.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Vertical alignment of Toggle switch and Number input web component has been improved.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Portal templates now include an example for portal themed icon buttons.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
+  h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.1.1" target="_blank">Chi v3.1.1</a>
+  .-text--grey.-text--md October 9, 2020
+  .-pt--1
+    h3.-text--h3.-text--bold Components
+    h4.-text--h4.-text--bold Changed
+    ul.-text.-pl--2
+      li Changed: Stat component portal theme now includes a min-height.
+      li Changed: Badge component now renders in a pill shape to visually differentiate them from buttons.
+      li Changed: Badge component now includes a min-width for rendering single characters consistently.
+      li Changed: Table striped rows from odd to even for consistency with enterprise portals.
+      li Changed: Flex utility overrides now include an !important for greater specificity.
+      li Changed: Number input width has been updated for better compatibility with Grid.
+    h4.-text--h4.-text--bold Fixed
+    ul.-text.-pl--2
+      li Fixed: Picker group bug which prevented child items from stretching to fill their parent containers vertical space.
+      li Fixed: Sidenav cypress test click inconsistency when running tests in cypress GUI.
+      li Fixed: Picker group active item rendered an incorrect background-color on hover.
+      li Fixed: Number input web component min/max adjustment when user changed value manually twice.
+    h3.-text--h3.-text--bold Documentation
+    h4.-text--h4.-text--bold Added
+    ul.-text.-pl--2
+      li Added: Dropdown JS component now includes documentation for methods.
+      li Added: Modal JS component now includes documentation for methods.
+
+.chi-divider.-my--4
+
+.changelog__version.-py--1
   h2.-text--h2.-text--bold.-mb--1 <a href="https://github.com/CenturyLinkCloud/ux-chi/releases/tag/v3.1.0" target="_blank">Chi v3.1.0</a>
   .-text--grey.-text--md September 22, 2020
   .-pt--1

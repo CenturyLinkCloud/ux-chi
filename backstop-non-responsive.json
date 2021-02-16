@@ -12,6 +12,28 @@
   "onReadyScript": "chromy/onReady.js",
   "scenarios": [
     {
+      "label": "accordion",
+      "cookiePath": "",
+      "url": "http://localhost:8000/tests/components/accordion.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": "",
+      "selectors": [
+        "test-accordion-base",
+        "test-accordion-portal",
+        "test-accordion-sizes"
+      ],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
       "label": "activity",
       "cookiePath": "",
       "url": "http://localhost:8000/tests/components/activity.html",
@@ -868,6 +890,43 @@
       "requireSameDimensions": true
     },
     {
+      "label": "label",
+      "cookiePath": "",
+      "url": "http://localhost:8000/tests/components/label.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": "",
+      "selectors": [
+        ".test-label-base",
+        ".test-label-base-xs",
+        ".test-label-base-sm",
+        ".test-label-base-md",
+        ".test-label-base-lg",
+        ".test-label-base-xl",
+        ".test-label-required",
+        ".test-label-required-xs",
+        ".test-label-required-sm",
+        ".test-label-required-md",
+        ".test-label-required-lg",
+        ".test-label-required-xl",
+        ".test-label-optional",
+        ".test-label-optional-xs",
+        ".test-label-optional-sm",
+        ".test-label-optional-md",
+        ".test-label-optional-lg",
+        ".test-label-optional-xl"
+      ],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
       "label": "modals",
       "cookiePath": "",
       "url": "http://localhost:8000/tests/components/modals.html",
@@ -1009,7 +1068,8 @@
         ".test-more-left",
         ".test-more-left-start",
         ".test-more-left-end",
-        ".test-with-custom-content"
+        ".test-with-custom-content",
+        ".test-closable"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
@@ -1188,7 +1248,9 @@
         ".test-portal-center",
         ".test-portal-center-active",
         ".test-portal-background-icon",
-        ".test-portal-background-icon-active"
+        ".test-portal-background-icon-active",
+        ".test-portal-compact",
+        ".test-portal-compact-active"
       ],
       "selectorExpansion": true,
       "misMatchThreshold": 0,
@@ -1254,7 +1316,7 @@
         ".test-scrollable",
         ".test-header-tier-two",
         ".test-portal",
-
+        ".test-header-cells-in-row-and-column",
         ".test-section-default-default",
         ".test-section-default-bordered",
         ".test-section-default-no-border",

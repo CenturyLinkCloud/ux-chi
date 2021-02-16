@@ -10,6 +10,7 @@
 .chi {
   @extend %root-typography;
   @import 'foundations/typography/typography';
+  @import 'components/accordion/accordion';
   @import 'components/activity/activity';
   @import 'components/alert/alert';
   @import 'components/avatars/avatars';
@@ -21,11 +22,13 @@
   @import 'components/buttons/buttons';
   @import 'components/card/card';
   @import 'components/checkbox/checkbox';
+  @import 'components/data-table/data-table';
   @import 'components/date-picker/date-picker';
   @import 'components/divider/divider';
   @import 'components/drawer/drawer';
   @import 'components/dropdown/dropdown';
   @import 'components/expansion-panel/expansion-panel';
+  @import 'components/flag-icon/flag-icon';
   @import 'components/footer/footer';
   @import 'components/grid/grid';
   @import 'components/header/header';
@@ -54,6 +57,7 @@
   @import 'components/tables/tables';
   @import 'components/tabs/tabs';
   @import 'components/textarea/textarea';
+  @import 'components/time-picker/time-picker';
   @import 'components/toggle-switch/toggle-switch';
   @import 'components/tooltip/tooltip';
   @import 'utilities/anchor';
@@ -61,11 +65,15 @@
   @import 'utilities/color';
   @import 'utilities/display';
   @import 'utilities/flex';
+  @import 'utilities/opacity';
+  @import 'utilities/overflow';
   @import 'utilities/position';
   @import 'utilities/shadow';
   @import 'utilities/sizing';
   @import 'utilities/spacing';
+  @import 'utilities/vertical-align';
   @import 'utilities/zindex';
+  @import 'utilities/focus-visibility';
   @import 'skeletons/alert';
   @import 'skeletons/badge';
   @import 'skeletons/brand';

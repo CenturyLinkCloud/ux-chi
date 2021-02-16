@@ -110,8 +110,10 @@ $animation-duration: 0.5s;
       box-shadow: none;
     }
 
-    .chi-button {
-      & + .chi-button {
+    .chi-button,
+    chi-button {
+      & + .chi-button,
+      & + chi-button {
         margin-left: 1rem;
       }
     }
@@ -166,7 +168,6 @@ $animation-duration: 0.5s;
 
     .chi-modal__footer {
       box-shadow: none;
-      justify-content: center;
     }
 
     .-close {
