@@ -141,21 +141,22 @@ pipeline {
         }
       }
       stage('Static Code Analysis') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/sonar-scanner'
+            label 'Docker-enabled'
+            args '--shm-size=2gb'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_CREDENTIALS
+          }
+        }
+        when {
+          beforeAgent true
+          not { branch 'master' }
+        }
         parallel {
           stage('Linting') {
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                //registryUrl DOCKER_REGISTRY
-                //registryCredentialsId DOCKER_LOGIN_CREDENTIALS
-              }
-            }
             steps {
               script{
                 // jslYarnWrapper('install')
@@ -166,10 +167,6 @@ pipeline {
             }
           }
           stage('DevSecOps') {
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
             steps {
               script {
                 jslGitHubSecurityAlert()
@@ -215,21 +212,22 @@ pipeline {
         }
       }
       stage('PR Build') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/sonar-scanner'
+            label 'Docker-enabled'
+            args '--shm-size=2gb'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_CREDENTIALS
+          }
+        }
+        when {
+          beforeAgent true
+          not { branch 'master' }
+        }
         parallel {
           stage ('Building Chi') {
-            when {
-                beforeAgent true
-                not { branch 'master' }
-            } 
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
             steps {
               script {
                 jslYarnWrapper('install')
@@ -240,19 +238,6 @@ pipeline {
             }
           }
           stage ('Building Custom elements') {
-            when {
-                beforeAgent true
-                not { branch 'master' }
-            } 
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
             steps {
               script {
                 dir('src/custom-elements') {
@@ -265,19 +250,6 @@ pipeline {
             }
           }
           stage ('Building Chi-vue') {
-            when {
-                beforeAgent true
-                not { branch 'master' }
-            } 
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
             steps {
               script {
                 dir('src/chi-vue') {
@@ -292,21 +264,22 @@ pipeline {
         }
       }
       stage('Build for Production') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/sonar-scanner'
+            label 'Docker-enabled'
+            args '--shm-size=2gb'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_CREDENTIALS
+          }
+        }
+        when {
+          beforeAgent true
+          branch 'master'
+        }
         parallel {
           stage ('Building Chi') {
-            when {
-                beforeAgent true
-                branch 'master'
-            } 
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
             steps {
               script {
                 jslYarnWrapper('install')
@@ -315,19 +288,6 @@ pipeline {
             }
           }
           stage ('Building Custom elements') {
-            when {
-                beforeAgent true
-                branch 'master'
-            } 
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
             steps {
               script {
                 dir('src/custom-elements') {
@@ -338,19 +298,6 @@ pipeline {
             }
           }
           stage ('Building Chi-vue') {
-            when {
-                beforeAgent true
-                branch 'master'
-            } 
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
             steps {
               script {
                 dir('src/chi-vue') {
@@ -363,22 +310,22 @@ pipeline {
         }
       }
       stage ('Tests') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/sonar-scanner'
+            label 'Docker-enabled'
+            args '--shm-size=2gb'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_CREDENTIALS
+          }
+        }
+        when {
+          beforeAgent true
+          not { branch 'master' }
+        }
         parallel {
           stage ('Unit Testing') {
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                args '--shm-size=2gb'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
             steps {
               script {
                 sh "rm -rf dist"
@@ -414,20 +361,6 @@ pipeline {
             }
           }
           stage ('E2E Testing') {
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                args '--shm-size=2gb'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
             steps {
               script {
                 sh """
