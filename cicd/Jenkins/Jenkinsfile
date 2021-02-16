@@ -430,6 +430,10 @@ pipeline {
             }
             steps {
               script {
+                sh """
+                  whoami
+                  ls -lah
+                """
                 sh "rm -rf dist"
                 sh "rm -rf node_modules"
                 jslYarnWrapper('install')
