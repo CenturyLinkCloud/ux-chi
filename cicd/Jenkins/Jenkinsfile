@@ -662,9 +662,10 @@ pipeline {
               not { branch 'master' }
             }
             steps {
-              // script {
+              script {
+                jslAwsCliWrapper('s3 ls')
                 echo "This will publish dev build to S3"
-              // }
+              }
             }
           }
           stage ('Publish Prod Build') {
@@ -673,9 +674,9 @@ pipeline {
               branch 'master'
             }
             steps {
-              // script {
+              script {
                 echo "This will publish Prod build to S3 & CDN"
-              // }
+              }
             }
           }            
         }
