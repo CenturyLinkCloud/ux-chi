@@ -47,7 +47,7 @@ pipeline {
       KUBE_CREDENTIALS = ''
       KUBE_CREDENTIALS_TEST = ''
       KUBE_CREDENTIALS_PROD = ''
-      AMAZON_CREDENTIALS = ''
+      AMAZON_CREDENTIALS = 'awsCredentials'
       SONARQUBE_CREDENTIALS = ''
       GCP_CREDENTIALS = ''
       JIRA_CREDENTIALS = ''
@@ -663,7 +663,7 @@ pipeline {
             }
             steps {
               script {
-                jslAwsCliWrapper('version', defaultRegion, true)
+                jslAwsCliWrapper('version', true, true)
                 echo "This will publish dev build to S3"
               }
             }
