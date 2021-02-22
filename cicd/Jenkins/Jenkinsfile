@@ -366,7 +366,7 @@ pipeline {
         }
       }
       stage ('Tests') {
-        stages {
+        parallel {
           stage ('Unit Testing') {
             agent {
               dockerfile {
@@ -384,34 +384,34 @@ pipeline {
             }
             steps {
               script {
-                // sh "rm -rf dist"
-                // sh "rm -rf node_modules"
-                // unstash name: "DIST-CHI"
-                // unstash name: "NODEMODULES-CHI"
-                // dir ('src/custom-elements') {
-                //   sh "rm -rf dist"
-                //   sh "rm -rf node_modules"
-                //   unstash name: "DIST-CHI-CE"
-                //   unstash name: "NODEMODULES-CHI-CE"
-                // }
-                // dir ('src/chi-vue') {
-                //   sh "rm -rf dist"
-                //   sh "rm -rf node_modules"
-                //   unstash name: "DIST-CHI-VUE"
-                //   unstash name: "NODEMODULES-CHI-VUE"
-                // }
-                // sh script: """
-                //   whoami
-                //   ls -lrta
-                //   rm -rf reports test/bitmaps_test
-                //   mkdir -p reports/html_report/non_responsive
-                //   mkdir -p reports/html_report/non_responsive_ce
-                //   mkdir -p reports/html_report/responsive
-                //   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive_ce/bitmaps_reference
-                //   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
-                //   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
-                // """, label: "Copying config files"
-                // jslNpmWrapper('run test')
+                sh "rm -rf dist"
+                sh "rm -rf node_modules"
+                unstash name: "DIST-CHI"
+                unstash name: "NODEMODULES-CHI"
+                dir ('src/custom-elements') {
+                  sh "rm -rf dist"
+                  sh "rm -rf node_modules"
+                  unstash name: "DIST-CHI-CE"
+                  unstash name: "NODEMODULES-CHI-CE"
+                }
+                dir ('src/chi-vue') {
+                  sh "rm -rf dist"
+                  sh "rm -rf node_modules"
+                  unstash name: "DIST-CHI-VUE"
+                  unstash name: "NODEMODULES-CHI-VUE"
+                }
+                sh script: """
+                  whoami
+                  ls -lrta
+                  rm -rf reports test/bitmaps_test
+                  mkdir -p reports/html_report/non_responsive
+                  mkdir -p reports/html_report/non_responsive_ce
+                  mkdir -p reports/html_report/responsive
+                  cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive_ce/bitmaps_reference
+                  cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
+                  cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
+                """, label: "Copying config files"
+                jslNpmWrapper('run test')
                 echo "This will run Unit tests - Disabled until I fix permissions issues."
               }
             }
@@ -433,32 +433,32 @@ pipeline {
             }
             steps {
               script {
-                // sh """
-                //   whoami
-                //   ls -lah
-                // """
-                // sh "rm -rf dist"
-                // sh "rm -rf node_modules"
-                // jslYarnWrapper('install')
-                // jslYarnWrapper('cache clean')
-                // unstash name: "DIST-CHI"
-                // dir ('src/custom-elements') {
-                //   sh "rm -rf dist"
-                //   sh "rm -rf node_modules"
-                //   unstash name: "DIST-CHI-CE"
-                //   unstash name: "NODEMODULES-CHI-CE"
-                // }
-                // dir ('src/chi-vue') {
-                //   sh "rm -rf dist"
-                //   sh "rm -rf node_modules"
-                //   unstash name: "DIST-CHI-VUE"
-                //   unstash name: "NODEMODULES-CHI-VUE"
-                // }
-                // jslNpxWrapper('gulp serve 2>&1 >/dev/null &')
-                // sh script: """
-                //   ./node_modules/.bin/cypress run
-                // """, label: "Running NPX before adding JSL file, TEST."
-                // jslNpxWrapper('gulp serve:stop')
+                sh """
+                  whoami
+                  ls -lah
+                """
+                sh "rm -rf dist"
+                sh "rm -rf node_modules"
+                jslYarnWrapper('install')
+                jslYarnWrapper('cache clean')
+                unstash name: "DIST-CHI"
+                dir ('src/custom-elements') {
+                  sh "rm -rf dist"
+                  sh "rm -rf node_modules"
+                  unstash name: "DIST-CHI-CE"
+                  unstash name: "NODEMODULES-CHI-CE"
+                }
+                dir ('src/chi-vue') {
+                  sh "rm -rf dist"
+                  sh "rm -rf node_modules"
+                  unstash name: "DIST-CHI-VUE"
+                  unstash name: "NODEMODULES-CHI-VUE"
+                }
+                jslNpxWrapper('gulp serve 2>&1 >/dev/null &')
+                sh script: """
+                  ./node_modules/.bin/cypress run
+                """, label: "Running NPX before adding JSL file, TEST."
+                jslNpxWrapper('gulp serve:stop')
                 echo "This will run E2E tests, when NPX is added to the JSL"
               }
             }
