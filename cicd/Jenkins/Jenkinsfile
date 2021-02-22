@@ -663,7 +663,7 @@ pipeline {
             }
             steps {
               script {
-                jslAwsCliWrapper('version', true, true)
+                jslAwsCliWrapper('s3 ls', true, true)
                 echo "This will publish dev build to S3"
               }
             }
