@@ -48,6 +48,7 @@ pipeline {
       KUBE_CREDENTIALS_TEST = ''
       KUBE_CREDENTIALS_PROD = ''
       AMAZON_CREDENTIALS = 'awsCredentials'
+      AMAZON_CREDENTIALS_PR = 'awsCredentialsPR'
       SONARQUBE_CREDENTIALS = ''
       GCP_CREDENTIALS = ''
       JIRA_CREDENTIALS = ''
@@ -664,8 +665,8 @@ pipeline {
             steps {
               script {
                 def s3Uri = "s3://${COMMIT_ID}-chi-pr-po-ctl"
-                jslAwsCliWrapper("s3 mb ${s3Uri}", 'us-east-1', true)
-                jslAwsCliWrapper("s3 rb ${s3Uri}", 'us-east-1', true)
+                jslAwsCliWrapper("s3 mb ${s3Uri}", 'us-east-1', true, env.AMAZON_CREDENTIALS_PR)
+                jslAwsCliWrapper("s3 rb ${s3Uri}", 'us-east-1', true, env.AMAZON_CREDENTIALS_PR)
                 echo "This will publish dev build to S3"
               }
             }
