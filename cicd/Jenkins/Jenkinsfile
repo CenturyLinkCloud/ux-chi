@@ -669,7 +669,6 @@ pipeline {
               script {
                 sh "rm -rf dist"
                 unstash name: "DIST-CHI"
-                sh "ls -lah | grep index.html"
                 def s3Uri = "s3://${GIT_COMMIT}-chi-pr-po-ctl"
                 jslAwsCliWrapper("s3 mb ${s3Uri}", 'us-east-1', true)
                 jslAwsCliWrapper("s3 cp dist ${s3Uri}/dist --recursive", 'us-east-1', true)
