@@ -663,7 +663,9 @@ pipeline {
             }
             steps {
               script {
-                jslAwsCliWrapper('s3 help', 'us-east-1', true)
+                def s3Uri = "s3://${COMMIT_ID}-chi-pr"
+                jslAwsCliWrapper("s3 mb ${s3Uri}", 'us-east-1', true)
+                jslAwsCliWrapper("s3 rb ${s3Uri}", 'us-east-1', true)
                 echo "This will publish dev build to S3"
               }
             }
