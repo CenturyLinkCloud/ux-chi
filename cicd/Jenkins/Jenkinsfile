@@ -65,8 +65,6 @@ pipeline {
       DOCKER_REPO ='current_project/current_project_repo'
       PROJECT_MAL = "current_project mal"
 
-
-      
       BRANCH_NAME = GIT_BRANCH.split('/')[-1].trim().toLowerCase()
       COMMIT_ID = GIT_COMMIT.substring(0,7).trim().toLowerCase()
       PULL_REQUEST="pr-${env.CHANGE_ID}"
@@ -128,6 +126,11 @@ pipeline {
                 echo "IMAGE_NAME: ${IMAGE_NAME}"
                 echo "IMAGE_TAG: ${IMAGE_TAG}"                        
             """, label: "Details summary"
+            if ( BRANCH_NAME != "master" && BRANCH_NAME != "pr-*" ) {
+              currentBuild.description = "<a href='https://github.com/CenturyLinkCloud/ux-chi/tree/${BRANCH_NAME}'>${BRANCH_NAME}</a> - <a href='https://${GIT_COMMIT}-chi-pr.enterprise.ctl.io'> WEB </a> : ${BRANCH_NAME}";
+            } else if ( BRANCH_NAME != "master" && BRANCH_NAME == "pr-*") {
+              currentBuild.description = "<a href='https://github.com/CenturyLinkCloud/ux-chi/pull/${CHANGE_ID}'>PR#${CHANGE_ID}</a> - <a href='https://${GIT_COMMIT}-chi-pr.enterprise.ctl.io'> WEB </a> : ${PULL_REQUEST}";
+            }
           }
         }
       }
@@ -664,9 +667,12 @@ pipeline {
             }
             steps {
               script {
+                sh "rm -rf dist"
+                unstash name: "DIST-CHI"
                 def s3Uri = "s3://${GIT_COMMIT}-chi-pr-po-ctl"
                 jslAwsCliWrapper("s3 mb ${s3Uri}", 'us-east-1', true)
-                jslAwsCliWrapper("s3 rb ${s3Uri}", 'us-east-1', true)
+                jslAwsCliWrapper("s3 cp dist ${s3Uri}/dist", 'us-east-1', true)
+                // jslAwsCliWrapper("s3 rb ${s3Uri}", 'us-east-1', true)
                 echo "This will publish dev build to S3"
               }
             }
