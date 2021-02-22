@@ -663,7 +663,7 @@ pipeline {
             }
             steps {
               script {
-                jslAwsCliWrapper('s3 ls', 'us-east-1', true)
+                jslAwsCliWrapper('s3 help', 'us-east-1', true)
                 echo "This will publish dev build to S3"
               }
             }
