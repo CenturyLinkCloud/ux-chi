@@ -1,50 +1,79 @@
-.chi-input__wrapper {
-  &.-icon--right {
-    &.-search {
-      input {
-        &[type='search'] {
-          &.chi-input {
-            padding-right: 3.875rem;
+.chi-search {
+  &__input {
+    ~ .chi-button {
+      &.-icon {
+        &.-close {
+          display: none;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
 
-            &.-sm {
-              padding-right: 3.375rem;
-            }
+    &:focus {
+      + .chi-icon {
+        display: none;
+      }
 
-            &.-md {
-              padding-right: 3.875rem;
-            }
-
-            &.-lg,
-            &.-xl {
-              padding-right: 4.875rem;
-
-              & ~ .chi-icon,
-              & ~ chi-icon {
-                &.icon-x {
-                  right: 2.1875rem;
-                }
-              }
-            }
-
-            & ~ .chi-icon,
-            & ~ chi-icon {
-              color: $color-icon-base;
-              cursor: pointer;
-
-              &.icon-x {
-                right: 1.9375rem;
-              }
-            }
-          }
-
-          &::-webkit-search-decoration,
-          &::-webkit-search-cancel-button,
-          &::-webkit-search-results-button,
-          &::-webkit-search-results-decoration {
-            display: none;
+      ~ .chi-button {
+        &.-icon {
+          &.-close {
+            display: block;
           }
         }
       }
     }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
   }
 }
+
+// .chi-input__wrapper {
+//   &.-icon--right {
+//     &.-search {
+//       input {
+//         &[type='search'] {
+//           &.chi-input {
+//             padding-right: 3.875rem;
+//
+//             &.-sm {
+//               padding-right: 3.375rem;
+//             }
+//
+//             &.-md {
+//               padding-right: 3.875rem;
+//             }
+//
+//             &.-lg,
+//             &.-xl {
+//               padding-right: 4.875rem;
+//
+//               & ~ .chi-icon,
+//               & ~ chi-icon {
+//                 &.icon-x {
+//                   right: 2.1875rem;
+//                 }
+//               }
+//             }
+//
+//             & ~ .chi-icon,
+//             & ~ chi-icon {
+//               color: $color-icon-base;
+//               cursor: pointer;
+//
+//               &.icon-x {
+//                 right: 1.9375rem;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

@@ -5,14 +5,16 @@ p.-text
 h3 Base
 .example.-mb--3
   .-p--3
-    .chi-form__item(style="max-width:20rem")
-      chi-label(for="example__base") Label
-      chi-text-input(
-        type="search"
-        placeholder="Placeholder",
-        value="Sample Text"
-        id="example__base"
-      )
+    .chi-grid
+      .chi-col.-w--12.-w-sm--8.-w-md--6.-w-lg--5
+        .chi-form__item
+          label.chi-label(for='example__base') Label
+          .chi-input__wrapper.-icon--right
+            input#example__base.chi-input.chi-search__input(type='text' value='Sample text')
+            i.chi-icon.icon-search.-icon--muted
+            button.chi-button.-icon.-close(aria-label='Close')
+              .chi-button__content
+                i.chi-icon.icon-x
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
       li.-active
