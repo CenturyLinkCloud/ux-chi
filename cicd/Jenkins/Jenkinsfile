@@ -671,8 +671,9 @@ pipeline {
                 unstash name: "DIST-CHI"
                 def s3Uri = "s3://${GIT_COMMIT}-chi-pr-po-ctl"
                 jslAwsCliWrapper("s3 mb ${s3Uri}", 'us-east-1', true)
-                jslAwsCliWrapper("s3 cp dist ${s3Uri}/dist", 'us-east-1', true)
-                // jslAwsCliWrapper("s3 rb ${s3Uri}", 'us-east-1', true)
+                jslAwsCliWrapper("s3 cp dist ${s3Uri}/dist --recursive", 'us-east-1', true)
+                sh "sleep 10m"
+                jslAwsCliWrapper("s3 rb ${s3Uri} --force", 'us-east-1', true)
                 echo "This will publish dev build to S3"
               }
             }
