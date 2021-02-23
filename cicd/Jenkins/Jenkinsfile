@@ -670,7 +670,22 @@ pipeline {
                 sh "rm -rf dist"
                 unstash name: "DIST-CHI"
                 def s3Uri = "${GIT_COMMIT}-chi-pr-po-ctl"
+                sh script:"""
+                  cat << 'PolicyDocument' > policy.json
+{
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::${s3Uri}/*"
+      }
+   ]
+}
+PolicyDocument
+                """, label: "Policy.json"
                 jslAwsCliWrapper("s3api create-bucket --bucket ${s3Uri} --acl public-read", 'us-east-1', true)
+                jslAwsCliWrapper("s3api put-bucket-policy --bucket ${s3Uri} --policy file://policy.json", 'us-east-1', true)
                 jslAwsCliWrapper("s3api get-bucket-policy --bucket ${s3Uri}", 'us-east-1', true)
                 // jslAwsCliWrapper("s3 cp ./dist s3://${s3Uri} --recursive", 'us-east-1', true)
                 // jslAwsCliWrapper("s3 website s3://${s3Uri} --index-document index.html --error-document index.html", 'us-east-1', true)
