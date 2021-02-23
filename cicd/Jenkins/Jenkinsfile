@@ -178,23 +178,18 @@ pipeline {
             }
           }
           stage('Package Version') {
+            when {
+              beforeAgent true
+              branch 'master'
+            }
             steps {
               script {
                 sh(script: """
+                    set +x
                     git whatchanged -1 --format=oneline
-                    git diff origin/master package.json | grep '"version":' || echo No package.json changes
-                    if [ \$(git diff origin/master package.json | grep '"version":' | wc -l) -eq 2 ]; then
-                        if [ \$(git whatchanged -1 --format=oneline | wc -l) -gt 3 ]; then
-                            echo "##########################################################################################"
-                            echo "### PACKAGE VERSION INCREASED ALONG WITH OTHER CHANGES - TESTS ABORTED                 ###"
-                            echo "### A SEPARATE PULL REQUEST MUST BE CREATED TO BUMP UP PACKAGE VERSION                 ###"
-                            echo "##########################################################################################"
-                            exit -1
-                        fi
-                    fi
-                    git diff HEAD~1 HEAD package.json
+                    git diff master package.json | grep '"version":' || echo No package.json changes
                     rm -rf version_bump
-                    if [ \$(git diff HEAD~1 HEAD package.json | grep '"version":' | wc -l) -eq 2 ]; then
+                    if [ \$(git diff master package.json | grep '"version":' | wc -l) -eq 2 ]; then
                       echo -n "yes" > version_bump
                     else
                       echo -n "no" > version_bump
@@ -602,9 +597,10 @@ pipeline {
           }
         }
       }
-      stage('Version check & Publish to GitHub') {
+      stage('Version check & Publish') {
         when {
           beforeAgent true
+          branch 'master'
           expression {
             unstash name: "VERSION_BUMP"
             def versionBump = readFile file: "version_bump"
