@@ -384,7 +384,7 @@ pipeline {
               script {
                 sh "ls -lah"
                 unstash name: "DIST-CHI"
-                sh "ls -lah"
+                sh "ls -lah node_modules"
                 unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   sh "ls -lah"
