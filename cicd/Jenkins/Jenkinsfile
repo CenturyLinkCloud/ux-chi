@@ -278,6 +278,7 @@ pipeline {
                   sh "whoami"
                   jslNpmWrapper('run build:component')
                   sh "whoami"
+                  sh "ls -lah"
                   stash name: "DIST-CHI-VUE", includes: "dist/**"
                   stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
                 }
