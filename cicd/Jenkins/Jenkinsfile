@@ -273,8 +273,11 @@ pipeline {
             steps {
               script {
                 dir('src/chi-vue') {
+                  sh "whoami"
                   jslYarnWrapper('install')
+                  sh "whoami"
                   jslNpmWrapper('run build:component')
+                  sh "whoami"
                   stash name: "DIST-CHI-VUE", includes: "dist/**"
                   stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
                 }
@@ -485,6 +488,7 @@ pipeline {
             // archiveArtifacts artifacts: 'coverage/**'
             // jslQualityGateCodeCoverage('./cicd/docker/SonarQube/sonar-project.properties')
             echo "Coverage will be enabled as soon as Sonarqube is available for CHI"
+            sh "umask"
           }
         }
       }
