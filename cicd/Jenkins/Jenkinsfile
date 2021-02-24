@@ -224,7 +224,6 @@ pipeline {
               script {
                 jslYarnWrapper('install')
                 jslNpmWrapper('run build')
-                sh "ls -lah"
                 stash name: "DIST-CHI", includes: "dist/**"
                 stash name: "NODEMODULES-CHI", includes: "node_modules/**"
               }
@@ -250,7 +249,6 @@ pipeline {
                 dir('src/custom-elements') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build')
-                  sh "ls -lah"
                   stash name: "DIST-CHI-CE", includes: "dist/**"
                   stash name: "NODEMODULES-CHI-CE", includes: "node_modules/**"
                 }
@@ -275,12 +273,8 @@ pipeline {
             steps {
               script {
                 dir('src/chi-vue') {
-                  sh "whoami"
                   jslYarnWrapper('install')
-                  sh "whoami"
                   jslNpmWrapper('run build:component')
-                  sh "whoami"
-                  sh "ls -lah"
                   stash name: "DIST-CHI-VUE", includes: "dist/**"
                   stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
                 }
@@ -382,25 +376,29 @@ pipeline {
             }
             steps {
               script {
-                sh "ls -lah"
+                sh """
+                  rm -rf dist
+                  rm -rf node_modules
+                """
                 unstash name: "DIST-CHI"
-                sh "ls -lah node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0e/fc/59c02bd62850aa62a5e44a5079f51b8b55f140063c37d7a41a90b6360a33a1b941087d98c40a18513557ce08f7b898c3c2c0946b451b0ae85ecb1de9d748"
                 unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
-                  sh "ls -lah"
+                  sh """
+                    rm -rf dist
+                    rm -rf node_modules
+                  """
                   unstash name: "DIST-CHI-CE"
-                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  sh "ls -lah"
+                  sh """
+                    rm -rf dist
+                    rm -rf node_modules
+                  """
                   unstash name: "DIST-CHI-VUE"
-                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
-                  whoami
-                  ls -lrta
                   rm -rf reports test/bitmaps_test
                   mkdir -p reports/html_report/non_responsive
                   mkdir -p reports/html_report/non_responsive_ce
@@ -408,10 +406,9 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive_ce/bitmaps_reference
                   cp -a config/backstop_data/bitmaps_reference/non_responsive reports/html_report/non_responsive/bitmaps_reference
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
-                  ls -lrta
                 """, label: "Copying config files"
                 jslNpmWrapper('run test')
-                echo "This will run Unit tests - Disabled until I fix permissions issues."
+                echo "This will run Unit tests - Disabled until tests are fixed"
               }
             }
           }
@@ -433,32 +430,34 @@ pipeline {
             steps {
               script {
                 sh """
-                  whoami
-                  ls -lah
+                  rm -rf dist
+                  rm -rf node_modules
                 """
                 jslYarnWrapper('install')
                 jslYarnWrapper('cache clean')
-                sh "ls -lah"
                 unstash name: "DIST-CHI"
                 dir ('src/custom-elements') {
-                  sh "ls -lah"
+                  sh """
+                    rm -rf dist
+                    rm -rf node_modules
+                  """
                   unstash name: "DIST-CHI-CE"
-                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  sh "ls -lah"
+                  sh """
+                    rm -rf dist
+                    rm -rf node_modules
+                  """
                   unstash name: "DIST-CHI-VUE"
-                  sh "ls -lah node_modules/.cache/terser-webpack-plugin/content-v2/sha512/85/a7/37d7f4c131b322077cf96ad2cd249d1c460a0ddea0552f1d2229ad250081fd34f52c6b808cb900dc175d793b733578e1eca99bf9b4fe074d8af5f7bd92b3"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
-                sh "ls -lrta"
                 jslNpxWrapper('gulp serve 2>&1 >/dev/null &')
                 sh script: """
                   ./node_modules/.bin/cypress run
                 """, label: "Running NPX before adding JSL file, TEST."
                 jslNpxWrapper('gulp serve:stop')
-                echo "This will run E2E tests, when NPX is added to the JSL"
+                echo "This will run Cypress Local tests, when tests are fixed"
               }
             }
           }
@@ -492,7 +491,6 @@ pipeline {
             // archiveArtifacts artifacts: 'coverage/**'
             // jslQualityGateCodeCoverage('./cicd/docker/SonarQube/sonar-project.properties')
             echo "Coverage will be enabled as soon as Sonarqube is available for CHI"
-            sh "umask"
           }
         }
       }
