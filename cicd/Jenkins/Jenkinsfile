@@ -224,6 +224,7 @@ pipeline {
               script {
                 jslYarnWrapper('install')
                 jslNpmWrapper('run build')
+                sh "ls -lah"
                 stash name: "DIST-CHI", includes: "dist/**"
                 stash name: "NODEMODULES-CHI", includes: "node_modules/**"
               }
@@ -249,6 +250,7 @@ pipeline {
                 dir('src/custom-elements') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build')
+                  sh "ls -lah"
                   stash name: "DIST-CHI-CE", includes: "dist/**"
                   stash name: "NODEMODULES-CHI-CE", includes: "node_modules/**"
                 }
@@ -380,14 +382,20 @@ pipeline {
             }
             steps {
               script {
+                sh "ls -lah"
                 unstash name: "DIST-CHI"
+                sh "ls -lah"
                 unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
+                  sh "ls -lah"
                   unstash name: "DIST-CHI-CE"
+                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
+                  sh "ls -lah"
                   unstash name: "DIST-CHI-VUE"
+                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh script: """
@@ -430,13 +438,18 @@ pipeline {
                 """
                 jslYarnWrapper('install')
                 jslYarnWrapper('cache clean')
+                sh "ls -lah"
                 unstash name: "DIST-CHI"
                 dir ('src/custom-elements') {
+                  sh "ls -lah"
                   unstash name: "DIST-CHI-CE"
+                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
+                  sh "ls -lah"
                   unstash name: "DIST-CHI-VUE"
+                  sh "ls -lah"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh "ls -lrta"
