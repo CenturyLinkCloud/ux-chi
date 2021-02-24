@@ -32,6 +32,66 @@
       display: none;
     }
   }
+
+  &__input-v {
+    ~ .chi-button {
+      &.-icon {
+        &.-close {
+          display: none;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+
+    &:focus {
+      ~ .chi-button {
+        &.-icon {
+          &.-close {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  &__input-v2 {
+    ~ .chi-button {
+      &.-icon {
+        &.-close {
+          display: none;
+          position: absolute;
+          right: 2.5rem;
+          top: 0;
+        }
+      }
+    }
+
+    &:focus {
+      ~ .chi-button {
+        &.-icon {
+          &.-close {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
 }
 
 // .chi-input__wrapper {

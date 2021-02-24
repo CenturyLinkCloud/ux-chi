@@ -10,7 +10,7 @@ h3 Base
         .chi-form__item
           label.chi-label(for='example__base') Label
           .chi-input__wrapper.-icon--right
-            input#example__base.chi-input.chi-search__input(type='text' value='Sample text')
+            input#example__base.chi-input.chi-search__input(type='search' value='Sample text')
             i.chi-icon.icon-search.-icon--muted
             button.chi-button.-icon.-close(aria-label='Close')
               .chi-button__content
@@ -38,6 +38,79 @@ h3 Base
         </div>
       </div>
 
+h3 Base version
+.example.-mb--3
+  .-p--3
+    .chi-grid
+      .chi-col.-w--12.-w-sm--8.-w-md--6.-w-lg--5
+        .chi-form__item
+          label.chi-label(for='example__icon-left-right-aligned') Label
+          .chi-input__wrapper.-icon--left.-icon--right
+            input#example__icon-left-right-aligned.chi-input.chi-search__input-v(type='search' value='Sample text')
+            i.chi-icon.icon-search.-icon--muted
+            button.chi-button.-icon.-close(aria-label='Close')
+              .chi-button__content
+                i.chi-icon.icon-x
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-active
+        a(href=`#webcomponent-base`) Web Component
+      li
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel.-active#webcomponent-base
+    :code(lang="html")
+      <div class="chi-form__item">
+        <chi-label for="example__base">Label</chi-label>
+        <chi-text-input id="example__base" type="search" placeholder="Placeholder" value="Sample Text"></chi-text-input>
+      </div>
+  .chi-tabs-panel#html-base
+    :code(lang="html")
+      <div class="chi-form__item">
+        <label class="chi-label" for="example__base">Label</label>
+        <div class="chi-input__wrapper -icon--right -search">
+          <input type="search" class="chi-input" placeholder="Placeholder" value="Sample text" id="example__base" autocomplete="off">
+          <i class="chi-icon icon-x"></i>
+          <i class="chi-icon icon-search"></i>
+        </div>
+      </div>
+
+h3 Base version 2
+.example.-mb--3
+  .-p--3
+    .chi-grid
+      .chi-col.-w--12.-w-sm--8.-w-md--6.-w-lg--5
+        .chi-form__item
+          label.chi-label(for='example__base') Label
+          .chi-input__wrapper.-icon--right.-d--flex
+            input#example__base.chi-input.chi-search__input-v2(type='search' value='Sample text')
+            button.chi-button.-icon.-close(aria-label='Close')
+              .chi-button__content
+                i.chi-icon.icon-x
+                button.chi-button.-icon.-primary.-ml--1(aria-label='Close')
+                  .chi-button__content
+                    i.chi-icon.icon-search
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-base
+      li.-active
+        a(href=`#webcomponent-base`) Web Component
+      li
+        a(href=`#html-base`) HTML Blueprint
+  .chi-tabs-panel.-active#webcomponent-base
+    :code(lang="html")
+      <div class="chi-form__item">
+        <chi-label for="example__base">Label</chi-label>
+        <chi-text-input id="example__base" type="search" placeholder="Placeholder" value="Sample Text"></chi-text-input>
+      </div>
+  .chi-tabs-panel#html-base
+    :code(lang="html")
+      <div class="chi-form__item">
+        <label class="chi-label" for="example__base">Label</label>
+        <div class="chi-input__wrapper -icon--right -search">
+          <input type="search" class="chi-input" placeholder="Placeholder" value="Sample text" id="example__base" autocomplete="off">
+          <i class="chi-icon icon-x"></i>
+          <i class="chi-icon icon-search"></i>
+        </div>
+      </div>      
 script.
   document.addEventListener(
     'DOMContentLoaded',
