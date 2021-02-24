@@ -384,7 +384,7 @@ pipeline {
               script {
                 sh "ls -lah"
                 unstash name: "DIST-CHI"
-                sh "ls -lah node_modules"
+                sh "ls -lah node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0e/fc/59c02bd62850aa62a5e44a5079f51b8b55f140063c37d7a41a90b6360a33a1b941087d98c40a18513557ce08f7b898c3c2c0946b451b0ae85ecb1de9d748"
                 unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
                   sh "ls -lah"
@@ -449,7 +449,7 @@ pipeline {
                 dir ('src/chi-vue') {
                   sh "ls -lah"
                   unstash name: "DIST-CHI-VUE"
-                  sh "ls -lah"
+                  sh "ls -lah node_modules/.cache/terser-webpack-plugin/content-v2/sha512/85/a7/37d7f4c131b322077cf96ad2cd249d1c460a0ddea0552f1d2229ad250081fd34f52c6b808cb900dc175d793b733578e1eca99bf9b4fe074d8af5f7bd92b3"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
                 sh "ls -lrta"
