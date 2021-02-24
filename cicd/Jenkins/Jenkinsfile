@@ -413,7 +413,7 @@ pipeline {
               }
             }
           }
-          stage ('E2E Testing') {
+          stage ('Cypress local Testing') {
             agent {
               dockerfile {
                 filename 'Dockerfile'
