@@ -380,19 +380,13 @@ pipeline {
             }
             steps {
               script {
-                sh "rm -rf dist"
-                sh "rm -rf node_modules"
                 unstash name: "DIST-CHI"
                 unstash name: "NODEMODULES-CHI"
                 dir ('src/custom-elements') {
-                  sh "rm -rf dist"
-                  sh "rm -rf node_modules"
                   unstash name: "DIST-CHI-CE"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  sh "rm -rf dist"
-                  sh "rm -rf node_modules"
                   unstash name: "DIST-CHI-VUE"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
@@ -434,23 +428,18 @@ pipeline {
                   whoami
                   ls -lah
                 """
-                sh "rm -rf dist"
-                sh "rm -rf node_modules"
                 jslYarnWrapper('install')
                 jslYarnWrapper('cache clean')
                 unstash name: "DIST-CHI"
                 dir ('src/custom-elements') {
-                  sh "rm -rf dist"
-                  sh "rm -rf node_modules"
                   unstash name: "DIST-CHI-CE"
                   unstash name: "NODEMODULES-CHI-CE"
                 }
                 dir ('src/chi-vue') {
-                  sh "rm -rf dist"
-                  sh "rm -rf node_modules"
                   unstash name: "DIST-CHI-VUE"
                   unstash name: "NODEMODULES-CHI-VUE"
                 }
+                sh "ls -lrta"
                 jslNpxWrapper('gulp serve 2>&1 >/dev/null &')
                 sh script: """
                   ./node_modules/.bin/cypress run
