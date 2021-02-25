@@ -140,7 +140,8 @@ pipeline {
         }
         steps {
           script {
-            jslDeploymentControlKnob()
+            echo "Gotta get the credentials for this"
+            // jslDeploymentControlKnob()
           }
         }
       }
