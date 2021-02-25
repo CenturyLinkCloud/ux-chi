@@ -188,9 +188,9 @@ pipeline {
                 sh(script: """
                     set +x
                     git whatchanged -1 --format=oneline
-                    git diff master package.json | grep '"version":' || echo No package.json changes
+                    git diff HEAD~2 package.json | grep '"version":' || echo No package.json changes
                     rm -rf version_bump
-                    if [ \$(git diff master package.json | grep '"version":' | wc -l) -eq 2 ]; then
+                    if [ \$(git diff HEAD~2 package.json | grep '"version":' | wc -l) -eq 2 ]; then
                       echo -n "yes" > version_bump
                     else
                       echo -n "no" > version_bump
@@ -305,6 +305,8 @@ pipeline {
               script {
                 jslYarnWrapper('install')
                 jslNpmWrapper('run build')
+                stash name: "DIST-CHI", includes: "dist/**"
+                stash name: "NODEMODULES-CHI", includes: "node_modules/**"
               }
             }
           }
@@ -328,6 +330,8 @@ pipeline {
                 dir('src/custom-elements') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build')
+                  stash name: "DIST-CHI-CE", includes: "dist/**"
+                  stash name: "NODEMODULES-CHI-CE", includes: "node_modules/**"
                 }
               }
             }
@@ -352,6 +356,8 @@ pipeline {
                 dir('src/chi-vue') {
                   jslYarnWrapper('install')
                   jslNpmWrapper('run build:component')
+                  stash name: "DIST-CHI-VUE", includes: "dist/**"
+                  stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
                 }
               }
             }
@@ -370,10 +376,6 @@ pipeline {
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
-            }
-            when {
-              beforeAgent true
-              not { branch 'master' }
             }
             steps {
               script {
@@ -424,10 +426,6 @@ pipeline {
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
             }
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
             steps {
               script {
                 sh """
@@ -465,10 +463,6 @@ pipeline {
         }
       }
       stage('Coverage'){
-        when {
-          beforeAgent true
-          not { branch 'master' }
-        }
         agent {
           dockerfile {
             filename 'Dockerfile'
@@ -538,7 +532,6 @@ pipeline {
         when {
           beforeAgent true
           allOf {
-            not { branch 'master' }
             expression{ return currentBuild.currentResult.toLowerCase() == "success" }
           }
         }
