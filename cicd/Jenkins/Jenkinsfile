@@ -61,9 +61,9 @@ pipeline {
 
       // Custom project variables
       // Add 
-      PROJECT_NAME = 'current_project'
-      DOCKER_REPO ='current_project/current_project_repo'
-      PROJECT_MAL = "current_project mal"
+      PROJECT_NAME = 'ux-chi'
+      DOCKER_REPO ='ux-chi/chi'
+      PROJECT_MAL = "ux-chi"
 
       BRANCH_NAME = GIT_BRANCH.split('/')[-1].trim().toLowerCase()
       COMMIT_ID = GIT_COMMIT.substring(0,7).trim().toLowerCase()
@@ -408,7 +408,7 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
                 """, label: "Copying config files"
                 jslNpmWrapper('run test')
-                echo "This will run Unit tests - Disabled until tests are fixed"
+                echo "TESTS MUST BE FIXED, SINCE THEY FAIL"
               }
             }
           }
@@ -627,26 +627,26 @@ pipeline {
             }
             steps {
               script {
-                // def packageJson = readJSON file: 'package.json'
-                // def tagName = "${packageJson.version}"
-                // echo "Release tag is ${tagName}"
-                // def releaseId = jslGitHubReleaseGetId(tagName)
-                // sh "touch do_release"
-                // if (releaseId == null) {
-                //   def committishName = GIT_BRANCH
-                //   if (GIT_BRANCH.startsWith('origin/')) {
-                //     committishName = GIT_BRANCH.split("/")[1]
-                //   }
-                //   releaseId = jslGitHubReleaseCreate(tagName, committishName)
-                //   if (releaseId == null) {
-                //     throw new Exception("There was an error publishing the release")
-                //   }
-                //   sh "echo -n yes > do_release"
-                // } else {
-                //   echo "A release already exists for ${tagName}"
-                //   sh "echo -n no > do_release"
-                // }
-                // stash name: "DO_RELEASE", includes: "do_release"
+                def packageJson = readJSON file: 'package.json'
+                def tagName = "${packageJson.version}"
+                echo "Release tag is ${tagName}"
+                def releaseId = jslGitHubReleaseGetId(tagName)
+                sh "touch do_release"
+                if (releaseId == null) {
+                  def committishName = GIT_BRANCH
+                  if (GIT_BRANCH.startsWith('origin/')) {
+                    committishName = GIT_BRANCH.split("/")[1]
+                  }
+                  releaseId = jslGitHubReleaseCreate(tagName, committishName)
+                  if (releaseId == null) {
+                    throw new Exception("There was an error publishing the release")
+                  }
+                  sh "echo -n yes > do_release"
+                } else {
+                  echo "A release already exists for ${tagName}"
+                  sh "echo -n no > do_release"
+                }
+                stash name: "DO_RELEASE", includes: "do_release"
                 echo "Active development, will activate as soon as this works"
               }
             }
