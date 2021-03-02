@@ -1,87 +1,42 @@
 .chi-search {
   &__input {
-    ~ .chi-button {
+    ~ .chi-button,
+    ~ chi-button {
       &.-icon {
+        &.-flat,
         &.-close {
-          display: none;
           position: absolute;
-          right: 0;
           top: 0;
         }
-      }
-    }
 
-    &:focus {
-      + .chi-icon {
-        display: none;
-      }
-
-      ~ .chi-button {
-        &.-icon {
-          &.-close {
-            display: block;
-          }
+        &.-flat {
+          right: 0rem;
         }
-      }
-    }
 
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration {
-      display: none;
-    }
-  }
-
-  &__input-v {
-    ~ .chi-button {
-      &.-icon {
         &.-close {
           display: none;
-          position: absolute;
-          right: 0;
-          top: 0;
+          right: 2rem;
         }
       }
     }
 
-    &:focus {
-      ~ .chi-button {
-        &.-icon {
-          &.-close {
-            display: block;
-          }
-        }
-      }
-    }
+    // &:focus,
+    // &.-focus {
+    //   ~ .chi-button,
+    //   ~ chi-button {
+    //     &.-icon {
+    //       &.-close {
+    //         display: block;
+    //       }
+    //     }
+    //   }
+    // }
 
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration {
-      display: none;
-    }
-  }
-
-  &__input-v2 {
-    ~ .chi-button {
-      &.-icon {
-        &.-close {
-          display: none;
-          position: absolute;
-          right: 2.5rem;
-          top: 0;
-        }
-      }
-    }
-
-    &:focus {
-      ~ .chi-button {
-        &.-icon {
-          &.-close {
-            display: block;
-          }
-        }
+    &[disabled],
+    &.-disabled {
+      ~ .chi-button,
+      ~ chi-button {
+        cursor: not-allowed;
       }
     }
 
@@ -94,46 +49,53 @@
   }
 }
 
-// .chi-input__wrapper {
-//   &.-icon--right {
-//     &.-search {
-//       input {
-//         &[type='search'] {
-//           &.chi-input {
-//             padding-right: 3.875rem;
-//
-//             &.-sm {
-//               padding-right: 3.375rem;
-//             }
-//
-//             &.-md {
-//               padding-right: 3.875rem;
-//             }
-//
-//             &.-lg,
-//             &.-xl {
-//               padding-right: 4.875rem;
-//
-//               & ~ .chi-icon,
-//               & ~ chi-icon {
-//                 &.icon-x {
-//                   right: 2.1875rem;
-//                 }
-//               }
-//             }
-//
-//             & ~ .chi-icon,
-//             & ~ chi-icon {
-//               color: $color-icon-base;
-//               cursor: pointer;
-//
-//               &.icon-x {
-//                 right: 1.9375rem;
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+.chi-input__wrapper {
+  &.-icon--right {
+    input {
+      &[type='search'] {
+        &.chi-search__input {
+          padding-right: 4rem;
+
+          &.-sm {
+            padding-right: 3rem;
+
+            ~ .chi-button,
+            ~ chi-button {
+              &.-icon {
+                &.-close {
+                  right: 1.5rem;
+                }
+              }
+            }
+          }
+
+          &.-lg {
+            padding-right: 5rem;
+
+            ~ .chi-button,
+            ~ chi-button {
+              &.-icon {
+                &.-close {
+                  right: 2.5rem;
+                }
+              }
+            }
+          }
+
+          &.-xl {
+            padding-right: 6rem;
+
+            ~ .chi-button,
+            ~ chi-button {
+              &.-icon {
+                &.-close {
+                  right: 3rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
