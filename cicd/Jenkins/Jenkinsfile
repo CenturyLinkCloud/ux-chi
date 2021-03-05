@@ -623,6 +623,8 @@ PolicyDocument
             }
             steps {
               script {
+                sh "rm -rf dist node_modules"
+                unstash name: "DIST-CHI"
                 sh script:"""
                   sed -i 's#/getting-started#getting-started#g' dist/index.html
 
