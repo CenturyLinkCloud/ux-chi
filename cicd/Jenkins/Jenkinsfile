@@ -570,7 +570,7 @@ pipeline {
           }
         }
       }
-      stage ('Publish to S3') {
+      stage ('Publish DEV to S3/Prod to AssetsServer') {
         parallel {
           stage ('Publish Dev build') {
             when {
