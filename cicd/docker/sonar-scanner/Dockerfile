@@ -1,4 +1,4 @@
-FROM cypress/browsers:node10.16.3-chrome80-ff73
+FROM node:dubnium-stretch
 
 LABEL Description="This is a base image, which provides a cypress environment"
 
@@ -13,19 +13,19 @@ VOLUME /ux-chi
 
 USER root
 
+# https://www.slimjet.com/chrome/download-chrome.php?file=files%2F86.0.4240.75%2Fgoogle-chrome-stable_current_amd64.deb
+# https://www.slimjet.com/chrome/download-chrome.php?file=files%2F71.0.3578.80%2Fgoogle-chrome-stable_current_amd64.deb
+
+RUN wget https://www.slimjet.com/chrome/download-chrome.php?file=files%2F71.0.3578.80%2Fgoogle-chrome-stable_current_amd64.deb -O google-chrome-stable_current_amd64.deb \
+ && apt-get update \
+ && apt-get install -y ./google-chrome-stable_current_amd64.deb expect libgconf-2-4 xvfb busybox hub \
+ && apt-get clean \
+ && rm ./google-chrome-stable_current_amd64.deb
+
 ENV QT_X11_NO_MITSHM=1
 ENV _X11_NO_MITSHM=1
 ENV _MITSHM=0
 ENV TERM=xterm-256color
-
-# ENV CYPRESS_CACHE_FOLDER=/tmp/.cache/Cypress
-# RUN npm install -g "cypress@3.8.3" "typescript"
-
-# RUN cypress verify
-
-# RUN cypress cache path
-# RUN cypress cache list
-# RUN cypress -v
 
 RUN ls -la /root
 RUN chmod 755 /root

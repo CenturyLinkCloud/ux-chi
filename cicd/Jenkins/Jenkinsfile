@@ -10,11 +10,11 @@
 */
 
 library(
-      identifier: 'jsl-jenkins-shared-library@addNPX',
+      identifier: 'jsl-jenkins-shared-library@master',
       retriever: modernSCM(
         [
           $class: 'GitSCMSource',
-          remote: "git@github.com:jfranciscohernbal/jsl-jenkins-shared-library.git",
+          remote: "git@github.com:centurylink/jsl-jenkins-shared-library.git",
           credentialsId: 'SCMAUTO_SSH_DEVOPS_PIPELINE',
           extensions: [[$class: 'WipeWorkspace']]
         ]
@@ -43,16 +43,11 @@ pipeline {
       
       GITHUB_TOKEN_CREDENTIALS = 'SCMAUTO_GITHUB'
       GITHUB_SSH_CREDENTIALS = 'SCMAUTO_SSH_DEVOPS_PIPELINE'
-      DOCKER_CREDENTIALS = ''
-      KUBE_CREDENTIALS = ''
-      KUBE_CREDENTIALS_TEST = ''
-      KUBE_CREDENTIALS_PROD = ''
       AMAZON_CREDENTIALS = 'awsCredentialsPR'
       AMAZON_CREDENTIALS_PR = 'awsCredentials'
       SONARQUBE_CREDENTIALS = ''
       GCP_CREDENTIALS = ''
       JIRA_CREDENTIALS = ''
-      MORPHEUS_CREDENTIALS = ''
       MSTEAMS_CREDENTIALS = ''
       QUALITY_GATE_CREDENTIALS = ''
       //Deployment control credentialsId
@@ -62,17 +57,11 @@ pipeline {
       // Custom project variables
       // Add 
       PROJECT_NAME = 'ux-chi'
-      DOCKER_REPO ='ux-chi/chi'
-      PROJECT_MAL = "ux-chi"
+      PROJECT_MAL = "chi"
 
       BRANCH_NAME = GIT_BRANCH.split('/')[-1].trim().toLowerCase()
       COMMIT_ID = GIT_COMMIT.substring(0,7).trim().toLowerCase()
       PULL_REQUEST="pr-${env.CHANGE_ID}"
-      IMAGE_NAME = "${env.PROJECT_NAME}"
-      IMAGE_TAG =  "${env.PULL_REQUEST}"
-      KUBE_DOCKER_SECRET_NAME = "${env.PROJECT_NAME}-${env.PULL_REQUEST}"
-      KUBE_DOCKER_SECRET_NAME_TEST = "${env.PROJECT_NAME}-${env.BRANCH_NAME}"
-      KUBE_DOCKER_SECRET_NAME_PROD = "${env.PROJECT_NAME}-${env.BRANCH_NAME}"
     }
     
 
@@ -116,15 +105,12 @@ pipeline {
           script {
             sh script: """
                 echo "PROJECT_NAME: ${PROJECT_NAME}"
-                echo "DOCKER_REPO: ${DOCKER_REPO}"
                 echo "GIT_BRANCH: ${GIT_BRANCH}"
                 echo "GIT_COMMIT: ${GIT_COMMIT}"
                 echo "BRANCH_NAME: ${BRANCH_NAME}"
                 echo "COMMIT_ID: ${COMMIT_ID}"
                 echo "PULL_REQUEST: ${PULL_REQUEST}"
-                echo "CHANGE_ID: ${env.CHANGE_ID}"
-                echo "IMAGE_NAME: ${IMAGE_NAME}"
-                echo "IMAGE_TAG: ${IMAGE_TAG}"                        
+                echo "CHANGE_ID: ${env.CHANGE_ID}"                       
             """, label: "Details summary"
             if ( BRANCH_NAME != "master" && BRANCH_NAME != "pr-*" ) {
               currentBuild.description = "<a href='https://github.com/CenturyLinkCloud/ux-chi/tree/${BRANCH_NAME}'>${BRANCH_NAME}</a> - <a href='https://${GIT_COMMIT}-chi-pr.enterprise.ctl.io'> WEB </a> : ${BRANCH_NAME}";
@@ -204,32 +190,8 @@ pipeline {
           }
         }
       }
-      stage('PR Build') {
+      stage('CE & Vue Build') {
         parallel {
-          stage ('Building Chi') {
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                args '--shm-size=2gb'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
-            when {
-              beforeAgent true
-              not { branch 'master' }
-            }
-            steps {
-              script {
-                jslYarnWrapper('install')
-                jslNpmWrapper('run build')
-                stash name: "DIST-CHI", includes: "dist/**"
-                stash name: "NODEMODULES-CHI", includes: "node_modules/**"
-              }
-            }
-          }
           stage ('Building Custom elements') {
             agent {
               dockerfile {
@@ -240,10 +202,6 @@ pipeline {
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
-            }
-            when {
-              beforeAgent true
-              not { branch 'master' }
             }
             steps {
               script {
@@ -266,10 +224,6 @@ pipeline {
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
-            }
-            when {
-              beforeAgent true
-              not { branch 'master' }
             }
             steps {
               script {
@@ -284,83 +238,27 @@ pipeline {
           }
         }
       }
-      stage('Build for Production') {
-        parallel {
-          stage ('Building Chi') {
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                args '--shm-size=2gb'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
-            when {
-              beforeAgent true
-              branch 'master'
-            }
-            steps {
-              script {
-                jslYarnWrapper('install')
-                jslNpmWrapper('run build')
-                stash name: "DIST-CHI", includes: "dist/**"
-                stash name: "NODEMODULES-CHI", includes: "node_modules/**"
-              }
-            }
+      stage ('Building Chi') {
+        agent {
+          dockerfile {
+            filename 'Dockerfile'
+            dir 'cicd/docker/sonar-scanner'
+            label 'Docker-enabled'
+            args '--shm-size=2gb'
+            // registryUrl DOCKER_REGISTRY
+            // registryCredentialsId DOCKER_CREDENTIALS
           }
-          stage ('Building Custom elements') {
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                args '--shm-size=2gb'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
+        }
+        steps {
+          script {
+            dir ('src/custom-elements') {
+              unstash name: "DIST-CHI-CE"
             }
-            when {
-              beforeAgent true
-              branch 'master'
-            }
-            steps {
-              script {
-                dir('src/custom-elements') {
-                  jslYarnWrapper('install')
-                  jslNpmWrapper('run build')
-                  stash name: "DIST-CHI-CE", includes: "dist/**"
-                  stash name: "NODEMODULES-CHI-CE", includes: "node_modules/**"
-                }
-              }
-            }
-          }
-          stage ('Building Chi-vue') {
-            agent {
-              dockerfile {
-                filename 'Dockerfile'
-                dir 'cicd/docker/sonar-scanner'
-                label 'Docker-enabled'
-                args '--shm-size=2gb'
-                // registryUrl DOCKER_REGISTRY
-                // registryCredentialsId DOCKER_CREDENTIALS
-              }
-            }
-            when {
-              beforeAgent true
-              branch 'master'
-            }
-            steps {
-              script {
-                dir('src/chi-vue') {
-                  jslYarnWrapper('install')
-                  jslNpmWrapper('run build:component')
-                  stash name: "DIST-CHI-VUE", includes: "dist/**"
-                  stash name: "NODEMODULES-CHI-VUE", includes: "node_modules/**"
-                }
-              }
-            }
+            sh "sleep 10s"
+            jslYarnWrapper('install')
+            jslNpmWrapper('run build')
+            stash name: "DIST-CHI", includes: "dist/**"
+            stash name: "NODEMODULES-CHI", includes: "node_modules/**"
           }
         }
       }
@@ -411,7 +309,6 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
                 """, label: "Copying config files"
                 jslNpmWrapper('run test')
-                echo "TESTS MUST BE FIXED, SINCE THEY FAIL"
               }
             }
           }
@@ -456,7 +353,6 @@ pipeline {
                   ./node_modules/.bin/cypress run
                 """, label: "Running NPX before adding JSL file, TEST."
                 jslNpxWrapper('gulp serve:stop')
-                echo "This will run Cypress Local tests, when tests are fixed"
               }
             }
           }
@@ -621,26 +517,26 @@ pipeline {
             }
             steps {
               script {
-                def packageJson = readJSON file: 'package.json'
-                def tagName = "${packageJson.version}"
-                echo "Release tag is ${tagName}"
-                def releaseId = jslGitHubReleaseGetId(tagName)
-                sh "touch do_release"
-                if (releaseId == null) {
-                  def committishName = GIT_BRANCH
-                  if (GIT_BRANCH.startsWith('origin/')) {
-                    committishName = GIT_BRANCH.split("/")[1]
-                  }
-                  releaseId = jslGitHubReleaseCreate(tagName, committishName)
-                  if (releaseId == null) {
-                    throw new Exception("There was an error publishing the release")
-                  }
-                  sh "echo -n yes > do_release"
-                } else {
-                  echo "A release already exists for ${tagName}"
-                  sh "echo -n no > do_release"
-                }
-                stash name: "DO_RELEASE", includes: "do_release"
+                // def packageJson = readJSON file: 'package.json'
+                // def tagName = "${packageJson.version}"
+                // echo "Release tag is ${tagName}"
+                // def releaseId = jslGitHubReleaseGetId(tagName)
+                // sh "touch do_release"
+                // if (releaseId == null) {
+                //   def committishName = GIT_BRANCH
+                //   if (GIT_BRANCH.startsWith('origin/')) {
+                //     committishName = GIT_BRANCH.split("/")[1]
+                //   }
+                //   releaseId = jslGitHubReleaseCreate(tagName, committishName)
+                //   if (releaseId == null) {
+                //     throw new Exception("There was an error publishing the release")
+                //   }
+                //   sh "echo -n yes > do_release"
+                // } else {
+                //   echo "A release already exists for ${tagName}"
+                //   sh "echo -n no > do_release"
+                // }
+                // stash name: "DO_RELEASE", includes: "do_release"
                 echo "Active development, will activate as soon as this works"
               }
             }
@@ -663,19 +559,20 @@ pipeline {
         }
         steps {
           script {
-            dir('src/chi-vue') {
-              unstash name: "DIST-CHI-VUE"
-              unstash name: "NODEMODULES-CHI-VUE"
-              jslNpmWrapper('pack')
-              jslNpmWrapper('login --scope=@centurylinkcloud --registry=https://npm.pkg.github.com')
-              jslNpmWrapper('publish')
-            }
+            // dir('src/chi-vue') {
+            //   unstash name: "DIST-CHI-VUE"
+            //   unstash name: "NODEMODULES-CHI-VUE"
+            //   jslNpmWrapper('pack')
+            //   jslNpmWrapper('login --scope=@centurylinkcloud --registry=https://npm.pkg.github.com')
+            //   jslNpmWrapper('publish')
+            // }
+            echo "Active development, will activate as soon as this works"
           }
         }
       }
       stage ('Publish to S3') {
         parallel {
-          stage ('Publish Dev/Beta build') {
+          stage ('Publish Dev build') {
             when {
               beforeAgent true
               not { branch 'master' }
@@ -715,8 +612,46 @@ PolicyDocument
               beforeAgent true
               branch 'master'
             }
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'cicd/docker/sonar-scanner'
+                label 'Docker-enabled'
+                // registryUrl DOCKER_REGISTRY
+                // registryCredentialsId DOCKER_LOGIN_CREDENTIALS
+              }
+            }
             steps {
               script {
+                sh script:"""
+                  sed -i 's#/getting-started#getting-started#g' dist/index.html
+
+                  cat ${WORKSPACE}/CHANGELOG.md
+
+                  if [ -e "${WORKSPACE}/ux-chi-AssetsServer" ];
+                  then
+                    rm -rf ${WORKSPACE}/ux-chi-AssetsServer
+                  fi
+                """, label: "Cleaning before pushing to AssetsServer"
+                jslGitHubCloneRepo('ux-chi-AssetsServer')
+                sh script:"""
+                  ls -lah
+                  VERSION=\$(cat package.json | grep '"version":' | cut -f4 -d '"')
+                  echo \${VERSION}
+                  cat << 'PRDesc' > ux-chi-AssetsServer/prepared-message.md
+This PR is for CHI \${VERSION}
+PRDesc
+                  mkdir -p ${WORKSPACE}/ux-chi-AssetsServer/chi/latest
+                  cp -R ${WORKSPACE}/dist/* ${WORKSPACE}/ux-chi-AssetsServer/chi/latest/
+                  mv ${WORKSPACE}/dist ${WORKSPACE}/ux-chi-AssetsServer/chi/\$VERSION
+                  cd ${WORKSPACE}/ux-chi-AssetsServer
+                  git checkout -b "CHI_\$VERSION"
+                  git add ${WORKSPACE}/ux-chi-AssetsServer/chi/\$VERSION
+                  git add ${WORKSPACE}/ux-chi-AssetsServer/chi/latest
+                  git commit -m "CHI_\$VERSION"
+                  git push origin CHI_\$VERSION
+                  hub pull-request -F prepared-message.md
+                """
                 echo "This will publish Prod build to S3 & CDN"
               }
             }
