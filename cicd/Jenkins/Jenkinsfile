@@ -648,6 +648,8 @@ PRDesc
                   git checkout -b "CHI_\$VERSION"
                   git add ${WORKSPACE}/ux-chi-AssetsServer/chi/\$VERSION
                   git add ${WORKSPACE}/ux-chi-AssetsServer/chi/latest
+                  git config user.email "scmauto@lumen.com"
+                  git config user.name "SCMAUTO"
                   git commit -m "CHI_\$VERSION"
                   git push origin CHI_\$VERSION
                   # hub pull-request -F prepared-message.md
