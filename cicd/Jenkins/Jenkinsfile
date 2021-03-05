@@ -652,7 +652,7 @@ PRDesc
                   git config user.name "SCMAUTO"
                   git commit -m "CHI_\$VERSION"
                   git push origin CHI_\$VERSION
-                  # hub pull-request -F prepared-message.md
+                  hub pull-request -F prepared-message.md
                 """
                 echo "This will publish Prod build to S3 & CDN"
               }
