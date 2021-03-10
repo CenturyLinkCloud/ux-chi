@@ -17,8 +17,7 @@
     "test-ce": "gulp test:custom-elements",
     "test:e2e": "gulp test:e2e",
     "test:e2e:interactive": "gulp test:e2e:interactive",
-    "echo": "gulp --version",
-    "lint:fix": "sass-lint-auto-fix"
+    "echo": "gulp --version"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
@@ -71,7 +70,6 @@
     "prettier": "1.18.2",
     "prismjs": "1.21.0",
     "pug": "2.0.3",
-    "sass-lint-auto-fix": "0.20.0",
     "uglifyjs-webpack-plugin": "2.1.2",
     "vinyl-named": "1.1.0",
     "webpack": "4.29.6",
