@@ -113,7 +113,6 @@ case ${OPTION} in
         mount -t tmpfs tmpfs /chi/dist
         build
         test
-        rm -rf /chi/src/chi-vue/dist
         ;;
     test-e2e)
         mount -t tmpfs tmpfs /chi/dist
