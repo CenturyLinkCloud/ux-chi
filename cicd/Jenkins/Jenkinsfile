@@ -311,6 +311,7 @@ pipeline {
                   cp -a config/backstop_data/bitmaps_reference/responsive reports/html_report/responsive/bitmaps_reference
                 """, label: "Copying config files"
                 jslNpmWrapper('run test')
+                archiveArtifacts artifacts: 'reports/**/*.*', fingerprint: true
               }
             }
           }
@@ -519,26 +520,8 @@ pipeline {
             }
             steps {
               script {
-                // def packageJson = readJSON file: 'package.json'
-                // def tagName = "${packageJson.version}"
-                // echo "Release tag is ${tagName}"
-                // def releaseId = jslGitHubReleaseGetId(tagName)
-                // sh "touch do_release"
-                // if (releaseId == null) {
-                //   def committishName = GIT_BRANCH
-                //   if (GIT_BRANCH.startsWith('origin/')) {
-                //     committishName = GIT_BRANCH.split("/")[1]
-                //   }
-                //   releaseId = jslGitHubReleaseCreate(tagName, committishName)
-                //   if (releaseId == null) {
-                //     throw new Exception("There was an error publishing the release")
-                //   }
-                //   sh "echo -n yes > do_release"
-                // } else {
-                //   echo "A release already exists for ${tagName}"
-                //   sh "echo -n no > do_release"
-                // }
-                // stash name: "DO_RELEASE", includes: "do_release"
+                // read changelog
+                // jslHubWrapper('release create -F CHANGELOG-MOD.md \$Version')
                 echo "Active development, will activate as soon as this works"
               }
             }
@@ -656,8 +639,10 @@ PRDesc
                   git config user.name "SCMAUTO"
                   git commit -m "CHI_\$VERSION"
                   git push origin CHI_\$VERSION
-                  hub pull-request -F prepared-message.md
-                """
+                """, label: "Pushing branch to AssetsServer"
+                // dir ('ux-chi-AssetsServer') {
+                //   jslHubWrapper('pull-request -F prepared-message.md')
+                // }
                 echo "This will publish Prod build to S3 & CDN"
               }
             }
