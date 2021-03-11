@@ -14,23 +14,10 @@
         }
 
         &.-close {
-          display: none;
           right: 2rem;
         }
       }
     }
-
-    // &:focus,
-    // &.-focus {
-    //   ~ .chi-button,
-    //   ~ chi-button {
-    //     &.-icon {
-    //       &.-close {
-    //         display: block;
-    //       }
-    //     }
-    //   }
-    // }
 
     &[disabled],
     &.-disabled {

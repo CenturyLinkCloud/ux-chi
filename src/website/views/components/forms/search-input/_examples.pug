@@ -8,33 +8,27 @@ h3 Base
     .chi-grid
       .chi-col.-w--12.-w-sm--8.-w-md--6.-w-lg--5
         .chi-form__item
-          label.chi-label(for='example__base') Label
-          .chi-input__wrapper.-icon--right
-            input#example__base.chi-input.chi-search__input(type='search' value='Sample text')
-            button.chi-button.-icon.-flat.-bg--none
-              .chi-button__content
-                i.chi-icon.icon-search
-            button.chi-button.-icon.-close(aria-label='Close')
-              .chi-button__content
-                i.chi-icon.icon-x
+          chi-label(for="example__base") Label
+          chi-search-input(id="example__base")
+          
   .example-tabs.-pl--2
     ul.chi-tabs#example-base
-      li.-disabled
-        a(href=`#webcomponent-base`) Web Component
       li.-active
+        a(href=`#webcomponent-base`) Web Component
+      li
         a(href=`#html-base`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-base
+  .chi-tabs-panel.-active#webcomponent-base
     :code(lang="html")
       <div class="chi-form__item">
         <chi-label for="example__base">Label</chi-label>
-        <chi-text-input id="example__base" type="search" placeholder="Placeholder" value="Sample Text"></chi-text-input>
+        <chi-search-input id="example__base"></chi-search-input>
       </div>
-  .chi-tabs-panel.-active#html-base
+  .chi-tabs-panel#html-base
     :code(lang="html")
       <div class="chi-form__item">
         <label class="chi-label" for="example__base">Label</label>
         <div class="chi-input__wrapper -icon--right">
-          <input class="chi-input chi-search__input" id="example__base" type="search" value="Sample text" />
+          <input class="chi-input chi-search__input" id="example__base" type="search" />
           <button class="chi-button -icon -flat -bg--none">
             <div class="chi-button__content">
               <i class="chi-icon icon-search"></i>
@@ -50,7 +44,7 @@ h3 Base
       
 h3 Disabled
 p.-text
-  | Use the <code>disabled</code> boolean attribute to prevent users from interacting with an input.
+  | Use the <code>disabled</code> boolean attribute to prevent users from interacting with a search input.
   | Disabled inputs are not submitted with the form and can not receive any browsing events such as mouse clicks or focus.
   | <strong>Note:</strong> The required attribute can not be used on inputs with a disabled attribute specified.
 .example.-mb--3
@@ -58,33 +52,27 @@ p.-text
     .chi-grid
       .chi-col.-w--12.-w-sm--8.-w-md--6.-w-lg--5
         .chi-form__item
-          label.chi-label(for='example__base') Label
-          .chi-input__wrapper.-icon--right
-            input#example__base.chi-input.chi-search__input(type='search' value='Sample text' disabled)
-            button.chi-button.-icon.-flat.-bg--none
-              .chi-button__content
-                i.chi-icon.icon-search
-            button.chi-button.-icon.-close(aria-label='Close')
-              .chi-button__content
-                i.chi-icon.icon-x
+          chi-label(for="example__disabled") Label
+          chi-search-input(id="example__disabled" value="Sample text" disabled)
+
   .example-tabs.-pl--2
     ul.chi-tabs#example-disabled
-      li.-disabled
-        a(href=`#webcomponent-disabled`) Web Component
       li.-active
+        a(href=`#webcomponent-disabled`) Web Component
+      li
         a(href=`#html-disabled`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-disabled
+  .chi-tabs-panel.-active#webcomponent-disabled
     :code(lang="html")
       <div class="chi-form__item">
         <chi-label for="example__disabled">Label</chi-label>
-        <chi-text-input id="example__disabled" value="Sample Text" disabled></chi-text-input>
+        <chi-search-input id="example__disabled" value="Sample Text" disabled="disabled"></chi-search-input>
       </div>
-  .chi-tabs-panel.-active#html-disabled
+  .chi-tabs-panel#html-disabled
     :code(lang="html")
       <div class="chi-form__item">
-        <label class="chi-label" for="example__base">Label</label>
+        <label class="chi-label" for="example__disabled">Label</label>
         <div class="chi-input__wrapper -icon--right">
-          <input class="chi-input chi-search__input" id="example__base" type="search" value="Sample text" disabled="disabled" />
+          <input class="chi-input chi-search__input" id="example__disabled" type="search" value="Sample text" disabled="disabled" />
           <button class="chi-button -icon -flat -bg--none">
             <div class="chi-button__content">
               <i class="chi-icon icon-search"></i>
@@ -110,73 +98,45 @@ p.-text
         .chi-grid
           .chi-col.-w--12.-mb--2
             .chi-form__item
-              label.chi-label(for="example__size-sm") Label
-              .chi-input__wrapper.-icon--right
-                input#example__size-sm.chi-input.chi-search__input.-sm(type='search' value='Sample text')
-                button.chi-button.-icon.-flat.-sm.-bg--none
-                  .chi-button__content
-                    i.chi-icon.icon-search
-                button.chi-button.-icon.-close.-sm(aria-label='Close')
-                  .chi-button__content
-                    i.chi-icon.icon-x
+              chi-label(for="example__size-sm") Label
+              chi-search-input(size="sm", value="Sample Text", id="example__size-sm")
           .chi-col.-w--12.-mb--2
             .chi-form__item
-              label.chi-label(for="example__size-md") Label
-              .chi-input__wrapper.-icon--right
-                input#example__size-md.chi-input.chi-search__input.-md(type='search' value='Sample text')
-                button.chi-button.-icon.-flat.-md.-bg--none
-                  .chi-button__content
-                    i.chi-icon.icon-search
-                button.chi-button.-icon.-close.-md(aria-label='Close')
-                  .chi-button__content
-                    i.chi-icon.icon-x
+              chi-label(for="example__size-md") Label
+              chi-search-input(size="md", value="Sample Text", id="example__size-md")
           .chi-col.-w--12.-mb--2
             .chi-form__item
-              label.chi-label(for="example__size-lg") Label
-              .chi-input__wrapper.-icon--right
-                input#example__size-lg.chi-input.chi-search__input.-lg(type='search' value='Sample text')
-                button.chi-button.-icon.-flat.-lg.-bg--none
-                  .chi-button__content
-                    i.chi-icon.icon-search
-                button.chi-button.-icon.-close.-lg(aria-label='Close')
-                  .chi-button__content
-                    i.chi-icon.icon-x
+              chi-label(for="example__size-lg") Label
+              chi-search-input(size="lg", value="Sample Text", id="example__size-lg")
           .chi-col.-w--12
             .chi-form__item
-              label.chi-label(for="example__size-xl") Label
-              .chi-input__wrapper.-icon--right
-                input#example__size-xl.chi-input.chi-search__input.-xl(type='search' value='Sample text')
-                button.chi-button.-icon.-flat.-xl.-bg--none
-                  .chi-button__content
-                    i.chi-icon.icon-search
-                button.chi-button.-icon.-close.-xl(aria-label='Close')
-                  .chi-button__content
-                    i.chi-icon.icon-x
+              chi-label(for="example__size-xl") Label
+              chi-search-input(size="xl", value="Sample Text", id="example__size-xl")
   .example-tabs.-pl--2
     ul.chi-tabs#example-input-sizes
-      li.-disabled
-        a(href=`#webcomponent-input-sizes`) Web Component
       li.-active
+        a(href=`#webcomponent-input-sizes`) Web Component
+      li
         a(href=`#html-input-sizes`) HTML Blueprint
-  .chi-tabs-panel#webcomponent-input-sizes
+  .chi-tabs-panel.-active#webcomponent-input-sizes
     :code(lang="html")
       <div class="chi-form__item">
         <chi-label for="example__size-sm">Label</chi-label>
-        <chi-text-input size="sm" id="example__size-sm"></chi-text-input>
+        <chi-search-input size="sm" value="Sample Text" id="example__size-sm"></chi-search-input>
       </div>
       <div class="chi-form__item">
         <chi-label for="example__size-md">Label</chi-label>
-        <chi-text-input size="md" id="example__size-md"></chi-text-input>
+        <chi-search-input size="md" value="Sample Text" id="example__size-md"></chi-search-input>
       </div>
       <div class="chi-form__item">
         <chi-label for="example__size-lg">Label</chi-label>
-        <chi-text-input size="lg" id="example__size-lg"></chi-text-input>
+        <chi-search-input size="lg" value="Sample Text" id="example__size-lg"></chi-search-input>
       </div>
       <div class="chi-form__item">
         <chi-label for="example__size-xl">Label</chi-label>
-        <chi-text-input size="xl" id="example__size-xl"></chi-text-input>
+        <chi-search-input size="xl" value="Sample Text" id="example__size-xl"></chi-search-input>
       </div>
-  .chi-tabs-panel.-active#html-input-sizes
+  .chi-tabs-panel#html-input-sizes
     :code(lang='html')
       <div class="chi-form__item">
         <label class="chi-label" for="example__size-sm">Label</label>

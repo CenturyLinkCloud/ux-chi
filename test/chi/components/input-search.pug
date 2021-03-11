@@ -14,13 +14,13 @@ each size in ['default', 'sm', 'md', 'lg', 'xl']
             .-m--1
               .chi-form__item.-row
                 .chi-input__wrapper.-icon--right
-                  input#example__base.chi-input.chi-search__input(
+                  input.chi-input.chi-search__input(
                     type='search' 
                     class={
                       [`-${state}`]: state != 'disabled',
                       [`-${size}`]:size != 'default'
                     }
-                    value='Sample text'
+                    value='Value'
                     disabled=state=='disabled'?'disabled': false
                   )
                   button.chi-button.-icon.-flat.-bg--none(class={[`-${size}`]: size != 'default'})
