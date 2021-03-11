@@ -139,7 +139,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--shm-size=2gb'
+                args '-m 2G --shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -200,7 +200,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--shm-size=2gb'
+                args '-m 2G --shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -222,7 +222,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--shm-size=2gb'
+                args '-m 2G --shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -246,7 +246,7 @@ pipeline {
             filename 'Dockerfile'
             dir 'cicd/docker/sonar-scanner'
             label 'Docker-enabled'
-            args '--shm-size=2gb'
+            args '-m 2G --shm-size=2gb'
             // registryUrl DOCKER_REGISTRY
             // registryCredentialsId DOCKER_CREDENTIALS
           }
@@ -272,7 +272,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--shm-size=2gb'
+                args '-m 2G --shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
@@ -321,7 +321,7 @@ pipeline {
                 filename 'Dockerfile'
                 dir 'cicd/docker/sonar-scanner'
                 label 'Docker-enabled'
-                args '--shm-size=2gb'
+                args '-m 2G --shm-size=2gb'
                 // registryUrl DOCKER_REGISTRY
                 // registryCredentialsId DOCKER_CREDENTIALS
               }
