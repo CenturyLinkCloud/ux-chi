@@ -1,4 +1,42 @@
 # CHANGELOG
+## 3.12.0 (March 11, 2021)
+### Components
+#### Added
+* Added: Text input web component now supports the attribute `spinner` to let users know when information is saving or loading.
+* Added: Icon `icon-bell-settings-outline`.
+#### Changed
+* Changed: Sidenav component now includes a slight delay before opening menus on hover to reduce unintentional activations.
+
+## 3.11.0 (March 4, 2021)
+### Components
+#### Added
+* Added: Marketing icon component to render Lumen full-color marketing icons.
+#### Changed
+* Changed: Popover component positioning has been improved to render more accurately in scenarios where the reference element is located within an overflow or narrow container.
+### Documentation
+#### Changed
+* Changed: Copyright date in Footer component documentation has been changed from 2020 to 2021.
+* Changed: Elements used to trigger tooltips in Tooltip documentation have been updated with more intuitive text.
+
+## 3.10.0 (February 25, 2021)
+### Components
+#### Added
+* Added: Link component to navigate between pages, locations within the same page, and more.
+#### Fixed
+* Fixed: Header collapsible search did not display correct styles if the text input was rendered as a web component.
+
+## 3.9.0 (February 18, 2021)
+### Components
+#### Added
+* Added: Icons `icon-circle-wrench`, `icon-date-alt`, `icon-spinner`, `icon-triangle-wrench`.
+* Added: Header component now supports a collapsible search input.
+* Added: Image utility to change the responsive behavior of image elements.
+* Added: Text utility now supports coloring text orange with `-text--orange`.
+* Added: Icon component now supports coloring icons orange with color value `orange`.
+#### Changed
+* Changed: Mobile navigation drawer target validation has been improved.
+* Changed: Header component external links (Explore Lumen, Help, Contact Us) now open in a new window/tab.
+
 ## 3.8.0 (January 28, 2021)
 ### Components
 #### Added

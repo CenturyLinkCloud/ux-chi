@@ -1,4 +1,6 @@
+@import '_global-variables';
 @import '_variables';
+@import '_global-mixins';
 @import '_mixins';
 
 $sizes: (
@@ -71,10 +73,6 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-}
-
-a {
-  @include anchor-style;
 }
 
 blockquote,
@@ -381,6 +379,11 @@ small,
 .-text--navy,
 .-icon--navy {
   color: $color-navy-100 !important;
+}
+
+.-text--orange,
+.-icon--orange {
+  color: $color-orange-50 !important;
 }
 
 // line heights

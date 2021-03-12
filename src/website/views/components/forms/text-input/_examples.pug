@@ -120,6 +120,39 @@ p.-text
         <input type="text" class="chi-input" id="example__placeholder" placeholder="Placeholder">
       </div>
 
+h3 Spinner
+p.-text
+  | Use the <code>spinner</code> attribute to let users know when information is saving or loading.
+.example.-mb--3
+  .-p--3
+    .chi-form__item.-mb--2(style="max-width:20rem")
+      chi-label(for="example__spinner") Label
+      chi-text-input(spinner id="example__spinner")
+  .example-tabs.-pl--2
+    ul.chi-tabs#example-spinner-text
+      li.-active
+        a(href=`#webcomponent-spinner-text`) Web Component
+      li
+        a(href=`#html-spinner-text`) HTML Blueprint
+  .chi-tabs-panel.-active#webcomponent-spinner-text
+    :code(lang="html")
+      <div class="chi-form__item">
+        <chi-label for="example__spinner">Label</chi-label>
+        <chi-text-input id="example__spinner" spinner></chi-text-input>
+      </div>
+  .chi-tabs-panel#html-spinner-text
+    :code(lang="html")
+      <div class="chi-form__item">
+        <label class="chi-label" for="example__spinner">Label</label>
+        <div class="chi-input__wrapper">
+          <input type="text" class="chi-input" id="example__spinner">
+          <svg class="chi-spinner -icon--muted" viewBox="0 0 66 66">
+            <title>Loading</title>
+            <circle class="path" cx="33" cy="33" r="30" fill="none" stroke-width="6"></circle>
+          </svg>
+        </div>
+      </div>
+
 h3 Required
 p.-text
   | Use the <code>required</code> boolean attribute to indicate which inputs must be completed before submitting a form.

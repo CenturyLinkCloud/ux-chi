@@ -1354,7 +1354,7 @@
       "props": [
         {
           "name": "color",
-          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"navy\" | \"orange\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "color",
           "reflectToAttr": true,
@@ -1379,6 +1379,14 @@
             },
             {
               "value": "muted",
+              "type": "string"
+            },
+            {
+              "value": "navy",
+              "type": "string"
+            },
+            {
+              "value": "orange",
               "type": "string"
             },
             {
@@ -1563,6 +1571,236 @@
           "docs": "OPTIONAL. Size of the label. {xs,sm, md, lg, xl}.",
           "docsTags": [],
           "default": "'md'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/link/link.tsx",
+      "encapsulation": "scoped",
+      "tag": "chi-link",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "alternativeText",
+          "type": "string",
+          "mutable": false,
+          "attr": "alternative-text",
+          "reflectToAttr": true,
+          "docs": "to provide alternative text in case of icon links.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "cta",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "cta",
+          "reflectToAttr": true,
+          "docs": "to render a link as a prominent call to action.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "to disable a link.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "download",
+          "type": "string",
+          "mutable": false,
+          "attr": "download",
+          "reflectToAttr": true,
+          "docs": "to prompt users to save a page or document instead of navigating to it.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": true,
+          "docs": "to set a links destination url.",
+          "docsTags": [],
+          "default": "'#'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hreflang",
+          "type": "string",
+          "mutable": false,
+          "attr": "hreflang",
+          "reflectToAttr": true,
+          "docs": "to set the language of a links destination url.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": true,
+          "docs": "to set the relationship between the current page and the linked page.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "to set size of a link { xs, sm, md, lg, xl }.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": true,
+          "docs": "to set target of a link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/marketing-icon/marketing-icon.tsx",
+      "encapsulation": "scoped",
+      "tag": "chi-marketing-icon",
+      "readme": "# chi-marketing-icon\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "extraClass",
+          "type": "string",
+          "mutable": false,
+          "attr": "extra-class",
+          "reflectToAttr": true,
+          "docs": "OPTIONAL classes",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": true,
+          "docs": "Icon to be rendered.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "OPTIONAL. Size of the Icon { xs, sm, md, lg }.",
+          "docsTags": [],
           "values": [
             {
               "type": "string"
@@ -2598,9 +2836,15 @@
       "events": [],
       "styles": [],
       "slots": [],
-      "dependents": [],
+      "dependents": [
+        "chi-text-input"
+      ],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {
+        "chi-text-input": [
+          "chi-spinner"
+        ]
+      }
     },
     {
       "filePath": "src/components/toggle-switch/toggle-switch.tsx",
@@ -2771,7 +3015,7 @@
         },
         {
           "name": "iconLeftColor",
-          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"navy\" | \"orange\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "icon-left-color",
           "reflectToAttr": true,
@@ -2796,6 +3040,14 @@
             },
             {
               "value": "muted",
+              "type": "string"
+            },
+            {
+              "value": "navy",
+              "type": "string"
+            },
+            {
+              "value": "orange",
               "type": "string"
             },
             {
@@ -2836,7 +3088,7 @@
         },
         {
           "name": "iconRightColor",
-          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"navy\" | \"orange\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "icon-right-color",
           "reflectToAttr": true,
@@ -2861,6 +3113,14 @@
             },
             {
               "value": "muted",
+              "type": "string"
+            },
+            {
+              "value": "navy",
+              "type": "string"
+            },
+            {
+              "value": "orange",
               "type": "string"
             },
             {
@@ -2977,6 +3237,23 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "spinner",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "spinner",
+          "reflectToAttr": true,
+          "docs": "To render Text Input with Spinner",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -3127,11 +3404,13 @@
       "slots": [],
       "dependents": [],
       "dependencies": [
-        "chi-icon"
+        "chi-icon",
+        "chi-spinner"
       ],
       "dependencyGraph": {
         "chi-text-input": [
-          "chi-icon"
+          "chi-icon",
+          "chi-spinner"
         ]
       }
     },
@@ -3178,7 +3457,7 @@
         },
         {
           "name": "iconLeftColor",
-          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"navy\" | \"orange\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "icon-left-color",
           "reflectToAttr": true,
@@ -3203,6 +3482,14 @@
             },
             {
               "value": "muted",
+              "type": "string"
+            },
+            {
+              "value": "navy",
+              "type": "string"
+            },
+            {
+              "value": "orange",
               "type": "string"
             },
             {
@@ -3243,7 +3530,7 @@
         },
         {
           "name": "iconRightColor",
-          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "type": "\"danger\" | \"grey\" | \"info\" | \"light\" | \"muted\" | \"navy\" | \"orange\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "icon-right-color",
           "reflectToAttr": true,
@@ -3268,6 +3555,14 @@
             },
             {
               "value": "muted",
+              "type": "string"
+            },
+            {
+              "value": "navy",
+              "type": "string"
+            },
+            {
+              "value": "orange",
               "type": "string"
             },
             {

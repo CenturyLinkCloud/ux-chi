@@ -65,6 +65,10 @@ export class TextInput {
    */
   @Prop({ reflect: true }) preventValueMutation = false;
   /**
+   * To render Text Input with Spinner
+   */
+  @Prop({ reflect: true }) spinner = false;
+  /**
    * To define -hover, -focus statuses
    */
   @Prop() _status: string;
@@ -186,24 +190,22 @@ export class TextInput {
       ${this.iconRight || this.type === 'search' ? '-icon--right' : ''}
       ${this.type === 'search' ? '-search' : ''}
     `;
+    const spinnerSizeMapping = {
+      sm: 'xs',
+      md: 'sm',
+      lg: 'sm--2',
+      xl: 'sm--3'
+    };
     const iconLeft = this.iconLeft && <chi-icon color={this.iconLeftColor || null} icon={this.iconLeft} />;
-    const iconRight = this.iconRight && <chi-icon color={this.iconRightColor || null} icon={this.iconRight} />;
-    let searchXIcon;
-    let searchIcon;
+    const iconRight = (this.iconRight && !this.spinner) && <chi-icon color={this.iconRightColor || null} icon={this.iconRight} />;
+    const spinner = this.spinner && <chi-spinner size={spinnerSizeMapping[this.size] || 'sm'} color="muted" />;
 
-    if (this.type === 'search') {
-      searchXIcon = <i onClick={(ev) => this._cleanInput(ev)}
-      class="chi-icon icon-x"></i>;
-      searchIcon = <i class="chi-icon icon-search"></i>
-    }
-
-    const input = this.iconLeft || this.iconRight || this.type === 'search' ?
+    const input = this.iconLeft || this.iconRight || this.spinner ?
       <div class={`chi-input__wrapper ${iconClasses}`}>
         {inputElement}
         {iconLeft}
         {iconRight}
-        {searchXIcon}
-        {searchIcon}
+        {spinner}
       </div> : inputElement;
 
     return input;

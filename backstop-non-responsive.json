@@ -951,6 +951,53 @@
       "requireSameDimensions": true
     },
     {
+      "label": "link",
+      "cookiePath": "",
+      "url": "http://localhost:8000/tests/components/link.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": "",
+      "selectors": [
+        ".test-link-base",
+        ".test-link-disabled",
+        ".test-link-cta"
+      ],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "marketing-icon",
+      "cookiePath": "",
+      "url": "http://localhost:8000/tests/components/marketing-icon.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": "",
+      "selectors": [
+        ".test-marketing-icon-single",
+        ".test-marketing-icon-list",
+        ".test-marketing-icon-size-xs",
+        ".test-marketing-icon-size-sm",
+        ".test-marketing-icon-size-md",
+        ".test-marketing-icon-size-lg"
+      ],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
       "label": "modals",
       "cookiePath": "",
       "url": "http://localhost:8000/tests/components/modals.html",
