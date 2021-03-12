@@ -155,7 +155,7 @@ pipeline {
                 dir ('src/chi-vue') {
                   jslNpmWrapper('run prettier:checker')
                 }
-                echo "No full linting implemented in repo, skipping until linting is implemented globally"
+                echo "No full linting implemented in repo"
               }
             }
           }
